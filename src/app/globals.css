@@ -529,8 +529,26 @@ tr.anomaly .delta { color: var(--caution); font-weight: 700; }
 .msg { border-radius: 14px; padding: 14px 18px; min-width: 0; }
 .msg.user { align-self: flex-end; max-width: min(640px, 92%); background: var(--accent-soft); border: 1px solid var(--accent-line); border-bottom-right-radius: 4px; }
 .msg.user p { white-space: pre-wrap; font-size: 14.5px; }
-.msg.ai { align-self: flex-start; width: 100%; background: var(--surface); border: 1px solid var(--line); border-top-left-radius: 4px; box-shadow: var(--shadow); }
-.msg.ai .draft-prose { font-size: 15px; margin-bottom: 12px; }
+.msg.ai { align-self: stretch; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
+.msg.ai .msg-meta { gap: 8px; color: var(--ink-2); margin-bottom: 8px; }
+.ai-avatar { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--bg); flex-shrink: 0; }
+.msg-body { padding-left: 34px; min-width: 0; }
+.exchange + .exchange { border-top: 1px solid var(--line); padding-top: 24px; }
+.typing { display: inline-flex; align-items: center; gap: 3px; margin-left: 2px; }
+.typing i { width: 5px; height: 5px; border-radius: 50%; background: var(--ink-2); animation: typing 1.2s ease-in-out infinite; }
+.typing i:nth-child(2) { animation-delay: .15s; }
+.typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes typing { 0%, 80%, 100% { opacity: .25; transform: none; } 40% { opacity: 1; transform: translateY(-3px); } }
+.thinking-title { font-size: 15px; color: var(--ink-2); }
+.skeleton { display: block; height: 10px; width: 92%; max-width: 640px; margin-top: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--sunken) 0%, var(--line-strong) 50%, var(--sunken) 100%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+.skeleton.short { width: 58%; }
+@keyframes shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+.thinking-foot { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; font-size: 12.5px; color: var(--muted); }
+.thinking-foot .elapsed { font-family: var(--mono); font-size: 13px; font-weight: 650; color: var(--ink); padding: 2px 8px; border-radius: 6px; background: var(--sunken); font-variant-numeric: tabular-nums; }
+.composer.is-waiting textarea { background: var(--surface-2); color: var(--muted); }
+.composer-foot .busy-note { color: var(--caution); font-weight: 600; }
+.chip:disabled { opacity: .5; }
+.msg.ai .draft-prose { font-size: 15px; margin-bottom: 14px; }
 .msg-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
 .proposals { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line-strong); }
 .proposals h3 { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--caution); }
@@ -706,6 +724,7 @@ table.runs td:nth-child(3), table.runs td:nth-child(4) { white-space: nowrap; }
   .modal > .notice { margin: 12px 18px 0; }
   .cells > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .msg { padding: 12px 14px; }
+  .msg-body { padding-left: 0; }
   .chart-tip { min-width: 180px; }
   table { font-size: 12.5px; }
   th, td { padding: 8px 10px; }

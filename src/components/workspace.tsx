@@ -6,12 +6,12 @@ import {ArrowRight, Check, CircleAlert, ClipboardCheck, FileText, Gauge, History
 import type {EvidenceBundle, IncidentInput, Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {messages, errors} from './messages';
 import {api, inputOf, latestReviews, pad, recommendationsOf, tabs, type Audience, type Bootstrap, type Detail, type DiscussionRow, type T, type Tab} from './client';
-import {AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskBadge, RiskIcon, SimMark} from './ui';
+import {AiMark, BrandName, Constraints, DraftMark, Elapsed, Field, FormError, Inspect, Modal, RiskBadge, RiskIcon, SimMark} from './ui';
 import {OverviewView} from './overview';
 import {EvidenceView, SourceView} from './evidence';
 import {AssessmentTab, AssessmentView} from './assessment';
 import {DraftsView} from './drafts';
-import {DiscussionView} from './discussion';
+import {DiscussionView, type Asking} from './discussion';
 import {HistoryView} from './history';
 import {IncidentEditor, ReviewForm} from './editor';
 
@@ -36,7 +36,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
   const [editor,setEditor]=useState<IncidentInput|null>(null),[isNew,setIsNew]=useState(false),[busy,setBusy]=useState(false);
   const [generating,setGenerating]=useState<string|null>(null),[question,setQuestion]=useState(''),[source,setSource]=useState<{id:string;bundle:EvidenceBundle}|null>(null);
   const [review,setReview]=useState<{input:ReviewInput;text:string}|null>(null),[draftEdit,setDraftEdit]=useState<DraftEdit|null>(null);
-  const [resetOpen,setResetOpen]=useState(false),[navOpen,setNavOpen]=useState(false);
+  const [resetOpen,setResetOpen]=useState(false),[navOpen,setNavOpen]=useState(false),[asking,setAsking]=useState<Asking|null>(null);
   const selection=useRef(''),initialRequest=useRef<Promise<Bootstrap>|null>(null);
   const refreshBoot=useCallback(async()=>{const b=await api<Bootstrap>('workspace');setBoot(b);return b;},[]);
   const load=useCallback(async(id:string)=>{
@@ -62,13 +62,15 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
   const aiBlocked=!!generating||!!running||!boot?.apiConfigured;
   async function generate(id=selected,version=detail?.snapshot.version,action:'generate'|'discuss'='generate') {
     if(!version)return;
-    setGenerating(new Date().toISOString());setError('');
+    const since=new Date().toISOString(),asked=action==='discuss'?question:'';
+    setGenerating(since);setError('');
     if(action==='generate')setTab('assessment');
+    // A sent question moves into the thread at once; it returns to the box if the request fails.
+    if(action==='discuss'){setAsking({question:asked,since});setQuestion('');}
     try {
-      await api(`incidents/${id}/${action}`,{expectedVersion:version,idempotencyKey:crypto.randomUUID(),...(action==='discuss'?{question}: {})});
-      if(action==='discuss')setQuestion('');
-    } catch(e) {setError((e as Error).message);}
-    finally{setGenerating(null);await refresh(id).catch(()=>{});}
+      await api(`incidents/${id}/${action}`,{expectedVersion:version,idempotencyKey:crypto.randomUUID(),...(action==='discuss'?{question:asked}: {})});
+    } catch(e) {setError((e as Error).message);if(action==='discuss')setQuestion(asked);}
+    finally{await refresh(id).catch(()=>{});setGenerating(null);setAsking(null);}
   }
   const inspectSource=useCallback(async(id:string,version?:number)=>{
     if(!detail)return;
@@ -124,9 +126,11 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
     evidence:t('monthCount',{count:detail.evidence.monthly.length}),
     assessment:current?t('decidedCount',{done:reviewedCount,total:recommendationCount}):displayed?t('outOfDate'):t('notRun'),
     drafts:displayed?t('draftCount',{count:3}):t('notRun'),
-    discussion:t('threadCount',{count:detail.discussions.length}),
+    discussion:asking||running?.action==='discussion'?t('answering'):t('threadCount',{count:detail.discussions.length}),
     history:t('reviewCount',{count:detail.reviews.length})
   }:{overview:'',evidence:'',assessment:'',drafts:'',discussion:'',history:''};
+  const discussing=asking||(running?.action==='discussion'?{question:null,since:running.created_at}:null);
+  const cancelRun=running?()=>void work(async()=>{await api(`runs/${running.id}/cancel`,{});await refresh();}):undefined;
   const rail=<Rail boot={boot} t={t} selected={selected} eventTitle={eventTitle}
     onChoose={id=>{choose(id);setTab('overview');setNavOpen(false);}} onNew={newIncident} onReset={()=>{setNavOpen(false);setResetOpen(true);}}/>;
 
@@ -154,7 +158,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
               <div className="heading-actions"><button className="secondary" onClick={editIncident}><SlidersHorizontal size={15} aria-hidden/>{t('editIncident')}</button></div>
             </div>
           </header>
-          {(generating||running)?<RunPanel t={t} since={running?.created_at||generating||new Date().toISOString()} onCancel={running?()=>void work(async()=>{await api(`runs/${running.id}/cancel`,{});await refresh();}):undefined}/>:next&&<NextStep next={next} t={t}/>}
+          {(generating||running)&&!(discussing&&tab==='discussion')?<RunPanel t={t} discussion={!!discussing} since={running?.created_at||generating||new Date().toISOString()} onCancel={cancelRun} onOpen={()=>setTab('discussion')}/>:next&&<NextStep next={next} t={t}/>}
           <dl className="glance" aria-label={t('glance')}>
             <div className="glance-cell"><dt>{t('glance_risk')}</dt><dd><RiskBadge level={current?current.result.riskLevel:detail.policy.riskLevel} t={t}/></dd><dd className="glance-note">{current?t('glance_risk_ai',{version:current.snapshotVersion}):displayed?t('glance_risk_stale'):t('glance_risk_rules')}</dd></div>
             <div className="glance-cell"><dt>{t('glance_who')}</dt><dd><strong>{detail.policy.constraints.reviewerRoles.map(r=>r[locale]).join(' · ')}</strong></dd><dd className={`glance-note ${detail.policy.constraints.actionConclusionsStopped?'danger':detail.policy.constraints.professionalDecisionRequired?'warn':''}`}>{detail.policy.constraints.actionConclusionsStopped?t('stopped'):detail.policy.constraints.professionalDecisionRequired?t('professional'):t('glance_who_note')}</dd></div>
@@ -176,7 +180,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
             {tab==='evidence'&&<EvidenceView evidence={detail.evidence} historicalThrough={detail.snapshot.historicalThrough} locale={locale} t={t}/>}
             {tab==='assessment'&&<AssessmentTab detail={detail} current={current} displayed={displayed} locale={locale} t={t} reviews={reviewMap} onReview={reviewAction} onGenerate={()=>void generate()} aiBlocked={aiBlocked}/>}
             {tab==='drafts'&&<DraftsView detail={detail} current={current} displayed={displayed} locale={locale} t={t} draftText={draftText} onEdit={editDraft}/>}
-            {tab==='discussion'&&<DiscussionView detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} aiBlocked={aiBlocked} busy={busy}/>}
+            {tab==='discussion'&&<DiscussionView detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} asking={discussing} onCancel={running?.action==='discussion'?cancelRun:undefined} aiBlocked={aiBlocked} busy={busy}/>}
             {tab==='history'&&<HistoryView detail={detail} selected={selected} locale={locale} t={t} onReview={reviewAction}/>}
           </section>
           <footer className="main-footer"><span><ShieldCheck size={14} aria-hidden/>{t('simulationNote')}</span><span>{t('noSending')}</span></footer>
@@ -241,10 +245,12 @@ function NextStep({next,t}:{next:Next;t:T}) {
   </section>;
 }
 
-function RunPanel({t,since,onCancel}:{t:T;since:string;onCancel?:()=>void}) {
-  const [now,setNow]=useState(()=>Date.now());
-  useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(timer);},[]);
-  const seconds=Math.max(0,Math.floor((now-Date.parse(since))/1000));
-  return <div className="run-panel" role="status"><span className="run-pulse" aria-hidden><span/></span><div><strong>{t('generating')}</strong><p>{t('generateHint')}</p></div><span className="run-elapsed" aria-label={t('elapsed')}>{Math.floor(seconds/60)}:{pad(seconds%60)}</span>{onCancel&&<button className="secondary small" onClick={onCancel}>{t('cancelRun')}</button>}</div>;
+function RunPanel({t,since,discussion,onCancel,onOpen}:{t:T;since:string;discussion:boolean;onCancel?:()=>void;onOpen:()=>void}) {
+  return <div className="run-panel" role="status"><span className="run-pulse" aria-hidden><span/></span>
+    <div><strong>{discussion?t('answeringTitle'):t('generating')}</strong><p>{discussion?t('thinkingHint'):t('generateHint')}</p></div>
+    <Elapsed since={since} label={t('elapsed')} className="run-elapsed"/>
+    {discussion&&<button className="text-button" onClick={onOpen}>{t('openDiscussion')}</button>}
+    {onCancel&&<button className="secondary small" onClick={onCancel}>{t('cancelRun')}</button>}
+  </div>;
 }
 

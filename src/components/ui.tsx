@@ -1,6 +1,6 @@
 'use client';
 
-import {createContext, useContext, type ReactNode} from 'react';
+import {createContext, useContext, useEffect, useState, type ReactNode} from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import {BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, Info, OctagonX, TriangleAlert, X} from 'lucide-react';
 import type {Assessment, Locale, Policy} from '../domain/types';
@@ -13,6 +13,14 @@ export const Inspect = createContext<{inspect:(id:string,version?:number)=>void;
 /** The product name is the same in both languages; sentences use t('assistant') instead. */
 export function BrandName({stacked}:{stacked?:boolean}) {
   return <span className={`brand-name ${stacked?'stacked':''}`}><span lang="zh-CN" className="brand-zh">航衡</span><span className="brand-dot" aria-hidden>·</span><span lang="en" className="brand-en">AeroContext</span></span>;
+}
+
+/** A ticking m:ss counter for work that is still running. */
+export function Elapsed({since,label,className='elapsed'}:{since:string;label:string;className?:string}) {
+  const [now,setNow]=useState(()=>Date.now());
+  useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(timer);},[]);
+  const seconds=Math.max(0,Math.floor((now-Date.parse(since))/1000));
+  return <span className={className} aria-label={label}>{Math.floor(seconds/60)}:{String(seconds%60).padStart(2,'0')}</span>;
 }
 
 export function Field({label,hint,children}:{label:string;hint?:string;children:ReactNode}) {
