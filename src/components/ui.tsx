@@ -2,7 +2,7 @@
 
 import {createContext, useContext, type ReactNode} from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import {BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, OctagonAlert, OctagonX, ShieldCheck, TriangleAlert, X} from 'lucide-react';
+import {BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, Info, OctagonX, TriangleAlert, X} from 'lucide-react';
 import type {Assessment, Locale, Policy} from '../domain/types';
 import {citationKind, citationLabel, type T} from './client';
 
@@ -30,12 +30,20 @@ export function Modal({open,onClose,title,description,t,wide,sheet,drawer,childr
   </Dialog.Portal></Dialog.Root>;
 }
 
-const riskIcons={low:ShieldCheck,medium:TriangleAlert,high:OctagonAlert,unable_to_assess:CircleHelp};
-export function RiskBadge({level,t,large}:{level:Assessment['riskLevel']|null|undefined;t:T;large?:boolean}) {
-  const Icon=level?riskIcons[level]:null;
-  return <span className={`risk-badge ${level||'none'} ${large?'large':''}`}>{Icon?<Icon size={large?18:13} aria-hidden/>:<span className="risk-lamp" aria-hidden/>}{level?t(`risk_${level}`):t('unassessed')}</span>;
+/** Lucide has no square alert; this matches its stroke style for the high-risk mark. */
+function SquareAlert({size=24,className}:{size?:number;className?:string}) {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>;
 }
-export function RiskLamp({level}:{level:Assessment['riskLevel']|null|undefined}) {return <span className={`risk-lamp ${level||'none'}`} aria-hidden/>;}
+const riskIcons={low:TriangleAlert,medium:TriangleAlert,high:SquareAlert,unable_to_assess:Info};
+/** One mark per risk level, shared by the rail and every risk badge; unassessed incidents keep a plain dot. */
+export function RiskIcon({level,size=14}:{level:Assessment['riskLevel']|null|undefined;size?:number}) {
+  if(!level)return <span className="risk-lamp" aria-hidden/>;
+  const Icon=riskIcons[level];
+  return <Icon size={size} className={`risk-icon ${level}`} aria-hidden/>;
+}
+export function RiskBadge({level,t,large}:{level:Assessment['riskLevel']|null|undefined;t:T;large?:boolean}) {
+  return <span className={`risk-badge ${level||'none'} ${large?'large':''}`}><RiskIcon level={level} size={large?18:13}/>{level?t(`risk_${level}`):t('unassessed')}</span>;
+}
 
 /** Airfield-sign styling marks anything simulated or not yet approved. */
 export function SimMark({t,compact}:{t:T;compact?:boolean}) {return <span className={`sim-mark ${compact?'compact':''}`}>{t('simulation')}</span>;}

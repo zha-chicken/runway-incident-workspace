@@ -6,7 +6,7 @@ import {ArrowRight, Check, CircleAlert, ClipboardCheck, FileText, Gauge, History
 import type {EvidenceBundle, IncidentInput, Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {messages, errors} from './messages';
 import {api, inputOf, latestReviews, pad, recommendationsOf, tabs, type Audience, type Bootstrap, type Detail, type DiscussionRow, type T, type Tab} from './client';
-import {AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskBadge, RiskLamp, SimMark} from './ui';
+import {AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskBadge, RiskIcon, SimMark} from './ui';
 import {OverviewView} from './overview';
 import {EvidenceView, SourceView} from './evidence';
 import {AssessmentTab, AssessmentView} from './assessment';
@@ -218,7 +218,7 @@ function Rail({boot,t,selected,eventTitle,onChoose,onNew,onReset}:{boot:Bootstra
     <button className="rail-new" onClick={onNew}><Plus size={15} aria-hidden/>{t('newIncident')}</button>
     <nav className="incident-list" ref={list} aria-label={t('incidents')}>{boot.incidents.map(i=><button key={i.id} className={`incident-item ${i.id===selected?'active':''}`} onClick={()=>onChoose(i.id)} aria-current={i.id===selected?'page':undefined}>
       <span className="incident-code">{i.airportId}</span>
-      <span className="incident-body"><strong>{eventTitle(i.sourceEventId,i.title)}</strong><span className="incident-meta"><RiskLamp level={i.riskLevel}/>{i.riskLevel?t(`risk_${i.riskLevel}`):t('unassessed')}<span aria-hidden>·</span>{t('versionShort')}{i.version}</span></span>
+      <span className="incident-body"><strong>{eventTitle(i.sourceEventId,i.title)}</strong><span className="incident-meta"><RiskIcon level={i.riskLevel} size={15}/>{i.riskLevel?t(`risk_${i.riskLevel}`):t('unassessed')}<span aria-hidden>·</span>{t('versionShort')}{i.version}</span></span>
     </button>)}</nav>
     <div className="rail-footer">
       <div className="budget"><span className="budget-label"><Gauge size={14} aria-hidden/>{t('budget')}</span><strong>¥{Number(boot.budget.remaining ?? 0).toFixed(2)} <span>{t('remaining')}</span></strong>
