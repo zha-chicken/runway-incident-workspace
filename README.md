@@ -27,13 +27,13 @@ For a local production build, stop the development server, then run `npm run bui
 
 ## Try the workflow
 
-1. Open a supplied incident or create a new simulated event.
-2. Inspect source records in **Evidence**. Monthly history does not establish current flight status.
-3. Add current reports with their applicable period, reliability, and verification basis. Reports marked unverified are kept as context.
-4. Select **Assess incident**. DeepSeek produces English and Chinese assessments and three drafts. Click any source badge to inspect its record.
-5. Record a recommendation review, including a reason for modifications or rejection.
-6. Discuss new information. **Apply and reassess** explicitly creates a new version from a proposed fact. The proposal remains unverified until reviewed in the incident editor.
-7. Inspect **History & review**, download the complete JSON, or print the report.
+1. Choose an airport on **Your workspace**, or create a new incident. Cards show the current assessment's risk; an unassessed version stays neutral.
+2. Read **Situation** and **Evidence**. Expand situation details to edit the incident; select a source badge to inspect its original record. Monthly history does not establish current flight status.
+3. Select **Start analysis**. Only the airport sidebar and focused analysis progress remain visible. Switching airports keeps each request separate.
+4. After analysis, choose one of six boxes: **Situation**, **Evidence**, **Assess & decide**, **Messages**, **Ask AeroContext**, or **Record & export**.
+5. In **Assess & decide**, review one recommendation at a time. Accept saves immediately; Modify and Reject require a reason. Each saved decision advances. **Back to [airport]** exits at any time, and reopening resumes the first unfinished review.
+6. Inspect or edit the three audience drafts in **Messages**. Discuss new information in **Ask AeroContext**. **Apply and reassess** explicitly creates a new version from a proposed fact, which remains unverified until reviewed in the incident editor.
+7. Open **Record & export** for the preserved versions and review history, complete JSON export, and printable report. Editing incident facts returns that version to Situation and Evidence until it is analyzed again.
 
 No messages are sent, and no operational flight decisions are executed.
 
