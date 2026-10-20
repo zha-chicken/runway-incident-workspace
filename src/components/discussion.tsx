@@ -1,10 +1,10 @@
 'use client';
 
 import {useEffect, useRef} from 'react';
-import {ArrowRight, Bot, Check, CircleDashed, LoaderCircle, MessageSquare} from 'lucide-react';
+import {ArrowRight, Check, ChevronDown, CircleDashed, LoaderCircle, MessageSquare} from 'lucide-react';
 import type {Locale} from '../domain/types';
 import {time, type Detail, type DiscussionRow, type T} from './client';
-import {AiMark, Citations, Constraints, Elapsed} from './ui';
+import {AeroContextMark, AiMark, Citations, Constraints, Elapsed} from './ui';
 
 /** A question in flight: known locally after sending, or only as a running run after a reload. */
 export type Asking = {question:string|null;since:string};
@@ -28,30 +28,32 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
         <p>{entry.question}</p>
       </div>
       <div className="msg ai">
-        <span className="msg-meta"><span className="ai-avatar" aria-hidden><Bot size={14}/></span>{t('assistant')}<AiMark t={t}/></span>
+        <span className="msg-meta"><span className="ai-avatar" aria-hidden><AeroContextMark/></span>{t('assistant')}<AiMark t={t}/></span>
         <div className="msg-body">
           <p className="draft-prose">{r.answer[locale]}</p>
           <Constraints policy={r.decisionConstraints} locale={locale} t={t}/>
           <Citations ids={r.evidenceIds} version={v} t={t}/>
-          {r.proposedFacts.length>0&&<div className="proposals">
-            <h3><CircleDashed size={15} aria-hidden/>{t('proposals')}</h3>
-            <p className="section-sub">{t('proposalHint')}</p>
+          {r.proposedFacts.length>0&&<details className="proposals">
+            <summary><CircleDashed size={14} aria-hidden/><span>{t('proposals')}</span><span className="count">{r.proposedFacts.length}</span><ChevronDown size={14} className="proposal-chevron" aria-hidden/></summary>
+            <p className="proposal-hint">{t('proposalHint')}</p>
             {r.proposedFacts.map((fact,index)=>{const outdated=entry.snapshot_id!==detail.snapshot.id&&!entry.applied_snapshot_id;return <div key={index} className="proposal">
-              <div><span className="tag caution">{t('unverified')}</span><span className="proposal-source">{fact.sourceLabel}</span></div>
-              <p>{fact.text[locale]}</p>
+              <div className="proposal-copy">
+                <div className="proposal-meta"><span className="tag caution">{t('unverified')}</span><span className="proposal-source">{fact.sourceLabel}</span></div>
+                <p>{fact.text[locale]}</p>
+              </div>
               <div className="proposal-actions">
                 {outdated&&<span className="section-sub">{t('proposalOutdated')}</span>}
-                <button className={entry.applied_snapshot_id?'secondary small':'primary small'} disabled={busy||aiBlocked||!!entry.applied_snapshot_id||entry.snapshot_id!==detail.snapshot.id} onClick={()=>onApply(entry,index)}>{entry.applied_snapshot_id?<><Check size={14} aria-hidden/>{t('applied')}</>:<>{t('apply')}<ArrowRight size={14} aria-hidden/></>}</button>
+                <button className="secondary small" disabled={busy||aiBlocked||!!entry.applied_snapshot_id||entry.snapshot_id!==detail.snapshot.id} onClick={()=>onApply(entry,index)}>{entry.applied_snapshot_id?<><Check size={13} aria-hidden/>{t('applied')}</>:<>{t('apply')}<ArrowRight size={13} aria-hidden/></>}</button>
               </div>
             </div>;})}
-          </div>}
+          </details>}
         </div>
       </div>
     </li>;})}
     {asking&&<li className="exchange pending">
       {asking.question&&<div className="msg user"><span className="msg-meta">{t('you')}<span className="dot" aria-hidden>·</span>{t('justNow')}</span><p>{asking.question}</p></div>}
       <div className="msg ai thinking" role="status" aria-live="polite">
-        <span className="msg-meta"><span className="ai-avatar" aria-hidden><Bot size={14}/></span>{t('assistant')}<span className="typing" aria-hidden><i/><i/><i/></span></span>
+        <span className="msg-meta"><span className="ai-avatar" aria-hidden><AeroContextMark/></span>{t('assistant')}<span className="typing" aria-hidden><i/><i/><i/></span></span>
         <div className="msg-body">
           <p className="thinking-title">{asking.question?t('thinkingTitle'):t('thinkingResumed')}</p>
           <span className="skeleton" aria-hidden/><span className="skeleton short" aria-hidden/>

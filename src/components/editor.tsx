@@ -3,7 +3,7 @@
 import {Check, Lock, Plus, Trash2} from 'lucide-react';
 import type {Dataset, IncidentInput, Locale, Report, ReviewInput} from '../domain/types';
 import type {T} from './client';
-import {Field, SimMark} from './ui';
+import {Field} from './ui';
 
 export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave}:{input:IncidentInput;setInput:(i:IncidentInput)=>void;airports:Dataset['airports'];locale:Locale;t:T;busy:boolean;onSave:()=>void}) {
   const patch=(value:Partial<IncidentInput>)=>setInput({...input,...value});
@@ -48,7 +48,7 @@ export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave}:{i
         {input.officialStatus!=='unconfirmed'&&<Field label={t('officialSource')}><select required value={input.officialStatusSourceId||''} onChange={e=>patch({officialStatusSourceId:e.target.value||null})}><option value="">{t('notApplicable')}</option>{input.reports.filter(r=>r.reliability==='human_verified'&&r.reportedAt&&r.verificationBasis).map(r=><option key={r.id} value={r.id}>{r.sourceLabel}</option>)}</select></Field>}
       </div>
     </fieldset>
-    <div className="modal-actions sticky"><span className="help"><SimMark t={t} compact/>{t('versionNote')}</span><button className="primary" disabled={busy}>{busy?t('saving'):t('save')}<Check size={15} aria-hidden/></button></div>
+    <div className="modal-actions sticky"><span className="help">{t('versionNote')}</span><button className="primary" disabled={busy}>{busy?t('saving'):t('save')}<Check size={15} aria-hidden/></button></div>
   </form>;
 }
 

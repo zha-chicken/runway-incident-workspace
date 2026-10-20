@@ -4,7 +4,7 @@ import {useState} from 'react';
 import {Building2, Check, Copy, FileText, Languages, Pencil, Radar, RotateCcw, UsersRound} from 'lucide-react';
 import type {Locale, StoredAssessment} from '../domain/types';
 import {audiences, type Audience, type Detail, type T} from './client';
-import {AiMark, Citations, DraftMark, Empty, SimMark} from './ui';
+import {AiMark, Citations, DraftMark, Empty} from './ui';
 
 const audienceIcons={operations:Radar,airportCoordination:Building2,passenger:UsersRound};
 
@@ -29,7 +29,7 @@ export function DraftsView({detail,current,displayed,locale,t,draftText,onEdit}:
       return <article key={audience} className={`draft-sheet ${audience}`}>
         <header className="draft-head">
           <div className="draft-title"><span className="draft-icon"><Icon size={17} aria-hidden/></span><div><span className="mini-label">{t('to')}</span><h2>{t(audience)}</h2></div></div>
-          <div className="mark-row"><SimMark t={t} compact/><DraftMark t={t}/></div>
+          <div className="mark-row"><DraftMark t={t}/></div>
         </header>
         <p className="draft-purpose">{t(`purpose_${audience}`)}</p>
         {audience==='passenger'&&<p className="draft-warning">{t('passengerWarning')}</p>}

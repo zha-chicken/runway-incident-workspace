@@ -4,7 +4,7 @@ import {useContext, useEffect, useRef, useState} from 'react';
 import {ArrowUpRight, BookOpen, Building2, CircleHelp, CloudSun, Flag, TriangleAlert} from 'lucide-react';
 import type {EvidenceBundle, Locale, Monthly, SourceRecord} from '../domain/types';
 import {isAnomaly, pct, type T} from './client';
-import {Inspect, SimMark} from './ui';
+import {Inspect} from './ui';
 
 const series=[
   {key:'completion',label:'completion',className:'line-completion'},
@@ -118,7 +118,7 @@ export function SourceView({id,evidence,locale,t}:{id:string;evidence:EvidenceBu
   const record=evidence.records.find(r=>r.id===id),report=evidence.reportEvidence.find(r=>r.id===id);
   const value=(key:string,v:unknown)=>v===null||v===undefined||v===''?'—':typeof v==='boolean'?(v?t('yes'):t('no')):key==='reliability'?t(String(v)):key==='signal'?t(`signal_${v}`):key==='provenanceKind'?t(v==='competition'?'competitionReport':'teamReport'):String(v);
   return <div className="source-view">
-    <div className="source-id"><span className="code">{id}</span><SimMark t={t} compact/></div>
+    <div className="source-id"><span className="code">{id}</span></div>
     {record?<>
       <p className="source-meta">{t('sheet')}: {record.sheet}<span className="dot" aria-hidden>·</span>{locale==='zh'?`第 ${record.row} 行`:`Row ${record.row}`}{record.period&&<><span className="dot" aria-hidden>·</span>{record.period}</>}</p>
       {record.qualityFlags.includes('missing_weather')&&<div className="notice caution"><TriangleAlert size={16} aria-hidden/>{t('missingWeather')}</div>}

@@ -15,6 +15,13 @@ export function BrandName({stacked}:{stacked?:boolean}) {
   return <span className={`brand-name ${stacked?'stacked':''}`}><span lang="zh-CN" className="brand-zh">航衡</span><span className="brand-dot" aria-hidden>·</span><span lang="en" className="brand-en">AeroContext</span></span>;
 }
 
+/** A wing-shaped A with a clear center, legible at chat-avatar size. */
+export function AeroContextMark({size=18}:{size?:number}) {
+  return <svg className="aerocontext-mark" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden focusable="false">
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 2.5 22 21.5 12 17.2 2 21.5 12 2.5Zm0 6-3.1 6.6 3.1-1.4 3.1 1.4L12 8.5Z"/>
+  </svg>;
+}
+
 /** A ticking m:ss counter for work that is still running. */
 export function Elapsed({since,label,className='elapsed'}:{since:string;label:string;className?:string}) {
   const [now,setNow]=useState(()=>Date.now());
@@ -53,8 +60,6 @@ export function RiskBadge({level,t,large}:{level:Assessment['riskLevel']|null|un
   return <span className={`risk-badge ${level||'none'} ${large?'large':''}`}><RiskIcon level={level} size={large?18:13}/>{level?t(`risk_${level}`):t('unassessed')}</span>;
 }
 
-/** Airfield-sign styling marks anything simulated or not yet approved. */
-export function SimMark({t,compact}:{t:T;compact?:boolean}) {return <span className={`sim-mark ${compact?'compact':''}`}>{t('simulation')}</span>;}
 export function DraftMark({t}:{t:T}) {return <span className="draft-mark">{t('draft')}</span>;}
 export function AiMark({t}:{t:T}) {return <span className="ai-mark">{t('aiGenerated')}</span>;}
 

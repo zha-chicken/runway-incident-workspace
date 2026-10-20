@@ -2,7 +2,7 @@
 
 import {CircleAlert, SlidersHorizontal, TriangleAlert} from 'lucide-react';
 import type {Locale, Report} from '../domain/types';
-import {pad, type Detail, type T} from './client';
+import {currentAssessment, pad, type Detail, type T} from './client';
 import {Citations, Constraints, RiskBadge} from './ui';
 
 const reliabilityTone:Record<Report['reliability'],string>={scenario_given:'neutral',human_verified:'good',unverified:'caution',conflicted:'danger',unusable:'muted'};
@@ -47,7 +47,7 @@ export function OverviewView({detail,t,locale,onEdit}:{detail:Detail;t:T;locale:
     <div className="stack">
       <article className="card">
         <div className="section-heading"><div><h2>{t('rulesView')}</h2><p className="section-sub">{t('riskSeparate')}</p></div></div>
-        <div className="policy-risk"><div><span className="mini-label">{t('policyRisk')}</span><RiskBadge level={detail.policy.riskLevel} t={t}/></div><p>{t('policyRiskNote')}</p></div>
+        {currentAssessment(detail)&&<div className="policy-risk"><div><span className="mini-label">{t('policyRisk')}</span><RiskBadge level={detail.policy.riskLevel} t={t}/></div><p>{t('policyRiskNote')}</p></div>}
         <Constraints policy={detail.policy.constraints} locale={locale} t={t}/>
         {detail.policy.gaps.length>0&&<><h3 className="mini-heading">{t('policyGaps')}</h3><ul className="plain-list">{detail.policy.gaps.map((g,i)=><li key={i}>{g[locale]}</li>)}</ul></>}
         <h3 className="mini-heading">{t('rules')}</h3>

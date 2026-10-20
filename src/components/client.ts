@@ -13,6 +13,10 @@ export type T = (key:string,values?:Record<string,string|number>)=>string;
 export const tabs:Tab[] = ['overview','evidence','assessment','drafts','discussion','history'];
 export const audiences = ['operations','airportCoordination','passenger'] as const;
 
+/** A previous version's assessment is history, not the current incident's risk. */
+export const currentAssessment = (detail:Detail) => detail.assessments.find(a =>
+  a.id===detail.incident.current_assessment_id && a.snapshotVersion===detail.snapshot.version);
+
 export async function api<R>(path:string,body?:unknown):Promise<R> {
   const response=await fetch(`/api/${path}`,body===undefined?{cache:'no-store'}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
   const result=await response.json();
