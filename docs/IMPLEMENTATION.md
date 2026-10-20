@@ -33,6 +33,7 @@ This file tracks actual evidence; unchecked items are not complete.
 - See `LOCAL-VERIFICATION.md` and the synthetic records under `evals/development/` for measured results and limitations.
 - The v3 citation-enum follow-up passed on its first live attempt. Six completed actions (ten provider attempts including repairs) cost ¥1.147199 in total. This is development evidence, not the final evaluation.
 - The final preview is `docs/screenshots/local-prototype.png`. Twenty-eight automated tests and the production build pass.
+- October 20 interface redesign: numbered workflow steps, a status strip that keeps risk, decision authority, official status and human review separate, per-recommendation review status, a side-panel source inspector, audience and language comparison for drafts, and light/dark themes. Agent-driven browser checks covered 1440- and 390-pixel layouts in English and Chinese, review entry (reason enforced for modifications), draft editing with translation flags, incident creation, tab keyboard navigation, and print emulation, against a copy of the local database. No model requests were made. Screen-reader and contrast audits remain.
 
 ## Remaining before release
 
