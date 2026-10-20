@@ -1,0 +1,557 @@
+{
+  "simulation": true,
+  "input": {
+    "title": "Linjiang afternoon weather review",
+    "airportId": "LIN",
+    "scenarioPeriod": "Simulation Day 7, 14:00",
+    "historicalThrough": null,
+    "businessImportance": "medium",
+    "knownInformation": "A simulated forecast indicates gusty winds during the afternoon peak. No flight delay or cancellation has been confirmed.",
+    "unknowns": "Forecast intensity, airport capacity and individual flight status need confirmation.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "3209ff99-2111-4c50-89ca-da0bc937ad34",
+        "text": "SIMULATED forecast: gusty winds are expected over the next four hours at Linjiang. Intensity is not yet quantified; no official delay or cancellation is reported.",
+        "sourceLabel": "Team forecast scenario",
+        "originReportId": "LIN-FORECAST-07",
+        "reportedAt": "Simulation Day 7, 13:45",
+        "applicablePeriod": "Simulation Day 7, 14:00",
+        "reliability": "human_verified",
+        "independenceGroup": null,
+        "verificationBasis": "Authored and reviewed as a fictional test forecast, not real weather.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "3326d57d-e140-47ab-b2e7-69e408361d80",
+        "text": "Ground coordination group states that sufficient parking stands are available this afternoon; no supporting record or confirmation time has been provided. Treat this as unverified and not applied to the current incident or used to lower the weather-related risk.\n地面协调小组称下午停机位充足；尚未提供支持记录或确认时间。该说法应视为未核实，不应用到当前事件，也不用于降低天气相关风险。",
+        "sourceLabel": "User-supplied simulated statement (unverified)",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "Simulation Day 7, 14:00",
+        "reliability": "unverified",
+        "independenceGroup": null,
+        "verificationBasis": null,
+        "signal": "context",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "result": {
+    "riskLevel": "medium",
+    "scope": {
+      "airportId": "LIN",
+      "scenarioPeriod": "Simulation Day 7, 14:00"
+    },
+    "rationale": [
+      {
+        "text": {
+          "en": "The current simulated forecast says gusty winds are expected during the next four hours at Linjiang; intensity is not quantified, and no official delay or cancellation is reported.",
+          "zh": "当前模拟预报称临江未来四小时预计有阵风；强度尚未量化，且未报告官方延误或取消。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "A separate simulated statement says sufficient parking stands are available this afternoon, but it is unverified, has no supporting record or confirmation time, and is not applied to the current incident or used to lower the weather-related risk.",
+          "zh": "另一份模拟声明称下午停机位充足，但该声明未核实，没有支持记录或确认时间，也未应用到当前事件，也不用于降低天气相关风险。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "The supplied weather-risk rule treats a medium or high weather alert without a formal operating status as a trigger to check airport support, prior operations, and flight concentration, and to prepare monitoring and communication drafts.",
+          "zh": "现有天气风险规则要求：天气提示达到中或高风险但尚无正式运行状态时，应核查机场保障、前序运行和航班集中程度，并准备监测清单与沟通草案。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE002"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "The passenger-communication rule requires that any message about a risk without official flight status be a clearly marked draft and not an automatic notice.",
+          "zh": "旅客沟通规则要求：存在风险但没有正式航班状态时，任何相关消息都必须明确标注为草案，不得作为自动通知发送。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE005"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "The citation, simulation-label, and privacy rules require sources for numbers or formal status, clear simulation labeling, and no retention of personal data.",
+          "zh": "引用、模拟标识和隐私规则要求：数字或正式状态必须列出来源，统一标注模拟，且不得保存个人数据。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE009",
+          "RULE010",
+          "RULE011"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "The supplied decision rules would require referral only for major operational choices such as cancellation, release, dispatch, maintenance, or compensation, and would stop conclusions if source reliability could not be judged or a safety issue appeared; neither restriction is set here, so the medium-risk assessment remains for review because forecast intensity, capacity, and flight status are unconfirmed.",
+          "zh": "现有决策规则只在取消、放行、调度、维修或赔付等重大运行选择上要求转交，并且在无法判断来源可靠性或出现安全问题时停止结论；本场景未设置这两类限制，因此中风险判断仍需复核，因为预报强度、容量和航班状态尚未确认。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE007",
+          "RULE012",
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Historical monthly operations show two focused-review anomalies: 2024-07 completion was 74.58% versus a prior mean of 80.94% (difference -6.36 pp), and 2025-08 completion was 75.15% versus a prior mean of 80.58% (difference -5.44 pp). These are historical records only and do not establish current causation or a current high-risk rating.",
+          "zh": "历史月度运行数据显示两个需重点复核的异常：2024-07按计划完成比例为74.58%，此前平均为80.94%（差-6.36个百分点）；2025-08按计划完成比例为75.15%，此前平均为80.58%（差-5.44个百分点）。这些仅为历史记录，不构成当前因果关系或当前高风险判断。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "OPS-LIN-2024-07",
+          "OPS-LIN-2025-08"
+        ],
+        "metricIds": [
+          "OPS-LIN-2024-07:completion",
+          "OPS-LIN-2024-07:historical",
+          "OPS-LIN-2024-07:delta",
+          "OPS-LIN-2025-08:completion",
+          "OPS-LIN-2025-08:historical",
+          "OPS-LIN-2025-08:delta"
+        ]
+      },
+      {
+        "text": {
+          "en": "The 2025-11 weather record carries a missing-weather flag, so its populated cells should not be used despite displayed values.",
+          "zh": "2025-11天气记录带有天气数据缺失标识，因此尽管有显示数值，也不应使用其已填充单元格。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "WX-LIN-2025-11"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Annual scale records describe Linjiang as a small airport with low airline business importance in 2024 and 2025; this is context, not a current incident signal.",
+          "zh": "年度规模记录显示，临江在2024年和2025年为小型机场，航空公司业务重要程度为低；这是背景信息，不是当前事件信号。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "SCALE-LIN-2024",
+          "SCALE-LIN-2025"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Only one usable current weather report is identified, and the independence of the parking-stand statement is not established; capacity, runway configuration, and individual flight status remain unknown.",
+          "zh": "目前仅确认一份可用的当前天气报告，且停机位声明的独立性尚未确认；容量、跑道构型和单个航班状态仍未知。"
+        },
+        "kind": "unknown",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+        ],
+        "metricIds": []
+      }
+    ],
+    "possibleImpacts": [
+      {
+        "text": {
+          "en": "No official flight status change is confirmed at the scenario time.",
+          "zh": "在场景时间点，尚未确认任何官方航班状态变化。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE005"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "If the gusty winds reach disruptive intensity, airport capacity and ground operations could be affected; this is not confirmed by the supplied evidence.",
+          "zh": "如果阵风达到干扰运行的强度，机场容量和地面运行可能受到影响；现有证据尚未确认这一点。"
+        },
+        "kind": "assumption",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Actual parking-stand availability remains unverified because the statement has no supporting record or confirmation time.",
+          "zh": "实际停机位可用情况仍未核实，因为该声明没有支持记录或确认时间。"
+        },
+        "kind": "unknown",
+        "evidenceIds": [
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Individual flight impacts cannot be assessed without current flight schedules and official status.",
+          "zh": "没有当前航班计划和官方状态，无法评估单个航班影响。"
+        },
+        "kind": "unknown",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Passenger communication should remain general and direct people to official airline or airport updates while no formal flight status exists.",
+          "zh": "在没有正式航班状态时，旅客沟通应保持概括性，并引导人们查看航空公司或机场官方更新。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE005",
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      }
+    ],
+    "assumptionsToVerify": [
+      {
+        "en": "Forecast wind and gust intensity, timing, and confidence need quantitative confirmation.",
+        "zh": "预报风速、阵风强度、时段和置信度需要量化确认。"
+      },
+      {
+        "en": "Airport capacity and runway configuration may be constrained but have not been provided.",
+        "zh": "机场容量和跑道构型可能受限，但尚未提供。"
+      },
+      {
+        "en": "Flight concentration and prior-aircraft status could affect operations but are unknown.",
+        "zh": "航班集中程度和前序飞机状态可能影响运行，但目前未知。"
+      },
+      {
+        "en": "The parking-stand statement may be accurate, but it lacks a supporting record and confirmation time.",
+        "zh": "停机位声明可能准确，但缺少支持记录和确认时间。"
+      },
+      {
+        "en": "There is no established second independent current weather report.",
+        "zh": "尚未确认第二份独立的当前天气报告。"
+      },
+      {
+        "en": "Official airport or flight status may change during the forecast window.",
+        "zh": "在预报时段内，官方机场或航班状态可能发生变化。"
+      }
+    ],
+    "informationGaps": [
+      {
+        "en": "Quantified wind speed, gust, direction, visibility, and forecast confidence.",
+        "zh": "量化的风速、阵风、风向、能见度和预报置信度。"
+      },
+      {
+        "en": "Expected timing of the strongest winds within the four-hour forecast window.",
+        "zh": "四小时预报时段内最强风力的预计时间。"
+      },
+      {
+        "en": "Current airport capacity, runway configuration, and ground-handling constraints.",
+        "zh": "当前机场容量、跑道构型和地面保障限制。"
+      },
+      {
+        "en": "Current and expected flight demand, schedule concentration, and prior-aircraft status.",
+        "zh": "当前和预计航班需求、班次集中程度及前序飞机状态。"
+      },
+      {
+        "en": "Parking-stand records, source record ID, and confirmation time.",
+        "zh": "停机位记录、来源记录编号和确认时间。"
+      },
+      {
+        "en": "Independent verification and reliability of the parking-stand statement.",
+        "zh": "停机位声明的独立核实和可靠性。"
+      },
+      {
+        "en": "Official airport operational status and official flight status source.",
+        "zh": "官方机场运行状态和官方航班状态来源。"
+      },
+      {
+        "en": "Current weather observations to compare with the forecast.",
+        "zh": "用于与预报对比的当前天气观测。"
+      }
+    ],
+    "firstAction": {
+      "id": "first",
+      "kind": "verify",
+      "text": {
+        "en": "Verify the simulated gusty-wind forecast against an official aviation weather source and confirm airport capacity, runway configuration, and current flight status before drawing operational conclusions; keep all outputs labeled as simulation.",
+        "zh": "在得出运行结论前，用官方航空气象来源核实模拟阵风预报，并确认机场容量、跑道构型和当前航班状态；所有输出保持模拟标识。"
+      },
+      "evidenceIds": [
+        "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+        "RULE002",
+        "RULE009",
+        "RULE010"
+      ],
+      "ruleIds": [
+        "RULE002",
+        "RULE009",
+        "RULE010"
+      ]
+    },
+    "subsequentActions": [
+      {
+        "id": "follow-1",
+        "kind": "monitor",
+        "text": {
+          "en": "Monitor for official weather updates and any official airport or flight status changes; do not infer a delay or cancellation from the forecast alone.",
+          "zh": "监测官方天气更新以及任何官方机场或航班状态变化；不得仅凭预报推断延误或取消。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002",
+          "RULE005"
+        ],
+        "ruleIds": [
+          "RULE002",
+          "RULE005"
+        ]
+      },
+      {
+        "id": "follow-2",
+        "kind": "prepare_information",
+        "text": {
+          "en": "Prepare an information request to airport coordination for quantified wind, capacity, runway configuration, stand records with confirmation times, and flight demand within the forecast's four-hour window.",
+          "zh": "准备向机场协调部门提出的信息请求，范围包括预报四小时时段内的量化风力、容量、跑道构型、带确认时间的停机位记录和航班需求。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80",
+          "RULE002",
+          "RULE009"
+        ],
+        "ruleIds": [
+          "RULE002",
+          "RULE009"
+        ]
+      },
+      {
+        "id": "follow-3",
+        "kind": "verify",
+        "text": {
+          "en": "Verify the unverified parking-stand statement and keep it out of risk-lowering conclusions until a supporting record and confirmation time are provided.",
+          "zh": "核实未确认的停机位声明；在提供支持记录和确认时间前，不得将其用于降低风险结论。"
+        },
+        "evidenceIds": [
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80",
+          "RULE009"
+        ],
+        "ruleIds": [
+          "RULE009"
+        ]
+      },
+      {
+        "id": "follow-4",
+        "kind": "prepare_draft",
+        "text": {
+          "en": "Prepare separate operations, airport-coordination, and passenger drafts; all must show simulation and draft labels, and the passenger version must avoid unconfirmed flight status.",
+          "zh": "分别准备运行、机场协调和旅客草案；所有草案必须显示模拟和草案标识，旅客版本不得包含未确认的航班状态。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE005",
+          "RULE010"
+        ],
+        "ruleIds": [
+          "RULE005",
+          "RULE010"
+        ]
+      }
+    ],
+    "escalationConditions": [
+      {
+        "en": "Quantified forecast or official observation indicates severe or disruptive wind.",
+        "zh": "量化预报或官方观测显示严重或干扰性风力。"
+      },
+      {
+        "en": "An official airport or flight status change is issued.",
+        "zh": "发布官方机场或航班状态变化。"
+      },
+      {
+        "en": "Two or more independent reliable current reports align on a material risk.",
+        "zh": "两份或以上独立可靠的当前报告就重大风险形成一致。"
+      },
+      {
+        "en": "A safety issue is reported.",
+        "zh": "报告出现安全问题。"
+      },
+      {
+        "en": "Parking-stand availability remains unsupported while capacity concern grows.",
+        "zh": "停机位可用性仍无支持记录，同时容量担忧上升。"
+      },
+      {
+        "en": "Source reliability becomes uncertain or conflicting.",
+        "zh": "来源可靠性变得不确定或出现冲突。"
+      }
+    ],
+    "humanDecisions": [
+      {
+        "en": "Operations lead reviews the medium-risk weather assessment and directs internal checks.",
+        "zh": "运营负责人复核中风险天气评估并指导内部核查。"
+      },
+      {
+        "en": "Airport coordination validates capacity, runway, and stand records with confirmation times.",
+        "zh": "机场协调部门核实容量、跑道和带确认时间的停机位记录。"
+      },
+      {
+        "en": "Passenger service lead approves any passenger-facing wording before use.",
+        "zh": "旅客服务负责人在使用前批准任何面向旅客的措辞。"
+      },
+      {
+        "en": "An authorized professional handles any actual operational decision; this simulation does not authorize execution.",
+        "zh": "任何实际运行决定由获授权专业人员处理；本模拟不授权执行。"
+      },
+      {
+        "en": "Output reviewer checks citation completeness and simulation labels.",
+        "zh": "输出复核人检查引用完整性和模拟标识。"
+      }
+    ],
+    "drafts": {
+      "operations": {
+        "text": {
+          "en": "SIMULATION / 模拟 — DRAFT / 草案. Operations prioritized checks: (1) obtain quantified wind, gust, timing, visibility, and forecast confidence from an official aviation weather source; (2) confirm airport capacity, runway configuration, and ground-handling constraints; (3) review current flight demand and prior-aircraft status; (4) validate the parking-stand statement with a record and confirmation time; (5) keep conclusions provisional and do not infer cancellation, release, dispatch, maintenance, or compensation actions from the forecast.",
+          "zh": "SIMULATION / 模拟 — DRAFT / 草案。运行优先核查事项：（1）从官方航空气象来源取得量化的风、阵风、时段、能见度和预报置信度；（2）确认机场容量、跑道构型和地面保障限制；（3）复核当前航班需求与前序飞机状态；（4）用记录和确认时间核实停机位说法；（5）结论保持暂定，不得根据预报推断取消、放行、调度、维修或赔付行动。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80",
+          "RULE002",
+          "RULE005",
+          "RULE010"
+        ]
+      },
+      "airportCoordination": {
+        "text": {
+          "en": "SIMULATION / 模拟 — DRAFT / 草案. Information request to airport coordination for the forecast window: please provide (1) quantified wind, gust, direction, visibility, and forecast confidence; (2) current and expected airport capacity, runway configuration, and constraints; (3) parking-stand availability with source record ID and confirmation time; (4) expected flight demand and known schedule concentration; (5) any official airport status or advisory. The current parking-stand statement is unverified and is not used to lower weather risk.",
+          "zh": "SIMULATION / 模拟 — DRAFT / 草案。向机场协调部门提出的预报时段信息请求：请提供（1）量化的风、阵风、风向、能见度和预报置信度；（2）当前和预计机场容量、跑道构型及限制；（3）带来源记录编号和确认时间的停机位可用情况；（4）预计航班需求和已知班次集中情况；（5）任何官方机场状态或通告。当前停机位声明未核实，不用于降低天气风险。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80",
+          "RULE002",
+          "RULE009"
+        ]
+      },
+      "passenger": {
+        "text": {
+          "en": "SIMULATION / 模拟 — DRAFT / 草案. A simulated forecast suggests gusty winds may affect conditions at Linjiang this afternoon. No official flight status change has been confirmed. Please check official airline or airport updates for the latest information about your flight. This draft is not a final notice and does not confirm any specific flight impact.",
+          "zh": "SIMULATION / 模拟 — DRAFT / 草案。模拟预报显示，临江今天下午可能出现阵风并影响运行条件。目前尚未确认任何官方航班状态变化。请通过航空公司或机场官方渠道查询您航班的最新信息。本草案不是最终通知，也不确认任何具体航班影响。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE005",
+          "RULE010"
+        ]
+      }
+    },
+    "evidenceReferences": [
+      "OPS-LIN-2024-07",
+      "OPS-LIN-2025-08",
+      "SCALE-LIN-2024",
+      "SCALE-LIN-2025",
+      "WX-LIN-2025-11",
+      "RULE002",
+      "RULE005",
+      "RULE007",
+      "RULE009",
+      "RULE010",
+      "RULE011",
+      "RULE012",
+      "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+      "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+    ],
+    "ruleIds": [
+      "RULE009",
+      "RULE010",
+      "RULE011",
+      "RULE002",
+      "RULE005"
+    ],
+    "decisionConstraints": {
+      "professionalDecisionRequired": false,
+      "actionConclusionsStopped": false,
+      "triggeredRuleIds": [],
+      "decisionScope": "Simulation Day 7, 14:00",
+      "reviewerRoles": [
+        {
+          "en": "Operations lead",
+          "zh": "运营负责人"
+        }
+      ]
+    },
+    "outputStatus": "needs_review"
+  },
+  "createdAt": "2026-10-20T11:06:58.676Z",
+  "metadata": {
+    "promptVersion": "runway-2026-10-20-v3",
+    "policyVersion": "risk-authority-v1",
+    "schemaVersion": 1,
+    "apiFormat": "responses",
+    "effort": "high",
+    "maxOutput": 65536,
+    "totalCeiling": 524288,
+    "inputEstimate": 103746,
+    "inputHash": "22bc2bf5021d2cc11b5eeaf534cb45888042169e97462e918b02013d35af6648",
+    "requestKeyHash": "ae22077edb57ce7daf694c369c5d24b55df905db91005c047aa72390dc06d247",
+    "datasetVersion": "competition-571894e4d5ec",
+    "attempts": [
+      {
+        "attempt": 0,
+        "providerId": "8a005a77-20d5-4032-9163-83d10217fc9b",
+        "model": "deepseek-flash",
+        "fingerprint": null,
+        "terminal": "completed",
+        "status": "completed",
+        "latencyMs": 69317,
+        "usage": {
+          "input": 31923,
+          "cached": 256,
+          "output": 16392,
+          "reasoning": 11207,
+          "raw": {
+            "input_tokens": 31923,
+            "input_tokens_details": {
+              "cached_tokens": 256
+            },
+            "output_tokens": 16392,
+            "output_tokens_details": {
+              "reasoning_tokens": 11207
+            },
+            "total_tokens": 48315
+          }
+        }
+      }
+    ]
+  },
+  "costCny": 0.194481
+}

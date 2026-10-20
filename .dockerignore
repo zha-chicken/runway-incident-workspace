@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.env*
+!.env.example
+runtime
+output
+evals/results/private
+*.zip
+*.pdf
+*.rtf
+HackSHSID 2026
+.DS_Store
+*.tsbuildinfo

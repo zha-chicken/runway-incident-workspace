@@ -1,0 +1,5048 @@
+{
+  "simulation": true,
+  "exportedAt": "2026-10-20T10:59:48.395Z",
+  "incident": {
+    "id": "4058d908-bd02-4b10-bb49-c97ec9275b20",
+    "workspace_id": "6a3cca29-7852-4db5-bedb-f3479fd7d287",
+    "version": 2,
+    "current_assessment_id": "a115ab0f-89b6-4e71-a7c5-6abae26173a9",
+    "created_at": "2026-10-20T10:49:02.997Z",
+    "updated_at": "2026-10-20T10:55:34.166Z"
+  },
+  "snapshot": {
+    "title": "Linjiang afternoon weather review",
+    "airportId": "LIN",
+    "scenarioPeriod": "Simulation Day 7, 14:00",
+    "historicalThrough": null,
+    "businessImportance": "medium",
+    "knownInformation": "A simulated forecast indicates gusty winds during the afternoon peak. No flight delay or cancellation has been confirmed.",
+    "unknowns": "Forecast intensity, airport capacity and individual flight status need confirmation.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "3209ff99-2111-4c50-89ca-da0bc937ad34",
+        "text": "SIMULATED forecast: gusty winds are expected over the next four hours at Linjiang. Intensity is not yet quantified; no official delay or cancellation is reported.",
+        "sourceLabel": "Team forecast scenario",
+        "originReportId": "LIN-FORECAST-07",
+        "reportedAt": "Simulation Day 7, 13:45",
+        "applicablePeriod": "Simulation Day 7, 14:00",
+        "reliability": "human_verified",
+        "independenceGroup": null,
+        "verificationBasis": "Authored and reviewed as a fictional test forecast, not real weather.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "3326d57d-e140-47ab-b2e7-69e408361d80",
+        "text": "Ground coordination group states that sufficient parking stands are available this afternoon; no supporting record or confirmation time has been provided. Treat this as unverified and not applied to the current incident or used to lower the weather-related risk.\n地面协调小组称下午停机位充足；尚未提供支持记录或确认时间。该说法应视为未核实，不应用到当前事件，也不用于降低天气相关风险。",
+        "sourceLabel": "User-supplied simulated statement (unverified)",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "Simulation Day 7, 14:00",
+        "reliability": "unverified",
+        "independenceGroup": null,
+        "verificationBasis": null,
+        "signal": "context",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null,
+    "id": "3184263e-9398-47b5-bd91-306e36a1d599",
+    "incidentId": "4058d908-bd02-4b10-bb49-c97ec9275b20",
+    "version": 2,
+    "createdAt": "2026-10-20T10:55:34.166Z"
+  },
+  "assessments": [
+    {
+      "id": "a115ab0f-89b6-4e71-a7c5-6abae26173a9",
+      "incidentId": "4058d908-bd02-4b10-bb49-c97ec9275b20",
+      "snapshotId": "3184263e-9398-47b5-bd91-306e36a1d599",
+      "snapshotVersion": 2,
+      "generatedAt": "2026-10-20T10:56:51.893Z",
+      "runId": "3fca361f-e375-4e20-aafe-5153a032f2bc",
+      "result": {
+        "riskLevel": "medium",
+        "scope": {
+          "airportId": "LIN",
+          "scenarioPeriod": "Simulation Day 7, 14:00"
+        },
+        "rationale": [
+          {
+            "text": {
+              "en": "A simulated team forecast states that gusty winds are expected over the next four hours at Linjiang, with intensity not yet quantified, and that no official delay or cancellation is reported.",
+              "zh": "团队模拟预报称临江未来四小时预计出现阵风，强度尚未量化，且未报告任何官方延误或取消。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "A user-supplied statement that enough parking stands are available this afternoon has no supporting record and no confirmation time; it is treated as unverified, not applied to this event, and not used to lower the weather-related risk.",
+              "zh": "用户提供的“下午停机位充足”说法没有支持记录，也没有确认时间；应视为未核实，不应用到本次事件，也不用于降低天气相关风险。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Official operating status remains unconfirmed and no official status source is identified, so nothing here should be read as a confirmed delay, cancellation, or restriction.",
+              "zh": "官方运行状态仍未确认，也未指明官方状态来源，因此本文任何内容都不应被理解为已确认的延误、取消或限制。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Historical monthly baseline only: the largest shortfalls versus the airport's own prior-month mean appear in July 2024 and August 2025. These are past monthly records, not current conditions, and call for focused historical review rather than a current high risk or a weather attribution.",
+              "zh": "仅为历史月度基线：与机场自身此前月份均值相比，最大落差出现在2024年7月和2025年8月。这些是过去月度记录，不代表当前状况，应开展有针对性的历史复核，而非当前高风险或归因于天气。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "OPS-LIN-2024-07",
+              "OPS-LIN-2025-08"
+            ],
+            "metricIds": [
+              "OPS-LIN-2024-07:delta",
+              "OPS-LIN-2025-08:delta"
+            ]
+          },
+          {
+            "text": {
+              "en": "A historical weather record carries a missing-data flag, so that month's weather cells should not be relied on for any comparison.",
+              "zh": "一条历史天气记录带有数据缺失标记，因此该月天气字段不应用于任何比较。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "WX-LIN-2025-11"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Annual scale records describe Linjiang as a small airport with low airline business importance in 2024 and 2025; this is background context for the afternoon review, not a current signal.",
+              "zh": "年度规模记录显示临江为小型机场，2024年和2025年航空公司业务重要程度为低；这是下午复核的背景信息，不是当前信号。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "SCALE-LIN-2025"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Forecast intensity, the airport's capacity situation, and individual flight status are all unknown at this point.",
+              "zh": "预报强度、机场容量状况和单个航班状态目前均未知。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "The medium rating reflects a single verified simulated forecast of unquantified gusty winds combined with unknown capacity and stand status; it does not rest on any confirmed operational impact.",
+              "zh": "中等评级反映的是单一已核实的模拟阵风预报，加上容量和机位状况未知；并不基于任何已确认的运行影响。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+            ],
+            "metricIds": []
+          }
+        ],
+        "possibleImpacts": [
+          {
+            "text": {
+              "en": "Gusty winds during the afternoon peak could affect ground handling and turnaround flow, but no such impact has been reported or confirmed.",
+              "zh": "下午高峰时段的阵风可能影响地面保障和过站流程，但目前未报告也未确认此类影响。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "If wind intensity turns out to be significant, added spacing or flow measures could reduce throughput; whether any measure is in place is unknown.",
+              "zh": "若风速强度确实较大，额外间隔或流量措施可能降低通行能力；是否已有措施目前未知。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "No delay or cancellation is confirmed, and none should be implied to staff or passengers at this stage.",
+              "zh": "目前未确认任何延误或取消，现阶段不应向员工或旅客暗示存在此类情况。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Passenger questions are likely during the afternoon peak while the forecast remains unquantified; public messaging must stay factual and point to official channels.",
+              "zh": "在预报仍未量化的情况下，下午高峰时段可能出现旅客询问；对外信息必须保持事实性并指向官方渠道。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          }
+        ],
+        "assumptionsToVerify": [
+          {
+            "en": "Whether the forecast team can quantify expected gust speeds and the timing window within the next four hours.",
+            "zh": "预报团队能否量化未来四小时内的预计阵风风速和时段。"
+          },
+          {
+            "en": "Whether the airport has issued, or intends to issue, any advisory or capacity measure for the afternoon peak.",
+            "zh": "机场是否已发布或计划发布针对下午高峰的提示或容量措施。"
+          },
+          {
+            "en": "Whether the parking-stand statement is correct and supported by a dated record.",
+            "zh": "停机位充足的说法是否正确，是否有带日期的记录支持。"
+          },
+          {
+            "en": "Which flights fall inside the affected afternoon window and what their actual status is.",
+            "zh": "哪些航班处于受影响的下午时段，其实际状态如何。"
+          },
+          {
+            "en": "Whether an independent second current report exists for the wind situation.",
+            "zh": "关于大风情况是否存在独立的第二份当前报告。"
+          }
+        ],
+        "informationGaps": [
+          {
+            "en": "Quantified gust intensity, direction, and the exact period affected.",
+            "zh": "量化的阵风强度、风向和受影响的确切时段。"
+          },
+          {
+            "en": "Any official airport advisory, flow measure, or operating status.",
+            "zh": "任何官方机场提示、流量措施或运行状态。"
+          },
+          {
+            "en": "Airport capacity and stand availability with a supporting record and confirmation time.",
+            "zh": "机场容量和机位可用情况，及其支持记录和确认时间。"
+          },
+          {
+            "en": "Individual flight status for the afternoon peak.",
+            "zh": "下午高峰时段的单个航班状态。"
+          },
+          {
+            "en": "Independent confirmation of the forecast from a second current source.",
+            "zh": "来自第二个当前来源的预报独立确认。"
+          },
+          {
+            "en": "Whether any safety-related concern has been raised; none is reported.",
+            "zh": "是否有人提出安全相关关切；目前未报告。"
+          }
+        ],
+        "firstAction": {
+          "id": "first",
+          "kind": "verify",
+          "text": {
+            "en": "Ask the forecast team to quantify expected gust speeds, direction and the affected window for LIN-FORECAST-07, and confirm whether the airport has published any advisory or capacity measure for the afternoon peak.",
+            "zh": "请预报团队量化LIN-FORECAST-07的预计阵风风速、风向和受影响时段，并确认机场是否已针对下午高峰发布提示或容量措施。"
+          },
+          "evidenceIds": [
+            "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+          ],
+          "ruleIds": [
+            "RULE002",
+            "RULE009"
+          ]
+        },
+        "subsequentActions": [
+          {
+            "id": "follow-1",
+            "kind": "prepare_draft",
+            "text": {
+              "en": "Prepare an internal monitoring checklist and audience-specific communication drafts for the afternoon peak, each clearly marked as simulation and draft; nothing is to be sent.",
+              "zh": "为下午高峰准备内部监测清单和面向不同对象的沟通草案，均须明确标注为模拟和草案；不得发送任何内容。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "ruleIds": [
+              "RULE002",
+              "RULE005",
+              "RULE010"
+            ]
+          },
+          {
+            "id": "follow-2",
+            "kind": "verify",
+            "text": {
+              "en": "Request the dated record and confirmation time behind the parking-stand statement; until supplied, keep stand availability listed as unknown.",
+              "zh": "索取停机位充足说法背后的带日期记录和确认时间；在提供之前，机位可用性仍列为未知。"
+            },
+            "evidenceIds": [
+              "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+            ],
+            "ruleIds": [
+              "RULE009"
+            ]
+          },
+          {
+            "id": "follow-3",
+            "kind": "monitor",
+            "text": {
+              "en": "Track wind observations and any official airport or airline status updates through the afternoon peak, recording source and time for each.",
+              "zh": "在下午高峰期间跟踪风速观测以及机场或航空公司的任何官方状态更新，并记录每一条的来源和时间。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "ruleIds": [
+              "RULE002",
+              "RULE009"
+            ]
+          },
+          {
+            "id": "follow-4",
+            "kind": "refer",
+            "text": {
+              "en": "Route any decision touching schedule adjustment, release, dispatch, maintenance or compensation to the responsible professional lead; this assessment only organizes information.",
+              "zh": "任何涉及计划调整、放行、调度、维修或赔付的决定均提交相应专业负责人；本次评估仅整理信息。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "ruleIds": [
+              "RULE002"
+            ]
+          }
+        ],
+        "escalationConditions": [
+          {
+            "en": "An official airport advisory, flow measure, or declared operating status is issued for the afternoon period.",
+            "zh": "针对下午时段发布官方机场提示、流量措施或宣布运行状态。"
+          },
+          {
+            "en": "Quantified gusts are reported at or above the airport's operating thresholds for the affected window.",
+            "zh": "受影响时段内报告的量化阵风达到或超过机场运行阈值。"
+          },
+          {
+            "en": "Two or more independent current reports describe actual operational impact at Linjiang.",
+            "zh": "两份或以上独立当前报告描述临江出现实际运行影响。"
+          },
+          {
+            "en": "Any safety-related concern is raised by an operational source.",
+            "zh": "任何运行来源提出安全相关关切。"
+          }
+        ],
+        "humanDecisions": [
+          {
+            "en": "The operations lead decides whether any operational adjustment is warranted for the afternoon peak.",
+            "zh": "运营负责人决定下午高峰是否需要任何运行调整。"
+          },
+          {
+            "en": "The operations lead decides whether the historical July 2024 and August 2025 shortfalls merit a separate focused review.",
+            "zh": "运营负责人决定2024年7月和2025年8月的历史落差是否需要单独的重点复核。"
+          },
+          {
+            "en": "The passenger services lead decides whether any public communication is issued and approves its wording.",
+            "zh": "旅客服务负责人决定是否发布任何对外信息并批准其措辞。"
+          },
+          {
+            "en": "The data owner decides how the missing-data weather record is handled in later comparisons.",
+            "zh": "数据负责人决定在今后的比较中如何处理该数据缺失的天气记录。"
+          }
+        ],
+        "drafts": {
+          "operations": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案. Afternoon peak at Linjiang, priority checks in order: (1) obtain quantified gust speed, direction and timing for the simulated forecast reference LIN-FORECAST-07; (2) confirm whether the airport has published any advisory, flow measure or operating status, and record its source and time; (3) confirm stand and ground-handling readiness — the claim of sufficient stands is unverified and is not being used to reduce the weather concern; (4) list the flights inside the affected window and record their current status without assuming delay; (5) note for later review only that the July 2024 and August 2025 monthly baselines showed the largest shortfalls versus the airport's own prior mean — historical context, not a current conclusion and not attributed to weather. No cancellation, release, dispatch, maintenance or compensation action is proposed.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT。临江下午高峰，按顺序优先核查：(1) 取得模拟预报参考号 LIN-FORECAST-07 的量化阵风风速、风向和时段；(2) 确认机场是否发布任何提示、流量措施或运行状态，并记录来源和时间；(3) 确认机位与地面保障准备情况——机位充足的说法未经核实，不用于降低天气关切；(4) 列出受影响时段内的航班，并在不假设延误的前提下记录其当前状态；(5) 仅供后续复核：2024年7月和2025年8月的月度基线显示与机场自身此前均值相比落差最大——属历史背景，不是当前结论，也不归因于天气。不建议任何取消、放行、调度、维修或赔付动作。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80",
+              "OPS-LIN-2024-07",
+              "OPS-LIN-2025-08"
+            ]
+          },
+          "airportCoordination": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案. Information requests to airport coordination, scope: Simulation Day 7, 14:00 onward through the afternoon peak. (1) Quantified gust forecast (speed, direction, timing) supporting forecast reference LIN-FORECAST-07; (2) any advisory, flow measure or declared operating status, with issue time and source identifier; (3) current capacity and parking-stand availability, with the supporting record and confirmation time — the earlier statement on stands is currently treated as unverified; (4) the list of flights in the affected window and their status as held by the airport. Please also state the cut-off time of the data you provide. No schedule change is requested or implied by this draft.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT。致机场协调的信息请求，范围：模拟第7日14:00起至下午高峰结束。(1) 支持预报参考号 LIN-FORECAST-07 的量化阵风预报（风速、风向、时段）；(2) 任何提示、流量措施或宣布的运行状态，附发布时间和来源编号；(3) 当前容量与停机位可用情况，附支持记录和确认时间——此前关于机位的说法目前视为未核实；(4) 受影响时段内航班清单及机场掌握的状态。请同时说明所提供数据的截止时间。本草案未请求也未暗示任何航班计划变更。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80"
+            ]
+          },
+          "passenger": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案. A simulated forecast indicates gusty winds at Linjiang this afternoon. No flight delay or cancellation has been confirmed at this time. Conditions can change, and the status of individual flights is not yet known. Please check the official airline and airport channels for updates before travelling, and allow extra time at the airport. This draft is not an official notice and must not be sent as one.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT。模拟预报显示临江今天下午可能出现阵风。目前未确认任何航班延误或取消。情况可能变化，单个航班状态尚不明确。出行前请通过航空公司及机场官方渠道查询最新信息，并在机场预留额外时间。本草案不是正式通知，不得作为正式通知发送。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ]
+          }
+        },
+        "evidenceReferences": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80",
+          "OPS-LIN-2024-07",
+          "OPS-LIN-2025-08",
+          "WX-LIN-2025-11",
+          "SCALE-LIN-2025"
+        ],
+        "ruleIds": [
+          "RULE009",
+          "RULE010",
+          "RULE011",
+          "RULE002",
+          "RULE005"
+        ],
+        "decisionConstraints": {
+          "professionalDecisionRequired": false,
+          "actionConclusionsStopped": false,
+          "triggeredRuleIds": [],
+          "decisionScope": "Simulation Day 7, 14:00",
+          "reviewerRoles": [
+            {
+              "en": "Operations lead",
+              "zh": "运营负责人"
+            }
+          ]
+        },
+        "outputStatus": "needs_review"
+      },
+      "origin": "live_model"
+    },
+    {
+      "id": "96bdfeec-b93d-406e-9901-37e3d71631c8",
+      "incidentId": "4058d908-bd02-4b10-bb49-c97ec9275b20",
+      "snapshotId": "305bae8d-04e9-4706-bcb3-bbdf8c0cb156",
+      "snapshotVersion": 1,
+      "generatedAt": "2026-10-20T10:53:10.334Z",
+      "runId": "18f44daa-37bd-49c3-9b1a-8fa01d1cb07d",
+      "result": {
+        "riskLevel": "medium",
+        "scope": {
+          "airportId": "LIN",
+          "scenarioPeriod": "Simulation Day 7, 14:00"
+        },
+        "rationale": [
+          {
+            "text": {
+              "en": "A simulated team forecast says gusty winds are expected over the next four hours at Linjiang; intensity is not quantified, and no official delay or cancellation is reported.",
+              "zh": "一份模拟团队预报称临江未来四小时预计有大风阵风；强度尚未量化，且没有官方延误或取消报告。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "This is the only current scenario report supplied, and it is marked human-verified as a fictional test forecast. Independent second-source identity is not established, so the signal rests on one current report.",
+              "zh": "这是所提供唯一一份当前情景报告，并标注为经人工核验的虚构测试预报。尚未确认独立的第二来源身份，因此该信号仅依赖一份当前报告。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "The same report states no delay or cancellation is confirmed, so the official operating status stays unconfirmed for this period.",
+              "zh": "同一报告说明未确认任何延误或取消，因此该时段的官方运行状态仍为未确认。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Historical monthly baseline is separate from the current scenario: completion fell 6.36 percentage points below the trailing average in 2024-07 and 5.44 percentage points below in 2025-08. These are historical review triggers, not evidence of current causation or current risk.",
+              "zh": "历史月度基线独立于当前情景：2024-07按计划完成比例低于此前平均6.36个百分点，2025-08低于此前平均5.44个百分点。这些是历史复核触发点，不能证明当前因果关系或当前风险。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "OPS-LIN-2024-07",
+              "OPS-LIN-2025-08"
+            ],
+            "metricIds": [
+              "OPS-LIN-2024-07:delta",
+              "OPS-LIN-2025-08:delta"
+            ]
+          },
+          {
+            "text": {
+              "en": "The most recent monthly baseline record, 2025-12, shows completion at 2.33 percentage points above the trailing average, indicating the recent baseline is not depressed.",
+              "zh": "最新的月度基线记录2025-12显示按计划完成比例高于此前平均2.33个百分点，说明近期基线并未走低。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "OPS-LIN-2025-12"
+            ],
+            "metricIds": [
+              "OPS-LIN-2025-12:delta"
+            ]
+          },
+          {
+            "text": {
+              "en": "Annual scale for 2025 shows 13.6 million passengers and 23,664 aircraft movements, with airline business importance rated low. This is scale context, not a current condition.",
+              "zh": "2025年年度规模为旅客吞吐量1360万人次、飞机起降23664架次，航空公司业务重要程度评为低。这属于规模背景，不是当前状况。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "SCALE-LIN-2025"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "One monthly weather record is flagged as missing data, so its weather values cannot be used as weather evidence for any comparison.",
+              "zh": "有一条月度天气记录被标记为缺少数据，因此其天气数值不能作为天气证据用于任何对比。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [
+              "WX-LIN-2025-11"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Forecast intensity, gust timing within the four hours, airport capacity, runway configuration and individual flight status are all unconfirmed.",
+              "zh": "预报强度、四小时内阵风时段、机场容量、跑道构型以及各航班状态均未确认。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Assumption: gusty winds in the afternoon peak could tighten arrival and departure spacing and slow ground handling. This is a hypothesis to test, not a confirmed effect.",
+              "zh": "假设：下午高峰时段阵风可能压缩进离场间隔并放慢地面保障。这是待验证假设，不是已确认影响。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          }
+        ],
+        "possibleImpacts": [
+          {
+            "text": {
+              "en": "Because a weather signal is present without a formal operating status, monitoring lists and communication drafts are warranted rather than conclusion statements about flights.",
+              "zh": "由于存在天气信号但无正式运行状态，应当准备监测清单与沟通草案，而不是对航班作出结论性表述。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "If gusts are confirmed strong, peak-period throughput and turnaround buffers could tighten; magnitude is unknown until intensity is quantified.",
+              "zh": "若确认阵风较强，高峰时段容量与过站缓冲可能收紧；在强度量化前，幅度未知。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Whether any specific flight is affected cannot be stated; no flight-level status information has been supplied.",
+              "zh": "无法说明任何具体航班是否受影响；尚未提供航班层面的状态信息。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [],
+            "metricIds": []
+          }
+        ],
+        "assumptionsToVerify": [
+          {
+            "en": "Forecast gust intensity will be expressed with a numeric range and a start/end time within the four-hour window.",
+            "zh": "预报阵风强度将以数值区间及四小时窗口内的起止时间表示。"
+          },
+          {
+            "en": "Airport capacity and any runway configuration change or flow measure for the afternoon peak will be confirmed by airport operations.",
+            "zh": "机场容量以及下午高峰的跑道构型变更或流量措施将由机场运行方确认。"
+          },
+          {
+            "en": "Individual flight status and any prior-aircraft rotation constraints will be checked against the operator's own systems.",
+            "zh": "各航班状态及前序飞机衔接限制将依据承运人自身系统核查。"
+          },
+          {
+            "en": "The simulated forecast will be treated as a single current source until an independent second source is identified.",
+            "zh": "在确认独立第二来源前，该模拟预报将按单一当前来源处理。"
+          },
+          {
+            "en": "Historical monthly dips in 2024-07 and 2025-08 are unrelated to the current simulated forecast unless evidence shows otherwise.",
+            "zh": "除非有证据表明相反，2024-07与2025-08的历史月度下滑与当前模拟预报无关。"
+          }
+        ],
+        "informationGaps": [
+          {
+            "en": "Quantified gust intensity and the timing of the strongest winds within the four-hour window.",
+            "zh": "四小时窗口内量化的阵风强度及最强风时段。"
+          },
+          {
+            "en": "Airport capacity, runway configuration and any flow measures planned for the afternoon peak.",
+            "zh": "下午高峰的机场容量、跑道构型及任何计划中的流量措施。"
+          },
+          {
+            "en": "Flight-level status, including any holding, diversion or turnaround constraints.",
+            "zh": "航班层面状态，包括任何等待、备降或过站限制。"
+          },
+          {
+            "en": "Any official status source identifier and its update time; none is supplied.",
+            "zh": "任何官方状态来源标识及其更新时间；目前均未提供。"
+          },
+          {
+            "en": "An independent second current report to corroborate the forecast.",
+            "zh": "可印证该预报的独立第二份当前报告。"
+          },
+          {
+            "en": "Ground handling and gate capacity under gusty-wind conditions.",
+            "zh": "阵风条件下的地面保障与登机口容量。"
+          },
+          {
+            "en": "Whether the monthly weather record flagged as missing data overlaps any comparison month of interest.",
+            "zh": "被标记缺少数据的月度天气记录是否与关注的对比月份重叠。"
+          }
+        ],
+        "firstAction": {
+          "id": "first",
+          "kind": "verify",
+          "text": {
+            "en": "Verify, with airport operations and the forecasting team, the quantified gust intensity and timing for the next four hours, plus the afternoon-peak capacity and runway configuration assumed for this period.",
+            "zh": "与机场运行方及预报团队核实未来四小时量化的阵风强度与时段，以及本时段下午高峰的容量与跑道构型假设。"
+          },
+          "evidenceIds": [
+            "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+          ],
+          "ruleIds": [
+            "RULE002",
+            "RULE009"
+          ]
+        },
+        "subsequentActions": [
+          {
+            "id": "follow-1",
+            "kind": "monitor",
+            "text": {
+              "en": "Monitor the simulated forecast for any quantified update in the next four hours and confirm whether any official operating status is issued; do not state a delay or cancellation before it is officially confirmed.",
+              "zh": "在未来四小时监测模拟预报是否有量化更新，并确认是否发布任何官方运行状态；在官方确认前不得表述延误或取消。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "ruleIds": [
+              "RULE002",
+              "RULE009"
+            ]
+          },
+          {
+            "id": "follow-2",
+            "kind": "prepare_draft",
+            "text": {
+              "en": "Prepare an internal monitoring checklist for the afternoon peak covering arrival spacing, taxi and gate availability, turnaround buffers and prior-aircraft rotation; keep it as a draft for operations lead review.",
+              "zh": "为下午高峰准备内部监测清单，涵盖进离场间隔、滑行与登机口可用性、过站缓冲及前序飞机衔接；作为草案提交运营负责人复核。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "ruleIds": [
+              "RULE002"
+            ]
+          },
+          {
+            "id": "follow-3",
+            "kind": "verify",
+            "text": {
+              "en": "Conduct a focused historical review of the two months where completion fell more than five points below the trailing average (2024-07 and 2025-08), checking data completeness and same-category peer movement; do not attribute those dips to weather.",
+              "zh": "对按计划完成比例低于此前平均五个百分点以上的两个月（2024-07与2025-08）开展重点历史复核，检查数据完整性与同类机场变化；不得将这些下滑归因于天气。"
+            },
+            "evidenceIds": [
+              "OPS-LIN-2024-07",
+              "OPS-LIN-2025-08"
+            ],
+            "ruleIds": [
+              "RULE003"
+            ]
+          },
+          {
+            "id": "follow-4",
+            "kind": "prepare_information",
+            "text": {
+              "en": "Keep the passenger wording as a reviewed draft only, limited to public facts, stated uncertainty and guidance to check official updates; no sending without passenger services sign-off.",
+              "zh": "旅客措辞仅作为经复核的草案保留，限于公开事实、已说明的不确定性以及查阅官方更新的指引；未经旅客服务负责人签核不得发送。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "ruleIds": [
+              "RULE005"
+            ]
+          }
+        ],
+        "escalationConditions": [
+          {
+            "en": "The forecast is updated with quantified gust intensity at or above the airport's operating threshold for crosswind or ground operations.",
+            "zh": "预报更新后给出达到或超过机场侧风或地面运行阈值的量化阵风强度。"
+          },
+          {
+            "en": "Any official operating status (delay, suspension, diversion) is issued by the airport or carrier.",
+            "zh": "机场或承运人发布任何官方运行状态（延误、暂停、备降）。"
+          },
+          {
+            "en": "An independent second current report corroborates the weather signal and impact could expand beyond the afternoon peak.",
+            "zh": "独立第二份当前报告印证该天气信号，且影响可能超出下午高峰。"
+          },
+          {
+            "en": "Any safety-related concern is raised by operations personnel; then action conclusions must stop and the matter goes to the operations lead.",
+            "zh": "运行人员提出任何与安全相关的问题；此时须停止行动结论并交由运营负责人处理。"
+          }
+        ],
+        "humanDecisions": [
+          {
+            "en": "Operations lead decides whether to activate afternoon-peak monitoring measures and whether to escalate for wider review.",
+            "zh": "运营负责人决定是否启动下午高峰监测措施，以及是否升级开展更大范围复核。"
+          },
+          {
+            "en": "Passenger services lead decides whether any passenger-facing draft may be published, and in what wording.",
+            "zh": "旅客服务负责人决定是否可发布任何面向旅客的草案以及具体措辞。"
+          },
+          {
+            "en": "Any decision affecting cancellation, release, scheduling, maintenance or compensation belongs to the designated professional duty officers, not to this assessment.",
+            "zh": "任何涉及取消、放行、调度、维修或赔付的决定属于指定专业值班负责人，不属于本评估。"
+          }
+        ],
+        "drafts": {
+          "operations": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案. For the 14:00 peak at Linjiang: a simulated forecast expects gusty winds over about four hours, intensity not quantified; no official delay or cancellation is confirmed. Prioritised checks: (1) quantify gust range and timing with the forecast team; (2) confirm airport capacity, runway configuration and any flow measures; (3) review arrival spacing and holding expectations; (4) review gate, stand and ground-handling availability for the peak; (5) check prior-aircraft rotation and turnaround buffers for the busiest bank; (6) confirm the official status source and its update time before any external wording. Historical note: monthly completion was 6.36 points below the trailing average in 2024-07 and 5.44 points below in 2025-08; these are historical review items only, not current causation.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT。临江14:00高峰：模拟预报预计约四小时阵风，强度未量化；未确认官方延误或取消。优先核查：(1) 与预报团队量化阵风区间与时段；(2) 确认机场容量、跑道构型及任何流量措施；(3) 复核进离场间隔与等待预期；(4) 复核高峰时段登机口、机位与地面保障可用性；(5) 核查最繁忙航班波的前序飞机衔接与过站缓冲；(6) 在任何对外措辞前确认官方状态来源及其更新时间。历史提示：2024-07月度完成比例低于此前平均6.36个百分点，2025-08低5.44个百分点；仅为历史复核项，不是当前因果关系。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "OPS-LIN-2024-07",
+              "OPS-LIN-2025-08"
+            ]
+          },
+          "airportCoordination": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案. Request to Linjiang airport operations, scope: 14:00–18:00 on Simulation Day 7. Please provide: (1) quantified wind and gust forecast with timing; (2) declared capacity and runway configuration for the peak, and any planned flow measures; (3) expected stand and gate availability including remote stands; (4) any known constraints in ground handling under gusty conditions; (5) the official status channel and its update time for public information. We confirm we have no official delay or cancellation to relay at this time and will not publish operational conclusions before your confirmation.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT。致临江机场运行方，范围：模拟第7日14:00–18:00。请提供：(1) 量化的风与阵风预报及时段；(2) 高峰时段申报容量与跑道构型，以及任何计划的流量措施；(3) 预计机位与登机口可用性（含远机位）；(4) 阵风条件下已知的地面保障限制；(5) 对外信息使用的官方状态渠道及其更新时间。我方确认目前没有可转达的官方延误或取消，且在贵方确认前不会发布运行结论。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ]
+          },
+          "passenger": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案. This is a simulated exercise, not a real event. A simulated weather forecast indicates gusty winds at Linjiang this afternoon. No delay or cancellation has been confirmed for any flight. Conditions can change, and intensity is not yet known. Please check the official airline and airport update channels for the status of your flight, and allow extra time at the airport. We will not speculate about specific flights.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT。此为模拟演练，不是真实事件。模拟天气预报显示临江今日下午有阵风。目前未确认任何航班延误或取消。情况可能变化，强度尚不明确。请通过航空公司与机场官方更新渠道查询您的航班状态，并为到达机场预留更多时间。我们不会对具体航班进行推测。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ]
+          }
+        },
+        "evidenceReferences": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "OPS-LIN-2024-07",
+          "OPS-LIN-2025-08",
+          "OPS-LIN-2025-12",
+          "SCALE-LIN-2025",
+          "WX-LIN-2025-11"
+        ],
+        "ruleIds": [
+          "RULE002",
+          "RULE003",
+          "RULE005",
+          "RULE009",
+          "RULE010",
+          "RULE011"
+        ],
+        "decisionConstraints": {
+          "professionalDecisionRequired": false,
+          "actionConclusionsStopped": false,
+          "triggeredRuleIds": [],
+          "decisionScope": "Simulation Day 7, 14:00",
+          "reviewerRoles": [
+            {
+              "en": "Operations lead",
+              "zh": "运营负责人"
+            },
+            {
+              "en": "Passenger services lead",
+              "zh": "旅客服务负责人"
+            }
+          ]
+        },
+        "outputStatus": "needs_review"
+      },
+      "origin": "live_model"
+    },
+    {
+      "id": "0a707ea2-9010-4993-bcc4-53aa30552dca",
+      "incidentId": "4058d908-bd02-4b10-bb49-c97ec9275b20",
+      "snapshotId": "305bae8d-04e9-4706-bcb3-bbdf8c0cb156",
+      "snapshotVersion": 1,
+      "generatedAt": "2026-10-20T10:50:08.332Z",
+      "runId": "788be689-d8b1-47f7-828b-5532f4cee7cd",
+      "result": {
+        "riskLevel": "medium",
+        "scope": {
+          "airportId": "LIN",
+          "scenarioPeriod": "Simulation Day 7, 14:00"
+        },
+        "rationale": [
+          {
+            "text": {
+              "en": "The current simulated report states that gusty winds are expected over the next four hours at Linjiang; intensity is not quantified and no official delay or cancellation is reported.",
+              "zh": "当前模拟报告称，临江未来四小时预计有阵风；强度尚未量化，且未报告官方延误或取消。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Official status is unconfirmed, and only one current report is supplied; no independent current-report identity is established.",
+              "zh": "官方状态尚未确认，且仅提供了一份当前报告；尚未确认独立的当前报告来源身份。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "computedPolicy assigns medium risk with professionalDecisionRequired false and actionConclusionsStopped false; therefore the assessment remains needs_review rather than stopped.",
+              "zh": "computedPolicy 评定为中等风险，professionalDecisionRequired 为 false，actionConclusionsStopped 为 false；因此评估保持 needs_review，而非 stopped。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE002"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "RULE002 applies because a weather signal is medium risk without a formal operational status: prepare monitoring checks and communication drafts, and do not claim flights will certainly be delayed.",
+              "zh": "RULE002 适用：天气信号为中等风险但尚无正式运行状态，应准备监测清单和沟通草案，且不得声称航班一定延误。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "RULE002"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "RULE005 applies because a risk exists without an official flight status: any passenger notice must be marked draft and must not be auto-sent.",
+              "zh": "RULE005 适用：存在风险但无正式航班状态，任何旅客提示都必须标注草案，且不得自动发送。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "RULE005"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "RULE009, RULE010 and RULE011 require source citations, clear simulation labeling, and exclusion of personal data.",
+              "zh": "RULE009、RULE010 和 RULE011 要求引用来源、明确标注模拟，并排除个人数据。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "RULE009",
+              "RULE010",
+              "RULE011"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Historical monthly records OPS-LIN-2024-07 and OPS-LIN-2025-08 show differences from prior available-month means of -6.36 pp and -5.44 pp; these are historical focus-review signals only, not current high risk or causation.",
+              "zh": "历史月度记录 OPS-LIN-2024-07 和 OPS-LIN-2025-08 与此前可用月份平均差分别为 -6.36 个百分点和 -5.44 个百分点；这些仅作为历史重点复核信号，不代表当前高风险或因果关系。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "OPS-LIN-2024-07",
+              "OPS-LIN-2025-08",
+              "RULE003"
+            ],
+            "metricIds": [
+              "OPS-LIN-2024-07:delta",
+              "OPS-LIN-2025-08:delta"
+            ]
+          },
+          {
+            "text": {
+              "en": "The monthly weather record WX-LIN-2025-11 has a missing-weather flag; its populated weather cells are overridden and should not be used as reliable values.",
+              "zh": "月度天气记录 WX-LIN-2025-11 带有缺少天气数据标记；其已填写的天气单元格应被覆盖，不应作为可靠数值使用。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "WX-LIN-2025-11"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Annual scale records SCALE-LIN-2024 and SCALE-LIN-2025 are background capacity information only and do not establish current weather or operational status.",
+              "zh": "年度规模记录 SCALE-LIN-2024 和 SCALE-LIN-2025 仅作为背景规模信息，不能确定当前天气或运行状态。"
+            },
+            "kind": "fact",
+            "evidenceIds": [
+              "SCALE-LIN-2024",
+              "SCALE-LIN-2025"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Forecast intensity and timing, airport capacity, individual flight status and source update time remain unverified.",
+              "zh": "预报强度与时段、机场容量、单个航班状态和来源更新时间仍未核实。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Assumption: if gusts intensify or the airport imposes capacity limits, afternoon-peak operations could face pressure; no actual delay or cancellation is confirmed.",
+              "zh": "假设：若阵风增强或机场实施容量限制，下午高峰运行可能承压；目前没有确认的实际延误或取消。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE002"
+            ],
+            "metricIds": []
+          }
+        ],
+        "possibleImpacts": [
+          {
+            "text": {
+              "en": "Potential afternoon-peak capacity and ground-handling pressure if gusty winds intensify; this is conditional and unverified.",
+              "zh": "若阵风增强，下午高峰容量和地面保障可能承压；此为条件性且未核实的判断。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE002"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Individual flight delay or cancellation status is unknown; no official flight status is available.",
+              "zh": "单个航班的延误或取消状态未知；没有可用的官方航班状态。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          },
+          {
+            "text": {
+              "en": "Historical July/August monthly dips indicate periods needing focused historical review, but they do not explain current conditions.",
+              "zh": "历史七月/八月月度下降表明相关时段需要重点历史复核，但不能解释当前状况。"
+            },
+            "kind": "assumption",
+            "evidenceIds": [
+              "OPS-LIN-2024-07",
+              "OPS-LIN-2025-08",
+              "RULE003"
+            ],
+            "metricIds": [
+              "OPS-LIN-2024-07:delta",
+              "OPS-LIN-2025-08:delta"
+            ]
+          },
+          {
+            "text": {
+              "en": "Impact scope and duration are uncertain because only one current report is supplied and independent confirmation is not established.",
+              "zh": "影响范围和持续时间不确定，因为仅提供一份当前报告，且尚未确认独立来源。"
+            },
+            "kind": "unknown",
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ],
+            "metricIds": []
+          }
+        ],
+        "assumptionsToVerify": [
+          {
+            "en": "Quantified wind speed, gust intensity, direction and duration, and whether a formal weather warning exists.",
+            "zh": "量化的风速、阵风强度、风向和持续时间，以及是否存在正式天气警告。"
+          },
+          {
+            "en": "Airport capacity, runway configuration, ground handling and queue pressure for the forecast window.",
+            "zh": "预报时段内的机场容量、跑道构型、地面保障和排队压力。"
+          },
+          {
+            "en": "Individual flight status and any official airline or airport delay or cancellation information.",
+            "zh": "单个航班状态以及任何官方航空公司或机场延误/取消信息。"
+          },
+          {
+            "en": "Source update time and any independent current report.",
+            "zh": "来源更新时间以及任何独立的当前报告。"
+          },
+          {
+            "en": "Whether historical monthly anomalies need focused review and whether data completeness issues, including WX-LIN-2025-11, affect that review.",
+            "zh": "历史月度异常是否需要重点复核，以及包括 WX-LIN-2025-11 在内的数据完整性问题是否影响该复核。"
+          }
+        ],
+        "informationGaps": [
+          {
+            "en": "Quantified forecast gust intensity, direction, timing and duration.",
+            "zh": "量化的预报阵风强度、风向、时段和持续时间。"
+          },
+          {
+            "en": "Official airport, ATC or meteorological status and update time.",
+            "zh": "官方机场、空管或气象状态及更新时间。"
+          },
+          {
+            "en": "Current airport capacity, runway configuration and ground-handling restrictions.",
+            "zh": "当前机场容量、跑道构型和地面保障限制。"
+          },
+          {
+            "en": "Individual flight status and official delay or cancellation data.",
+            "zh": "单个航班状态及官方延误或取消数据。"
+          },
+          {
+            "en": "Independent current report identity.",
+            "zh": "独立的当前报告来源身份。"
+          },
+          {
+            "en": "Historical data completeness for WX-LIN-2025-11 and any other missing-weather records.",
+            "zh": "WX-LIN-2025-11 及任何其他缺少天气数据记录的历史数据完整性。"
+          },
+          {
+            "en": "Public-facing official update source and time; no contact link is supplied.",
+            "zh": "面向公众的官方更新来源和时间；未提供联系链接。"
+          },
+          {
+            "en": "Whether any safety issue exists; none is reported in the supplied scenario.",
+            "zh": "是否存在任何安全问题；所提供场景未报告此类问题。"
+          }
+        ],
+        "firstAction": {
+          "id": "first",
+          "kind": "verify",
+          "text": {
+            "en": "Verify the simulated gusty-wind forecast with airport operations: quantify intensity and timing, confirm any formal weather warning and official flight status, and do not treat this as a confirmed delay or cancellation.",
+            "zh": "与机场运行核实模拟阵风预报：量化强度和时段，确认是否有正式天气警告和官方航班状态，且不得将此视为已确认的延误或取消。"
+          },
+          "evidenceIds": [
+            "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+            "RULE002",
+            "RULE009",
+            "RULE010"
+          ],
+          "ruleIds": [
+            "RULE002",
+            "RULE009",
+            "RULE010"
+          ]
+        },
+        "subsequentActions": [
+          {
+            "id": "follow-1",
+            "kind": "monitor",
+            "text": {
+              "en": "Monitor for official weather updates and any airport capacity restrictions during the forecast window; record the source update time.",
+              "zh": "在预报时段内监测官方天气更新和任何机场容量限制；记录来源更新时间。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE002",
+              "RULE009"
+            ],
+            "ruleIds": [
+              "RULE002",
+              "RULE009"
+            ]
+          },
+          {
+            "id": "follow-2",
+            "kind": "prepare_information",
+            "text": {
+              "en": "Prepare an information request to Linjiang airport coordination for quantified forecast, capacity and official flight status; scope it to Simulation Day 7, 14:00 and the forecast's four-hour window.",
+              "zh": "准备向临江机场协调部门的信息请求，询问量化预报、容量和官方航班状态；范围限定为模拟第7日14:00及预报的四小时窗口。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE002",
+              "RULE009"
+            ],
+            "ruleIds": [
+              "RULE002",
+              "RULE009"
+            ]
+          },
+          {
+            "id": "follow-3",
+            "kind": "prepare_draft",
+            "text": {
+              "en": "Prepare separate draft communications for operations, airport coordination and passengers; all must be marked SIMULATION/DRAFT and must not be sent automatically.",
+              "zh": "分别准备面向运行、机场协调和旅客的沟通草案；所有草案必须标注模拟/草案，且不得自动发送。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE005",
+              "RULE010"
+            ],
+            "ruleIds": [
+              "RULE005",
+              "RULE010"
+            ]
+          },
+          {
+            "id": "follow-4",
+            "kind": "verify",
+            "text": {
+              "en": "If a second independent current report appears, compare scope and timing before changing the risk view; do not treat historical tables as independent current reports.",
+              "zh": "若出现第二份独立当前报告，在改变风险判断前比较范围和时段；不得将历史表格视为独立的当前报告。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE009"
+            ],
+            "ruleIds": [
+              "RULE009"
+            ]
+          }
+        ],
+        "escalationConditions": [
+          {
+            "en": "If a formal weather warning is issued or observed gusts exceed airport or aircraft limits.",
+            "zh": "若发布正式天气警告，或观测阵风超过机场或航空器限制。"
+          },
+          {
+            "en": "If official airport capacity restrictions, delays or cancellations are issued.",
+            "zh": "若发布官方机场容量限制、延误或取消。"
+          },
+          {
+            "en": "If a second independent current report corroborates the forecast and impact scope may expand.",
+            "zh": "若第二份独立当前报告证实该预报且影响范围可能扩大。"
+          },
+          {
+            "en": "If any safety issue or source reliability uncertainty arises.",
+            "zh": "若出现任何安全问题或来源可靠性不确定性。"
+          },
+          {
+            "en": "If historical review is requested because of the five-point monthly anomalies.",
+            "zh": "若因五个百分点的月度异常而要求进行历史复核。"
+          }
+        ],
+        "humanDecisions": [
+          {
+            "en": "Operations lead reviews and approves the medium-risk assessment and monitoring priorities.",
+            "zh": "运营负责人审核并批准中等风险评估和监测优先级。"
+          },
+          {
+            "en": "Passenger-services reviewer approves any public draft before use; no auto-send.",
+            "zh": "旅客服务审核人员在任何公开草案使用前予以批准；不得自动发送。"
+          },
+          {
+            "en": "Any operational restriction or flight decision remains with authorized professional decision-makers; this output only prepares information.",
+            "zh": "任何运行限制或航班决定仍由获授权的专业决策人员负责；本输出仅准备信息。"
+          },
+          {
+            "en": "Output reviewer confirms source citations, simulation labels and privacy handling.",
+            "zh": "输出复核人确认来源引用、模拟标识和隐私处理。"
+          }
+        ],
+        "drafts": {
+          "operations": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案 — Operations priority checks for LIN, Simulation Day 7, 14:00: confirm forecast gust intensity and timing and any formal weather warning; check airport capacity, runway configuration, ground handling and afternoon-peak queue pressure; verify individual flight status and any official delay or cancellation; do not treat the forecast as a confirmed disruption; record source update time and any independent report.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT — 临江模拟第7日14:00运行重点核查：确认预报阵风强度与时段及是否有正式天气警告；检查机场容量、跑道构型、地面保障和下午高峰排队压力；核实单个航班状态及任何官方延误或取消；不得将预报视为已确认的中断；记录来源更新时间和任何独立报告。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE002",
+              "RULE009",
+              "RULE010"
+            ]
+          },
+          "airportCoordination": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案 — Information request to Linjiang airport coordination, scope Simulation Day 7, 14:00 and the forecast's four-hour window: please provide quantified wind and gust forecast and any formal weather warning; current airport capacity, runway configuration and restrictions; expected afternoon-peak ground-handling constraints; and official flight status or delay/cancellation information. Also state update time and whether another independent source confirms the forecast. No operational decision is requested by this draft.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT — 向临江机场协调部门的信息请求，范围：模拟第7日14:00及预报的四小时窗口：请提供量化的风速和阵风预报及任何正式天气警告；当前机场容量、跑道构型和限制；预计下午高峰地面保障约束；以及官方航班状态或延误/取消信息。还请说明更新时间，以及是否有另一独立来源证实该预报。本草案不请求任何运行决定。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE002",
+              "RULE009",
+              "RULE010"
+            ]
+          },
+          "passenger": {
+            "text": {
+              "en": "SIMULATION / 模拟 — DRAFT / 草案 — Public information for Linjiang: gusty winds are forecast this afternoon. Intensity and operational impact are not yet confirmed, and no official delay or cancellation has been confirmed. Please check official airline and airport updates for your flight before travelling. This is a draft and not a final notice.",
+              "zh": "模拟 / SIMULATION — 草案 / DRAFT — 临江公开信息：今天下午预报有阵风。强度和运行影响尚未确认，且尚未确认任何官方延误或取消。出行前请查询航空公司及机场的官方更新。本内容为草案，并非最终通知。"
+            },
+            "evidenceIds": [
+              "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "RULE005",
+              "RULE010"
+            ]
+          }
+        },
+        "evidenceReferences": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "OPS-LIN-2024-07",
+          "OPS-LIN-2025-08",
+          "WX-LIN-2025-11",
+          "SCALE-LIN-2024",
+          "SCALE-LIN-2025",
+          "RULE002",
+          "RULE003",
+          "RULE005",
+          "RULE009",
+          "RULE010",
+          "RULE011"
+        ],
+        "ruleIds": [
+          "RULE009",
+          "RULE010",
+          "RULE011",
+          "RULE002",
+          "RULE005",
+          "RULE003"
+        ],
+        "decisionConstraints": {
+          "professionalDecisionRequired": false,
+          "actionConclusionsStopped": false,
+          "triggeredRuleIds": [],
+          "decisionScope": "Simulation Day 7, 14:00",
+          "reviewerRoles": [
+            {
+              "en": "Operations lead",
+              "zh": "运营负责人"
+            }
+          ]
+        },
+        "outputStatus": "needs_review"
+      },
+      "origin": "live_model"
+    }
+  ],
+  "history": [
+    {
+      "id": "3184263e-9398-47b5-bd91-306e36a1d599",
+      "version": 2,
+      "createdAt": "2026-10-20T10:55:34.166Z",
+      "input": {
+        "title": "Linjiang afternoon weather review",
+        "airportId": "LIN",
+        "scenarioPeriod": "Simulation Day 7, 14:00",
+        "historicalThrough": null,
+        "businessImportance": "medium",
+        "knownInformation": "A simulated forecast indicates gusty winds during the afternoon peak. No flight delay or cancellation has been confirmed.",
+        "unknowns": "Forecast intensity, airport capacity and individual flight status need confirmation.",
+        "safetyIssue": false,
+        "sourceReliabilityUnknown": false,
+        "decisionRequest": "",
+        "officialStatus": "unconfirmed",
+        "officialStatusSourceId": null,
+        "reports": [
+          {
+            "id": "3209ff99-2111-4c50-89ca-da0bc937ad34",
+            "text": "SIMULATED forecast: gusty winds are expected over the next four hours at Linjiang. Intensity is not yet quantified; no official delay or cancellation is reported.",
+            "sourceLabel": "Team forecast scenario",
+            "originReportId": "LIN-FORECAST-07",
+            "reportedAt": "Simulation Day 7, 13:45",
+            "applicablePeriod": "Simulation Day 7, 14:00",
+            "reliability": "human_verified",
+            "independenceGroup": null,
+            "verificationBasis": "Authored and reviewed as a fictional test forecast, not real weather.",
+            "signal": "weather",
+            "expandingImpact": false,
+            "provenanceKind": "team_simulation",
+            "sourceEvidenceId": null
+          },
+          {
+            "id": "3326d57d-e140-47ab-b2e7-69e408361d80",
+            "text": "Ground coordination group states that sufficient parking stands are available this afternoon; no supporting record or confirmation time has been provided. Treat this as unverified and not applied to the current incident or used to lower the weather-related risk.\n地面协调小组称下午停机位充足；尚未提供支持记录或确认时间。该说法应视为未核实，不应用到当前事件，也不用于降低天气相关风险。",
+            "sourceLabel": "User-supplied simulated statement (unverified)",
+            "originReportId": null,
+            "reportedAt": null,
+            "applicablePeriod": "Simulation Day 7, 14:00",
+            "reliability": "unverified",
+            "independenceGroup": null,
+            "verificationBasis": null,
+            "signal": "context",
+            "expandingImpact": false,
+            "provenanceKind": "team_simulation",
+            "sourceEvidenceId": null
+          }
+        ],
+        "sourceEventId": null
+      }
+    },
+    {
+      "id": "305bae8d-04e9-4706-bcb3-bbdf8c0cb156",
+      "version": 1,
+      "createdAt": "2026-10-20T10:49:02.997Z",
+      "input": {
+        "title": "Linjiang afternoon weather review",
+        "airportId": "LIN",
+        "scenarioPeriod": "Simulation Day 7, 14:00",
+        "historicalThrough": null,
+        "businessImportance": "medium",
+        "knownInformation": "A simulated forecast indicates gusty winds during the afternoon peak. No flight delay or cancellation has been confirmed.",
+        "unknowns": "Forecast intensity, airport capacity and individual flight status need confirmation.",
+        "safetyIssue": false,
+        "sourceReliabilityUnknown": false,
+        "decisionRequest": "",
+        "officialStatus": "unconfirmed",
+        "officialStatusSourceId": null,
+        "reports": [
+          {
+            "id": "3209ff99-2111-4c50-89ca-da0bc937ad34",
+            "text": "SIMULATED forecast: gusty winds are expected over the next four hours at Linjiang. Intensity is not yet quantified; no official delay or cancellation is reported.",
+            "sourceLabel": "Team forecast scenario",
+            "originReportId": "LIN-FORECAST-07",
+            "reportedAt": "Simulation Day 7, 13:45",
+            "applicablePeriod": "Simulation Day 7, 14:00",
+            "reliability": "human_verified",
+            "independenceGroup": null,
+            "verificationBasis": "Authored and reviewed as a fictional test forecast, not real weather.",
+            "signal": "weather",
+            "expandingImpact": false,
+            "provenanceKind": "team_simulation",
+            "sourceEvidenceId": null
+          }
+        ],
+        "sourceEventId": null
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "id": "02cc1b41-bf2d-4311-9f02-640276b16914",
+      "assessmentId": "0a707ea2-9010-4993-bcc4-53aa30552dca",
+      "recommendationId": "first",
+      "disposition": "modified",
+      "reason": "The supporting rationale exposes internal field names such as computedPolicy. Explain the medium risk in plain operational language while preserving the review boundaries.",
+      "finalAction": "Simulation review only: retain the forecast verification priority and medium rating. Request clearer supporting rationale; no operational action taken.",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "Version the prompt and add a check against internal field names in reader-facing prose, then reassess.",
+      "reviewerLabel": "Prototype QA agent",
+      "incidentId": "4058d908-bd02-4b10-bb49-c97ec9275b20",
+      "reviewedAt": "2026-10-20T10:50:55.138Z"
+    }
+  ],
+  "drafts": [],
+  "discussions": [
+    {
+      "id": "ae635b89-61ec-431e-be76-94b14b2bb27e",
+      "incident_id": "4058d908-bd02-4b10-bb49-c97ec9275b20",
+      "snapshot_id": "305bae8d-04e9-4706-bcb3-bbdf8c0cb156",
+      "question": "补充一条模拟信息：地面协调小组称下午有足够停机位，但尚未提供记录或确认时间。请将其作为一条待核实事实供我确认，不要直接修改当前事件，也不要据此降低风险。",
+      "response": {
+        "answer": {
+          "en": "SIMULATION / 模拟 — DRAFT / 草案 discussion note: I can record the ground coordination group's statement only as an unverified proposal for confirmation: sufficient parking stands are claimed for the afternoon, but no supporting record or confirmation time has been supplied. It is not applied to the current incident and does not lower the supported medium weather-related risk. The current usable report is the simulated forecast of gusty winds over the next four hours; intensity is not quantified, and no official delay or cancellation is reported. Only one current report is available, and independent current-source identities are not established. Ask the ground coordination group for a written stand-availability record, confirmation time, covered period and any constraints; weather intensity, airport capacity and individual flight status remain unconfirmed. Source and timing are cited, simulation labels are visible, no personal data is used, and any passenger-facing draft would need public facts, uncertainty, official-update guidance, and clear SIMULATION / 模拟 and DRAFT / 草案 labels. No cancellation, release, dispatch, maintenance, compensation, or message sending is recommended.",
+          "zh": "模拟 / SIMULATION — 草案 / DRAFT 讨论说明：地面协调小组的说法只能登记为待确认的未核实建议：他们称下午停机位充足，但尚未提供支持记录或确认时间。该信息不应用到当前事件，也不降低已支持的中等天气相关风险。当前可用报告是模拟阵风预报：未来四小时有阵风，强度未量化，且没有官方延误或取消报告。目前只有一条当前报告，独立当前来源身份尚未确认。应向地面协调小组索取书面停机位可用记录、确认时间、覆盖时段和任何限制；天气强度、机场容量和个别航班状态仍未确认。来源和时间已引用，模拟标识清晰，不使用个人数据；如生成旅客版本，必须是单独草案，包含可公开事实、不确定性、官方更新指引，并明显标注“模拟 / SIMULATION”和“草案 / DRAFT”。不建议执行取消、放行、调度、维修、赔付或消息发送。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002",
+          "RULE005",
+          "RULE009",
+          "RULE010",
+          "RULE011"
+        ],
+        "proposedFacts": [
+          {
+            "text": {
+              "en": "Ground coordination group states that sufficient parking stands are available this afternoon; no supporting record or confirmation time has been provided. Treat this as unverified and not applied to the current incident or used to lower the weather-related risk.",
+              "zh": "地面协调小组称下午停机位充足；尚未提供支持记录或确认时间。该说法应视为未核实，不应用到当前事件，也不用于降低天气相关风险。"
+            },
+            "sourceLabel": "User-supplied simulated statement (unverified)"
+          }
+        ],
+        "decisionConstraints": {
+          "professionalDecisionRequired": false,
+          "actionConclusionsStopped": false,
+          "triggeredRuleIds": [
+            "RULE009",
+            "RULE010",
+            "RULE011",
+            "RULE002",
+            "RULE005"
+          ],
+          "decisionScope": "Treat the ground-coordination stand statement as an unverified proposal; do not change the current incident or reduce the supported weather-related risk; identify the missing written record and confirmation time.",
+          "reviewerRoles": [
+            {
+              "en": "Operations lead",
+              "zh": "运营负责人"
+            }
+          ]
+        }
+      },
+      "run_id": "8b364d77-10fe-455f-b61b-bebb69509b92",
+      "created_at": "2026-10-20T10:55:26.194Z",
+      "applied_snapshot_id": "3184263e-9398-47b5-bd91-306e36a1d599"
+    }
+  ],
+  "runs": [
+    {
+      "id": "3fca361f-e375-4e20-aafe-5153a032f2bc",
+      "snapshot_id": "3184263e-9398-47b5-bd91-306e36a1d599",
+      "action": "assessment",
+      "status": "completed",
+      "error_code": null,
+      "metadata": {
+        "promptVersion": "runway-2026-10-20-v2",
+        "policyVersion": "risk-authority-v1",
+        "schemaVersion": 1,
+        "apiFormat": "responses",
+        "effort": "high",
+        "maxOutput": 65536,
+        "totalCeiling": 524288,
+        "inputEstimate": 87992,
+        "inputHash": "c96b5126128f30ddb7f7571506b40e0be53109bca13643c83e09049ff77a22c1",
+        "requestKeyHash": "070c38c6d36578390e38613dfac7ae6d0be92deb37765f7de374bc0cd3dead2e",
+        "datasetVersion": "competition-571894e4d5ec",
+        "attempts": [
+          {
+            "attempt": 0,
+            "providerId": "22a096d8-6834-4cdc-918d-f6964b3b44f7",
+            "model": "deepseek-flash",
+            "fingerprint": null,
+            "terminal": "completed",
+            "status": "completed",
+            "latencyMs": 52898,
+            "usage": {
+              "input": 23172,
+              "cached": 2560,
+              "output": 12638,
+              "reasoning": 8019,
+              "raw": {
+                "input_tokens": 23172,
+                "input_tokens_details": {
+                  "cached_tokens": 2560
+                },
+                "output_tokens": 12638,
+                "output_tokens_details": {
+                  "reasoning_tokens": 8019
+                },
+                "total_tokens": 35810
+              }
+            },
+            "validationIssues": [
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3326d57d-e140-47ab-b2e7-69e408361d80",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34"
+            ]
+          },
+          {
+            "attempt": 1,
+            "providerId": "0652b6b4-3aba-4943-905c-8b073439416b",
+            "model": "deepseek-flash",
+            "fingerprint": null,
+            "terminal": "completed",
+            "status": "completed",
+            "latencyMs": 24782,
+            "usage": {
+              "input": 23953,
+              "cached": 23168,
+              "output": 5551,
+              "reasoning": 1758,
+              "raw": {
+                "input_tokens": 23953,
+                "input_tokens_details": {
+                  "cached_tokens": 23168
+                },
+                "output_tokens": 5551,
+                "output_tokens_details": {
+                  "reasoning_tokens": 1758
+                },
+                "total_tokens": 29504
+              }
+            }
+          }
+        ]
+      },
+      "created_at": "2026-10-20T10:55:34.211Z",
+      "finished_at": "2026-10-20T10:56:51.893Z",
+      "cost_micro": 189336,
+      "reserved_micro": 1933024
+    },
+    {
+      "id": "8b364d77-10fe-455f-b61b-bebb69509b92",
+      "snapshot_id": "305bae8d-04e9-4706-bcb3-bbdf8c0cb156",
+      "action": "discussion",
+      "status": "completed",
+      "error_code": null,
+      "metadata": {
+        "promptVersion": "runway-2026-10-20-v2",
+        "policyVersion": "risk-authority-v1",
+        "schemaVersion": 1,
+        "apiFormat": "responses",
+        "effort": "high",
+        "maxOutput": 32768,
+        "totalCeiling": 524288,
+        "inputEstimate": 82250,
+        "inputHash": "9dc28b7a1b777b56f21bd59eec43878e32ce92d7284a9608f842532956394a5d",
+        "requestKeyHash": "1848aec285acb1f732d7375ebd682d183afa8b7d0fc065c2ff48dc8e814a6bb4",
+        "datasetVersion": "competition-571894e4d5ec",
+        "attempts": [
+          {
+            "attempt": 0,
+            "providerId": "ef28157f-7dc3-451b-a5f0-213c4abc449a",
+            "model": "deepseek-flash",
+            "fingerprint": null,
+            "terminal": "completed",
+            "status": "completed",
+            "latencyMs": 18549,
+            "usage": {
+              "input": 21367,
+              "cached": 512,
+              "output": 3549,
+              "reasoning": 2941,
+              "raw": {
+                "input_tokens": 21367,
+                "input_tokens_details": {
+                  "cached_tokens": 512
+                },
+                "output_tokens": 3549,
+                "output_tokens_details": {
+                  "reasoning_tokens": 2941
+                },
+                "total_tokens": 24916
+              }
+            },
+            "validationIssues": [
+              "Unknown discussion evidence."
+            ]
+          },
+          {
+            "attempt": 1,
+            "providerId": "849f56e4-f503-4e58-868c-0606f7d81a1f",
+            "model": "deepseek-flash",
+            "fingerprint": null,
+            "terminal": "completed",
+            "status": "completed",
+            "latencyMs": 49374,
+            "usage": {
+              "input": 21388,
+              "cached": 21248,
+              "output": 10750,
+              "reasoning": 10061,
+              "raw": {
+                "input_tokens": 21388,
+                "input_tokens_details": {
+                  "cached_tokens": 21248
+                },
+                "output_tokens": 10750,
+                "output_tokens_details": {
+                  "reasoning_tokens": 10061
+                },
+                "total_tokens": 32138
+              }
+            }
+          }
+        ]
+      },
+      "created_at": "2026-10-20T10:54:18.267Z",
+      "finished_at": "2026-10-20T10:55:26.194Z",
+      "cost_micro": 157253,
+      "reserved_micro": 1123624
+    },
+    {
+      "id": "18f44daa-37bd-49c3-9b1a-8fa01d1cb07d",
+      "snapshot_id": "305bae8d-04e9-4706-bcb3-bbdf8c0cb156",
+      "action": "assessment",
+      "status": "completed",
+      "error_code": null,
+      "metadata": {
+        "promptVersion": "runway-2026-10-20-v2",
+        "policyVersion": "risk-authority-v1",
+        "schemaVersion": 1,
+        "apiFormat": "responses",
+        "effort": "high",
+        "maxOutput": 65536,
+        "totalCeiling": 524288,
+        "inputEstimate": 86087,
+        "inputHash": "f44ac3af8045e98b0d3efd727d2cfa8fb87c65245b20249bfb3ba3ab878f63ba",
+        "requestKeyHash": "59b9595c66ac86e1118c8856366324895cc55a38d0fa3ed73b3a9070ad35373e",
+        "datasetVersion": "competition-571894e4d5ec",
+        "attempts": [
+          {
+            "attempt": 0,
+            "providerId": "a32466b5-4491-4937-99a7-b893c9b29192",
+            "model": "deepseek-flash",
+            "fingerprint": null,
+            "terminal": "completed",
+            "status": "completed",
+            "latencyMs": 50304,
+            "usage": {
+              "input": 22738,
+              "cached": 256,
+              "output": 11654,
+              "reasoning": 8490,
+              "raw": {
+                "input_tokens": 22738,
+                "input_tokens_details": {
+                  "cached_tokens": 256
+                },
+                "output_tokens": 11654,
+                "output_tokens_details": {
+                  "reasoning_tokens": 8490
+                },
+                "total_tokens": 34392
+              }
+            },
+            "validationIssues": [
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Unknown evidence reference: 3209ff99-2111-4c50-89ca-da0bc937ad34",
+              "Flagged weather cannot support an ordinary factual weather claim."
+            ]
+          },
+          {
+            "attempt": 1,
+            "providerId": "1a557f55-681c-4d93-94e1-783c7de18dab",
+            "model": "deepseek-flash",
+            "fingerprint": null,
+            "terminal": "completed",
+            "status": "completed",
+            "latencyMs": 27132,
+            "usage": {
+              "input": 23208,
+              "cached": 22656,
+              "output": 5912,
+              "reasoning": 2015,
+              "raw": {
+                "input_tokens": 23208,
+                "input_tokens_details": {
+                  "cached_tokens": 22656
+                },
+                "output_tokens": 5912,
+                "output_tokens_details": {
+                  "reasoning_tokens": 2015
+                },
+                "total_tokens": 29120
+              }
+            }
+          }
+        ]
+      },
+      "created_at": "2026-10-20T10:51:52.891Z",
+      "finished_at": "2026-10-20T10:53:10.334Z",
+      "cost_micro": 187514,
+      "reserved_micro": 1925404
+    },
+    {
+      "id": "788be689-d8b1-47f7-828b-5532f4cee7cd",
+      "snapshot_id": "305bae8d-04e9-4706-bcb3-bbdf8c0cb156",
+      "action": "assessment",
+      "status": "completed",
+      "error_code": null,
+      "metadata": {
+        "promptVersion": "runway-2026-10-20-v1",
+        "policyVersion": "risk-authority-v1",
+        "schemaVersion": 1,
+        "apiFormat": "responses",
+        "effort": "high",
+        "maxOutput": 65536,
+        "totalCeiling": 524288,
+        "inputEstimate": 85774,
+        "inputHash": "7dd732f0449522ccab1a09bd5443b3a489086d1cf38e934411e664fd3f9c0271",
+        "datasetVersion": "competition-571894e4d5ec",
+        "attempts": [
+          {
+            "attempt": 0,
+            "providerId": "4ab19c8e-f059-4277-8b05-a9106817486e",
+            "model": "deepseek-flash",
+            "fingerprint": null,
+            "terminal": "completed",
+            "status": "completed",
+            "latencyMs": 60430,
+            "usage": {
+              "input": 22684,
+              "cached": 2304,
+              "output": 14308,
+              "reasoning": 10446,
+              "raw": {
+                "input_tokens": 22684,
+                "input_tokens_details": {
+                  "cached_tokens": 2304
+                },
+                "output_tokens": 14308,
+                "output_tokens_details": {
+                  "reasoning_tokens": 10446
+                },
+                "total_tokens": 36992
+              }
+            }
+          }
+        ]
+      },
+      "created_at": "2026-10-20T10:49:07.899Z",
+      "finished_at": "2026-10-20T10:50:08.332Z",
+      "cost_micro": 155317,
+      "reserved_micro": 1924152
+    }
+  ],
+  "evidence": {
+    "datasetVersion": "competition-571894e4d5ec",
+    "sourceHash": "571894e4d5ec64d661713c1f7e013f799f47356ccffe3e490cac73e1ae1cb5d6",
+    "airportId": "LIN",
+    "records": [
+      {
+        "id": "OPS-LIN-2024-01",
+        "sheet": "01_机场月度运行基线",
+        "row": 8,
+        "cells": {
+          "年份": 2024,
+          "月份": 1,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7864,
+          "机场放行正常比例": 0.8283,
+          "同类机场平均比例": 0.7766,
+          "该机场过去12个月平均比例": 0.7864,
+          "与自身平均差（百分点）": 0,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-01",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-02",
+        "sheet": "01_机场月度运行基线",
+        "row": 16,
+        "cells": {
+          "年份": 2024,
+          "月份": 2,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7734,
+          "机场放行正常比例": 0.7871,
+          "同类机场平均比例": 0.7737,
+          "该机场过去12个月平均比例": 0.7864,
+          "与自身平均差（百分点）": -1.3,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-02",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-03",
+        "sheet": "01_机场月度运行基线",
+        "row": 24,
+        "cells": {
+          "年份": 2024,
+          "月份": 3,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8244,
+          "机场放行正常比例": 0.8482,
+          "同类机场平均比例": 0.8134,
+          "该机场过去12个月平均比例": 0.7799,
+          "与自身平均差（百分点）": 4.45,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-03",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-04",
+        "sheet": "01_机场月度运行基线",
+        "row": 32,
+        "cells": {
+          "年份": 2024,
+          "月份": 4,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8344,
+          "机场放行正常比例": 0.8727,
+          "同类机场平均比例": 0.8321,
+          "该机场过去12个月平均比例": 0.7947,
+          "与自身平均差（百分点）": 3.97,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-04",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-05",
+        "sheet": "01_机场月度运行基线",
+        "row": 40,
+        "cells": {
+          "年份": 2024,
+          "月份": 5,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8355,
+          "机场放行正常比例": 0.8729,
+          "同类机场平均比例": 0.8228,
+          "该机场过去12个月平均比例": 0.8046,
+          "与自身平均差（百分点）": 3.09,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-05",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-06",
+        "sheet": "01_机场月度运行基线",
+        "row": 48,
+        "cells": {
+          "年份": 2024,
+          "月份": 6,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8022,
+          "机场放行正常比例": 0.8264,
+          "同类机场平均比例": 0.8176,
+          "该机场过去12个月平均比例": 0.8108,
+          "与自身平均差（百分点）": -0.86,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-06",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-07",
+        "sheet": "01_机场月度运行基线",
+        "row": 56,
+        "cells": {
+          "年份": 2024,
+          "月份": 7,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7458,
+          "机场放行正常比例": 0.7607,
+          "同类机场平均比例": 0.7584,
+          "该机场过去12个月平均比例": 0.8094,
+          "与自身平均差（百分点）": -6.36,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-07",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-08",
+        "sheet": "01_机场月度运行基线",
+        "row": 64,
+        "cells": {
+          "年份": 2024,
+          "月份": 8,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7791,
+          "机场放行正常比例": 0.7973,
+          "同类机场平均比例": 0.7684,
+          "该机场过去12个月平均比例": 0.8003,
+          "与自身平均差（百分点）": -2.12,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-08",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-09",
+        "sheet": "01_机场月度运行基线",
+        "row": 72,
+        "cells": {
+          "年份": 2024,
+          "月份": 9,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8209,
+          "机场放行正常比例": 0.8588,
+          "同类机场平均比例": 0.8184,
+          "该机场过去12个月平均比例": 0.7976,
+          "与自身平均差（百分点）": 2.32,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-09",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-10",
+        "sheet": "01_机场月度运行基线",
+        "row": 80,
+        "cells": {
+          "年份": 2024,
+          "月份": 10,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8317,
+          "机场放行正常比例": 0.8494,
+          "同类机场平均比例": 0.8295,
+          "该机场过去12个月平均比例": 0.8002,
+          "与自身平均差（百分点）": 3.15,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-10",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-11",
+        "sheet": "01_机场月度运行基线",
+        "row": 88,
+        "cells": {
+          "年份": 2024,
+          "月份": 11,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.836,
+          "机场放行正常比例": 0.873,
+          "同类机场平均比例": 0.8277,
+          "该机场过去12个月平均比例": 0.8034,
+          "与自身平均差（百分点）": 3.26,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-11",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2024-12",
+        "sheet": "01_机场月度运行基线",
+        "row": 96,
+        "cells": {
+          "年份": 2024,
+          "月份": 12,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8244,
+          "机场放行正常比例": 0.8487,
+          "同类机场平均比例": 0.822,
+          "该机场过去12个月平均比例": 0.8063,
+          "与自身平均差（百分点）": 1.81,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2024-12",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-01",
+        "sheet": "01_机场月度运行基线",
+        "row": 104,
+        "cells": {
+          "年份": 2025,
+          "月份": 1,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7818,
+          "机场放行正常比例": 0.7959,
+          "同类机场平均比例": 0.7813,
+          "该机场过去12个月平均比例": 0.8079,
+          "与自身平均差（百分点）": -2.61,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-01",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-02",
+        "sheet": "01_机场月度运行基线",
+        "row": 112,
+        "cells": {
+          "年份": 2025,
+          "月份": 2,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7768,
+          "机场放行正常比例": 0.8092,
+          "同类机场平均比例": 0.7702,
+          "该机场过去12个月平均比例": 0.8075,
+          "与自身平均差（百分点）": -3.07,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-02",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-03",
+        "sheet": "01_机场月度运行基线",
+        "row": 120,
+        "cells": {
+          "年份": 2025,
+          "月份": 3,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8129,
+          "机场放行正常比例": 0.8464,
+          "同类机场平均比例": 0.8051,
+          "该机场过去12个月平均比例": 0.8077,
+          "与自身平均差（百分点）": 0.51,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-03",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-04",
+        "sheet": "01_机场月度运行基线",
+        "row": 128,
+        "cells": {
+          "年份": 2025,
+          "月份": 4,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8397,
+          "机场放行正常比例": 0.8808,
+          "同类机场平均比例": 0.8369,
+          "该机场过去12个月平均比例": 0.8068,
+          "与自身平均差（百分点）": 3.29,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-04",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-05",
+        "sheet": "01_机场月度运行基线",
+        "row": 136,
+        "cells": {
+          "年份": 2025,
+          "月份": 5,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7908,
+          "机场放行正常比例": 0.8028,
+          "同类机场平均比例": 0.8067,
+          "该机场过去12个月平均比例": 0.8072,
+          "与自身平均差（百分点）": -1.64,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-05",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-06",
+        "sheet": "01_机场月度运行基线",
+        "row": 144,
+        "cells": {
+          "年份": 2025,
+          "月份": 6,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7963,
+          "机场放行正常比例": 0.82,
+          "同类机场平均比例": 0.8107,
+          "该机场过去12个月平均比例": 0.8035,
+          "与自身平均差（百分点）": -0.72,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-06",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-07",
+        "sheet": "01_机场月度运行基线",
+        "row": 152,
+        "cells": {
+          "年份": 2025,
+          "月份": 7,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7798,
+          "机场放行正常比例": 0.8161,
+          "同类机场平均比例": 0.7795,
+          "该机场过去12个月平均比例": 0.803,
+          "与自身平均差（百分点）": -2.32,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-07",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-08",
+        "sheet": "01_机场月度运行基线",
+        "row": 160,
+        "cells": {
+          "年份": 2025,
+          "月份": 8,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.7515,
+          "机场放行正常比例": 0.769,
+          "同类机场平均比例": 0.7491,
+          "该机场过去12个月平均比例": 0.8058,
+          "与自身平均差（百分点）": -5.44,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-08",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-09",
+        "sheet": "01_机场月度运行基线",
+        "row": 168,
+        "cells": {
+          "年份": 2025,
+          "月份": 9,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8097,
+          "机场放行正常比例": 0.8435,
+          "同类机场平均比例": 0.7994,
+          "该机场过去12个月平均比例": 0.8035,
+          "与自身平均差（百分点）": 0.61,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-09",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-10",
+        "sheet": "01_机场月度运行基线",
+        "row": 176,
+        "cells": {
+          "年份": 2025,
+          "月份": 10,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8443,
+          "机场放行正常比例": 0.8821,
+          "同类机场平均比例": 0.8296,
+          "该机场过去12个月平均比例": 0.8026,
+          "与自身平均差（百分点）": 4.17,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-10",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-11",
+        "sheet": "01_机场月度运行基线",
+        "row": 184,
+        "cells": {
+          "年份": 2025,
+          "月份": 11,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.8366,
+          "机场放行正常比例": 0.865,
+          "同类机场平均比例": 0.8173,
+          "该机场过去12个月平均比例": 0.8037,
+          "与自身平均差（百分点）": 3.29,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-11",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "OPS-LIN-2025-12",
+        "sheet": "01_机场月度运行基线",
+        "row": 192,
+        "cells": {
+          "年份": 2025,
+          "月份": 12,
+          "机场名称": "临江机场",
+          "机场分类": "小型机场",
+          "按计划完成航班的比例": 0.827,
+          "机场放行正常比例": 0.8623,
+          "同类机场平均比例": 0.816,
+          "该机场过去12个月平均比例": 0.8037,
+          "与自身平均差（百分点）": 2.33,
+          "样本说明": "赛事方模拟：每月每机场一条记录",
+          "来源编号": "SIM-BASE",
+          "数据状态": "模拟"
+        },
+        "category": "operations",
+        "airportId": "LIN",
+        "period": "2025-12",
+        "sourceFamilyId": "SIM-BASE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "SCALE-LIN-2024",
+        "sheet": "02_机场年度规模",
+        "row": 8,
+        "cells": {
+          "年份": 2024,
+          "机场名称": "临江机场",
+          "城市": "临江市",
+          "省份": "临江省",
+          "机场分类": "小型机场",
+          "旅客吞吐量（万人次）": 1222,
+          "飞机起降架次": 18591,
+          "航空公司业务重要程度": "低",
+          "来源编号": "SIM-SCALE",
+          "数据状态": "模拟"
+        },
+        "category": "scale",
+        "airportId": "LIN",
+        "period": "2024",
+        "sourceFamilyId": "SIM-SCALE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "SCALE-LIN-2025",
+        "sheet": "02_机场年度规模",
+        "row": 16,
+        "cells": {
+          "年份": 2025,
+          "机场名称": "临江机场",
+          "城市": "临江市",
+          "省份": "临江省",
+          "机场分类": "小型机场",
+          "旅客吞吐量（万人次）": 1360,
+          "飞机起降架次": 23664,
+          "航空公司业务重要程度": "低",
+          "来源编号": "SIM-SCALE",
+          "数据状态": "模拟"
+        },
+        "category": "scale",
+        "airportId": "LIN",
+        "period": "2025",
+        "sourceFamilyId": "SIM-SCALE",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-01",
+        "sheet": "03_机场天气月度",
+        "row": 8,
+        "cells": {
+          "年份": 2024,
+          "月份": 1,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 99.6,
+          "平均气温（摄氏度）": 1.2,
+          "最大风速（米/秒）": 11,
+          "明显不利天气天数": 2,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-01",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-02",
+        "sheet": "03_机场天气月度",
+        "row": 16,
+        "cells": {
+          "年份": 2024,
+          "月份": 2,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 33.3,
+          "平均气温（摄氏度）": 5.8,
+          "最大风速（米/秒）": 15.1,
+          "明显不利天气天数": 1,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-02",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-03",
+        "sheet": "03_机场天气月度",
+        "row": 24,
+        "cells": {
+          "年份": 2024,
+          "月份": 3,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 11.7,
+          "平均气温（摄氏度）": 13.5,
+          "最大风速（米/秒）": 18.8,
+          "明显不利天气天数": 1,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-03",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-04",
+        "sheet": "03_机场天气月度",
+        "row": 32,
+        "cells": {
+          "年份": 2024,
+          "月份": 4,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 34.7,
+          "平均气温（摄氏度）": 18.3,
+          "最大风速（米/秒）": 12.8,
+          "明显不利天气天数": 2,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-04",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-05",
+        "sheet": "03_机场天气月度",
+        "row": 40,
+        "cells": {
+          "年份": 2024,
+          "月份": 5,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 148.9,
+          "平均气温（摄氏度）": 24,
+          "最大风速（米/秒）": 17.9,
+          "明显不利天气天数": 5,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-05",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-06",
+        "sheet": "03_机场天气月度",
+        "row": 48,
+        "cells": {
+          "年份": 2024,
+          "月份": 6,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 88.7,
+          "平均气温（摄氏度）": 24.9,
+          "最大风速（米/秒）": 13.9,
+          "明显不利天气天数": 3,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-06",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-07",
+        "sheet": "03_机场天气月度",
+        "row": 56,
+        "cells": {
+          "年份": 2024,
+          "月份": 7,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 144.6,
+          "平均气温（摄氏度）": 23.3,
+          "最大风速（米/秒）": 17.1,
+          "明显不利天气天数": 4,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-07",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-08",
+        "sheet": "03_机场天气月度",
+        "row": 64,
+        "cells": {
+          "年份": 2024,
+          "月份": 8,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 129.5,
+          "平均气温（摄氏度）": 18.9,
+          "最大风速（米/秒）": 18.5,
+          "明显不利天气天数": 4,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-08",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-09",
+        "sheet": "03_机场天气月度",
+        "row": 72,
+        "cells": {
+          "年份": 2024,
+          "月份": 9,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 140.5,
+          "平均气温（摄氏度）": 14.1,
+          "最大风速（米/秒）": 18.5,
+          "明显不利天气天数": 4,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-09",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-10",
+        "sheet": "03_机场天气月度",
+        "row": 80,
+        "cells": {
+          "年份": 2024,
+          "月份": 10,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 12.5,
+          "平均气温（摄氏度）": 5.5,
+          "最大风速（米/秒）": 11,
+          "明显不利天气天数": 0,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-10",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-11",
+        "sheet": "03_机场天气月度",
+        "row": 88,
+        "cells": {
+          "年份": 2024,
+          "月份": 11,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 9.9,
+          "平均气温（摄氏度）": 1.1,
+          "最大风速（米/秒）": 11.9,
+          "明显不利天气天数": 1,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-11",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2024-12",
+        "sheet": "03_机场天气月度",
+        "row": 96,
+        "cells": {
+          "年份": 2024,
+          "月份": 12,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 19.5,
+          "平均气温（摄氏度）": 2,
+          "最大风速（米/秒）": 14.7,
+          "明显不利天气天数": 0,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2024-12",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-01",
+        "sheet": "03_机场天气月度",
+        "row": 104,
+        "cells": {
+          "年份": 2025,
+          "月份": 1,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 15.6,
+          "平均气温（摄氏度）": 2.2,
+          "最大风速（米/秒）": 18.3,
+          "明显不利天气天数": 2,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-01",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-02",
+        "sheet": "03_机场天气月度",
+        "row": 112,
+        "cells": {
+          "年份": 2025,
+          "月份": 2,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 110.5,
+          "平均气温（摄氏度）": 7.7,
+          "最大风速（米/秒）": 15.5,
+          "明显不利天气天数": 4,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-02",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-03",
+        "sheet": "03_机场天气月度",
+        "row": 120,
+        "cells": {
+          "年份": 2025,
+          "月份": 3,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 56,
+          "平均气温（摄氏度）": 13.1,
+          "最大风速（米/秒）": 10.6,
+          "明显不利天气天数": 1,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-03",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-04",
+        "sheet": "03_机场天气月度",
+        "row": 128,
+        "cells": {
+          "年份": 2025,
+          "月份": 4,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 36.3,
+          "平均气温（摄氏度）": 17.6,
+          "最大风速（米/秒）": 15.7,
+          "明显不利天气天数": 1,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-04",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-05",
+        "sheet": "03_机场天气月度",
+        "row": 136,
+        "cells": {
+          "年份": 2025,
+          "月份": 5,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 121.3,
+          "平均气温（摄氏度）": 22.3,
+          "最大风速（米/秒）": 13.5,
+          "明显不利天气天数": 4,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-05",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-06",
+        "sheet": "03_机场天气月度",
+        "row": 144,
+        "cells": {
+          "年份": 2025,
+          "月份": 6,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 144.7,
+          "平均气温（摄氏度）": 24.4,
+          "最大风速（米/秒）": 16.2,
+          "明显不利天气天数": 3,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-06",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-07",
+        "sheet": "03_机场天气月度",
+        "row": 152,
+        "cells": {
+          "年份": 2025,
+          "月份": 7,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 120.1,
+          "平均气温（摄氏度）": 23.4,
+          "最大风速（米/秒）": 12.8,
+          "明显不利天气天数": 3,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-07",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-08",
+        "sheet": "03_机场天气月度",
+        "row": 160,
+        "cells": {
+          "年份": 2025,
+          "月份": 8,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 88.6,
+          "平均气温（摄氏度）": 19.2,
+          "最大风速（米/秒）": 13.5,
+          "明显不利天气天数": 2,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-08",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-09",
+        "sheet": "03_机场天气月度",
+        "row": 168,
+        "cells": {
+          "年份": 2025,
+          "月份": 9,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 104.1,
+          "平均气温（摄氏度）": 11.4,
+          "最大风速（米/秒）": 13.7,
+          "明显不利天气天数": 4,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-09",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-10",
+        "sheet": "03_机场天气月度",
+        "row": 176,
+        "cells": {
+          "年份": 2025,
+          "月份": 10,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 4.7,
+          "平均气温（摄氏度）": 6.1,
+          "最大风速（米/秒）": 10.6,
+          "明显不利天气天数": 1,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-10",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "WX-LIN-2025-11",
+        "sheet": "03_机场天气月度",
+        "row": 184,
+        "cells": {
+          "年份": 2025,
+          "月份": 11,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 50.1,
+          "平均气温（摄氏度）": 2.4,
+          "最大风速（米/秒）": 10.4,
+          "明显不利天气天数": 2,
+          "是否缺少数据": "是",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-11",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": [
+          "missing_weather"
+        ]
+      },
+      {
+        "id": "WX-LIN-2025-12",
+        "sheet": "03_机场天气月度",
+        "row": 192,
+        "cells": {
+          "年份": 2025,
+          "月份": 12,
+          "机场名称": "临江机场",
+          "气象观测站编号": "ST007",
+          "降水量（毫米）": 1.6,
+          "平均气温（摄氏度）": -0.6,
+          "最大风速（米/秒）": 15.9,
+          "明显不利天气天数": 0,
+          "是否缺少数据": "否",
+          "来源编号": "SIM-WEATHER",
+          "数据状态": "模拟"
+        },
+        "category": "weather",
+        "airportId": "LIN",
+        "period": "2025-12",
+        "sourceFamilyId": "SIM-WEATHER",
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE001",
+        "sheet": "05_运营规则",
+        "row": 2,
+        "cells": {
+          "规则编号": "RULE001",
+          "规则主题": "信息不足",
+          "触发条件": "关键数据缺失或来源冲突",
+          "建议核查事项": "核查来源、更新时间、统计口径",
+          "建议行动": "降低判断强度并列出缺失信息",
+          "建议升级对象": "运营负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得发布确定性结论",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE002",
+        "sheet": "05_运营规则",
+        "row": 3,
+        "cells": {
+          "规则编号": "RULE002",
+          "规则主题": "天气风险",
+          "触发条件": "天气提示达到中高风险但尚无正式运行状态",
+          "建议核查事项": "核查机场保障、前序运行和后续航班集中程度",
+          "建议行动": "准备监测清单与沟通草案",
+          "建议升级对象": "运行协调人员",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得声称航班一定延误",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE003",
+        "sheet": "05_运营规则",
+        "row": 4,
+        "cells": {
+          "规则编号": "RULE003",
+          "规则主题": "异常波动",
+          "触发条件": "当前指标低于过去十二个月平均五个百分点以上",
+          "建议核查事项": "核查数据完整性和同类机场变化",
+          "建议行动": "标记为重点复核",
+          "建议升级对象": "运营分析人员",
+          "必须人工审批": "否",
+          "禁止自动执行事项": "不得直接归因于天气",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE004",
+        "sheet": "05_运营规则",
+        "row": 5,
+        "cells": {
+          "规则编号": "RULE004",
+          "规则主题": "持续运行压力",
+          "触发条件": "上一时段表现下降且后续任务仍集中",
+          "建议核查事项": "核查前序飞机、登机口和地面保障承压情况",
+          "建议行动": "按时间顺序列出核查事项",
+          "建议升级对象": "运营负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得调整真实航班计划",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE005",
+        "sheet": "05_运营规则",
+        "row": 6,
+        "cells": {
+          "规则编号": "RULE005",
+          "规则主题": "旅客沟通",
+          "触发条件": "存在风险但没有正式航班状态",
+          "建议核查事项": "核查可公开事实和更新时间",
+          "建议行动": "生成明确标注“草案”的提示",
+          "建议升级对象": "旅客服务负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得作为正式通知自动发送",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE006",
+        "sheet": "05_运营规则",
+        "row": 7,
+        "cells": {
+          "规则编号": "RULE006",
+          "规则主题": "人工否决",
+          "触发条件": "专业人员拒绝建议",
+          "建议核查事项": "记录拒绝原因和补充事实",
+          "建议行动": "根据新事实调整建议并保留原记录",
+          "建议升级对象": "模型负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得覆盖或删除人工意见",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE007",
+        "sheet": "05_运营规则",
+        "row": 8,
+        "cells": {
+          "规则编号": "RULE007",
+          "规则主题": "重大运行决定",
+          "触发条件": "涉及取消、放行、调度、维修或赔付",
+          "建议核查事项": "停止自动建议并指向人工负责人",
+          "建议行动": "仅整理所需信息",
+          "建议升级对象": "相应专业负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得自动作出决定",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE008",
+        "sheet": "05_运营规则",
+        "row": 9,
+        "cells": {
+          "规则编号": "RULE008",
+          "规则主题": "高风险升级",
+          "触发条件": "多个独立风险信号同时存在且影响范围可能扩大",
+          "建议核查事项": "核查信息是否至少来自两个可靠来源",
+          "建议行动": "建议升级并说明触发依据",
+          "建议升级对象": "运营负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得跳过人工审批",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE009",
+        "sheet": "05_运营规则",
+        "row": 10,
+        "cells": {
+          "规则编号": "RULE009",
+          "规则主题": "引用要求",
+          "触发条件": "输出包含数字或正式状态",
+          "建议核查事项": "检查来源编号和时间范围",
+          "建议行动": "在输出中列出来源",
+          "建议升级对象": "输出复核人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得无来源生成事实",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE010",
+        "sheet": "05_运营规则",
+        "row": 11,
+        "cells": {
+          "规则编号": "RULE010",
+          "规则主题": "模拟标识",
+          "触发条件": "使用模拟事件或模拟数值",
+          "建议核查事项": "检查页面和输出标识",
+          "建议行动": "统一标注“模拟”",
+          "建议升级对象": "项目负责人",
+          "必须人工审批": "否",
+          "禁止自动执行事项": "不得称为真实事件",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE011",
+        "sheet": "05_运营规则",
+        "row": 12,
+        "cells": {
+          "规则编号": "RULE011",
+          "规则主题": "隐私保护",
+          "触发条件": "输入包含旅客或员工个人信息",
+          "建议核查事项": "删除或匿名处理",
+          "建议行动": "只使用汇总信息",
+          "建议升级对象": "数据负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得保存个人敏感信息",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      },
+      {
+        "id": "RULE012",
+        "sheet": "05_运营规则",
+        "row": 13,
+        "cells": {
+          "规则编号": "RULE012",
+          "规则主题": "停止条件",
+          "触发条件": "无法判断来源可靠性或出现安全相关问题",
+          "建议核查事项": "停止生成行动结论",
+          "建议行动": "输出信息缺口和人工升级对象",
+          "建议升级对象": "运营负责人",
+          "必须人工审批": "是",
+          "禁止自动执行事项": "不得继续给出确定建议",
+          "规则来源": "赛事规则",
+          "规则状态": "有效"
+        },
+        "category": "rule",
+        "airportId": null,
+        "period": null,
+        "sourceFamilyId": null,
+        "simulation": true,
+        "qualityFlags": []
+      }
+    ],
+    "monthly": [
+      {
+        "evidenceId": "OPS-LIN-2024-01",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-01",
+        "completion": 0.7864,
+        "releaseNormality": 0.8283,
+        "peerMean": 0.7766,
+        "historicalMean": 0.7864,
+        "deltaPp": 0,
+        "priorCount": 0,
+        "windowStart": null,
+        "windowEnd": null,
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-02",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-02",
+        "completion": 0.7734,
+        "releaseNormality": 0.7871,
+        "peerMean": 0.7737,
+        "historicalMean": 0.7864,
+        "deltaPp": -1.3,
+        "priorCount": 1,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-01",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-03",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-03",
+        "completion": 0.8244,
+        "releaseNormality": 0.8482,
+        "peerMean": 0.8134,
+        "historicalMean": 0.7799,
+        "deltaPp": 4.45,
+        "priorCount": 2,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-02",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-04",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-04",
+        "completion": 0.8344,
+        "releaseNormality": 0.8727,
+        "peerMean": 0.8321,
+        "historicalMean": 0.7947,
+        "deltaPp": 3.97,
+        "priorCount": 3,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-03",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-05",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-05",
+        "completion": 0.8355,
+        "releaseNormality": 0.8729,
+        "peerMean": 0.8228,
+        "historicalMean": 0.8046,
+        "deltaPp": 3.09,
+        "priorCount": 4,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-04",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-06",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-06",
+        "completion": 0.8022,
+        "releaseNormality": 0.8264,
+        "peerMean": 0.8176,
+        "historicalMean": 0.8108,
+        "deltaPp": -0.86,
+        "priorCount": 5,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-05",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-07",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-07",
+        "completion": 0.7458,
+        "releaseNormality": 0.7607,
+        "peerMean": 0.7584,
+        "historicalMean": 0.8094,
+        "deltaPp": -6.36,
+        "priorCount": 6,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-06",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-08",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-08",
+        "completion": 0.7791,
+        "releaseNormality": 0.7973,
+        "peerMean": 0.7684,
+        "historicalMean": 0.8003,
+        "deltaPp": -2.12,
+        "priorCount": 7,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-07",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-09",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-09",
+        "completion": 0.8209,
+        "releaseNormality": 0.8588,
+        "peerMean": 0.8184,
+        "historicalMean": 0.7976,
+        "deltaPp": 2.32,
+        "priorCount": 8,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-08",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-10",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-10",
+        "completion": 0.8317,
+        "releaseNormality": 0.8494,
+        "peerMean": 0.8295,
+        "historicalMean": 0.8002,
+        "deltaPp": 3.15,
+        "priorCount": 9,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-09",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-11",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-11",
+        "completion": 0.836,
+        "releaseNormality": 0.873,
+        "peerMean": 0.8277,
+        "historicalMean": 0.8034,
+        "deltaPp": 3.26,
+        "priorCount": 10,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-10",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2024-12",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2024-12",
+        "completion": 0.8244,
+        "releaseNormality": 0.8487,
+        "peerMean": 0.822,
+        "historicalMean": 0.8063,
+        "deltaPp": 1.81,
+        "priorCount": 11,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-11",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-01",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-01",
+        "completion": 0.7818,
+        "releaseNormality": 0.7959,
+        "peerMean": 0.7813,
+        "historicalMean": 0.8079,
+        "deltaPp": -2.61,
+        "priorCount": 12,
+        "windowStart": "2024-01",
+        "windowEnd": "2024-12",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-02",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-02",
+        "completion": 0.7768,
+        "releaseNormality": 0.8092,
+        "peerMean": 0.7702,
+        "historicalMean": 0.8075,
+        "deltaPp": -3.07,
+        "priorCount": 12,
+        "windowStart": "2024-02",
+        "windowEnd": "2025-01",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-03",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-03",
+        "completion": 0.8129,
+        "releaseNormality": 0.8464,
+        "peerMean": 0.8051,
+        "historicalMean": 0.8077,
+        "deltaPp": 0.51,
+        "priorCount": 12,
+        "windowStart": "2024-03",
+        "windowEnd": "2025-02",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-04",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-04",
+        "completion": 0.8397,
+        "releaseNormality": 0.8808,
+        "peerMean": 0.8369,
+        "historicalMean": 0.8068,
+        "deltaPp": 3.29,
+        "priorCount": 12,
+        "windowStart": "2024-04",
+        "windowEnd": "2025-03",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-05",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-05",
+        "completion": 0.7908,
+        "releaseNormality": 0.8028,
+        "peerMean": 0.8067,
+        "historicalMean": 0.8072,
+        "deltaPp": -1.64,
+        "priorCount": 12,
+        "windowStart": "2024-05",
+        "windowEnd": "2025-04",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-06",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-06",
+        "completion": 0.7963,
+        "releaseNormality": 0.82,
+        "peerMean": 0.8107,
+        "historicalMean": 0.8035,
+        "deltaPp": -0.72,
+        "priorCount": 12,
+        "windowStart": "2024-06",
+        "windowEnd": "2025-05",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-07",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-07",
+        "completion": 0.7798,
+        "releaseNormality": 0.8161,
+        "peerMean": 0.7795,
+        "historicalMean": 0.803,
+        "deltaPp": -2.32,
+        "priorCount": 12,
+        "windowStart": "2024-07",
+        "windowEnd": "2025-06",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-08",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-08",
+        "completion": 0.7515,
+        "releaseNormality": 0.769,
+        "peerMean": 0.7491,
+        "historicalMean": 0.8058,
+        "deltaPp": -5.44,
+        "priorCount": 12,
+        "windowStart": "2024-08",
+        "windowEnd": "2025-07",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-09",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-09",
+        "completion": 0.8097,
+        "releaseNormality": 0.8435,
+        "peerMean": 0.7994,
+        "historicalMean": 0.8035,
+        "deltaPp": 0.61,
+        "priorCount": 12,
+        "windowStart": "2024-09",
+        "windowEnd": "2025-08",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-10",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-10",
+        "completion": 0.8443,
+        "releaseNormality": 0.8821,
+        "peerMean": 0.8296,
+        "historicalMean": 0.8026,
+        "deltaPp": 4.17,
+        "priorCount": 12,
+        "windowStart": "2024-10",
+        "windowEnd": "2025-09",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-11",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-11",
+        "completion": 0.8366,
+        "releaseNormality": 0.865,
+        "peerMean": 0.8173,
+        "historicalMean": 0.8037,
+        "deltaPp": 3.29,
+        "priorCount": 12,
+        "windowStart": "2024-11",
+        "windowEnd": "2025-10",
+        "peerCount": 3
+      },
+      {
+        "evidenceId": "OPS-LIN-2025-12",
+        "airportId": "LIN",
+        "category": "小型机场",
+        "period": "2025-12",
+        "completion": 0.827,
+        "releaseNormality": 0.8623,
+        "peerMean": 0.816,
+        "historicalMean": 0.8037,
+        "deltaPp": 2.33,
+        "priorCount": 12,
+        "windowStart": "2024-12",
+        "windowEnd": "2025-11",
+        "peerCount": 3
+      }
+    ],
+    "metrics": [
+      {
+        "id": "OPS-LIN-2024-01:completion",
+        "evidenceId": "OPS-LIN-2024-01",
+        "value": 78.64,
+        "unit": "%",
+        "period": "2024-01",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-01:release",
+        "evidenceId": "OPS-LIN-2024-01",
+        "value": 82.83,
+        "unit": "%",
+        "period": "2024-01",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-01:historical",
+        "evidenceId": "OPS-LIN-2024-01",
+        "value": 78.64,
+        "unit": "%",
+        "period": "2024-01",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-01:delta",
+        "evidenceId": "OPS-LIN-2024-01",
+        "value": 0,
+        "unit": "pp",
+        "period": "2024-01",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-01:peers",
+        "evidenceId": "OPS-LIN-2024-01",
+        "value": 77.66,
+        "unit": "%",
+        "period": "2024-01",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-02:completion",
+        "evidenceId": "OPS-LIN-2024-02",
+        "value": 77.34,
+        "unit": "%",
+        "period": "2024-02",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-02:release",
+        "evidenceId": "OPS-LIN-2024-02",
+        "value": 78.71000000000001,
+        "unit": "%",
+        "period": "2024-02",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-02:historical",
+        "evidenceId": "OPS-LIN-2024-02",
+        "value": 78.64,
+        "unit": "%",
+        "period": "2024-02",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-02:delta",
+        "evidenceId": "OPS-LIN-2024-02",
+        "value": -1.3,
+        "unit": "pp",
+        "period": "2024-02",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-02:peers",
+        "evidenceId": "OPS-LIN-2024-02",
+        "value": 77.37,
+        "unit": "%",
+        "period": "2024-02",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-03:completion",
+        "evidenceId": "OPS-LIN-2024-03",
+        "value": 82.44,
+        "unit": "%",
+        "period": "2024-03",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-03:release",
+        "evidenceId": "OPS-LIN-2024-03",
+        "value": 84.82,
+        "unit": "%",
+        "period": "2024-03",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-03:historical",
+        "evidenceId": "OPS-LIN-2024-03",
+        "value": 77.99000000000001,
+        "unit": "%",
+        "period": "2024-03",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-03:delta",
+        "evidenceId": "OPS-LIN-2024-03",
+        "value": 4.45,
+        "unit": "pp",
+        "period": "2024-03",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-03:peers",
+        "evidenceId": "OPS-LIN-2024-03",
+        "value": 81.34,
+        "unit": "%",
+        "period": "2024-03",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-04:completion",
+        "evidenceId": "OPS-LIN-2024-04",
+        "value": 83.44,
+        "unit": "%",
+        "period": "2024-04",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-04:release",
+        "evidenceId": "OPS-LIN-2024-04",
+        "value": 87.27000000000001,
+        "unit": "%",
+        "period": "2024-04",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-04:historical",
+        "evidenceId": "OPS-LIN-2024-04",
+        "value": 79.47,
+        "unit": "%",
+        "period": "2024-04",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-04:delta",
+        "evidenceId": "OPS-LIN-2024-04",
+        "value": 3.97,
+        "unit": "pp",
+        "period": "2024-04",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-04:peers",
+        "evidenceId": "OPS-LIN-2024-04",
+        "value": 83.21,
+        "unit": "%",
+        "period": "2024-04",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-05:completion",
+        "evidenceId": "OPS-LIN-2024-05",
+        "value": 83.55,
+        "unit": "%",
+        "period": "2024-05",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-05:release",
+        "evidenceId": "OPS-LIN-2024-05",
+        "value": 87.29,
+        "unit": "%",
+        "period": "2024-05",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-05:historical",
+        "evidenceId": "OPS-LIN-2024-05",
+        "value": 80.46,
+        "unit": "%",
+        "period": "2024-05",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-05:delta",
+        "evidenceId": "OPS-LIN-2024-05",
+        "value": 3.09,
+        "unit": "pp",
+        "period": "2024-05",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-05:peers",
+        "evidenceId": "OPS-LIN-2024-05",
+        "value": 82.28,
+        "unit": "%",
+        "period": "2024-05",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-06:completion",
+        "evidenceId": "OPS-LIN-2024-06",
+        "value": 80.22,
+        "unit": "%",
+        "period": "2024-06",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-06:release",
+        "evidenceId": "OPS-LIN-2024-06",
+        "value": 82.64,
+        "unit": "%",
+        "period": "2024-06",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-06:historical",
+        "evidenceId": "OPS-LIN-2024-06",
+        "value": 81.08,
+        "unit": "%",
+        "period": "2024-06",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-06:delta",
+        "evidenceId": "OPS-LIN-2024-06",
+        "value": -0.86,
+        "unit": "pp",
+        "period": "2024-06",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-06:peers",
+        "evidenceId": "OPS-LIN-2024-06",
+        "value": 81.76,
+        "unit": "%",
+        "period": "2024-06",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-07:completion",
+        "evidenceId": "OPS-LIN-2024-07",
+        "value": 74.58,
+        "unit": "%",
+        "period": "2024-07",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-07:release",
+        "evidenceId": "OPS-LIN-2024-07",
+        "value": 76.07000000000001,
+        "unit": "%",
+        "period": "2024-07",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-07:historical",
+        "evidenceId": "OPS-LIN-2024-07",
+        "value": 80.94,
+        "unit": "%",
+        "period": "2024-07",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-07:delta",
+        "evidenceId": "OPS-LIN-2024-07",
+        "value": -6.36,
+        "unit": "pp",
+        "period": "2024-07",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-07:peers",
+        "evidenceId": "OPS-LIN-2024-07",
+        "value": 75.84,
+        "unit": "%",
+        "period": "2024-07",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-08:completion",
+        "evidenceId": "OPS-LIN-2024-08",
+        "value": 77.91,
+        "unit": "%",
+        "period": "2024-08",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-08:release",
+        "evidenceId": "OPS-LIN-2024-08",
+        "value": 79.73,
+        "unit": "%",
+        "period": "2024-08",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-08:historical",
+        "evidenceId": "OPS-LIN-2024-08",
+        "value": 80.03,
+        "unit": "%",
+        "period": "2024-08",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-08:delta",
+        "evidenceId": "OPS-LIN-2024-08",
+        "value": -2.12,
+        "unit": "pp",
+        "period": "2024-08",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-08:peers",
+        "evidenceId": "OPS-LIN-2024-08",
+        "value": 76.84,
+        "unit": "%",
+        "period": "2024-08",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-09:completion",
+        "evidenceId": "OPS-LIN-2024-09",
+        "value": 82.09,
+        "unit": "%",
+        "period": "2024-09",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-09:release",
+        "evidenceId": "OPS-LIN-2024-09",
+        "value": 85.88,
+        "unit": "%",
+        "period": "2024-09",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-09:historical",
+        "evidenceId": "OPS-LIN-2024-09",
+        "value": 79.75999999999999,
+        "unit": "%",
+        "period": "2024-09",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-09:delta",
+        "evidenceId": "OPS-LIN-2024-09",
+        "value": 2.32,
+        "unit": "pp",
+        "period": "2024-09",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-09:peers",
+        "evidenceId": "OPS-LIN-2024-09",
+        "value": 81.84,
+        "unit": "%",
+        "period": "2024-09",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-10:completion",
+        "evidenceId": "OPS-LIN-2024-10",
+        "value": 83.17,
+        "unit": "%",
+        "period": "2024-10",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-10:release",
+        "evidenceId": "OPS-LIN-2024-10",
+        "value": 84.94,
+        "unit": "%",
+        "period": "2024-10",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-10:historical",
+        "evidenceId": "OPS-LIN-2024-10",
+        "value": 80.02,
+        "unit": "%",
+        "period": "2024-10",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-10:delta",
+        "evidenceId": "OPS-LIN-2024-10",
+        "value": 3.15,
+        "unit": "pp",
+        "period": "2024-10",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-10:peers",
+        "evidenceId": "OPS-LIN-2024-10",
+        "value": 82.95,
+        "unit": "%",
+        "period": "2024-10",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-11:completion",
+        "evidenceId": "OPS-LIN-2024-11",
+        "value": 83.6,
+        "unit": "%",
+        "period": "2024-11",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-11:release",
+        "evidenceId": "OPS-LIN-2024-11",
+        "value": 87.3,
+        "unit": "%",
+        "period": "2024-11",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-11:historical",
+        "evidenceId": "OPS-LIN-2024-11",
+        "value": 80.34,
+        "unit": "%",
+        "period": "2024-11",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-11:delta",
+        "evidenceId": "OPS-LIN-2024-11",
+        "value": 3.26,
+        "unit": "pp",
+        "period": "2024-11",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-11:peers",
+        "evidenceId": "OPS-LIN-2024-11",
+        "value": 82.77,
+        "unit": "%",
+        "period": "2024-11",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-12:completion",
+        "evidenceId": "OPS-LIN-2024-12",
+        "value": 82.44,
+        "unit": "%",
+        "period": "2024-12",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-12:release",
+        "evidenceId": "OPS-LIN-2024-12",
+        "value": 84.87,
+        "unit": "%",
+        "period": "2024-12",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-12:historical",
+        "evidenceId": "OPS-LIN-2024-12",
+        "value": 80.63,
+        "unit": "%",
+        "period": "2024-12",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-12:delta",
+        "evidenceId": "OPS-LIN-2024-12",
+        "value": 1.81,
+        "unit": "pp",
+        "period": "2024-12",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2024-12:peers",
+        "evidenceId": "OPS-LIN-2024-12",
+        "value": 82.19999999999999,
+        "unit": "%",
+        "period": "2024-12",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-01:completion",
+        "evidenceId": "OPS-LIN-2025-01",
+        "value": 78.18,
+        "unit": "%",
+        "period": "2025-01",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-01:release",
+        "evidenceId": "OPS-LIN-2025-01",
+        "value": 79.59,
+        "unit": "%",
+        "period": "2025-01",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-01:historical",
+        "evidenceId": "OPS-LIN-2025-01",
+        "value": 80.78999999999999,
+        "unit": "%",
+        "period": "2025-01",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-01:delta",
+        "evidenceId": "OPS-LIN-2025-01",
+        "value": -2.61,
+        "unit": "pp",
+        "period": "2025-01",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-01:peers",
+        "evidenceId": "OPS-LIN-2025-01",
+        "value": 78.13,
+        "unit": "%",
+        "period": "2025-01",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-02:completion",
+        "evidenceId": "OPS-LIN-2025-02",
+        "value": 77.68,
+        "unit": "%",
+        "period": "2025-02",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-02:release",
+        "evidenceId": "OPS-LIN-2025-02",
+        "value": 80.92,
+        "unit": "%",
+        "period": "2025-02",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-02:historical",
+        "evidenceId": "OPS-LIN-2025-02",
+        "value": 80.75,
+        "unit": "%",
+        "period": "2025-02",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-02:delta",
+        "evidenceId": "OPS-LIN-2025-02",
+        "value": -3.07,
+        "unit": "pp",
+        "period": "2025-02",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-02:peers",
+        "evidenceId": "OPS-LIN-2025-02",
+        "value": 77.02,
+        "unit": "%",
+        "period": "2025-02",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-03:completion",
+        "evidenceId": "OPS-LIN-2025-03",
+        "value": 81.28999999999999,
+        "unit": "%",
+        "period": "2025-03",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-03:release",
+        "evidenceId": "OPS-LIN-2025-03",
+        "value": 84.64,
+        "unit": "%",
+        "period": "2025-03",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-03:historical",
+        "evidenceId": "OPS-LIN-2025-03",
+        "value": 80.77,
+        "unit": "%",
+        "period": "2025-03",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-03:delta",
+        "evidenceId": "OPS-LIN-2025-03",
+        "value": 0.51,
+        "unit": "pp",
+        "period": "2025-03",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-03:peers",
+        "evidenceId": "OPS-LIN-2025-03",
+        "value": 80.51,
+        "unit": "%",
+        "period": "2025-03",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-04:completion",
+        "evidenceId": "OPS-LIN-2025-04",
+        "value": 83.97,
+        "unit": "%",
+        "period": "2025-04",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-04:release",
+        "evidenceId": "OPS-LIN-2025-04",
+        "value": 88.08,
+        "unit": "%",
+        "period": "2025-04",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-04:historical",
+        "evidenceId": "OPS-LIN-2025-04",
+        "value": 80.67999999999999,
+        "unit": "%",
+        "period": "2025-04",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-04:delta",
+        "evidenceId": "OPS-LIN-2025-04",
+        "value": 3.29,
+        "unit": "pp",
+        "period": "2025-04",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-04:peers",
+        "evidenceId": "OPS-LIN-2025-04",
+        "value": 83.69,
+        "unit": "%",
+        "period": "2025-04",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-05:completion",
+        "evidenceId": "OPS-LIN-2025-05",
+        "value": 79.08,
+        "unit": "%",
+        "period": "2025-05",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-05:release",
+        "evidenceId": "OPS-LIN-2025-05",
+        "value": 80.28,
+        "unit": "%",
+        "period": "2025-05",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-05:historical",
+        "evidenceId": "OPS-LIN-2025-05",
+        "value": 80.72,
+        "unit": "%",
+        "period": "2025-05",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-05:delta",
+        "evidenceId": "OPS-LIN-2025-05",
+        "value": -1.64,
+        "unit": "pp",
+        "period": "2025-05",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-05:peers",
+        "evidenceId": "OPS-LIN-2025-05",
+        "value": 80.67,
+        "unit": "%",
+        "period": "2025-05",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-06:completion",
+        "evidenceId": "OPS-LIN-2025-06",
+        "value": 79.63,
+        "unit": "%",
+        "period": "2025-06",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-06:release",
+        "evidenceId": "OPS-LIN-2025-06",
+        "value": 82,
+        "unit": "%",
+        "period": "2025-06",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-06:historical",
+        "evidenceId": "OPS-LIN-2025-06",
+        "value": 80.35,
+        "unit": "%",
+        "period": "2025-06",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-06:delta",
+        "evidenceId": "OPS-LIN-2025-06",
+        "value": -0.72,
+        "unit": "pp",
+        "period": "2025-06",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-06:peers",
+        "evidenceId": "OPS-LIN-2025-06",
+        "value": 81.07,
+        "unit": "%",
+        "period": "2025-06",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-07:completion",
+        "evidenceId": "OPS-LIN-2025-07",
+        "value": 77.98,
+        "unit": "%",
+        "period": "2025-07",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-07:release",
+        "evidenceId": "OPS-LIN-2025-07",
+        "value": 81.61,
+        "unit": "%",
+        "period": "2025-07",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-07:historical",
+        "evidenceId": "OPS-LIN-2025-07",
+        "value": 80.30000000000001,
+        "unit": "%",
+        "period": "2025-07",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-07:delta",
+        "evidenceId": "OPS-LIN-2025-07",
+        "value": -2.32,
+        "unit": "pp",
+        "period": "2025-07",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-07:peers",
+        "evidenceId": "OPS-LIN-2025-07",
+        "value": 77.95,
+        "unit": "%",
+        "period": "2025-07",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-08:completion",
+        "evidenceId": "OPS-LIN-2025-08",
+        "value": 75.14999999999999,
+        "unit": "%",
+        "period": "2025-08",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-08:release",
+        "evidenceId": "OPS-LIN-2025-08",
+        "value": 76.9,
+        "unit": "%",
+        "period": "2025-08",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-08:historical",
+        "evidenceId": "OPS-LIN-2025-08",
+        "value": 80.58,
+        "unit": "%",
+        "period": "2025-08",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-08:delta",
+        "evidenceId": "OPS-LIN-2025-08",
+        "value": -5.44,
+        "unit": "pp",
+        "period": "2025-08",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-08:peers",
+        "evidenceId": "OPS-LIN-2025-08",
+        "value": 74.91,
+        "unit": "%",
+        "period": "2025-08",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-09:completion",
+        "evidenceId": "OPS-LIN-2025-09",
+        "value": 80.97,
+        "unit": "%",
+        "period": "2025-09",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-09:release",
+        "evidenceId": "OPS-LIN-2025-09",
+        "value": 84.35000000000001,
+        "unit": "%",
+        "period": "2025-09",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-09:historical",
+        "evidenceId": "OPS-LIN-2025-09",
+        "value": 80.35,
+        "unit": "%",
+        "period": "2025-09",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-09:delta",
+        "evidenceId": "OPS-LIN-2025-09",
+        "value": 0.61,
+        "unit": "pp",
+        "period": "2025-09",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-09:peers",
+        "evidenceId": "OPS-LIN-2025-09",
+        "value": 79.94,
+        "unit": "%",
+        "period": "2025-09",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-10:completion",
+        "evidenceId": "OPS-LIN-2025-10",
+        "value": 84.43,
+        "unit": "%",
+        "period": "2025-10",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-10:release",
+        "evidenceId": "OPS-LIN-2025-10",
+        "value": 88.21,
+        "unit": "%",
+        "period": "2025-10",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-10:historical",
+        "evidenceId": "OPS-LIN-2025-10",
+        "value": 80.25999999999999,
+        "unit": "%",
+        "period": "2025-10",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-10:delta",
+        "evidenceId": "OPS-LIN-2025-10",
+        "value": 4.17,
+        "unit": "pp",
+        "period": "2025-10",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-10:peers",
+        "evidenceId": "OPS-LIN-2025-10",
+        "value": 82.96,
+        "unit": "%",
+        "period": "2025-10",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-11:completion",
+        "evidenceId": "OPS-LIN-2025-11",
+        "value": 83.66,
+        "unit": "%",
+        "period": "2025-11",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-11:release",
+        "evidenceId": "OPS-LIN-2025-11",
+        "value": 86.5,
+        "unit": "%",
+        "period": "2025-11",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-11:historical",
+        "evidenceId": "OPS-LIN-2025-11",
+        "value": 80.36999999999999,
+        "unit": "%",
+        "period": "2025-11",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-11:delta",
+        "evidenceId": "OPS-LIN-2025-11",
+        "value": 3.29,
+        "unit": "pp",
+        "period": "2025-11",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-11:peers",
+        "evidenceId": "OPS-LIN-2025-11",
+        "value": 81.73,
+        "unit": "%",
+        "period": "2025-11",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-12:completion",
+        "evidenceId": "OPS-LIN-2025-12",
+        "value": 82.69999999999999,
+        "unit": "%",
+        "period": "2025-12",
+        "label": {
+          "en": "Completed as planned",
+          "zh": "按计划完成航班比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-12:release",
+        "evidenceId": "OPS-LIN-2025-12",
+        "value": 86.22999999999999,
+        "unit": "%",
+        "period": "2025-12",
+        "label": {
+          "en": "Release normality",
+          "zh": "机场放行正常比例"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-12:historical",
+        "evidenceId": "OPS-LIN-2025-12",
+        "value": 80.36999999999999,
+        "unit": "%",
+        "period": "2025-12",
+        "label": {
+          "en": "Prior available-month mean",
+          "zh": "此前可用月份平均"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-12:delta",
+        "evidenceId": "OPS-LIN-2025-12",
+        "value": 2.33,
+        "unit": "pp",
+        "period": "2025-12",
+        "label": {
+          "en": "Difference from historical mean",
+          "zh": "与历史平均差"
+        }
+      },
+      {
+        "id": "OPS-LIN-2025-12:peers",
+        "evidenceId": "OPS-LIN-2025-12",
+        "value": 81.6,
+        "unit": "%",
+        "period": "2025-12",
+        "label": {
+          "en": "Same-category mean (includes this airport)",
+          "zh": "同类均值（包含本机场）"
+        }
+      }
+    ],
+    "reportEvidence": [
+      {
+        "id": "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+        "report": {
+          "id": "3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "text": "SIMULATED forecast: gusty winds are expected over the next four hours at Linjiang. Intensity is not yet quantified; no official delay or cancellation is reported.",
+          "sourceLabel": "Team forecast scenario",
+          "originReportId": "LIN-FORECAST-07",
+          "reportedAt": "Simulation Day 7, 13:45",
+          "applicablePeriod": "Simulation Day 7, 14:00",
+          "reliability": "human_verified",
+          "independenceGroup": null,
+          "verificationBasis": "Authored and reviewed as a fictional test forecast, not real weather.",
+          "signal": "weather",
+          "expandingImpact": false,
+          "provenanceKind": "team_simulation",
+          "sourceEvidenceId": null
+        }
+      },
+      {
+        "id": "REPORT:3326d57d-e140-47ab-b2e7-69e408361d80",
+        "report": {
+          "id": "3326d57d-e140-47ab-b2e7-69e408361d80",
+          "text": "Ground coordination group states that sufficient parking stands are available this afternoon; no supporting record or confirmation time has been provided. Treat this as unverified and not applied to the current incident or used to lower the weather-related risk.\n地面协调小组称下午停机位充足；尚未提供支持记录或确认时间。该说法应视为未核实，不应用到当前事件，也不用于降低天气相关风险。",
+          "sourceLabel": "User-supplied simulated statement (unverified)",
+          "originReportId": null,
+          "reportedAt": null,
+          "applicablePeriod": "Simulation Day 7, 14:00",
+          "reliability": "unverified",
+          "independenceGroup": null,
+          "verificationBasis": null,
+          "signal": "context",
+          "expandingImpact": false,
+          "provenanceKind": "team_simulation",
+          "sourceEvidenceId": null
+        }
+      }
+    ]
+  },
+  "policy": {
+    "riskLevel": "medium",
+    "ruleIds": [
+      "RULE009",
+      "RULE010",
+      "RULE011",
+      "RULE002",
+      "RULE005"
+    ],
+    "usableReportIds": [
+      "3209ff99-2111-4c50-89ca-da0bc937ad34"
+    ],
+    "independentGroups": [],
+    "gaps": [
+      {
+        "en": "Scenario unknowns require verification; see the incident record.",
+        "zh": "事件中的未知信息需要核查，请参阅事件记录。"
+      },
+      {
+        "en": "Independent current report identities are not established.",
+        "zh": "尚未确认当前报告的独立来源身份。"
+      },
+      {
+        "en": "Some report timestamps are unspecified.",
+        "zh": "部分报告时间未提供。"
+      }
+    ],
+    "constraints": {
+      "professionalDecisionRequired": false,
+      "actionConclusionsStopped": false,
+      "triggeredRuleIds": [],
+      "decisionScope": "Simulation Day 7, 14:00",
+      "reviewerRoles": [
+        {
+          "en": "Operations lead",
+          "zh": "运营负责人"
+        }
+      ]
+    }
+  }
+}

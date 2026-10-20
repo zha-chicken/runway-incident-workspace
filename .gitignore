@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env*
+!.env.example
+runtime/
+coverage/
+*.tsbuildinfo
+.DS_Store
+tmp/
+output/private/
+evals/results/private/

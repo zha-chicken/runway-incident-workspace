@@ -1,0 +1,525 @@
+{
+  "simulation": true,
+  "reviewer": "Prototype QA agent",
+  "input": {
+    "title": "Linjiang afternoon weather review",
+    "airportId": "LIN",
+    "scenarioPeriod": "Simulation Day 7, 14:00",
+    "historicalThrough": null,
+    "businessImportance": "medium",
+    "knownInformation": "A simulated forecast indicates gusty winds during the afternoon peak. No flight delay or cancellation has been confirmed.",
+    "unknowns": "Forecast intensity, airport capacity and individual flight status need confirmation.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "3209ff99-2111-4c50-89ca-da0bc937ad34",
+        "text": "SIMULATED forecast: gusty winds are expected over the next four hours at Linjiang. Intensity is not yet quantified; no official delay or cancellation is reported.",
+        "sourceLabel": "Team forecast scenario",
+        "originReportId": "LIN-FORECAST-07",
+        "reportedAt": "Simulation Day 7, 13:45",
+        "applicablePeriod": "Simulation Day 7, 14:00",
+        "reliability": "human_verified",
+        "independenceGroup": null,
+        "verificationBasis": "Authored and reviewed as a fictional test forecast, not real weather.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "result": {
+    "riskLevel": "medium",
+    "scope": {
+      "airportId": "LIN",
+      "scenarioPeriod": "Simulation Day 7, 14:00"
+    },
+    "rationale": [
+      {
+        "text": {
+          "en": "The current simulated report states that gusty winds are expected over the next four hours at Linjiang; intensity is not quantified and no official delay or cancellation is reported.",
+          "zh": "当前模拟报告称，临江未来四小时预计有阵风；强度尚未量化，且未报告官方延误或取消。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Official status is unconfirmed, and only one current report is supplied; no independent current-report identity is established.",
+          "zh": "官方状态尚未确认，且仅提供了一份当前报告；尚未确认独立的当前报告来源身份。"
+        },
+        "kind": "unknown",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "computedPolicy assigns medium risk with professionalDecisionRequired false and actionConclusionsStopped false; therefore the assessment remains needs_review rather than stopped.",
+          "zh": "computedPolicy 评定为中等风险，professionalDecisionRequired 为 false，actionConclusionsStopped 为 false；因此评估保持 needs_review，而非 stopped。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "RULE002 applies because a weather signal is medium risk without a formal operational status: prepare monitoring checks and communication drafts, and do not claim flights will certainly be delayed.",
+          "zh": "RULE002 适用：天气信号为中等风险但尚无正式运行状态，应准备监测清单和沟通草案，且不得声称航班一定延误。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE002"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "RULE005 applies because a risk exists without an official flight status: any passenger notice must be marked draft and must not be auto-sent.",
+          "zh": "RULE005 适用：存在风险但无正式航班状态，任何旅客提示都必须标注草案，且不得自动发送。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE005"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "RULE009, RULE010 and RULE011 require source citations, clear simulation labeling, and exclusion of personal data.",
+          "zh": "RULE009、RULE010 和 RULE011 要求引用来源、明确标注模拟，并排除个人数据。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "RULE009",
+          "RULE010",
+          "RULE011"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Historical monthly records OPS-LIN-2024-07 and OPS-LIN-2025-08 show differences from prior available-month means of -6.36 pp and -5.44 pp; these are historical focus-review signals only, not current high risk or causation.",
+          "zh": "历史月度记录 OPS-LIN-2024-07 和 OPS-LIN-2025-08 与此前可用月份平均差分别为 -6.36 个百分点和 -5.44 个百分点；这些仅作为历史重点复核信号，不代表当前高风险或因果关系。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "OPS-LIN-2024-07",
+          "OPS-LIN-2025-08",
+          "RULE003"
+        ],
+        "metricIds": [
+          "OPS-LIN-2024-07:delta",
+          "OPS-LIN-2025-08:delta"
+        ]
+      },
+      {
+        "text": {
+          "en": "The monthly weather record WX-LIN-2025-11 has a missing-weather flag; its populated weather cells are overridden and should not be used as reliable values.",
+          "zh": "月度天气记录 WX-LIN-2025-11 带有缺少天气数据标记；其已填写的天气单元格应被覆盖，不应作为可靠数值使用。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "WX-LIN-2025-11"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Annual scale records SCALE-LIN-2024 and SCALE-LIN-2025 are background capacity information only and do not establish current weather or operational status.",
+          "zh": "年度规模记录 SCALE-LIN-2024 和 SCALE-LIN-2025 仅作为背景规模信息，不能确定当前天气或运行状态。"
+        },
+        "kind": "fact",
+        "evidenceIds": [
+          "SCALE-LIN-2024",
+          "SCALE-LIN-2025"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Forecast intensity and timing, airport capacity, individual flight status and source update time remain unverified.",
+          "zh": "预报强度与时段、机场容量、单个航班状态和来源更新时间仍未核实。"
+        },
+        "kind": "unknown",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Assumption: if gusts intensify or the airport imposes capacity limits, afternoon-peak operations could face pressure; no actual delay or cancellation is confirmed.",
+          "zh": "假设：若阵风增强或机场实施容量限制，下午高峰运行可能承压；目前没有确认的实际延误或取消。"
+        },
+        "kind": "assumption",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002"
+        ],
+        "metricIds": []
+      }
+    ],
+    "possibleImpacts": [
+      {
+        "text": {
+          "en": "Potential afternoon-peak capacity and ground-handling pressure if gusty winds intensify; this is conditional and unverified.",
+          "zh": "若阵风增强，下午高峰容量和地面保障可能承压；此为条件性且未核实的判断。"
+        },
+        "kind": "assumption",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Individual flight delay or cancellation status is unknown; no official flight status is available.",
+          "zh": "单个航班的延误或取消状态未知；没有可用的官方航班状态。"
+        },
+        "kind": "unknown",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      },
+      {
+        "text": {
+          "en": "Historical July/August monthly dips indicate periods needing focused historical review, but they do not explain current conditions.",
+          "zh": "历史七月/八月月度下降表明相关时段需要重点历史复核，但不能解释当前状况。"
+        },
+        "kind": "assumption",
+        "evidenceIds": [
+          "OPS-LIN-2024-07",
+          "OPS-LIN-2025-08",
+          "RULE003"
+        ],
+        "metricIds": [
+          "OPS-LIN-2024-07:delta",
+          "OPS-LIN-2025-08:delta"
+        ]
+      },
+      {
+        "text": {
+          "en": "Impact scope and duration are uncertain because only one current report is supplied and independent confirmation is not established.",
+          "zh": "影响范围和持续时间不确定，因为仅提供一份当前报告，且尚未确认独立来源。"
+        },
+        "kind": "unknown",
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34"
+        ],
+        "metricIds": []
+      }
+    ],
+    "assumptionsToVerify": [
+      {
+        "en": "Quantified wind speed, gust intensity, direction and duration, and whether a formal weather warning exists.",
+        "zh": "量化的风速、阵风强度、风向和持续时间，以及是否存在正式天气警告。"
+      },
+      {
+        "en": "Airport capacity, runway configuration, ground handling and queue pressure for the forecast window.",
+        "zh": "预报时段内的机场容量、跑道构型、地面保障和排队压力。"
+      },
+      {
+        "en": "Individual flight status and any official airline or airport delay or cancellation information.",
+        "zh": "单个航班状态以及任何官方航空公司或机场延误/取消信息。"
+      },
+      {
+        "en": "Source update time and any independent current report.",
+        "zh": "来源更新时间以及任何独立的当前报告。"
+      },
+      {
+        "en": "Whether historical monthly anomalies need focused review and whether data completeness issues, including WX-LIN-2025-11, affect that review.",
+        "zh": "历史月度异常是否需要重点复核，以及包括 WX-LIN-2025-11 在内的数据完整性问题是否影响该复核。"
+      }
+    ],
+    "informationGaps": [
+      {
+        "en": "Quantified forecast gust intensity, direction, timing and duration.",
+        "zh": "量化的预报阵风强度、风向、时段和持续时间。"
+      },
+      {
+        "en": "Official airport, ATC or meteorological status and update time.",
+        "zh": "官方机场、空管或气象状态及更新时间。"
+      },
+      {
+        "en": "Current airport capacity, runway configuration and ground-handling restrictions.",
+        "zh": "当前机场容量、跑道构型和地面保障限制。"
+      },
+      {
+        "en": "Individual flight status and official delay or cancellation data.",
+        "zh": "单个航班状态及官方延误或取消数据。"
+      },
+      {
+        "en": "Independent current report identity.",
+        "zh": "独立的当前报告来源身份。"
+      },
+      {
+        "en": "Historical data completeness for WX-LIN-2025-11 and any other missing-weather records.",
+        "zh": "WX-LIN-2025-11 及任何其他缺少天气数据记录的历史数据完整性。"
+      },
+      {
+        "en": "Public-facing official update source and time; no contact link is supplied.",
+        "zh": "面向公众的官方更新来源和时间；未提供联系链接。"
+      },
+      {
+        "en": "Whether any safety issue exists; none is reported in the supplied scenario.",
+        "zh": "是否存在任何安全问题；所提供场景未报告此类问题。"
+      }
+    ],
+    "firstAction": {
+      "id": "first",
+      "kind": "verify",
+      "text": {
+        "en": "Verify the simulated gusty-wind forecast with airport operations: quantify intensity and timing, confirm any formal weather warning and official flight status, and do not treat this as a confirmed delay or cancellation.",
+        "zh": "与机场运行核实模拟阵风预报：量化强度和时段，确认是否有正式天气警告和官方航班状态，且不得将此视为已确认的延误或取消。"
+      },
+      "evidenceIds": [
+        "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+        "RULE002",
+        "RULE009",
+        "RULE010"
+      ],
+      "ruleIds": [
+        "RULE002",
+        "RULE009",
+        "RULE010"
+      ]
+    },
+    "subsequentActions": [
+      {
+        "id": "follow-1",
+        "kind": "monitor",
+        "text": {
+          "en": "Monitor for official weather updates and any airport capacity restrictions during the forecast window; record the source update time.",
+          "zh": "在预报时段内监测官方天气更新和任何机场容量限制；记录来源更新时间。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002",
+          "RULE009"
+        ],
+        "ruleIds": [
+          "RULE002",
+          "RULE009"
+        ]
+      },
+      {
+        "id": "follow-2",
+        "kind": "prepare_information",
+        "text": {
+          "en": "Prepare an information request to Linjiang airport coordination for quantified forecast, capacity and official flight status; scope it to Simulation Day 7, 14:00 and the forecast's four-hour window.",
+          "zh": "准备向临江机场协调部门的信息请求，询问量化预报、容量和官方航班状态；范围限定为模拟第7日14:00及预报的四小时窗口。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002",
+          "RULE009"
+        ],
+        "ruleIds": [
+          "RULE002",
+          "RULE009"
+        ]
+      },
+      {
+        "id": "follow-3",
+        "kind": "prepare_draft",
+        "text": {
+          "en": "Prepare separate draft communications for operations, airport coordination and passengers; all must be marked SIMULATION/DRAFT and must not be sent automatically.",
+          "zh": "分别准备面向运行、机场协调和旅客的沟通草案；所有草案必须标注模拟/草案，且不得自动发送。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE005",
+          "RULE010"
+        ],
+        "ruleIds": [
+          "RULE005",
+          "RULE010"
+        ]
+      },
+      {
+        "id": "follow-4",
+        "kind": "verify",
+        "text": {
+          "en": "If a second independent current report appears, compare scope and timing before changing the risk view; do not treat historical tables as independent current reports.",
+          "zh": "若出现第二份独立当前报告，在改变风险判断前比较范围和时段；不得将历史表格视为独立的当前报告。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE009"
+        ],
+        "ruleIds": [
+          "RULE009"
+        ]
+      }
+    ],
+    "escalationConditions": [
+      {
+        "en": "If a formal weather warning is issued or observed gusts exceed airport or aircraft limits.",
+        "zh": "若发布正式天气警告，或观测阵风超过机场或航空器限制。"
+      },
+      {
+        "en": "If official airport capacity restrictions, delays or cancellations are issued.",
+        "zh": "若发布官方机场容量限制、延误或取消。"
+      },
+      {
+        "en": "If a second independent current report corroborates the forecast and impact scope may expand.",
+        "zh": "若第二份独立当前报告证实该预报且影响范围可能扩大。"
+      },
+      {
+        "en": "If any safety issue or source reliability uncertainty arises.",
+        "zh": "若出现任何安全问题或来源可靠性不确定性。"
+      },
+      {
+        "en": "If historical review is requested because of the five-point monthly anomalies.",
+        "zh": "若因五个百分点的月度异常而要求进行历史复核。"
+      }
+    ],
+    "humanDecisions": [
+      {
+        "en": "Operations lead reviews and approves the medium-risk assessment and monitoring priorities.",
+        "zh": "运营负责人审核并批准中等风险评估和监测优先级。"
+      },
+      {
+        "en": "Passenger-services reviewer approves any public draft before use; no auto-send.",
+        "zh": "旅客服务审核人员在任何公开草案使用前予以批准；不得自动发送。"
+      },
+      {
+        "en": "Any operational restriction or flight decision remains with authorized professional decision-makers; this output only prepares information.",
+        "zh": "任何运行限制或航班决定仍由获授权的专业决策人员负责；本输出仅准备信息。"
+      },
+      {
+        "en": "Output reviewer confirms source citations, simulation labels and privacy handling.",
+        "zh": "输出复核人确认来源引用、模拟标识和隐私处理。"
+      }
+    ],
+    "drafts": {
+      "operations": {
+        "text": {
+          "en": "SIMULATION / 模拟 — DRAFT / 草案 — Operations priority checks for LIN, Simulation Day 7, 14:00: confirm forecast gust intensity and timing and any formal weather warning; check airport capacity, runway configuration, ground handling and afternoon-peak queue pressure; verify individual flight status and any official delay or cancellation; do not treat the forecast as a confirmed disruption; record source update time and any independent report.",
+          "zh": "模拟 / SIMULATION — 草案 / DRAFT — 临江模拟第7日14:00运行重点核查：确认预报阵风强度与时段及是否有正式天气警告；检查机场容量、跑道构型、地面保障和下午高峰排队压力；核实单个航班状态及任何官方延误或取消；不得将预报视为已确认的中断；记录来源更新时间和任何独立报告。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002",
+          "RULE009",
+          "RULE010"
+        ]
+      },
+      "airportCoordination": {
+        "text": {
+          "en": "SIMULATION / 模拟 — DRAFT / 草案 — Information request to Linjiang airport coordination, scope Simulation Day 7, 14:00 and the forecast's four-hour window: please provide quantified wind and gust forecast and any formal weather warning; current airport capacity, runway configuration and restrictions; expected afternoon-peak ground-handling constraints; and official flight status or delay/cancellation information. Also state update time and whether another independent source confirms the forecast. No operational decision is requested by this draft.",
+          "zh": "模拟 / SIMULATION — 草案 / DRAFT — 向临江机场协调部门的信息请求，范围：模拟第7日14:00及预报的四小时窗口：请提供量化的风速和阵风预报及任何正式天气警告；当前机场容量、跑道构型和限制；预计下午高峰地面保障约束；以及官方航班状态或延误/取消信息。还请说明更新时间，以及是否有另一独立来源证实该预报。本草案不请求任何运行决定。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE002",
+          "RULE009",
+          "RULE010"
+        ]
+      },
+      "passenger": {
+        "text": {
+          "en": "SIMULATION / 模拟 — DRAFT / 草案 — Public information for Linjiang: gusty winds are forecast this afternoon. Intensity and operational impact are not yet confirmed, and no official delay or cancellation has been confirmed. Please check official airline and airport updates for your flight before travelling. This is a draft and not a final notice.",
+          "zh": "模拟 / SIMULATION — 草案 / DRAFT — 临江公开信息：今天下午预报有阵风。强度和运行影响尚未确认，且尚未确认任何官方延误或取消。出行前请查询航空公司及机场的官方更新。本内容为草案，并非最终通知。"
+        },
+        "evidenceIds": [
+          "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+          "RULE005",
+          "RULE010"
+        ]
+      }
+    },
+    "evidenceReferences": [
+      "REPORT:3209ff99-2111-4c50-89ca-da0bc937ad34",
+      "OPS-LIN-2024-07",
+      "OPS-LIN-2025-08",
+      "WX-LIN-2025-11",
+      "SCALE-LIN-2024",
+      "SCALE-LIN-2025",
+      "RULE002",
+      "RULE003",
+      "RULE005",
+      "RULE009",
+      "RULE010",
+      "RULE011"
+    ],
+    "ruleIds": [
+      "RULE009",
+      "RULE010",
+      "RULE011",
+      "RULE002",
+      "RULE005",
+      "RULE003"
+    ],
+    "decisionConstraints": {
+      "professionalDecisionRequired": false,
+      "actionConclusionsStopped": false,
+      "triggeredRuleIds": [],
+      "decisionScope": "Simulation Day 7, 14:00",
+      "reviewerRoles": [
+        {
+          "en": "Operations lead",
+          "zh": "运营负责人"
+        }
+      ]
+    },
+    "outputStatus": "needs_review"
+  },
+  "metadata": {
+    "promptVersion": "runway-2026-10-20-v1",
+    "policyVersion": "risk-authority-v1",
+    "schemaVersion": 1,
+    "apiFormat": "responses",
+    "effort": "high",
+    "maxOutput": 65536,
+    "totalCeiling": 524288,
+    "inputEstimate": 85774,
+    "inputHash": "7dd732f0449522ccab1a09bd5443b3a489086d1cf38e934411e664fd3f9c0271",
+    "datasetVersion": "competition-571894e4d5ec",
+    "attempts": [
+      {
+        "attempt": 0,
+        "providerId": "4ab19c8e-f059-4277-8b05-a9106817486e",
+        "model": "deepseek-flash",
+        "fingerprint": null,
+        "terminal": "completed",
+        "status": "completed",
+        "latencyMs": 60430,
+        "usage": {
+          "input": 22684,
+          "cached": 2304,
+          "output": 14308,
+          "reasoning": 10446,
+          "raw": {
+            "input_tokens": 22684,
+            "input_tokens_details": {
+              "cached_tokens": 2304
+            },
+            "output_tokens": 14308,
+            "output_tokens_details": {
+              "reasoning_tokens": 10446
+            },
+            "total_tokens": 36992
+          }
+        }
+      }
+    ]
+  },
+  "costCny": 0.155317,
+  "createdAt": "2026-10-20T10:50:08.332Z"
+}
