@@ -10,6 +10,11 @@ export const FormError = createContext('');
 /** Lets any citation open its source record without threading callbacks through every view. */
 export const Inspect = createContext<{inspect:(id:string,version?:number)=>void;describe:(id:string)=>string|undefined}>({inspect:()=>{},describe:()=>undefined});
 
+/** The product name is the same in both languages; sentences use t('assistant') instead. */
+export function BrandName({stacked}:{stacked?:boolean}) {
+  return <span className={`brand-name ${stacked?'stacked':''}`}><span lang="zh-CN" className="brand-zh">航衡</span><span className="brand-dot" aria-hidden>·</span><span lang="en" className="brand-en">AeroContext</span></span>;
+}
+
 export function Field({label,hint,children}:{label:string;hint?:string;children:ReactNode}) {
   return <label className="field"><span className="field-label">{label}</span>{children}{hint&&<span className="field-hint">{hint}</span>}</label>;
 }

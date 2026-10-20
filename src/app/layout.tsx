@@ -1,7 +1,7 @@
 import type {Metadata, Viewport} from 'next';
 import './globals.css';
 export const metadata:Metadata={
-  title:'Runway · Incident workspace',
+  title:'航衡 · AeroContext · Incident review',
   description:'A bilingual, evidence-based simulation for reviewing airline disruption incidents.'
 };
 export const viewport:Viewport={

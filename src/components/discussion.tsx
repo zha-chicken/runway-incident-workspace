@@ -17,7 +17,7 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
         <p>{entry.question}</p>
       </div>
       <div className="msg ai">
-        <span className="msg-meta"><Bot size={14} aria-hidden/>Runway<AiMark t={t}/></span>
+        <span className="msg-meta"><Bot size={14} aria-hidden/>{t('assistant')}<AiMark t={t}/></span>
         <p className="draft-prose">{r.answer[locale]}</p>
         <Constraints policy={r.decisionConstraints} locale={locale} t={t}/>
         <Citations ids={r.evidenceIds} version={v} t={t}/>

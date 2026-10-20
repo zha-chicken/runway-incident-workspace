@@ -1,4 +1,4 @@
-# Runway
+# 航衡 · AeroContext
 
 A bilingual incident-review prototype for HackSHSID Track 3. It uses the supplied **simulated** airline dataset, inspectable evidence, an explicit risk policy, and DeepSeek Flash to prepare assessments and three audience-specific drafts for human review.
 
@@ -17,7 +17,9 @@ Set `DEEPSEEK_API_KEY` in `.env.local` and set `SESSION_SECRET` to a random stri
 npm run dev -- --port 3000
 ```
 
-Open [Runway locally](http://127.0.0.1:3000). The launch command supports the existing environment proxy through Node's `--use-env-proxy`. It does not change system proxy settings.
+Open [AeroContext locally](http://127.0.0.1:3000). The launch command supports the existing environment proxy through Node's `--use-env-proxy`. It does not change system proxy settings.
+
+Internal identifiers keep the earlier `runway` prefix (session cookie, browser storage keys, database file, Docker volume, package name) so existing sessions and data keep working.
 
 The database is created automatically at `runtime/runway.sqlite`, using the versioned migration. Each browser receives an isolated workspace through an HttpOnly cookie. Keep this directory to preserve history and API budget accounting. Run one application server per database.
 

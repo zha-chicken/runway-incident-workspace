@@ -47,7 +47,7 @@ async function handle(req: NextRequest, ctx: Context) {
         result = {...detail, evidence, policy: evaluatePolicy(detail.snapshot)};
         if (command === 'export') {
           const response = new NextResponse(JSON.stringify({simulation:true,exportedAt:new Date().toISOString(),...result as object},null,2), {
-            headers:{'Content-Type':'application/json','Content-Disposition':`attachment; filename="runway-${id}.json"`,'Cache-Control':'no-store'}
+            headers:{'Content-Type':'application/json','Content-Disposition':`attachment; filename="aerocontext-${id}.json"`,'Cache-Control':'no-store'}
           });
           if (cookie) setSession(response,cookie);
           return response;

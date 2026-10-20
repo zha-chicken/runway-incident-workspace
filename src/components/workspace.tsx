@@ -6,7 +6,7 @@ import {ArrowRight, Check, CircleAlert, ClipboardCheck, FileText, Gauge, History
 import type {EvidenceBundle, IncidentInput, Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {messages, errors} from './messages';
 import {api, inputOf, latestReviews, pad, recommendationsOf, tabs, type Audience, type Bootstrap, type Detail, type DiscussionRow, type T, type Tab} from './client';
-import {AiMark, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskBadge, RiskLamp, SimMark} from './ui';
+import {AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskBadge, RiskLamp, SimMark} from './ui';
 import {OverviewView} from './overview';
 import {EvidenceView, SourceView} from './evidence';
 import {AssessmentTab, AssessmentView} from './assessment';
@@ -104,7 +104,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
   });
   const errorText=error?(errors[error]?.[locale]||`${t('error')} (${error})`):'';
 
-  if(!boot)return <div className="startup"><span className="brand-mark large"><Plane size={26}/></span><h1>Runway</h1><p role="status">{error?(errors[error]?.[locale] || t('error')):t('loading')}</p>{error?<button className="secondary" onClick={()=>location.reload()}>{t('retry')}</button>:<LoaderCircle className="spin" size={20} aria-hidden/>}</div>;
+  if(!boot)return <div className="startup"><span className="brand-mark large"><Plane size={26}/></span><h1><BrandName/></h1><p role="status">{error?(errors[error]?.[locale] || t('error')):t('loading')}</p>{error?<button className="secondary" onClick={()=>location.reload()}>{t('retry')}</button>:<LoaderCircle className="spin" size={20} aria-hidden/>}</div>;
 
   const reviewMap=displayed?latestReviews(detail?.reviews||[],displayed.id):new Map();
   const recommendationCount=displayed?recommendationsOf(displayed).length:0;
@@ -136,7 +136,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
     <div className="main-column">
       <div className="topline">
         <button className="icon-button menu-button" onClick={()=>setNavOpen(true)} aria-label={t('incidents')}><Menu size={20}/></button>
-        <a href="/" className="mobile-brand"><span className="brand-mark"><Plane size={16}/></span>Runway</a>
+        <a href="/" className="mobile-brand"><span className="brand-mark"><Plane size={16}/></span><BrandName stacked/></a>
         <nav className="breadcrumb" aria-label={t('breadcrumb')}><span>{t('incidents')}</span>{detail&&<><span aria-hidden>/</span><span className="code">{detail.snapshot.airportId}</span><span aria-hidden>/</span><span className="breadcrumb-title">{title}</span></>}</nav>
         <div className="topline-right"><SimMark t={t} compact/><div className="language" role="group" aria-label={t('language')}><button aria-pressed={locale==='en'} onClick={()=>setLocale('en')} lang="en">EN</button><button aria-pressed={locale==='zh'} onClick={()=>setLocale('zh')} lang="zh-CN">中文</button></div></div>
       </div>
@@ -182,7 +182,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
           <footer className="main-footer"><span><ShieldCheck size={14} aria-hidden/>{t('simulationNote')}</span><span>{t('noSending')}</span></footer>
           {displayed&&<div className="print-report">
             <p className="print-flag">{t('simulation')} · {t('draft')} · {t('aiGenerated')}</p>
-            <h1>Runway · {title}</h1>
+            <h1>{t('brand')} · {title}</h1>
             <p>{detail.snapshot.scenarioPeriod} · {t('version')} {displayed.snapshotVersion} · {t(`risk_${displayed.result.riskLevel}`)} · {t('official')}: {t(detail.snapshot.officialStatus)}</p>
             <p>{t('draftHint')}</p>{!current&&<p>{t('stale')}</p>}
             <Constraints policy={displayed.result.decisionConstraints} locale={locale} t={t}/>
@@ -212,7 +212,7 @@ function Rail({boot,t,selected,eventTitle,onChoose,onNew,onReset}:{boot:Bootstra
   const list=useRef<HTMLElement>(null);
   useEffect(()=>{list.current?.querySelector('.active')?.scrollIntoView({block:'nearest'});},[selected,boot.incidents.length]);
   return <div className="rail-inner">
-    <a href="/" className="brand"><span className="brand-mark"><Plane size={18}/></span><span><strong>Runway</strong><span>{t('tagline')}</span></span></a>
+    <a href="/" className="brand"><span className="brand-mark"><Plane size={18}/></span><span><strong><BrandName/></strong><span>{t('tagline')}</span></span></a>
     <div className="rail-sim"><SimMark t={t} compact/><span>{t('simShort')}</span></div>
     <div className="rail-heading"><span>{t('incidents')}</span><span className="count">{pad(boot.incidents.length)}</span></div>
     <button className="rail-new" onClick={onNew}><Plus size={15} aria-hidden/>{t('newIncident')}</button>
