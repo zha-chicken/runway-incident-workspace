@@ -5,7 +5,7 @@ export const metadata:Metadata={
   description:'A bilingual, evidence-based simulation for reviewing airline disruption incidents.'
 };
 export const viewport:Viewport={
-  themeColor:[{media:'(prefers-color-scheme: light)',color:'#f3f2ee'},{media:'(prefers-color-scheme: dark)',color:'#0d1117'}]
+  themeColor:[{media:'(prefers-color-scheme: light)',color:'#f3f5f8'},{media:'(prefers-color-scheme: dark)',color:'#0b1220'}]
 };
 export default function RootLayout({children}:{children:React.ReactNode}) {
   return <html lang="en"><body>{children}</body></html>;
