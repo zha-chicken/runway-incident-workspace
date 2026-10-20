@@ -1,7 +1,7 @@
 'use client';
 
 import {ArrowUpRight, ClipboardCheck, Printer} from 'lucide-react';
-import type {Locale, StoredAssessment} from '../domain/types';
+import type {Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {recommendationsOf, time, type Detail, type T} from './client';
 import {AssessmentView} from './assessment';
 import {Empty, RiskBadge} from './ui';
@@ -10,7 +10,7 @@ import {errors} from './messages';
 const dispositionTone={pending:'neutral',accepted:'good',modified:'caution',rejected:'danger'};
 const runStatuses=['running','completed','failed','cancelled','interrupted'];
 
-export function HistoryView({detail,selected,locale,t,onReview}:{detail:Detail;selected:string;locale:Locale;t:T;onReview:(a:StoredAssessment,id:string)=>void}) {
+export function HistoryView({detail,selected,locale,t,onReview}:{detail:Detail;selected:string;locale:Locale;t:T;onReview:(a:StoredAssessment,id:string,disposition?:ReviewInput['disposition'])=>void}) {
   const recommendation=(assessmentId:string,id:string)=>{const a=detail.assessments.find(x=>x.id===assessmentId);return {a,text:a&&recommendationsOf(a).find(r=>r.id===id)?.text[locale]};};
   return <div className="stack">
     <div className="section-heading page-section"><div><h2>{t('history')}</h2><p className="section-sub">{t('historySub')}</p></div>
@@ -32,7 +32,7 @@ export function HistoryView({detail,selected,locale,t,onReview}:{detail:Detail;s
           <summary><strong>{t('version')} {s.version}</strong><span className="muted">{time(s.createdAt,locale)}</span>{s.version===detail.snapshot.version&&<span className="tag good">{t('currentVersion')}</span>}<span className="timeline-risks">{assessments.map(a=><RiskBadge key={a.id} level={a.result.riskLevel} t={t}/>)}{!assessments.length&&<span className="muted">{t('notRun')}</span>}</span></summary>
           <div className="timeline-body">
             <dl className="review-values"><div><dt>{t('known')}</dt><dd>{s.input.knownInformation||t('notApplicable')}</dd></div><div><dt>{t('unknowns')}</dt><dd>{s.input.unknowns||t('notApplicable')}</dd></div><div><dt>{t('reports')}</dt><dd>{s.input.reports.length}</dd></div></dl>
-            {assessments.map(a=><div key={a.id} className="prior-assessment"><h3 className="mini-heading">{t(`risk_${a.result.riskLevel}`)} · {time(a.generatedAt,locale)}</h3><AssessmentView assessment={a} locale={locale} t={t} onReview={id=>onReview(a,id)}/></div>)}
+            {assessments.map(a=><div key={a.id} className="prior-assessment"><h3 className="mini-heading">{t(`risk_${a.result.riskLevel}`)} · {time(a.generatedAt,locale)}</h3><AssessmentView assessment={a} locale={locale} t={t} onReview={(id,d)=>onReview(a,id,d)}/></div>)}
             <details className="raw"><summary>{t('snapshotJson')}</summary><pre>{JSON.stringify(s.input,null,2)}</pre></details>
           </div>
         </details>

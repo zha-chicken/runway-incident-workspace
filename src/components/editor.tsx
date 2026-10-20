@@ -60,10 +60,15 @@ export function ReviewForm({review,recommendation,setReview,t,busy,onSave}:{revi
     <fieldset className="disposition"><legend className="field-label">{t('decision')}</legend>
       <div className="disposition-options">{dispositions.map(v=><label key={v} className={`disposition-option ${v}`}><input type="radio" name="disposition" value={v} checked={review.disposition===v} onChange={()=>setReview({...review,disposition:v})}/><span>{t(v)}</span></label>)}</div>
     </fieldset>
+    <Field label={needsReason?t('reason'):t('reasonOptional')} hint={needsReason?t('reasonRequired'):undefined}><textarea rows={2} value={review.reason} required={needsReason} onChange={e=>setReview({...review,reason:e.target.value})}/></Field>
     <Field label={t('reviewer')}><input value={review.reviewerLabel} required maxLength={80} onChange={e=>setReview({...review,reviewerLabel:e.target.value})}/></Field>
-    <Field label={t('reason')} hint={needsReason?t('reasonRequired'):undefined}><textarea rows={2} value={review.reason} required={needsReason} onChange={e=>setReview({...review,reason:e.target.value})}/></Field>
-    {(['finalAction','outcome','nextImprovement'] as const).map(key=><Field key={key} label={t(key==='nextImprovement'?'improvement':key)}><textarea rows={2} value={review[key]} onChange={e=>setReview({...review,[key]:e.target.value})}/></Field>)}
-    <Field label={t('outcomeStatus')}><select value={review.outcomeStatus} onChange={e=>setReview({...review,outcomeStatus:e.target.value as ReviewInput['outcomeStatus']})}><option value="pending">{t('pending')}</option><option value="simulated_observed">{t('simulated_observed')}</option></select></Field>
+    <details className="more-fields" open={!!(review.finalAction||review.outcome||review.nextImprovement||review.outcomeStatus!=='pending')}>
+      <summary>{t('moreFields')}</summary>
+      <div className="form-stack">
+        {(['finalAction','outcome','nextImprovement'] as const).map(key=><Field key={key} label={t(key==='nextImprovement'?'improvement':key)}><textarea rows={2} value={review[key]} onChange={e=>setReview({...review,[key]:e.target.value})}/></Field>)}
+        <Field label={t('outcomeStatus')}><select value={review.outcomeStatus} onChange={e=>setReview({...review,outcomeStatus:e.target.value as ReviewInput['outcomeStatus']})}><option value="pending">{t('pending')}</option><option value="simulated_observed">{t('simulated_observed')}</option></select></Field>
+      </div>
+    </details>
     <div className="modal-actions"><span className="help">{t('reviewRecorded')}</span><button className="primary" disabled={busy}>{busy?t('saving'):t('saveReview')}</button></div>
   </form>;
 }

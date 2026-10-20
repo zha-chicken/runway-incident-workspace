@@ -4,13 +4,13 @@ import {useState} from 'react';
 import {Building2, Check, Copy, FileText, Languages, Pencil, Radar, RotateCcw, UsersRound} from 'lucide-react';
 import type {Locale, StoredAssessment} from '../domain/types';
 import {audiences, type Audience, type Detail, type T} from './client';
-import {AiMark, Citations, DraftMark, Empty, GenerateButton, SimMark} from './ui';
+import {AiMark, Citations, DraftMark, Empty, SimMark} from './ui';
 
 const audienceIcons={operations:Radar,airportCoordination:Building2,passenger:UsersRound};
 
-export function DraftsView({detail,current,displayed,locale,t,draftText,onEdit,onGenerate,aiBlocked}:{detail:Detail;current?:StoredAssessment;displayed?:StoredAssessment;locale:Locale;t:T;draftText:(a:StoredAssessment,audience:Audience,lang?:Locale)=>string;onEdit:(a:StoredAssessment,audience:Audience,lang:Locale)=>void;onGenerate:()=>void;aiBlocked:boolean}) {
+export function DraftsView({detail,current,displayed,locale,t,draftText,onEdit}:{detail:Detail;current?:StoredAssessment;displayed?:StoredAssessment;locale:Locale;t:T;draftText:(a:StoredAssessment,audience:Audience,lang?:Locale)=>string;onEdit:(a:StoredAssessment,audience:Audience,lang:Locale)=>void}) {
   const [view,setView]=useState<Audience|'all'>('operations'),[compare,setCompare]=useState(false);
-  if(!displayed)return <Empty icon={<FileText size={28}/>} title={t('noDrafts')} body={t('noDraftsBody')} action={<GenerateButton t={t} disabled={aiBlocked} onClick={onGenerate}/>}/>;
+  if(!displayed)return <Empty icon={<FileText size={28}/>} title={t('noDrafts')} body={t('noDraftsBody')}/>;
   const shown=view==='all'?audiences:[view];
   return <div className="stack">
     <div className="notice"><FileText size={17} aria-hidden/><span>{t('draftHint')} {t('draftPublish')}</span></div>

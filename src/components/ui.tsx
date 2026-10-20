@@ -2,7 +2,7 @@
 
 import {createContext, useContext, type ReactNode} from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import {ArrowRight, BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, OctagonAlert, OctagonX, ShieldCheck, TriangleAlert, X} from 'lucide-react';
+import {BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, OctagonAlert, OctagonX, ShieldCheck, TriangleAlert, X} from 'lucide-react';
 import type {Assessment, Locale, Policy} from '../domain/types';
 import {citationKind, citationLabel, type T} from './client';
 
@@ -63,7 +63,4 @@ export function Constraints({policy,locale,t}:{policy:Policy['constraints'];loca
 
 export function Empty({icon,title,body,action}:{icon:ReactNode;title:string;body:string;action?:ReactNode}) {
   return <div className="empty-state"><div className="empty-icon">{icon}</div><h2>{title}</h2><p>{body}</p>{action}</div>;
-}
-export function GenerateButton({t,label,disabled,onClick}:{t:T;label?:string;disabled:boolean;onClick:()=>void}) {
-  return <button className="primary" disabled={disabled} onClick={onClick}><ShieldCheck size={16} aria-hidden/>{label||t('generate')}<ArrowRight size={15} aria-hidden/></button>;
 }

@@ -1,8 +1,8 @@
 'use client';
 
-import {useCallback, useEffect, useRef, useState} from 'react';
+import {Fragment, useCallback, useEffect, useRef, useState, type ReactNode} from 'react';
 import {NextIntlClientProvider, useTranslations} from 'next-intl';
-import {ArrowRight, CircleAlert, ClipboardCheck, FileText, Gauge, History, LoaderCircle, Menu, MessageSquare, Plane, Plus, RotateCcw, Search, ShieldCheck, SlidersHorizontal, X} from 'lucide-react';
+import {ArrowRight, Check, CircleAlert, ClipboardCheck, FileText, Gauge, History, KeyRound, ListChecks, LoaderCircle, Menu, MessageSquare, Plane, Plus, RotateCcw, Search, ShieldCheck, SlidersHorizontal, X} from 'lucide-react';
 import type {EvidenceBundle, IncidentInput, Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {messages, errors} from './messages';
 import {api, inputOf, latestReviews, pad, recommendationsOf, tabs, type Audience, type Bootstrap, type Detail, type DiscussionRow, type T, type Tab} from './client';
@@ -16,7 +16,11 @@ import {HistoryView} from './history';
 import {IncidentEditor, ReviewForm} from './editor';
 
 const icons={overview:ClipboardCheck,evidence:Search,assessment:ShieldCheck,drafts:FileText,discussion:MessageSquare,history:History};
+/** The numbered path through an incident; the remaining tabs are tools. */
+const stepTabs:Tab[]=['overview','evidence','assessment','drafts'];
 type DraftEdit = {audience:Audience;text:string;revision:number;locale:Locale;assessmentId:string};
+type Next = {key:'key'|'assess'|'stale'|'decide'|'done';tab:Tab;title:string;body:string;cta?:string;onCta?:()=>void;ctaDisabled?:boolean;alt?:{label:string;onClick?:()=>void;href?:string}};
+const savedReviewer=()=>{try{return localStorage.getItem('runway-reviewer')||'Reviewer A';}catch{return 'Reviewer A';}};
 
 export default function Workspace() {
   const [locale,setLocale]=useState<Locale>('en');
@@ -82,9 +86,9 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
     setEditor({title:t('untitled'),airportId:airport?.id || 'HAI',scenarioPeriod:locale==='zh'?'模拟第7天 14:00':'Simulation Day 7, 14:00',historicalThrough:null,businessImportance:'medium',knownInformation:'',unknowns:'',safetyIssue:false,sourceReliabilityUnknown:false,decisionRequest:'',officialStatus:'unconfirmed',officialStatusSourceId:null,reports:[],sourceEventId:null});
   };
   const editIncident=()=>{if(detail){setIsNew(false);setEditor(inputOf(detail.snapshot));}};
-  const reviewAction=(assessment:StoredAssessment,recommendationId:string)=>{
+  const reviewAction=(assessment:StoredAssessment,recommendationId:string,disposition:ReviewInput['disposition']='pending')=>{
     const recommendation=recommendationsOf(assessment).find(r=>r.id===recommendationId);
-    setReview({text:recommendation?.text[locale]||recommendationId,input:{assessmentId:assessment.id,recommendationId,disposition:'pending',reason:'',finalAction:'',outcome:'',outcomeStatus:'pending',nextImprovement:'',reviewerLabel:'Reviewer A'}});
+    setReview({text:recommendation?.text[locale]||recommendationId,input:{assessmentId:assessment.id,recommendationId,disposition,reason:'',finalAction:'',outcome:'',outcomeStatus:'pending',nextImprovement:'',reviewerLabel:savedReviewer()}});
   };
   function draftText(a:StoredAssessment,audience:Audience,lang:Locale=locale) {
     return detail?.drafts.find(d=>d.assessment_id===a.id&&d.audience===audience&&d.locale===lang)?.text || a.result.drafts[audience].text[lang];
@@ -105,11 +109,20 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
   const reviewMap=displayed?latestReviews(detail?.reviews||[],displayed.id):new Map();
   const recommendationCount=displayed?recommendationsOf(displayed).length:0;
   const reviewedCount=[...reviewMap.values()].filter(r=>r.disposition!=='pending').length;
-  const unverified=detail?.snapshot.reports.filter(r=>['unverified','conflicted','unusable'].includes(r.reliability)).length||0;
+  const undecided=recommendationCount-reviewedCount;
+  const startDeciding=()=>{setTab('assessment');setTimeout(()=>document.querySelector('.action-item.undecided')?.scrollIntoView({behavior:'smooth',block:'center'}),80);};
+  // One recommended next action at a time keeps the page's single primary button meaningful.
+  const next:Next|null=!detail?null:
+    !displayed?(boot.apiConfigured
+      ?{key:'assess',tab:'assessment',title:t('next_assess_title'),body:t('next_assess_body'),cta:t('generate'),onCta:()=>void generate(),ctaDisabled:aiBlocked,alt:{label:t('next_assess_alt'),onClick:()=>setTab('overview')}}
+      :{key:'key',tab:'overview',title:t('next_key_title'),body:t('next_key_body')}):
+    !current?{key:'stale',tab:'assessment',title:t('next_stale_title'),body:t('staleDetail',{version:displayed.snapshotVersion,current:detail.snapshot.version}),cta:t('reassess'),onCta:()=>void generate(),ctaDisabled:aiBlocked}:
+    undecided>0?{key:'decide',tab:'assessment',title:t('next_decide_title'),body:t('next_decide_body',{remaining:undecided,total:recommendationCount}),cta:t('next_decide_cta'),onCta:startDeciding}:
+    {key:'done',tab:'drafts',title:t('next_done_title'),body:t('next_done_body'),cta:t('next_done_cta'),onCta:()=>setTab('drafts'),alt:{label:t('export'),href:`/api/incidents/${selected}/export`}};
   const stepStatus:Record<Tab,string>=detail?{
     overview:t('reportCount',{count:detail.snapshot.reports.length}),
     evidence:t('monthCount',{count:detail.evidence.monthly.length}),
-    assessment:current?t(`risk_${current.result.riskLevel}`):displayed?t('outOfDate'):t('notRun'),
+    assessment:current?t('decidedCount',{done:reviewedCount,total:recommendationCount}):displayed?t('outOfDate'):t('notRun'),
     drafts:displayed?t('draftCount',{count:3}):t('notRun'),
     discussion:t('threadCount',{count:detail.discussions.length}),
     history:t('reviewCount',{count:detail.reviews.length})
@@ -136,32 +149,33 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
               <div className="incident-title">
                 <p className="eyebrow"><span className="airport-code">{detail.snapshot.airportId}</span>{airport?.name[locale]}<span className="dot" aria-hidden>·</span>{detail.snapshot.sourceEventId?`${t('suppliedEvent')} ${detail.snapshot.sourceEventId}`:t('teamScenario')}</p>
                 <h1>{title}</h1>
-                <p className="incident-sub"><span>{detail.snapshot.scenarioPeriod}</span><span className="dot" aria-hidden>·</span><span>{t('version')} {detail.snapshot.version}</span><span className="dot" aria-hidden>·</span><span>{t('simulationNote')}</span></p>
+                <p className="incident-sub"><span>{detail.snapshot.scenarioPeriod}</span><span className="dot" aria-hidden>·</span><span>{t('version')} {detail.snapshot.version}</span></p>
               </div>
-              <div className="heading-actions">
-                <button className="secondary" onClick={editIncident}><SlidersHorizontal size={15} aria-hidden/>{t('editIncident')}</button>
-                <button className="primary" disabled={aiBlocked} onClick={()=>void generate()}>{generating||running?<LoaderCircle size={16} className="spin" aria-hidden/>:<ShieldCheck size={16} aria-hidden/>}{current?t('reassess'):t('generate')}<ArrowRight size={15} aria-hidden/></button>
-              </div>
+              <div className="heading-actions"><button className="secondary" onClick={editIncident}><SlidersHorizontal size={15} aria-hidden/>{t('editIncident')}</button></div>
             </div>
-            <dl className="status-strip">
-              <div className={`status-cell risk ${displayed&&!current?'stale':''}`}><dt>{t('aiRisk')}</dt><dd><RiskBadge level={displayed?.result.riskLevel} t={t}/></dd><dd className="status-note">{current?`${t('version')} ${current.snapshotVersion}`:displayed?t('outOfDate'):t('notRun')}</dd></div>
-              <div className="status-cell"><dt>{t('decisionAuthority')}</dt><dd><strong>{detail.policy.constraints.actionConclusionsStopped?t('stopped'):detail.policy.constraints.professionalDecisionRequired?t('professional'):t('humanReview')}</strong></dd><dd className="status-note static">{t('riskSeparateShort')}</dd></div>
-              <div className="status-cell"><dt>{t('official')}</dt><dd><strong>{t(detail.snapshot.officialStatus)}</strong></dd><dd className="status-note static">{t('officialNote')}</dd></div>
-              <div className="status-cell"><dt>{t('humanReviewStatus')}</dt><dd><strong>{displayed?`${reviewedCount} / ${recommendationCount}`:'—'}</strong></dd><dd className="status-note">{displayed?t('recommendationsReviewed'):t('awaitingAssessment')}</dd></div>
-              <div className="status-cell"><dt>{t('reportsStatus')}</dt><dd><strong>{pad(detail.snapshot.reports.length)}</strong></dd><dd className="status-note">{unverified?t('unverifiedCount',{count:unverified}):t('noUnverified')}</dd></div>
-            </dl>
           </header>
-          {(generating||running)&&<RunPanel t={t} since={running?.created_at||generating||new Date().toISOString()} onCancel={running?()=>void work(async()=>{await api(`runs/${running.id}/cancel`,{});await refresh();}):undefined}/>}
-          <div className="workflow" role="tablist" aria-label={t('workflow')}>{tabs.map((key,index)=>{const Icon=icons[key];return <button key={key} id={`tab-${key}`} aria-controls={`panel-${key}`} role="tab" aria-selected={tab===key} tabIndex={tab===key?0:-1}
-            onKeyDown={e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const i=e.key==='Home'?0:e.key==='End'?tabs.length-1:(tabs.indexOf(key)+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;setTab(tabs[i]);document.getElementById(`tab-${tabs[i]}`)?.focus();}}}
-            onClick={()=>setTab(key)}>
-            <span className="step-index" aria-hidden>{pad(index+1)}</span><Icon size={15} aria-hidden className="step-icon"/><span className="step-text"><span className="step-label">{t(key)}</span><span className="step-status">{stepStatus[key]}</span></span>
-          </button>;})}</div>
+          {(generating||running)?<RunPanel t={t} since={running?.created_at||generating||new Date().toISOString()} onCancel={running?()=>void work(async()=>{await api(`runs/${running.id}/cancel`,{});await refresh();}):undefined}/>:next&&<NextStep next={next} t={t}/>}
+          <dl className="glance" aria-label={t('glance')}>
+            <div className="glance-cell"><dt>{t('glance_risk')}</dt><dd><RiskBadge level={current?current.result.riskLevel:detail.policy.riskLevel} t={t}/></dd><dd className="glance-note">{current?t('glance_risk_ai',{version:current.snapshotVersion}):displayed?t('glance_risk_stale'):t('glance_risk_rules')}</dd></div>
+            <div className="glance-cell"><dt>{t('glance_who')}</dt><dd><strong>{detail.policy.constraints.reviewerRoles.map(r=>r[locale]).join(' · ')}</strong></dd><dd className={`glance-note ${detail.policy.constraints.actionConclusionsStopped?'danger':detail.policy.constraints.professionalDecisionRequired?'warn':''}`}>{detail.policy.constraints.actionConclusionsStopped?t('stopped'):detail.policy.constraints.professionalDecisionRequired?t('professional'):t('glance_who_note')}</dd></div>
+            <div className="glance-cell"><dt>{t('glance_status')}</dt><dd><strong>{t(detail.snapshot.officialStatus)}</strong></dd><dd className={`glance-note ${detail.snapshot.officialStatus==='unconfirmed'?'warn':''}`}>{detail.snapshot.officialStatus==='unconfirmed'?t('glance_status_unconfirmed'):t('glance_status_set')}</dd></div>
+            <div className="glance-cell"><dt>{t('glance_decisions')}</dt><dd><strong>{displayed?`${reviewedCount} / ${recommendationCount}`:'—'}</strong>{displayed&&<span className="mini-meter" aria-hidden><span style={{width:`${recommendationCount?reviewedCount/recommendationCount*100:0}%`}}/></span>}</dd><dd className="glance-note">{!displayed?t('awaitingAssessment'):reviewedCount===0?t('glance_decisions_none'):undecided>0?t('glance_decisions_some',{remaining:undecided}):t('glance_decisions_all')}</dd></div>
+          </dl>
+          <div className="stepper" role="tablist" aria-label={t('workflow')}>{tabs.map(key=>{const n=stepTabs.indexOf(key),Icon=icons[key],done=key==='assessment'&&!!current&&undecided===0,isNext=next?.tab===key&&tab!==key;return <Fragment key={key}>
+            {key==='discussion'&&<span className="stepper-divider" aria-hidden/>}
+            <button id={`tab-${key}`} aria-controls={`panel-${key}`} role="tab" aria-selected={tab===key} tabIndex={tab===key?0:-1} className={`step ${n<0?'tool':''} ${done?'done':''}`}
+              onKeyDown={e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const i=e.key==='Home'?0:e.key==='End'?tabs.length-1:(tabs.indexOf(key)+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;setTab(tabs[i]);document.getElementById(`tab-${tabs[i]}`)?.focus();}}}
+              onClick={()=>setTab(key)}>
+              <span className="step-marker" aria-hidden>{n<0?<Icon size={15}/>:done?<Check size={14}/>:n+1}</span>
+              <span className="step-text"><span className="step-label">{t(`tab_${key}`)}</span><span className="step-status">{stepStatus[key]}</span></span>
+              {isNext&&<span className="next-pill">{t('nextLabel')}</span>}
+            </button>
+          </Fragment>;})}</div>
           <section id={`panel-${tab}`} role="tabpanel" aria-labelledby={`tab-${tab}`} className="tab-panel" tabIndex={-1}>
-            {tab==='overview'&&<OverviewView detail={detail} t={t} locale={locale} current={current} displayed={displayed} reviewedCount={reviewedCount} recommendationCount={recommendationCount} onEdit={editIncident} goTo={setTab} onGenerate={()=>void generate()} aiBlocked={aiBlocked}/>}
+            {tab==='overview'&&<OverviewView detail={detail} t={t} locale={locale} onEdit={editIncident}/>}
             {tab==='evidence'&&<EvidenceView evidence={detail.evidence} historicalThrough={detail.snapshot.historicalThrough} locale={locale} t={t}/>}
             {tab==='assessment'&&<AssessmentTab detail={detail} current={current} displayed={displayed} locale={locale} t={t} reviews={reviewMap} onReview={reviewAction} onGenerate={()=>void generate()} aiBlocked={aiBlocked}/>}
-            {tab==='drafts'&&<DraftsView detail={detail} current={current} displayed={displayed} locale={locale} t={t} draftText={draftText} onEdit={editDraft} onGenerate={()=>void generate()} aiBlocked={aiBlocked}/>}
+            {tab==='drafts'&&<DraftsView detail={detail} current={current} displayed={displayed} locale={locale} t={t} draftText={draftText} onEdit={editDraft}/>}
             {tab==='discussion'&&<DiscussionView detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} aiBlocked={aiBlocked} busy={busy}/>}
             {tab==='history'&&<HistoryView detail={detail} selected={selected} locale={locale} t={t} onReview={reviewAction}/>}
           </section>
@@ -183,7 +197,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
     <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('incidents')} t={t} drawer>{rail}</Modal>
     <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await api<{id:string}>('incidents',editor);await refreshBoot();choose(created.id);setTab('overview');}else if(detail){await api(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor});await refresh();}setEditor(null);})}/>}</Modal>
     <Modal open={!!source} onClose={()=>setSource(null)} title={t('original')} description={t('originalHint')} t={t} sheet>{source&&detail&&<SourceView id={source.id} evidence={source.bundle} locale={locale} t={t}/>}</Modal>
-    <Modal open={!!review} onClose={()=>setReview(null)} title={t('review')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await api(`incidents/${selected}/reviews`,review.input);setReview(null);await refresh();})}/>}</Modal>
+    <Modal open={!!review} onClose={()=>setReview(null)} title={t('decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await api(`incidents/${selected}/reviews`,review.input);try{localStorage.setItem('runway-reviewer',review.input.reviewerLabel);}catch{}setReview(null);await refresh();})}/>}</Modal>
     <Modal open={!!draftEdit} onClose={()=>setDraftEdit(null)} title={draftEdit?`${t(draftEdit.audience)} · ${draftEdit.locale==='zh'?'中文':'English'}`:t('drafts')} description={t('draftHint')} t={t} wide>{draftEdit&&<form className="form-stack" onSubmit={e=>{e.preventDefault();void work(async()=>{await api(`incidents/${selected}/drafts`,{assessmentId:draftEdit.assessmentId,audience:draftEdit.audience,locale:draftEdit.locale,text:draftEdit.text,expectedRevision:draftEdit.revision});setDraftEdit(null);await refresh();});}}>
       <div className="mark-row"><SimMark t={t}/><DraftMark t={t}/><AiMark t={t}/></div>
       <Field label={t('draftText')} hint={t('translationReview')}><textarea rows={14} required value={draftEdit.text} lang={draftEdit.locale==='zh'?'zh-CN':'en'} onChange={e=>setDraftEdit({...draftEdit,text:e.target.value})}/></Field>
@@ -199,7 +213,7 @@ function Rail({boot,t,selected,eventTitle,onChoose,onNew,onReset}:{boot:Bootstra
   useEffect(()=>{list.current?.querySelector('.active')?.scrollIntoView({block:'nearest'});},[selected,boot.incidents.length]);
   return <div className="rail-inner">
     <a href="/" className="brand"><span className="brand-mark"><Plane size={18}/></span><span><strong>Runway</strong><span>{t('tagline')}</span></span></a>
-    <div className="rail-sim"><SimMark t={t}/><p>{t('simulationRail')}</p></div>
+    <div className="rail-sim"><SimMark t={t} compact/><span>{t('simShort')}</span></div>
     <div className="rail-heading"><span>{t('incidents')}</span><span className="count">{pad(boot.incidents.length)}</span></div>
     <button className="rail-new" onClick={onNew}><Plus size={15} aria-hidden/>{t('newIncident')}</button>
     <nav className="incident-list" ref={list} aria-label={t('incidents')}>{boot.incidents.map(i=><button key={i.id} className={`incident-item ${i.id===selected?'active':''}`} onClick={()=>onChoose(i.id)} aria-current={i.id===selected?'page':undefined}>
@@ -213,6 +227,18 @@ function Rail({boot,t,selected,eventTitle,onChoose,onNew,onReset}:{boot:Bootstra
       <button className="rail-link" onClick={onReset}><RotateCcw size={13} aria-hidden/>{t('reset')}</button>
     </div>
   </div>;
+}
+
+const nextIcons:Record<Next['key'],ReactNode>={key:<KeyRound size={20}/>,assess:<ShieldCheck size={20}/>,stale:<RotateCcw size={20}/>,decide:<ListChecks size={20}/>,done:<Check size={20}/>};
+function NextStep({next,t}:{next:Next;t:T}) {
+  return <section className={`next-step is-${next.key}`} aria-labelledby="next-step-title">
+    <span className="next-icon" aria-hidden>{nextIcons[next.key]}</span>
+    <div className="next-text"><span className="next-label">{t('nextLabel')}</span><h2 id="next-step-title">{next.title}</h2><p>{next.body}</p></div>
+    {(next.cta||next.alt)&&<div className="next-actions">
+      {next.alt&&(next.alt.href?<a className="text-button" href={next.alt.href}>{next.alt.label}</a>:<button className="text-button" onClick={next.alt.onClick}>{next.alt.label}</button>)}
+      {next.cta&&<button className="primary large" disabled={next.ctaDisabled} onClick={next.onCta}>{next.cta}<ArrowRight size={16} aria-hidden/></button>}
+    </div>}
+  </section>;
 }
 
 function RunPanel({t,since,onCancel}:{t:T;since:string;onCancel?:()=>void}) {
