@@ -1,16 +1,16 @@
 'use client';
 
-import {useCallback, useEffect, useRef, useState, type ReactNode} from 'react';
+import {useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode} from 'react';
 import {NextIntlClientProvider, useTranslations} from 'next-intl';
-import {ArrowLeft, CircleAlert, Home, LoaderCircle, Menu, Plane, Plus, RotateCcw, X} from 'lucide-react';
+import {ArrowUpRight, CircleAlert, LayoutGrid, LoaderCircle, Menu, Plus, Printer, RotateCcw, X} from 'lucide-react';
 import type {EvidenceBundle, IncidentInput, Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {messages, errors} from './messages';
-import {api, currentAssessment, inputOf, latestReviews, recommendationsOf, type Audience, type Bootstrap, type Detail, type DiscussionRow, type T, type Tab} from './client';
-import {AeroContextMark, AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskIcon} from './ui';
+import {api, currentAssessment, inputOf, latestReviews, recommendationsOf, type Audience, type Bootstrap, type Detail, type DiscussionRow, type Review, type T, type Tab} from './client';
+import {AeroContextMark, AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskIcon, SimMark, ThemeSwitch, type Theme} from './ui';
 import {OverviewView} from './overview';
 import {EvidenceView, SourceView} from './evidence';
 import {AssessmentView} from './assessment';
-import {AirportHub, AnalysisProgress, DecisionFlow, Preflight, WorkspaceHome} from './guided-workflow';
+import {AirportHeader, AirportHub, AnalysisProgress, DecisionFlow, Preflight, ViewHeader, WorkspaceHome} from './guided-workflow';
 import {airportStage} from './workflow';
 import {DraftsView} from './drafts';
 import {DiscussionView} from './discussion';
@@ -20,15 +20,24 @@ import {IncidentEditor, ReviewForm} from './editor';
 type DraftEdit = {audience:Audience;text:string;revision:number;locale:Locale;assessmentId:string};
 type LocalRequest = {since:string;action:'generate'|'discuss';question:string};
 const savedReviewer=()=>{try{return localStorage.getItem('runway-reviewer')||'Reviewer A';}catch{return 'Reviewer A';}};
-
-export default function Workspace() {
-  const [locale,setLocale]=useState<Locale>('en');
-  useEffect(()=>{if(localStorage.getItem('runway-locale')==='zh')setLocale('zh');},[]);
-  useEffect(()=>{document.documentElement.lang=locale==='zh'?'zh-CN':'en';localStorage.setItem('runway-locale',locale);},[locale]);
-  return <NextIntlClientProvider locale={locale} timeZone="Asia/Shanghai" messages={messages[locale]}><WorkspaceContent locale={locale} setLocale={setLocale}/></NextIntlClientProvider>;
+const themeKey='runway-theme';
+/** An explicit choice pins the theme; "system" follows the device. */
+function applyTheme(theme:Theme) {
+  if(theme==='system')document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme',theme);
 }
 
-function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)=>void}) {
+export default function Workspace() {
+  const [locale,setLocale]=useState<Locale>('en'),[theme,setThemeState]=useState<Theme>('system');
+  useEffect(()=>{if(localStorage.getItem('runway-locale')==='zh')setLocale('zh');},[]);
+  useEffect(()=>{document.documentElement.lang=locale==='zh'?'zh-CN':'en';localStorage.setItem('runway-locale',locale);},[locale]);
+  // The layout's inline script applies a saved theme before paint; this syncs the switch and re-applies it after a development remount.
+  useLayoutEffect(()=>{let saved:Theme='system';try{const v=localStorage.getItem(themeKey);if(v==='light'||v==='dark')saved=v;}catch{}setThemeState(saved);applyTheme(saved);},[]);
+  const setTheme=(next:Theme)=>{setThemeState(next);applyTheme(next);try{if(next==='system')localStorage.removeItem(themeKey);else localStorage.setItem(themeKey,next);}catch{}};
+  return <NextIntlClientProvider locale={locale} timeZone="Asia/Shanghai" messages={messages[locale]}><WorkspaceContent locale={locale} setLocale={setLocale} theme={theme} setTheme={setTheme}/></NextIntlClientProvider>;
+}
+
+function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLocale:(l:Locale)=>void;theme:Theme;setTheme:(theme:Theme)=>void}) {
   const t=useTranslations() as T;
   const [boot,setBoot]=useState<Bootstrap|null>(null),[detail,setDetail]=useState<Detail|null>(null);
   const [selected,setSelected]=useState(''),[tab,setTab]=useState<Tab|null>(null),[error,setError]=useState('');
@@ -122,50 +131,56 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
   const visibleError=error||requestErrors[selected];
   const errorText=visibleError?(errors[visibleError]?.[locale]||`${t('error')} (${visibleError})`):'';
 
-  if(!boot)return <div className="startup"><span className="brand-mark large"><Plane size={26}/></span><h1><BrandName/></h1><p role="status">{error?(errors[error]?.[locale] || t('error')):t('loading')}</p>{error?<button className="secondary" onClick={()=>location.reload()}>{t('retry')}</button>:<LoaderCircle className="spin" size={20} aria-hidden/>}</div>;
+  if(!boot)return <div className="startup"><span className="brand-tile large"><AeroContextMark size={28}/></span><h1><BrandName/></h1><p role="status">{error?(errors[error]?.[locale] || t('error')):t('loading')}</p>{error?<button className="secondary" onClick={()=>location.reload()}>{t('retry')}</button>:<LoaderCircle className="spin" size={20} aria-hidden/>}</div>;
 
-  const reviewMap=current?latestReviews(detail?.reviews||[],current.id):new Map();
+  const reviewMap=current?latestReviews(detail?.reviews||[],current.id):new Map<string,Review>();
+  const actions=current?recommendationsOf(current):[];
+  const decided=actions.filter(a=>{const r=reviewMap.get(a.id);return r&&r.disposition!=='pending';}).length;
   const discussing=localRequest?.action==='discuss'?{question:localRequest.question,since:localRequest.since}:(running?.action==='discussion'?{question:null,since:running.created_at}:null);
   const cancelRun=running?()=>void work(async()=>{await api(`runs/${running.id}/cancel`,{});await refresh();}):undefined;
   const stage=airportStage(detail,localRequest?.action);
+  const analyzing=[...Object.entries(requests).filter(([,request])=>request.action==='generate').map(([id])=>id),...(running?.action==='assessment'?[selected]:[])];
   const language=<div className="language" role="group" aria-label={t('language')}><button aria-pressed={locale==='en'} onClick={()=>setLocale('en')} lang="en">EN</button><button aria-pressed={locale==='zh'} onClick={()=>setLocale('zh')} lang="zh-CN">中文</button></div>;
-  const rail=<Rail boot={boot} t={t} selected={selected} eventTitle={eventTitle} onChoose={choose} onHome={goHome} language={language}
+  const controls=<div className="controls">{language}<ThemeSwitch theme={theme} setTheme={setTheme} t={t}/></div>;
+  const rail=<Rail boot={boot} t={t} selected={selected} analyzing={analyzing} eventTitle={eventTitle} controls={controls} onChoose={choose} onHome={goHome}
     onNew={newIncident} onReset={()=>{setNavOpen(false);setResetOpen(true);}}/>;
   const openView=(next:Tab|null)=>{setTab(next);window.scrollTo({top:0});};
+  const viewActions:Partial<Record<Tab,ReactNode>>={
+    overview:<button className="secondary" disabled={aiBlocked} onClick={()=>void generate()}><RotateCcw size={14} aria-hidden/>{t('startNewAnalysis')}</button>,
+    history:<><a className="secondary" href={`/api/incidents/${selected}/export`}>{t('export')}<ArrowUpRight size={14} aria-hidden/></a><button className="secondary" onClick={()=>window.print()}><Printer size={14} aria-hidden/>{t('print')}</button></>
+  };
 
-  return <FormError.Provider value={errorText}><Inspect.Provider value={{inspect:(id,v)=>void inspectSource(id,v),describe}}><div className={`app-shell guided-shell ${!selected?'home-shell':''}`}>
+  return <FormError.Provider value={errorText}><Inspect.Provider value={{inspect:(id,v)=>void inspectSource(id,v),describe}}><div className={`app ${selected?'with-rail':'is-home'}`}>
     <a className="skip-link" href="#main">{t('skip')}</a>
-    {selected&&<aside className="rail desktop-rail" aria-label={t('incidents')}>{rail}</aside>}
+    {selected&&<aside className="desktop-rail" aria-label={t('airports')}>{rail}</aside>}
     <div className="main-column">
-      {!selected?<div className="home-language">{language}</div>:<div className="guided-mobile-top">
-        <button className="icon-button" onClick={()=>setNavOpen(true)} aria-label={t('incidents')}><Menu size={20}/></button>
-        <span className="mobile-airport"><Plane size={16}/>{detail?.snapshot.airportId||t('loading')}</span>{language}
+      {selected&&<div className="mobile-bar">
+        <button className="icon-button" onClick={()=>setNavOpen(true)} aria-label={t('airports')}><Menu size={20}/></button>
+        <span className="mobile-title">{detail&&<span className="code-tag">{detail.snapshot.airportId}</span>}<span>{detail?title:t('loading')}</span></span>
+        {language}
       </div>}
-      <main id="main" className={`main guided-main ${selected?`stage-${stage}`:''} ${stage==='ready'&&!tab?'showing-hub':''}`}>
+      <main id="main" className={`main ${selected?`stage-${stage}`:'home-main'}`}>
         {visibleError&&<div className="notice error" role="alert"><CircleAlert size={17} aria-hidden/><span>{errorText}</span><button className="icon-button" onClick={()=>{setError('');setRequestErrors(previous=>({...previous,[selected]:''}));}} aria-label={t('close')}><X size={16}/></button></div>}
-        {!selected?<WorkspaceHome boot={boot} locale={locale} t={t} active={Object.entries(requests).filter(([,request])=>request.action==='generate').map(([id])=>id)} onChoose={choose} onNew={newIncident}/>:
+        {!selected?<WorkspaceHome boot={boot} locale={locale} t={t} active={analyzing} controls={controls} onChoose={choose} onNew={newIncident} onReset={()=>setResetOpen(true)}/>:
         !detail?<div className="loading"><LoaderCircle className="spin" size={22}/>{t('loading')}</div>:<>
-          {stage==='analyzing'?<AnalysisProgress airport={detail.snapshot.airportId} since={running?.created_at||localRequest!.since} t={t} onCancel={cancelRun} busy={busy}/>:
-          stage==='preflight'?<>
-            {!boot.apiConfigured&&<div className="notice"><CircleAlert size={17}/>{t('next_key_body')}</div>}
-            <Preflight detail={detail} title={title} locale={locale} t={t} blocked={aiBlocked} onStart={()=>void generate()} onEdit={editIncident}/>
-          </>:!tab?<AirportHub t={t} onOpen={openView}/>:<>
-            <header className="view-header"><button className="secondary back-airport" onClick={()=>openView(null)}><ArrowLeft size={16}/>{t('backToAirport',{airport:detail.snapshot.airportId})}</button>
-              {tab!=='assessment'&&<h1>{t(`tab_${tab}`)}</h1>}
-            </header>
-            <section className="guided-view" key={`${selected}-${tab}`} aria-label={t(`tab_${tab}`)}>
-              {tab==='overview'&&<><div className="situation-toolbar"><span>{title}</span><button className="secondary small" disabled={aiBlocked} onClick={()=>void generate()}><RotateCcw size={14}/>{t('startNewAnalysis')}</button></div><OverviewView detail={detail} t={t} locale={locale} onEdit={editIncident}/></>}
+          {(stage!=='ready'||!tab)&&<AirportHeader detail={detail} airportName={airport?.name[locale]||''} title={title} stage={stage} decided={decided} total={actions.length} t={t} onHome={goHome}/>}
+          {stage==='analyzing'?<AnalysisProgress detail={detail} since={running?.created_at||localRequest!.since} t={t} onCancel={cancelRun} busy={busy}/>:
+          stage==='preflight'?<Preflight detail={detail} locale={locale} t={t} blocked={aiBlocked} apiConfigured={boot.apiConfigured} onStart={()=>void generate()} onEdit={editIncident}/>:
+          !tab||!current?<AirportHub detail={detail} assessment={current!} reviews={reviewMap} locale={locale} t={t} answering={!!discussing} onOpen={openView}/>:<>
+            <ViewHeader airport={detail.snapshot.airportId} title={t(`tab_${tab}`)} sub={t(`viewSub_${tab}`)} t={t} onBack={()=>openView(null)} actions={viewActions[tab]}/>
+            <section className={`view view-${tab}`} key={`${selected}-${tab}`} aria-label={t(`tab_${tab}`)}>
+              {tab==='overview'&&<OverviewView detail={detail} t={t} locale={locale} onEdit={editIncident}/>}
               {tab==='evidence'&&<EvidenceView evidence={detail.evidence} historicalThrough={detail.snapshot.historicalThrough} locale={locale} t={t}/>}
-              {tab==='assessment'&&current&&<DecisionFlow key={current.id} assessment={current} reviews={reviewMap} locale={locale} t={t} reviewer={savedReviewer()} onExit={()=>openView(null)} onSave={async input=>{
+              {tab==='assessment'&&<DecisionFlow key={current.id} assessment={current} reviews={reviewMap} locale={locale} t={t} reviewer={savedReviewer()} onExit={()=>openView(null)} onSave={async input=>{
                 const id=selected;await api(`incidents/${id}/reviews`,input);try{localStorage.setItem('runway-reviewer',input.reviewerLabel);}catch{}await refresh(id).catch(e=>setError(e.message));
               }}/>}
               {tab==='drafts'&&<DraftsView detail={detail} current={current} displayed={displayed} locale={locale} t={t} draftText={draftText} onEdit={editDraft}/>}
               {tab==='discussion'&&<DiscussionView detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} asking={discussing} onCancel={running?.action==='discussion'?cancelRun:undefined} aiBlocked={aiBlocked} busy={busy}/>}
-              {tab==='history'&&<HistoryView detail={detail} selected={selected} locale={locale} t={t} onReview={reviewAction}/>}
+              {tab==='history'&&<HistoryView detail={detail} locale={locale} t={t} onReview={reviewAction}/>}
             </section>
           </>}
           {displayed&&<div className="print-report">
-            <p className="print-flag">{t('draft')} · {t('aiGenerated')}</p>
+            <p className="print-flag">{t('simulation')} · {t('draft')} · {t('aiGenerated')}</p>
             <h1>{t('brand')} · {title}</h1>
             <p>{detail.snapshot.scenarioPeriod} · {t('version')} {displayed.snapshotVersion} · {t(`risk_${displayed.result.riskLevel}`)} · {t('official')}: {t(detail.snapshot.officialStatus)}</p>
             <p>{t('draftHint')}</p>{!current&&<p>{t('stale')}</p>}
@@ -178,7 +193,7 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
         </>}
       </main>
     </div>
-    <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('incidents')} t={t} drawer>{rail}</Modal>
+    <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('airports')} t={t} drawer>{rail}</Modal>
     <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await api<{id:string}>('incidents',editor);await refreshBoot();choose(created.id);}else if(detail){await api(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor});await refresh();}setEditor(null);})}/>}</Modal>
     <Modal open={!!source} onClose={()=>setSource(null)} title={t('original')} description={t('originalHint')} t={t} sheet>{source&&detail&&<SourceView id={source.id} evidence={source.bundle} locale={locale} t={t}/>}</Modal>
     <Modal open={!!review} onClose={()=>setReview(null)} title={t('decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await api(`incidents/${selected}/reviews`,review.input);try{localStorage.setItem('runway-reviewer',review.input.reviewerLabel);}catch{}setReview(null);await refresh();})}/>}</Modal>
@@ -191,18 +206,22 @@ function WorkspaceContent({locale,setLocale}:{locale:Locale;setLocale:(l:Locale)
   </div></Inspect.Provider></FormError.Provider>;
 }
 
-function Rail({boot,t,selected,eventTitle,onChoose,onHome,onNew,onReset,language}:{boot:Bootstrap;t:T;selected:string;eventTitle:(id:string|null,fallback:string)=>string;onChoose:(id:string)=>void;onHome:()=>void;onNew:()=>void;onReset:()=>void;language:ReactNode}) {
-  return <div className="rail-inner guided-rail">
-    <button className="brand guided-brand" onClick={onHome}><AeroContextMark size={28}/><strong>AeroContext</strong></button>
-    <button className="rail-workspace" onClick={onHome}><Home size={18}/>{t('workspace')}</button>
-    <nav className="incident-list" aria-label={t('incidents')}>{boot.incidents.map(i=><button key={i.id} className={`airport-nav ${i.id===selected?'active':''}`} onClick={()=>onChoose(i.id)} aria-current={i.id===selected?'page':undefined} title={eventTitle(i.sourceEventId,i.title)}>
-      <Plane size={18} strokeWidth={1.5} aria-hidden/><span>{i.airportId}</span><RiskIcon level={i.riskLevel} size={12}/>
-      {boot.incidents.filter(other=>other.airportId===i.airportId).length>1&&<small>{eventTitle(i.sourceEventId,i.title)}</small>}
-    </button>)}</nav>
-    <div className="rail-footer">
-      <div className="rail-language">{language}</div>
-      <button className="rail-link" onClick={onNew}><Plus size={15}/>{t('newIncident')}</button>
-      <button className="rail-link" onClick={onReset}><RotateCcw size={13}/>{t('reset')}</button>
+function Rail({boot,t,selected,analyzing,eventTitle,controls,onChoose,onHome,onNew,onReset}:{boot:Bootstrap;t:T;selected:string;analyzing:string[];eventTitle:(id:string|null,fallback:string)=>string;controls:ReactNode;onChoose:(id:string)=>void;onHome:()=>void;onNew:()=>void;onReset:()=>void}) {
+  return <div className="rail-inner">
+    <button className="rail-brand" onClick={onHome}><span className="brand-tile"><AeroContextMark size={18}/></span><span className="rail-brand-text"><BrandName/><small>{t('tagline')}</small></span></button>
+    <p className="rail-sim"><SimMark t={t}/><span>{t('simShort')}</span></p>
+    <button className="rail-home" onClick={onHome}><LayoutGrid size={16} aria-hidden/>{t('allAirports')}</button>
+    <p className="rail-label">{t('airports')}<span className="count">{boot.incidents.length}</span></p>
+    <nav className="rail-list" aria-label={t('airports')}>{boot.incidents.map(i=>{const active=i.id===selected;return <button key={i.id} className={`rail-item ${active?'active':''}`} onClick={()=>onChoose(i.id)} aria-current={active?'page':undefined}>
+      <span className="code-tag">{i.airportId}</span>
+      <span className="rail-item-text"><span className="rail-item-title">{eventTitle(i.sourceEventId,i.title)}</span>
+        <span className="rail-item-status">{analyzing.includes(i.id)?<><LoaderCircle size={12} className="spin" aria-hidden/>{t('analysisInProgress')}</>:<><RiskIcon level={i.riskLevel} size={12}/>{i.riskLevel?t(`risk_${i.riskLevel}`):t('unassessed')}</>}</span>
+      </span>
+    </button>;})}</nav>
+    <div className="rail-foot">
+      {controls}
+      <button className="rail-action" onClick={onNew}><Plus size={15} aria-hidden/>{t('newIncident')}</button>
+      <button className="rail-action subtle" onClick={onReset}><RotateCcw size={13} aria-hidden/>{t('reset')}</button>
     </div>
   </div>;
 }

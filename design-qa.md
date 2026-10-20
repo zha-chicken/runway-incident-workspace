@@ -1,5 +1,7 @@
 # Guided airport workflow — design QA
 
+> The visual design recorded here (charcoal surfaces, amber emphasis, green Accept) was replaced by the black-and-white redesign described in `docs/IMPLEMENTATION.md`. The workflow, stage logic and tests below still apply.
+
 Date: 2026-10-20
 
 final result: passed

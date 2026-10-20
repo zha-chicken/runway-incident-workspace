@@ -1,6 +1,6 @@
 'use client';
 
-import {ArrowUpRight, ClipboardCheck, Printer} from 'lucide-react';
+import {ClipboardCheck} from 'lucide-react';
 import type {Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {recommendationsOf, time, type Detail, type T} from './client';
 import {AssessmentView} from './assessment';
@@ -10,12 +10,9 @@ import {errors} from './messages';
 const dispositionTone={pending:'neutral',accepted:'good',modified:'caution',rejected:'danger'};
 const runStatuses=['running','completed','failed','cancelled','interrupted'];
 
-export function HistoryView({detail,selected,locale,t,onReview}:{detail:Detail;selected:string;locale:Locale;t:T;onReview:(a:StoredAssessment,id:string,disposition?:ReviewInput['disposition'])=>void}) {
+export function HistoryView({detail,locale,t,onReview}:{detail:Detail;locale:Locale;t:T;onReview:(a:StoredAssessment,id:string,disposition?:ReviewInput['disposition'])=>void}) {
   const recommendation=(assessmentId:string,id:string)=>{const a=detail.assessments.find(x=>x.id===assessmentId);return {a,text:a&&recommendationsOf(a).find(r=>r.id===id)?.text[locale]};};
   return <div className="stack">
-    <div className="section-heading page-section"><div><h2>{t('history')}</h2><p className="section-sub">{t('historySub')}</p></div>
-      <div className="button-row"><a className="secondary small" href={`/api/incidents/${selected}/export`}>{t('export')}<ArrowUpRight size={14} aria-hidden/></a><button className="secondary small" onClick={()=>window.print()}><Printer size={14} aria-hidden/>{t('print')}</button></div>
-    </div>
     <article className="card">
       <div className="section-heading"><div><h2>{t('reviewLog')}</h2><p className="section-sub">{t('reviewLogSub')}</p></div></div>
       {!detail.reviews.length?<Empty icon={<ClipboardCheck size={24}/>} title={t('noReviews')} body={t('noReviewsBody')}/>:<ol className="review-list">{detail.reviews.map(r=>{const {a,text}=recommendation(r.assessmentId,r.recommendationId);return <li className="review-card" key={r.id}>

@@ -1,10 +1,10 @@
 'use client';
 
 import {useState} from 'react';
-import {Check, CircleDashed, CircleHelp, ClipboardCheck, Pencil, RotateCcw, ShieldCheck, TriangleAlert, UserCheck, X} from 'lucide-react';
+import {Check, CircleDashed, CircleHelp, ClipboardCheck, Pencil, ShieldCheck, TriangleAlert, UserCheck, X} from 'lucide-react';
 import type {Assessment, Bilingual, Locale, ReviewInput, StoredAssessment} from '../domain/types';
-import {pad, recommendationsOf, time, type Detail, type Review, type T} from './client';
-import {AiMark, Citations, Constraints, DraftMark, Empty, RiskBadge} from './ui';
+import {pad, recommendationsOf, type Review, type T} from './client';
+import {Citations} from './ui';
 
 type Claim = Assessment['rationale'][number];
 type Decide = (id:string,disposition?:ReviewInput['disposition'])=>void;
@@ -12,23 +12,13 @@ const claimKinds=['fact','assumption','unknown'] as const;
 const dispositionTone={pending:'neutral',accepted:'good',modified:'caution',rejected:'danger'};
 const choices=[{value:'accepted',label:'accept',icon:Check},{value:'modified',label:'modify',icon:Pencil},{value:'rejected',label:'reject',icon:X}] as const;
 
-export function AssessmentTab({detail,current,displayed,locale,t,reviews,onReview,onGenerate,aiBlocked}:{detail:Detail;current?:StoredAssessment;displayed?:StoredAssessment;locale:Locale;t:T;reviews:Map<string,Review>;onReview:(a:StoredAssessment,id:string,disposition?:ReviewInput['disposition'])=>void;onGenerate:()=>void;aiBlocked:boolean}) {
-  if(!displayed)return <Empty icon={<ShieldCheck size={28}/>} title={t('emptyAssessment')} body={t('emptyAssessmentBody')}/>;
-  const a=displayed.result;
-  return <div className="stack">
-    {!current&&<div className="notice caution"><RotateCcw size={17} aria-hidden/><span>{t('stale')} {t('staleDetail',{version:displayed.snapshotVersion,current:detail.snapshot.version})}</span></div>}
-    <article className="card assessment-head">
-      <div className="head-top"><span className="mini-label">{t('aiRisk')}</span><span className="mark-row"><AiMark t={t}/><DraftMark t={t}/></span></div>
-      <div className="head-risk"><RiskBadge level={a.riskLevel} t={t} large/><span className="head-plus" aria-hidden>+</span><Constraints policy={a.decisionConstraints} locale={locale} t={t}/></div>
-      <div className="head-foot">
-        <p className="head-meta">{displayed.origin==='live_model'?t('live'):t('recorded')}<span className="dot" aria-hidden>·</span>{t('version')} {displayed.snapshotVersion}<span className="dot" aria-hidden>·</span>{time(displayed.generatedAt,locale)}<span className="dot" aria-hidden>·</span>{t(`out_${a.outputStatus}`)}</p>
-        {current&&<button className="secondary small" disabled={aiBlocked} onClick={onGenerate}><RotateCcw size={13} aria-hidden/>{t('reassess')}</button>}
-      </div>
-      <p className="head-note">{t('riskSeparate')} {t('assessmentNote')}</p>
-    </article>
-    <AssessmentView assessment={displayed} locale={locale} t={t} reviews={reviews} onReview={(id,d)=>onReview(displayed,id,d)}/>
-  </div>;
-}
+/** What a reviewer must know before deciding, most binding first. */
+export const mustKnowLists=[
+  {key:'humanDecisions',title:'onlyPerson',icon:UserCheck,tone:'human'},
+  {key:'escalationConditions',title:'escalateIf',icon:TriangleAlert,tone:'escalation'},
+  {key:'informationGaps',title:'stillUnknown',icon:CircleHelp,tone:''},
+  {key:'assumptionsToVerify',title:'assumptions',icon:CircleDashed,tone:''}
+] as const;
 
 export function AssessmentView({assessment,locale,t,reviews,onReview,print}:{assessment:StoredAssessment;locale:Locale;t:T;reviews?:Map<string,Review>;onReview?:Decide;print?:boolean}) {
   const [filter,setFilter]=useState<'all'|Claim['kind']>('all');
@@ -39,16 +29,6 @@ export function AssessmentView({assessment,locale,t,reviews,onReview,print}:{ass
   const decided=actions.filter(x=>decidedOf(x.id)).length;
   const claims=[...a.rationale,...a.possibleImpacts];
   const visible=(c:Claim)=>print||filter==='all'||c.kind===filter;
-  const claimList=(list:Claim[])=><ul className="claims">{list.filter(visible).map((c,i)=><li className={`claim ${c.kind}`} key={i}>
-    <span className="claim-kind">{c.kind==='fact'?<ShieldCheck size={13} aria-hidden/>:c.kind==='assumption'?<CircleDashed size={13} aria-hidden/>:<CircleHelp size={13} aria-hidden/>}{t(c.kind)}</span>
-    <p>{c.text[locale]}</p>{refs(c.evidenceIds)}
-  </li>)}{!list.some(visible)&&<li className="claim-empty">{t('noClaims')}</li>}</ul>;
-  const lists=[
-    {key:'humanDecisions',title:t('onlyPerson'),icon:UserCheck,tone:'human'},
-    {key:'escalationConditions',title:t('escalateIf'),icon:TriangleAlert,tone:'escalation'},
-    {key:'informationGaps',title:t('stillUnknown'),icon:CircleHelp,tone:''},
-    {key:'assumptionsToVerify',title:t('assumptions'),icon:CircleDashed,tone:''}
-  ] as const;
   const deciding=!!onReview&&!print;
   return <div className="assessment-content">
     <div className="decide-layout">
@@ -75,19 +55,16 @@ export function AssessmentView({assessment,locale,t,reviews,onReview,print}:{ass
       </section>
       <aside className="must-know" aria-label={t('mustKnow')}>
         <span className="mini-label">{t('mustKnow')}</span>
-        {lists.map(l=><MustList key={l.key} title={l.title} icon={<l.icon size={16} aria-hidden/>} tone={l.tone} items={a[l.key]} locale={locale} t={t} print={print}/>)}
+        {mustKnowLists.map(l=><MustList key={l.key} title={t(l.title)} icon={<l.icon size={16} aria-hidden/>} tone={l.tone} items={a[l.key]} locale={locale} t={t} print={print}/>)}
       </aside>
     </div>
     <section className="card reasoning" aria-labelledby={`why-${assessment.id}`}>
       <div className="section-heading"><div><h2 id={`why-${assessment.id}`}>{t('rationale')}</h2><p className="section-sub">{t('rationaleSub')}</p></div>
-        {!print&&<div className="segmented small" role="group" aria-label={t('claimFilter')}>
-          <button aria-pressed={filter==='all'} onClick={()=>setFilter('all')}>{t('all')}<span>{claims.length}</span></button>
-          {claimKinds.map(k=><button key={k} aria-pressed={filter===k} onClick={()=>setFilter(k)} className={k}>{t(k)}<span>{claims.filter(c=>c.kind===k).length}</span></button>)}
-        </div>}
+        {!print&&<ClaimFilter claims={claims} filter={filter} setFilter={setFilter} t={t}/>}
       </div>
       <div className="claim-columns">
-        <div>{claimList(a.rationale)}</div>
-        <div><h3 className="mini-heading">{t('impacts')}</h3>{claimList(a.possibleImpacts)}</div>
+        <div><Claims claims={a.rationale.filter(visible)} version={version} locale={locale} t={t} print={print}/></div>
+        <div><h3 className="mini-heading">{t('impacts')}</h3><Claims claims={a.possibleImpacts.filter(visible)} version={version} locale={locale} t={t} print={print}/></div>
       </div>
     </section>
     {print?<>{refs(a.evidenceReferences)}{refs(a.ruleIds)}</>:<details className="card refs-card">
@@ -98,8 +75,23 @@ export function AssessmentView({assessment,locale,t,reviews,onReview,print}:{ass
   </div>;
 }
 
+export function ClaimFilter({claims,filter,setFilter,t}:{claims:Claim[];filter:'all'|Claim['kind'];setFilter:(f:'all'|Claim['kind'])=>void;t:T}) {
+  return <div className="segmented small" role="group" aria-label={t('claimFilter')}>
+    <button aria-pressed={filter==='all'} onClick={()=>setFilter('all')}>{t('all')}<span>{claims.length}</span></button>
+    {claimKinds.map(k=><button key={k} aria-pressed={filter===k} onClick={()=>setFilter(k)} className={k}>{t(k)}<span>{claims.filter(c=>c.kind===k).length}</span></button>)}
+  </div>;
+}
+
+/** Statements marked as fact, assumption or unknown, each with its sources. */
+export function Claims({claims,version,locale,t,print}:{claims:Claim[];version:number;locale:Locale;t:T;print?:boolean}) {
+  return <ul className="claims">{claims.map((c,i)=><li className={`claim ${c.kind}`} key={i}>
+    <span className="claim-kind">{c.kind==='fact'?<ShieldCheck size={13} aria-hidden/>:c.kind==='assumption'?<CircleDashed size={13} aria-hidden/>:<CircleHelp size={13} aria-hidden/>}{t(c.kind)}</span>
+    <p>{c.text[locale]}</p>{print?<p className="print-refs">{[...new Set(c.evidenceIds)].join(', ')}</p>:<Citations ids={c.evidenceIds} version={version} t={t}/>}
+  </li>)}{!claims.length&&<li className="claim-empty">{t('noClaims')}</li>}</ul>;
+}
+
 /** Long lists stay scannable: the first three items show until the reader asks for more. */
-function MustList({title,icon,tone,items,locale,t,print}:{title:string;icon:React.ReactNode;tone:string;items:Bilingual[];locale:Locale;t:T;print?:boolean}) {
+export function MustList({title,icon,tone,items,locale,t,print}:{title:string;icon:React.ReactNode;tone:string;items:Bilingual[];locale:Locale;t:T;print?:boolean}) {
   const [all,setAll]=useState(false);
   const shown=all||print?items:items.slice(0,3);
   return <article className={`card list-card ${tone}`}>

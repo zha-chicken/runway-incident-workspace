@@ -2,7 +2,7 @@
 
 import {createContext, useContext, useEffect, useState, type ReactNode} from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import {BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, Info, OctagonX, TriangleAlert, X} from 'lucide-react';
+import {BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, Info, Monitor, Moon, OctagonX, Sun, TriangleAlert, X} from 'lucide-react';
 import type {Assessment, Locale, Policy} from '../domain/types';
 import {citationKind, citationLabel, type T} from './client';
 
@@ -60,6 +60,8 @@ export function RiskBadge({level,t,large}:{level:Assessment['riskLevel']|null|un
   return <span className={`risk-badge ${level||'none'} ${large?'large':''}`}><RiskIcon level={level} size={large?18:13}/>{level?t(`risk_${level}`):t('unassessed')}</span>;
 }
 
+/** Marks anything built from the fictional dataset. */
+export function SimMark({t}:{t:T}) {return <span className="sim-mark" title={t('simulationNote')}>{t('simulation')}</span>;}
 export function DraftMark({t}:{t:T}) {return <span className="draft-mark">{t('draft')}</span>;}
 export function AiMark({t}:{t:T}) {return <span className="ai-mark">{t('aiGenerated')}</span>;}
 
@@ -76,15 +78,25 @@ export function Citations({ids,version,t}:{ids:string[];version?:number;t:T}) {
   })}</div>;
 }
 
-export function Constraints({policy,locale,t}:{policy:Policy['constraints'];locale:Locale;t:T}) {
+/** Who may act on an assessment: nobody yet, a named professional, or any human reviewer. */
+export function constraintOf(policy:Policy['constraints']) {
   const state=policy.actionConclusionsStopped?'stopped':policy.professionalDecisionRequired?'professional':'review';
-  const Icon=state==='stopped'?OctagonX:state==='professional'?CircleHelp:ClipboardCheck;
+  return {state,label:state==='stopped'?'stopped':state==='professional'?'professional':'humanReview',Icon:state==='stopped'?OctagonX:state==='professional'?CircleHelp:ClipboardCheck};
+}
+export function Constraints({policy,locale,t}:{policy:Policy['constraints'];locale:Locale;t:T}) {
+  const {state,label,Icon}=constraintOf(policy);
   return <div className={`constraint ${state}`}>
     <Icon size={18} aria-hidden/>
-    <div><strong>{state==='stopped'?t('stopped'):state==='professional'?t('professional'):t('humanReview')}</strong>
+    <div><strong>{t(label)}</strong>
       {policy.reviewerRoles.length>0&&<span>{t('reviewers')}: {policy.reviewerRoles.map(v=>v[locale]).join(' · ')}</span>}
     </div>
   </div>;
+}
+
+export type Theme = 'system'|'light'|'dark';
+const themes=[{value:'system',icon:Monitor,label:'themeSystem'},{value:'light',icon:Sun,label:'themeLight'},{value:'dark',icon:Moon,label:'themeDark'}] as const;
+export function ThemeSwitch({theme,setTheme,t}:{theme:Theme;setTheme:(theme:Theme)=>void;t:T}) {
+  return <div className="theme-switch" role="group" aria-label={t('theme')}>{themes.map(o=><button key={o.value} type="button" aria-pressed={theme===o.value} aria-label={t(o.label)} title={t(o.label)} onClick={()=>setTheme(o.value)}><o.icon size={14} aria-hidden/></button>)}</div>;
 }
 
 export function Empty({icon,title,body,action}:{icon:ReactNode;title:string;body:string;action?:ReactNode}) {

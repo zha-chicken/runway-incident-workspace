@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useRef} from 'react';
-import {ArrowRight, Check, ChevronDown, CircleDashed, LoaderCircle, MessageSquare} from 'lucide-react';
+import {ArrowRight, Check, ChevronDown, CircleDashed, LoaderCircle} from 'lucide-react';
 import type {Locale} from '../domain/types';
 import {time, type Detail, type DiscussionRow, type T} from './client';
 import {AeroContextMark, AiMark, Citations, Constraints, Elapsed} from './ui';
@@ -21,7 +21,6 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
     seen.current=entries.length;
   },[entries.length]);
   return <div className="discussion">
-    {entries.length===0&&!asking&&<div className="discussion-intro"><span className="empty-icon small"><MessageSquare size={22}/></span><div><h2>{t('ask')}</h2><p>{t('noDiscussion')}</p></div></div>}
     <ol className="thread" ref={thread}>{entries.map(entry=>{const v=versionOf(entry.snapshot_id),r=entry.response;return <li key={entry.id} className="exchange">
       <div className="msg user">
         <span className="msg-meta">{t('you')}<span className="dot" aria-hidden>·</span>{time(entry.created_at,locale)}{v&&<><span className="dot" aria-hidden>·</span>{t('version')} {v}</>}</span>
@@ -64,6 +63,7 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
     </ol>
     <form className={`composer card ${asking?'is-waiting':''}`} onSubmit={e=>{e.preventDefault();onSend();}}>
       <label className="composer-label" htmlFor="question">{t('ask')}</label>
+      {entries.length===0&&!asking&&<p className="section-sub">{t('noDiscussion')}</p>}
       <div className="suggestions">{suggestions.map(s=><button type="button" key={s} className="chip" disabled={!!asking} onClick={()=>setQuestion(s)}>{s}</button>)}</div>
       <textarea id="question" value={question} maxLength={6000} disabled={!!asking} onChange={e=>setQuestion(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)&&question.trim()&&!aiBlocked){e.preventDefault();onSend();}}} placeholder={asking?t('waitingAnswer'):t('askPlaceholder')} rows={3} required/>
       <div className="composer-foot">

@@ -9,6 +9,22 @@ const reliabilityTone:Record<Report['reliability'],string>={scenario_given:'neut
 
 export function ReliabilityTag({value,t}:{value:Report['reliability'];t:T}) {return <span className={`tag ${reliabilityTone[value]}`}>{t(value)}</span>;}
 
+/** Current reports as written, with whether the rules count them toward risk. */
+export function ReportList({detail,t}:{detail:Detail;t:T}) {
+  const s=detail.snapshot;
+  if(!s.reports.length)return <p className="muted">{t('noReports')}</p>;
+  return <ol className="report-list">{s.reports.map((r,index)=><li className="report-item" key={r.id}>
+    <span className="report-number">{pad(index+1)}</span>
+    <div className="report-content">
+      <div className="report-heading"><strong>{r.sourceLabel}</strong><span className="tag-row"><ReliabilityTag value={r.reliability} t={t}/><span className="tag neutral">{t(`signal_${r.signal}`)}</span>{r.provenanceKind==='competition'&&<span className="tag outline">{t('suppliedShort')}</span>}{r.expandingImpact&&<span className="tag caution">{t('expanding')}</span>}</span></div>
+      <p className={`usable ${detail.policy.usableReportIds.includes(r.id)?'yes':''}`}>{detail.policy.usableReportIds.includes(r.id)?t('countsTowardRisk'):t('notCounted')}</p>
+      <p className="report-text">{r.text}</p>
+      <p className="report-meta">{t('reportScope')}: {r.applicablePeriod}<span className="dot" aria-hidden>·</span>{t('reportedAt')}: {r.reportedAt||t('notApplicable')}{r.verificationBasis&&<><span className="dot" aria-hidden>·</span>{t('verification')}: {r.verificationBasis}</>}</p>
+      <Citations ids={[`REPORT:${r.id}`]} t={t}/>
+    </div>
+  </li>)}</ol>;
+}
+
 export function OverviewView({detail,t,locale,onEdit}:{detail:Detail;t:T;locale:Locale;onEdit:()=>void}) {
   const s=detail.snapshot;
   return <div className="overview-grid">
@@ -32,16 +48,7 @@ export function OverviewView({detail,t,locale,onEdit}:{detail:Detail;t:T;locale:
       </article>
       <article className="card">
         <div className="section-heading"><div><h2>{t('reports')}</h2><p className="section-sub">{t('reportsSub')}</p></div></div>
-        {s.reports.length?<ol className="report-list">{s.reports.map((r,index)=><li className="report-item" key={r.id}>
-          <span className="report-number">{pad(index+1)}</span>
-          <div className="report-content">
-            <div className="report-heading"><strong>{r.sourceLabel}</strong><span className="tag-row"><ReliabilityTag value={r.reliability} t={t}/><span className="tag neutral">{t(`signal_${r.signal}`)}</span>{r.provenanceKind==='competition'&&<span className="tag outline">{t('suppliedShort')}</span>}{r.expandingImpact&&<span className="tag caution">{t('expanding')}</span>}</span></div>
-            <p className={`usable ${detail.policy.usableReportIds.includes(r.id)?'yes':''}`}>{detail.policy.usableReportIds.includes(r.id)?t('countsTowardRisk'):t('notCounted')}</p>
-            <p className="report-text">{r.text}</p>
-            <p className="report-meta">{t('reportScope')}: {r.applicablePeriod}<span className="dot" aria-hidden>·</span>{t('reportedAt')}: {r.reportedAt||t('notApplicable')}{r.verificationBasis&&<><span className="dot" aria-hidden>·</span>{t('verification')}: {r.verificationBasis}</>}</p>
-            <Citations ids={[`REPORT:${r.id}`]} t={t}/>
-          </div>
-        </li>)}</ol>:<p className="muted">{t('noReports')}</p>}
+        <ReportList detail={detail} t={t}/>
       </article>
     </div>
     <div className="stack">

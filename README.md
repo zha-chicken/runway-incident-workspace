@@ -27,13 +27,17 @@ For a local production build, stop the development server, then run `npm run bui
 
 ## Try the workflow
 
-1. Choose an airport on **Your workspace**, or create a new incident. Cards show the current assessment's risk; an unassessed version stays neutral.
-2. Read **Situation** and **Evidence**. Expand situation details to edit the incident; select a source badge to inspect its original record. Monthly history does not establish current flight status.
-3. Select **Start analysis**. Only the airport sidebar and focused analysis progress remain visible. Switching airports keeps each request separate.
-4. After analysis, choose one of six boxes: **Situation**, **Evidence**, **Assess & decide**, **Messages**, **Ask AeroContext**, or **Record & export**.
-5. In **Assess & decide**, review one recommendation at a time. Accept saves immediately; Modify and Reject require a reason. Each saved decision advances. **Back to [airport]** exits at any time, and reopening resumes the first unfinished review.
+A four-step bar under each airport's title shows where you are: read the situation, run the analysis, decide, then share and record. The dark card on each screen is the next thing to do.
+
+1. Choose an airport on **Choose an airport**, or create a new incident. Each row shows the current assessment's risk; an unassessed version stays neutral.
+2. Read **Situation** and **Evidence** on the airport page. Use **Edit incident** to change facts; select a source badge to inspect its original record. Monthly history does not establish current flight status.
+3. Select **Start analysis**. A focused progress screen replaces the page until the result is ready. Switching airports keeps each request separate.
+4. After analysis, the airport page leads with **Assess & decide** (risk level, who decides, the next recommendation and your progress) beside **Situation**, **Evidence**, **Messages**, **Ask AeroContext** and **Record & export**.
+5. In **Assess & decide**, review one recommendation at a time; the list beside it shows every recommendation and its decision. Accept saves immediately; Modify and Reject require a reason. Each saved decision advances. **Back to [airport]** exits at any time, and reopening resumes the first unfinished review.
 6. Inspect or edit the three audience drafts in **Messages**. Discuss new information in **Ask AeroContext**. **Apply and reassess** explicitly creates a new version from a proposed fact, which remains unverified until reviewed in the incident editor.
 7. Open **Record & export** for the preserved versions and review history, complete JSON export, and printable report. Editing incident facts returns that version to Situation and Evidence until it is analyzed again.
+
+The interface follows the device's light or dark setting; the switch in the sidebar can pin either one.
 
 No messages are sent, and no operational flight decisions are executed.
 

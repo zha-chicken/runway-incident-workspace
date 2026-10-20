@@ -13,10 +13,22 @@ const series=[
   {key:'peerMean',label:'peers',className:'line-peers'}
 ] as const;
 
-export function EvidenceView({evidence,historicalThrough,locale,t}:{evidence:EvidenceBundle;historicalThrough:string|null;locale:Locale;t:T}) {
+/** The latest month against its own baseline and peers, plus how many months crossed the review threshold. */
+export function EvidenceStats({evidence,t}:{evidence:EvidenceBundle;t:T}) {
+  const rows=evidence.monthly,latest=rows.at(-1);
+  if(!latest)return null;
+  const anomalies=rows.filter(r=>isAnomaly(r.deltaPp));
+  return <div className="stat-row">
+    <Stat label={t('latestCompletion')} value={pct(latest.completion)} note={`${latest.period} · ${latest.deltaPp>=0?'+':''}${latest.deltaPp.toFixed(2)} pp`}/>
+    <Stat label={t('baseline')} value={pct(latest.historicalMean)} note={latest.priorCount?`${latest.priorCount} ${t('months')}`:t('initialized')}/>
+    <Stat label={t('peers')} value={pct(latest.peerMean)} note={`n=${latest.peerCount} · ${t('includesSelf')}`}/>
+    <Stat label={t('focusedMonths')} value={String(anomalies.length)} note={t('threshold')} tone={anomalies.length?'caution':undefined}/>
+  </div>;
+}
+
+export function EvidenceView({evidence,historicalThrough,locale,t,stats=true}:{evidence:EvidenceBundle;historicalThrough:string|null;locale:Locale;t:T;stats?:boolean}) {
   const {inspect}=useContext(Inspect);
   const rows=evidence.monthly,latest=rows.at(-1);
-  const anomalies=rows.filter(r=>isAnomaly(r.deltaPp));
   const flagged=evidence.records.filter(r=>r.qualityFlags.length);
   const groups:{key:SourceRecord['category'];title:string;icon:typeof Flag}[]=[
     {key:'event',title:t('groupEvent'),icon:Flag},{key:'scale',title:t('groupScale'),icon:Building2},
@@ -24,12 +36,7 @@ export function EvidenceView({evidence,historicalThrough,locale,t}:{evidence:Evi
   ];
   return <div className="stack">
     <div className="notice"><CircleHelp size={17} aria-hidden/>{t('historyNote')}</div>
-    {latest&&<div className="stat-row">
-      <Stat label={t('latestCompletion')} value={pct(latest.completion)} note={`${latest.period} · ${latest.deltaPp>=0?'+':''}${latest.deltaPp.toFixed(2)} pp`}/>
-      <Stat label={t('baseline')} value={pct(latest.historicalMean)} note={latest.priorCount?`${latest.priorCount} ${t('months')}`:t('initialized')}/>
-      <Stat label={t('peers')} value={pct(latest.peerMean)} note={`n=${latest.peerCount} · ${t('includesSelf')}`}/>
-      <Stat label={t('focusedMonths')} value={String(anomalies.length)} note={t('threshold')} tone={anomalies.length?'caution':undefined}/>
-    </div>}
+    {stats&&<EvidenceStats evidence={evidence} t={t}/>}
     <article className="card chart-card">
       <div className="section-heading"><div><h2>{t('historical')}</h2><p className="section-sub">{t('chartSub')}</p></div><span className="tag neutral code">{evidence.airportId} · {rows[0]?.period} → {latest?.period}{historicalThrough?` · ${t('cutoff')}`:''}</span></div>
       <Chart rows={rows} t={t} locale={locale}/>
