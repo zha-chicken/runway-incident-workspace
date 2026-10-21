@@ -37,6 +37,8 @@ A four-step bar under each airport's title shows where you are: read the situati
 6. Inspect or edit the three audience drafts in **Messages**. Discuss new information in **Ask AeroContext**. **Apply and reassess** explicitly creates a new version from a proposed fact, which remains unverified until reviewed in the incident editor.
 7. Open **Record & export** for the preserved versions and review history, complete JSON export, and printable report. Editing incident facts returns that version to Situation and Evidence until it is analyzed again.
 
+Report applicability uses an inclusive ±30-minute window around the scenario time. Supported times include 24-hour and AM/PM clocks, Chinese/English simulation days, and calendar dates (with optional explicit UTC offsets). A report with only a clock time uses the scenario's day and timezone; give an explicit day/date for reports across midnight. Explicit days/dates must be compatible, and dated times must either both specify UTC offsets or both omit them. Ambiguous periods and ranges retain the existing exact-text match. Reliability, verification, source independence, and safety rules are unchanged.
+
 The interface follows the device's light or dark setting; the switch in the sidebar can pin either one.
 
 No messages are sent, and no operational flight decisions are executed.

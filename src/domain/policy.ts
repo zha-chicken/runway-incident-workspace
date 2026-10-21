@@ -1,4 +1,5 @@
 import {bi, type IncidentInput, type Policy} from './types';
+import {isCurrentReportPeriod} from './report-period';
 
 export const professionalRequest = (text: string) =>
   /cancel|cancellation|dispatch|maintenance|compensat|flight release|clear.*take.?off|取消|放行|调度|维修|赔付|赔偿/i.test(text);
@@ -10,13 +11,13 @@ export function evaluatePolicy(input: IncidentInput, request = input.decisionReq
   const stop = input.safetyIssue || input.sourceReliabilityUnknown || sourceStopRequest(request);
   const usable = input.sourceReliabilityUnknown ? [] : input.reports.filter(r =>
     (r.reliability === 'scenario_given' || r.reliability === 'human_verified') &&
-    r.applicablePeriod.trim() === input.scenarioPeriod.trim() &&
+    isCurrentReportPeriod(r.applicablePeriod, input.scenarioPeriod) &&
     (r.reliability !== 'human_verified' || !!r.verificationBasis?.trim()) &&
     r.signal !== 'context' && r.signal !== 'conflict'
   );
   const active = usable.filter(r => ['weather', 'operations', 'capacity'].includes(r.signal));
   const independent = active.filter(r => r.independenceGroup && r.originReportId && r.verificationBasis &&
-    r.reportedAt && r.applicablePeriod === input.scenarioPeriod);
+    r.reportedAt && isCurrentReportPeriod(r.applicablePeriod, input.scenarioPeriod));
   const groups = [...new Set(independent.map(r => r.independenceGroup!))];
   const origins = new Set(independent.map(r => r.originReportId));
   const signals = new Set(independent.map(r => r.signal));
@@ -36,7 +37,7 @@ export function evaluatePolicy(input: IncidentInput, request = input.decisionReq
   if (stop) ruleIds.push('RULE012');
   if (!groups.length) gaps.push(bi('Independent current report identities are not established.', '尚未确认当前报告的独立来源身份。'));
   if (input.reports.some(r => !r.reportedAt)) gaps.push(bi('Some report timestamps are unspecified.', '部分报告时间未提供。'));
-  if (input.reports.some(r => r.applicablePeriod.trim() !== input.scenarioPeriod.trim())) gaps.push(bi('Reports outside this scenario period are context only.', '不属于当前场景时段的报告仅作为背景。'));
+  if (input.reports.some(r => !isCurrentReportPeriod(r.applicablePeriod, input.scenarioPeriod))) gaps.push(bi('Some report periods fall outside the ±30-minute window or cannot be matched to the scenario period; those reports are context only.', '部分报告的适用时间超出场景时间前后30分钟，或无法与场景时段匹配；这些报告仅作为背景。'));
   return {
     riskLevel, ruleIds, usableReportIds: usable.map(r => r.id), independentGroups: groups, gaps,
     constraints: {
