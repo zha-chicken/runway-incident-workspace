@@ -1,4 +1,5 @@
 import type {Assessment, Dataset, Discussion, EvidenceBundle, IncidentInput, Locale, Policy, ReviewInput, Snapshot, StoredAssessment} from '../domain/types';
+import {sourceStopRequest} from '../domain/policy';
 
 export type IncidentSummary = {id:string;version:number;title:string;sourceEventId:string|null;airportId:string;scenarioPeriod:string;riskLevel:Assessment['riskLevel']|null};
 export type Bootstrap = {incidents:IncidentSummary[];airports:Dataset['airports'];events:Dataset['events'];apiConfigured:boolean;apiFormat:string;effort:string;budget:{used:number;remaining:number};dataset:{version:string;sha256:string}};
@@ -16,6 +17,20 @@ export const audiences = ['operations','airportCoordination','passenger'] as con
 /** A previous version's assessment is history, not the current incident's risk. */
 export const currentAssessment = (detail:Detail) => detail.assessments.find(a =>
   a.id===detail.incident.current_assessment_id && a.snapshotVersion===detail.snapshot.version);
+
+/** Historical output must explain its own snapshot, never today's incident flags. */
+export const inputAtSnapshot = (detail:Detail,snapshotId:string):IncidentInput|undefined =>
+  detail.snapshot.id===snapshotId ? detail.snapshot : detail.history.find(s=>s.id===snapshotId)?.input;
+
+/** Explain the existing stop predicates without changing or reclassifying the saved result. */
+export function stopReasonKeys(policy:Policy['constraints'],input?:IncidentInput,request?:string):string[] {
+  if(!policy.actionConclusionsStopped)return [];
+  const reasons:string[]=[];
+  if(input?.safetyIssue)reasons.push('stopReasonSafety');
+  if(input?.sourceReliabilityUnknown)reasons.push('stopReasonReliability');
+  if(input&&sourceStopRequest(request||input.decisionRequest))reasons.push('stopReasonRequest');
+  return reasons.length ? reasons : ['stopReasonUnavailable'];
+}
 
 export async function api<R>(path:string,body?:unknown):Promise<R> {
   const response=await fetch(`/api/${path}`,body===undefined?{cache:'no-store'}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});

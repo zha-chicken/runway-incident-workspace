@@ -3,8 +3,9 @@
 import {useEffect, useRef} from 'react';
 import {ArrowRight, Check, ChevronDown, CircleDashed, LoaderCircle} from 'lucide-react';
 import type {Locale} from '../domain/types';
-import {time, type Detail, type DiscussionRow, type T} from './client';
+import {inputAtSnapshot, time, type Detail, type DiscussionRow, type T} from './client';
 import {AeroContextMark, AiMark, Citations, Constraints, Elapsed} from './ui';
+import {DiscussionAnswer} from './discussion-answer';
 
 /** A question in flight: known locally after sending, or only as a running run after a reload. */
 export type Asking = {question:string|null;since:string};
@@ -29,8 +30,8 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
       <div className="msg ai">
         <span className="msg-meta"><span className="ai-avatar" aria-hidden><AeroContextMark/></span>{t('assistant')}<AiMark t={t}/></span>
         <div className="msg-body">
-          <p className="draft-prose">{r.answer[locale]}</p>
-          <Constraints policy={r.decisionConstraints} locale={locale} t={t}/>
+          <DiscussionAnswer text={r.answer[locale]} evidenceIds={r.evidenceIds} version={v} t={t}/>
+          <Constraints policy={r.decisionConstraints} input={inputAtSnapshot(detail,entry.snapshot_id)} request={entry.question} locale={locale} t={t}/>
           <Citations ids={r.evidenceIds} version={v} t={t}/>
           {r.proposedFacts.length>0&&<details className="proposals">
             <summary><CircleDashed size={14} aria-hidden/><span>{t('proposals')}</span><span className="count">{r.proposedFacts.length}</span><ChevronDown size={14} className="proposal-chevron" aria-hidden/></summary>

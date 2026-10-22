@@ -1,4 +1,5 @@
 import {assessmentSchema, discussionSchema, type Assessment, type Discussion, type EvidenceBundle, type IncidentInput, type Policy} from './types';
+import {citationId, discussionLinks} from './discussion-markdown';
 
 export function validateAssessment(value: unknown, input: IncidentInput, evidence: EvidenceBundle, policy: Policy): Assessment {
   const result = assessmentSchema.parse(value);
@@ -61,6 +62,16 @@ export function validateDiscussion(value: unknown, evidence: EvidenceBundle, pol
   if(internalTerms(JSON.stringify(result.answer)))errors.push('Use plain operational language instead of implementation identifiers.');
   const refs = new Set([...evidence.records.map(r => r.id), ...evidence.reportEvidence.map(r => r.id)]);
   if (result.evidenceIds.some(id => !refs.has(id))) errors.push('Unknown discussion evidence.');
+  for (const locale of ['en', 'zh'] as const) {
+    const links = discussionLinks(result.answer[locale]);
+    if (result.evidenceIds.length && !links.length) errors.push(`answer.${locale} requires inline evidence citations.`);
+    for (const href of links) {
+      const id = citationId(href);
+      if (!id || !refs.has(id) || !result.evidenceIds.includes(id)) {
+        errors.push(`answer.${locale} links must use #evidence: followed by an exact source ID also listed in evidenceIds.`);
+      }
+    }
+  }
   if (/notification (?:has been|was) sent|已(?:经)?(?:向旅客)?发送通知/i.test(JSON.stringify(result.answer))) errors.push('Sending claim prohibited.');
   if (errors.length) throw new ValidationFailure(errors);
   return result;

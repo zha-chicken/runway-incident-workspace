@@ -55,7 +55,7 @@ export function OverviewView({detail,t,locale,onEdit}:{detail:Detail;t:T;locale:
       <article className="card">
         <div className="section-heading"><div><h2>{t('rulesView')}</h2><p className="section-sub">{t('riskSeparate')}</p></div></div>
         {currentAssessment(detail)&&<div className="policy-risk"><div><span className="mini-label">{t('policyRisk')}</span><RiskBadge level={detail.policy.riskLevel} t={t}/></div><p>{t('policyRiskNote')}</p></div>}
-        <Constraints policy={detail.policy.constraints} locale={locale} t={t}/>
+        <Constraints policy={detail.policy.constraints} input={s} locale={locale} t={t}/>
         {detail.policy.gaps.length>0&&<><h3 className="mini-heading">{t('policyGaps')}</h3><ul className="plain-list">{detail.policy.gaps.map((g,i)=><li key={i}>{g[locale]}</li>)}</ul></>}
         <h3 className="mini-heading">{t('rules')}</h3>
         <Citations ids={detail.policy.ruleIds} t={t}/>

@@ -3,8 +3,8 @@
 import {createContext, useContext, useEffect, useState, type ReactNode} from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import {BookOpen, Building2, ChartLine, CircleHelp, ClipboardCheck, CloudSun, FileText, Flag, Hash, Info, Monitor, Moon, OctagonX, Sun, TriangleAlert, X} from 'lucide-react';
-import type {Assessment, Locale, Policy} from '../domain/types';
-import {citationKind, citationLabel, type T} from './client';
+import type {Assessment, IncidentInput, Locale, Policy} from '../domain/types';
+import {citationKind, citationLabel, stopReasonKeys, type T} from './client';
 
 export const FormError = createContext('');
 /** Lets any citation open its source record without threading callbacks through every view. */
@@ -83,11 +83,13 @@ export function constraintOf(policy:Policy['constraints']) {
   const state=policy.actionConclusionsStopped?'stopped':policy.professionalDecisionRequired?'professional':'review';
   return {state,label:state==='stopped'?'stopped':state==='professional'?'professional':'humanReview',Icon:state==='stopped'?OctagonX:state==='professional'?CircleHelp:ClipboardCheck};
 }
-export function Constraints({policy,locale,t}:{policy:Policy['constraints'];locale:Locale;t:T}) {
+export function Constraints({policy,input,request,locale,t}:{policy:Policy['constraints'];input?:IncidentInput;request?:string;locale:Locale;t:T}) {
   const {state,label,Icon}=constraintOf(policy);
+  const reasons=stopReasonKeys(policy,input,request);
   return <div className={`constraint ${state}`}>
     <Icon size={18} aria-hidden/>
     <div><strong>{t(label)}</strong>
+      {reasons.length>0&&<p className="constraint-reason">{t('stopReason')}: {reasons.map(key=>t(key)).join(' ')}{policy.triggeredRuleIds.includes('RULE012')&&' (RULE012)'}</p>}
       {policy.reviewerRoles.length>0&&<span>{t('reviewers')}: {policy.reviewerRoles.map(v=>v[locale]).join(' · ')}</span>}
     </div>
   </div>;

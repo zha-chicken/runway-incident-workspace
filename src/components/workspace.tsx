@@ -5,7 +5,7 @@ import {NextIntlClientProvider, useTranslations} from 'next-intl';
 import {ArrowUpRight, CircleAlert, LayoutGrid, LoaderCircle, Menu, Plus, Printer, RotateCcw, X} from 'lucide-react';
 import type {EvidenceBundle, IncidentInput, Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {messages, errors} from './messages';
-import {api, currentAssessment, inputOf, latestReviews, recommendationsOf, type Audience, type Bootstrap, type Detail, type DiscussionRow, type Review, type T, type Tab} from './client';
+import {api, currentAssessment, inputAtSnapshot, inputOf, latestReviews, recommendationsOf, type Audience, type Bootstrap, type Detail, type DiscussionRow, type Review, type T, type Tab} from './client';
 import {AeroContextMark, AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskIcon, SimMark, ThemeSwitch, type Theme} from './ui';
 import {OverviewView} from './overview';
 import {EvidenceView, SourceView} from './evidence';
@@ -184,7 +184,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
             <h1>{t('brand')} · {title}</h1>
             <p>{detail.snapshot.scenarioPeriod} · {t('version')} {displayed.snapshotVersion} · {t(`risk_${displayed.result.riskLevel}`)} · {t('official')}: {t(detail.snapshot.officialStatus)}</p>
             <p>{t('draftHint')}</p>{!current&&<p>{t('stale')}</p>}
-            <Constraints policy={displayed.result.decisionConstraints} locale={locale} t={t}/>
+            <Constraints policy={displayed.result.decisionConstraints} input={inputAtSnapshot(detail,displayed.snapshotId)} locale={locale} t={t}/>
             <AssessmentView assessment={displayed} locale={locale} t={t} print/>
             {(['operations','airportCoordination','passenger'] as const).map(a=><section key={a} className="print-draft"><h2>{t(a)} · {t('draft')}</h2><p className="draft-prose">{draftText(displayed,a)}</p><p className="print-refs">{displayed.result.drafts[a].evidenceIds.join(', ')}</p></section>)}
             <h2>{t('reviewLog')}</h2>{detail.reviews.map(r=><p key={r.id}>{r.reviewedAt} · {r.reviewerLabel} · {r.recommendationId} · {t(r.disposition)} · {r.reason} · {r.finalAction} · {r.outcome||t('pending')}</p>)}

@@ -12,6 +12,17 @@ import {database, saveAssessment, saveDiscussion, snapshotFor} from '../server/d
 const state = globalThis as typeof globalThis & {runwayControllers?: Map<string, AbortController>};
 const controllers = state.runwayControllers ??= new Map();
 export const PROMPT_VERSION = 'runway-2026-10-20-v3';
+export const DISCUSSION_PROMPT_VERSION = 'runway-discussion-2026-10-22-markdown-v2';
+const discussionFormat = `
+For this discussion, write answer.en and answer.zh as readable Markdown strings INSIDE the existing JSON object. Do not wrap the JSON or the answer in a code fence. Keep proposedFacts and all other fields in their existing format.
+Start each answer with this notice on its own line: SIMULATION / 模拟 — DRAFT / 草案. Then a blank line and the direct answer. Use short paragraphs, descriptive headings (## or ###), bullets or numbered steps, and selective bold emphasis where helpful. Use a small table only for a real comparison. Avoid a wall of text or a fixed long template for a simple question.
+Readability is presentation, not loss of information. Retain all relevant exact figures, percentages, historical comparisons, report times, reliability qualifications, limitations, and evidence links. Be concise by removing repetition, never by replacing data with vague summaries. Give English and Chinese the same quantitative detail. Copy units, signs and source precision accurately; percentage points are not percentages. Keep metric names and periods beside their values; do not expose internal metric IDs as prose.
+The interface highlights numeric quantities automatically. You may also put an exact numeric quantity in Markdown inline code (backticks), such as a percentage, percentage-point difference, report time or duration, to emphasize it. Keep its label and citation outside the highlight. Highlights are visual emphasis only, not proof of verification.
+When explaining a risk assessment and its historical evidence, preserve the full relevant monthly comparison: completed-as-planned percentage, release-normality percentage as a separate measure, prior available-month mean, signed percentage-point difference, and same-category mean. State the assessed month, actual baseline month count and date range (excluding the assessed month), and peer count with the assessed airport included. Use supplied values; if any value is missing, say so instead of inventing it. A compact historical-context table can retain these details. Explain that historical underperformance prompts historical review and does not confirm current causation or independently establish current high risk. Cite the operating row and the applicable anomaly rule when explaining the threshold.
+Place clickable citations beside the claims they support, using Markdown links with this exact target form: [RULE012](#evidence:RULE012) or [short source label](#evidence:REPORT%3Aexact-report-id). The target after #evidence: is the exact evidence record ID, URL-encoded where needed; keep REPORT: in report IDs. Never use a metric ID as a link target: link its parent evidence record. Use at least one inline citation in EACH language when evidenceIds is non-empty. Each link target must also be listed in evidenceIds. Use only supplied sources, never external URLs, images, HTML, invented IDs, or numeric-only citation placeholders.
+The citation label may describe the source briefly but must not assert that an unverified report is confirmed. Formatting and a valid citation do not change reliability, time scope, risk, authority, or the stop rules. Keep uncertainties explicit and do not turn a request to verify into a claim that verification is underway.
+Answer the user's question directly; do not repeat all three audience drafts unless the user asks for them. Any draft you do include must still carry the required simulation/draft notice.
+`;
 export function buildRequest(snapshot: Snapshot, action: 'assessment' | 'discussion', question = '', history: unknown[] = []): ModelRequest {
   const evidence = evidenceFor(snapshot), policy = evaluatePolicy(snapshot, question || snapshot.decisionRequest);
   const apiFormat = process.env.DEEPSEEK_API_FORMAT || 'responses';
@@ -62,7 +73,7 @@ Example bilingual value: {"en":"Source update time is unknown.","zh":"来源更�
     task: action, snapshot, computedPolicy: policy, evidence,
     discussionHistory: history, question: question || null
   });
-  return {instructions, input, schema, schemaName: `runway_${action}`, maxOutput: action === 'assessment' ? 65536 : 32768,
+  return {instructions: instructions + (action === 'discussion' ? discussionFormat : ''), input, schema, schemaName: `runway_${action}`, maxOutput: action === 'assessment' ? 65536 : 32768,
     deadlineMs: action === 'assessment' ? 300000 : 180000, apiFormat: apiFormat as ApiFormat, effort: effort as Effort};
 }
 export async function generate(args: {workspaceId: string; incidentId: string; expectedVersion: number; action: 'assessment' | 'discussion'; question?: string; idempotencyKey: string; ipHash: string; signal?: AbortSignal}) {
@@ -75,13 +86,14 @@ export async function generate(args: {workspaceId: string; incidentId: string; e
   const rows = args.action === 'discussion' ? database().native.prepare('SELECT question,response FROM discussions WHERE incident_id=? AND snapshot_id=? ORDER BY created_at DESC LIMIT 6').all(args.incidentId, snapshot.id) as {question: string; response: string}[] : [];
   const history = rows.reverse().map(r => ({question: r.question, response: JSON.parse(r.response)}));
   const request = buildRequest(snapshot, args.action, args.question, history);
+  const promptVersion = args.action === 'discussion' ? DISCUSSION_PROMPT_VERSION : PROMPT_VERSION;
   const body = JSON.stringify(requestBody(request)), inputTokens = estimateTokens(body);
   const reservedMicro = reserveFor(inputTokens, request.maxOutput);
   const metadata: Record<string, unknown> = {
-    promptVersion: PROMPT_VERSION, policyVersion: 'risk-authority-v1', schemaVersion: 1,
+    promptVersion, policyVersion: 'risk-authority-v1', schemaVersion: 1,
     apiFormat: request.apiFormat, effort: request.effort, maxOutput: request.maxOutput, totalCeiling: TOTAL_TOKENS,
     inputEstimate: inputTokens, inputHash: createHash('sha256').update(body).digest('hex'),
-    requestKeyHash: createHash('sha256').update(JSON.stringify({snapshotId:snapshot.id,action:args.action,question:args.question||'',apiFormat:request.apiFormat,effort:request.effort,prompt:PROMPT_VERSION})).digest('hex'),
+    requestKeyHash: createHash('sha256').update(JSON.stringify({snapshotId:snapshot.id,action:args.action,question:args.question||'',apiFormat:request.apiFormat,effort:request.effort,prompt:promptVersion})).digest('hex'),
     datasetVersion: evidenceFor(snapshot).datasetVersion, attempts: []
   };
   const run = reserveRun({...args, snapshotId: snapshot.id, reservedMicro, metadata});

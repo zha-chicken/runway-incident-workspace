@@ -494,6 +494,7 @@ summary { cursor: pointer; }
 .constraint { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line-strong); background: var(--surface-2); color: var(--ink); }
 .constraint > svg { flex-shrink: 0; margin-top: 1px; }
 .constraint strong { display: block; font-size: 14px; color: var(--ink); }
+.constraint .constraint-reason { margin: 5px 0 6px; font-size: 13px; line-height: 1.6; color: var(--ink-2); }
 .constraint span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
 .constraint.professional { border-color: var(--caution-line); background: var(--caution-soft); color: var(--caution); }
 .constraint.stopped { border-color: var(--danger-line); background: var(--danger-soft); color: var(--danger); }
@@ -667,6 +668,33 @@ tr.anomaly .delta { color: var(--caution); font-weight: 700; }
 .aerocontext-mark { display: block; flex-shrink: 0; }
 .msg-body { padding-left: 36px; min-width: 0; }
 .msg.ai .draft-prose { font-size: 15px; margin-bottom: 14px; }
+.discussion-notice { border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); color: var(--muted); padding: 9px 12px; margin-bottom: 16px; font-size: 12px; line-height: 1.5; }
+.discussion-markdown { font-size: 15px; line-height: 1.75; overflow-wrap: anywhere; margin-bottom: 18px; }
+.discussion-markdown > :first-child { margin-top: 0; }
+.discussion-markdown > :last-child { margin-bottom: 0; }
+.discussion-markdown p { margin: 0 0 12px; white-space: pre-wrap; }
+.discussion-markdown h3 { font-size: 16px; font-weight: 650; line-height: 1.4; margin: 24px 0 10px; letter-spacing: -.015em; }
+.discussion-markdown h4 { font-size: 15px; font-weight: 650; margin: 18px 0 8px; }
+.discussion-markdown ul, .discussion-markdown ol { padding-left: 1.5em; margin: 10px 0 16px; }
+.discussion-markdown ul { list-style: disc; }
+.discussion-markdown ol { list-style: decimal; }
+.discussion-markdown li { padding-left: 4px; margin: 6px 0; }
+.discussion-markdown li > p { margin-bottom: 6px; }
+.discussion-markdown li ul, .discussion-markdown li ol { margin: 5px 0; }
+.discussion-markdown strong { font-weight: 650; color: var(--ink); }
+.discussion-markdown blockquote { margin: 14px 0; padding: 10px 14px; border-left: 3px solid var(--line-strong); background: var(--surface-2); border-radius: 0 8px 8px 0; color: var(--ink-2); }
+.discussion-markdown blockquote > :last-child { margin-bottom: 0; }
+.discussion-markdown hr { border: 0; border-top: 1px solid var(--line); margin: 20px 0; }
+.discussion-markdown code { font-family: var(--mono); font-size: .85em; background: var(--sunken); padding: 2px 5px; border-radius: 4px; }
+.discussion-markdown pre { overflow-x: auto; white-space: pre; padding: 12px; margin: 14px 0; border-radius: 8px; background: var(--sunken); }
+.discussion-markdown pre code { padding: 0; background: none; }
+.discussion-markdown .data-highlight { display: inline; padding: 2px 6px; border-radius: 6px; background: color-mix(in srgb, var(--ink) 11%, var(--surface)); color: var(--ink); font: inherit; font-weight: 600; font-variant-numeric: tabular-nums; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.discussion-markdown .inline-citation { display: inline; border: 1px solid var(--line-strong); border-radius: 5px; padding: 1px 5px; margin: 0 2px; background: var(--surface-2); color: var(--ink-2); font: inherit; font-size: .8em; line-height: inherit; vertical-align: baseline; text-align: left; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.discussion-markdown .inline-citation:hover { border-color: var(--ink); color: var(--ink); background: var(--sunken); }
+.discussion-markdown .inline-citation:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.discussion-table { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 9px; margin: 14px 0; }
+.discussion-table table { min-width: 100%; width: max-content; max-width: 900px; font-size: 13px; }
+.discussion-table th, .discussion-table td { text-align: left; white-space: normal; min-width: 120px; max-width: 340px; padding: 9px 12px; }
 .typing { display: inline-flex; align-items: center; gap: 3px; margin-left: 2px; }
 .typing i { width: 5px; height: 5px; border-radius: 50%; background: var(--ink-2); animation: typing 1.2s ease-in-out infinite; }
 .typing i:nth-child(2) { animation-delay: .15s; }
