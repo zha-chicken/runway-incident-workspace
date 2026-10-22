@@ -1,5 +1,7 @@
 'use client';
 
+import {ValidationNotice} from './validation-notice';
+
 import {useState} from 'react';
 import {Check, CircleDashed, CircleHelp, ClipboardCheck, Pencil, ShieldCheck, TriangleAlert, UserCheck, X} from 'lucide-react';
 import type {Assessment, Bilingual, Locale, ReviewInput, StoredAssessment} from '../domain/types';
@@ -31,6 +33,7 @@ export function AssessmentView({assessment,locale,t,reviews,onReview,print}:{ass
   const visible=(c:Claim)=>print||filter==='all'||c.kind===filter;
   const deciding=!!onReview&&!print;
   return <div className="assessment-content">
+    <ValidationNotice validation={assessment.validation} locale={locale} expanded={print}/>
     <div className="decide-layout">
       <section className="card plan" aria-labelledby={`plan-${assessment.id}`}>
         <div className="section-heading"><div><h2 id={`plan-${assessment.id}`}>{deciding?t('decideTitle'):t('actionPlan')}</h2><p className="section-sub">{deciding?t('decideSub',{done:decided,total:actions.length}):t('planSubPlain')}</p></div></div>

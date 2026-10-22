@@ -1,10 +1,11 @@
 import {assessmentSchema, discussionSchema, type Assessment, type Discussion, type EvidenceBundle, type IncidentInput, type Policy} from './types';
 import {citationId, discussionLinks} from './discussion-markdown';
 import {checkProse, checkRates, discussionBlocks, hasDraftNotice} from './output-checks';
+import {warning, warningIssue, type ValidationWarning} from './validation-notes';
 
-export function validateAssessment(value: unknown, input: IncidentInput, evidence: EvidenceBundle, policy: Policy): Assessment {
+export function inspectAssessment(value: unknown, input: IncidentInput, evidence: EvidenceBundle, policy: Policy) {
   const result = assessmentSchema.parse(value);
-  const errors: string[] = [];
+  const errors: string[] = [], warnings: ValidationWarning[] = [];
   const refs = new Set([...evidence.records.map(r => r.id), ...evidence.reportEvidence.map(r => r.id)]);
   const metrics = new Map(evidence.metrics.map(m => [m.id, m]));
   if (result.riskLevel !== policy.riskLevel) errors.push('Risk must match the evidence-based policy result.');
@@ -42,26 +43,26 @@ export function validateAssessment(value: unknown, input: IncidentInput, evidenc
   ];
   for (const field of fields) for (const locale of ['en','zh'] as const) {
     const path=`${field.path}.${locale}`;
-    checkProse(field.text[locale],restricted,input.officialStatus==='unconfirmed',path,errors);
-    checkRates(field.text[locale],field.ids,evidence,path,errors,field.metrics);
+    checkProse(field.text[locale],restricted,input.officialStatus==='unconfirmed',path,errors,warnings);
+    checkRates(field.text[locale],field.ids,evidence,path,errors,field.metrics,warnings);
   }
   for (const [audience,draft] of Object.entries(result.drafts)) for (const locale of ['en','zh'] as const) {
-    if (!hasDraftNotice(draft.text[locale])) errors.push(`drafts.${audience}.${locale} must start with a simulation/draft notice.`);
+    if (!hasDraftNotice(draft.text[locale])) warnings.push(warning('presentation', `drafts.${audience}.${locale}`, 'Draft notice needs review; this output remains a simulation draft.', draft.text[locale]));
   }
   const narrative=[
     ...result.rationale.map(c=>c.text),...result.possibleImpacts.map(c=>c.text),
     ...result.assumptionsToVerify,...result.informationGaps,...result.escalationConditions,...result.humanDecisions,
     ...actions.map(a=>a.text),...Object.values(result.drafts).map(d=>d.text)
   ];
-  if(internalTerms(JSON.stringify(narrative)))errors.push('Use plain operational language instead of implementation identifiers in narrative text.');
+  if(internalTerms(JSON.stringify(narrative)))warnings.push(warning('presentation', 'assessment', 'Use plain operational language instead of implementation identifiers in narrative text.', ''));
   if (new Set(actions.map(a => a.id)).size !== actions.length) errors.push('Recommendation IDs must be unique.');
   if (restricted) {
     if (actions.some(a => !['refer', 'prepare_information'].includes(a.kind))) errors.push('Restricted response permits only referral and information preparation.');
   }
   if (policy.constraints.actionConclusionsStopped && result.outputStatus !== 'stopped') errors.push('Stopped action conclusions must be labeled stopped.');
   if (!policy.constraints.actionConclusionsStopped && result.outputStatus !== 'needs_review') errors.push('An assessment without a stop must remain labeled needs_review.');
-  if (errors.length) throw new ValidationFailure(errors);
-  return result;
+  if (errors.length) throw new ValidationFailure(errors, warnings);
+  return {result, warnings: uniqueWarnings(warnings)};
 }
 function checkConstraints(result: Assessment['decisionConstraints'], policy: Policy, errors: string[]) {
   if (result.professionalDecisionRequired !== policy.constraints.professionalDecisionRequired ||
@@ -69,20 +70,20 @@ function checkConstraints(result: Assessment['decisionConstraints'], policy: Pol
     policy.constraints.triggeredRuleIds.some(r => !result.triggeredRuleIds.includes(r)) ||
     result.triggeredRuleIds.some(r => !policy.constraints.triggeredRuleIds.includes(r))) errors.push('Decision constraints mismatch.');
 }
-export function validateDiscussion(value: unknown, evidence: EvidenceBundle, policy: Policy, input?: IncidentInput): Discussion {
+export function inspectDiscussion(value: unknown, evidence: EvidenceBundle, policy: Policy, input?: IncidentInput) {
   const result = discussionSchema.parse(value);
-  const errors: string[] = [];
+  const errors: string[] = [], warnings: ValidationWarning[] = [];
   checkConstraints(result.decisionConstraints, policy, errors);
-  if(internalTerms(JSON.stringify(result.answer)))errors.push('Use plain operational language instead of implementation identifiers.');
+  if(internalTerms(JSON.stringify(result.answer)))warnings.push(warning('presentation', 'answer', 'Use plain operational language instead of implementation identifiers.', ''));
   const refs = new Set([...evidence.records.map(r => r.id), ...evidence.reportEvidence.map(r => r.id)]);
   if (result.evidenceIds.some(id => !refs.has(id))) errors.push('Unknown discussion evidence.');
   const restricted=policy.constraints.professionalDecisionRequired || policy.constraints.actionConclusionsStopped;
   for (const locale of ['en', 'zh'] as const) {
-    if (!hasDraftNotice(result.answer[locale])) errors.push(`answer.${locale} must start with a simulation/draft notice.`);
-    checkProse(result.answer[locale],restricted,input?.officialStatus==='unconfirmed',`answer.${locale}`,errors);
-    for (const block of discussionBlocks(result.answer[locale])) checkRates(block.text,block.evidenceIds,evidence,`answer.${locale}`,errors);
+    if (!hasDraftNotice(result.answer[locale])) warnings.push(warning('presentation', `answer.${locale}`, 'Draft notice needs review; this output remains a simulation draft.', result.answer[locale]));
+    checkProse(result.answer[locale],restricted,input?.officialStatus==='unconfirmed',`answer.${locale}`,errors,warnings);
+    for (const block of discussionBlocks(result.answer[locale])) checkRates(block.text,block.evidenceIds,evidence,`answer.${locale}`,errors,undefined,warnings);
     const links = discussionLinks(result.answer[locale]);
-    if (result.evidenceIds.length && !links.length) errors.push(`answer.${locale} requires inline evidence citations.`);
+    if (result.evidenceIds.length && !links.length) warnings.push(warning('citation', `answer.${locale}`, 'Inline evidence citations need review.', result.answer[locale]));
     for (const href of links) {
       const id = citationId(href);
       if (!id || !refs.has(id) || !result.evidenceIds.includes(id)) {
@@ -91,13 +92,33 @@ export function validateDiscussion(value: unknown, evidence: EvidenceBundle, pol
     }
   }
   for (const [index,fact] of result.proposedFacts.entries()) for (const locale of ['en','zh'] as const) {
-    checkProse(fact.text[locale],restricted,input?.officialStatus==='unconfirmed',`proposedFacts.${index}.${locale}`,errors);
-    checkRates(fact.text[locale],result.evidenceIds,evidence,`proposedFacts.${index}.${locale}`,errors);
+    checkProse(fact.text[locale],restricted,input?.officialStatus==='unconfirmed',`proposedFacts.${index}.${locale}`,errors,warnings);
+    checkRates(fact.text[locale],result.evidenceIds,evidence,`proposedFacts.${index}.${locale}`,errors,undefined,warnings);
   }
-  if (errors.length) throw new ValidationFailure(errors);
-  return result;
+  if (errors.length) throw new ValidationFailure(errors, warnings);
+  return {result, warnings: uniqueWarnings(warnings)};
 }
 const internalTerms=(text:string)=>/\b(?:computedPolicy|riskLevel|professionalDecisionRequired|actionConclusionsStopped|outputStatus|needs_review)\b/.test(text);
+const uniqueWarnings = (warnings: ValidationWarning[]) => [...new Map(warnings.map(w => [warningIssue(w), w])).values()];
+
+/** Strict inspection remains available for development/evaluation. Runtime recovery uses
+ * inspect* and only accepts review notes after its one repair attempt. */
+export function validateAssessment(value: unknown, input: IncidentInput, evidence: EvidenceBundle, policy: Policy): Assessment {
+  const checked = inspectAssessment(value, input, evidence, policy);
+  if (checked.warnings.length) throw new ValidationFailure([], checked.warnings);
+  return checked.result;
+}
+export function validateDiscussion(value: unknown, evidence: EvidenceBundle, policy: Policy, input?: IncidentInput): Discussion {
+  const checked = inspectDiscussion(value, evidence, policy, input);
+  if (checked.warnings.length) throw new ValidationFailure([], checked.warnings);
+  return checked.result;
+}
 export class ValidationFailure extends Error {
-  constructor(public issues: string[]) {super('MODEL_OUTPUT_INVALID');this.issues=[...new Set(issues)].slice(0,40);}
+  issues: string[];
+  warnings: ValidationWarning[];
+  constructor(public blockingIssues: string[], warnings: ValidationWarning[] = []) {
+    super('MODEL_OUTPUT_INVALID');
+    this.warnings = uniqueWarnings(warnings);
+    this.issues = [...new Set([...blockingIssues, ...this.warnings.map(warningIssue)])].slice(0,40);
+  }
 }

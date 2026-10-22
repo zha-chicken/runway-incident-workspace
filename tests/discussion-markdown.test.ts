@@ -21,6 +21,11 @@ const answer = (): Discussion => ({
 });
 
 describe('discussion Markdown and evidence links', () => {
+  it('provides the draft notice when a recovered answer omitted it, without changing the body',()=>{
+    const html=render('Check the source before acting.');
+    expect(html).toContain('SIMULATION / 模拟 — DRAFT / 草案');
+    expect(html).toContain('Check the source before acting.');
+  });
   it('renders headings, emphasis, lists and tables, retaining the notice in its own box', () => {
     const html = render('SIMULATION / 模拟 — DRAFT / 草案.\n\n## Main point\n\n**High risk**, *uncertain cause*.\n\n- Verify the report\n- Preserve the scope\n\n| Source | Status |\n| --- | --- |\n| Engineering | Pending |');
     expect(html).toContain('class="discussion-notice"');
@@ -79,7 +84,7 @@ describe('discussion Markdown and evidence links', () => {
   it('highlights exact figures, units, signs, dates and times without changing visible text', () => {
     const text = 'Completion 78.20%; release 79.42%; baseline 83.81%; difference −5.61 pp; peers 79.58%. August 2025: 2025-08, prior 12 months, 3 airports. The 20:00 report is inside ±30 minutes. Historical context does not establish current causation.';
     const html = render(text);
-    const visible = (value: string) => value.replace(/<[^>]+>/g, '');
+    const visible = (value: string) => value.replace(/<aside class="discussion-notice"[^>]*>[\s\S]*?<\/aside>/g, '').replace(/<[^>]+>/g, '');
     const original = renderToStaticMarkup(React.createElement(Markdown, {children: text}));
     expect(visible(html)).toBe(visible(original));
     for (const value of ['78.20%', '79.42%', '83.81%', '−5.61 pp', '79.58%', '2025-08', '12 months', '3 airports', '20:00', '±30 minutes']) {
@@ -92,7 +97,7 @@ describe('discussion Markdown and evidence links', () => {
   it('preserves Chinese units and surrounding qualifiers, including negative percentage points', () => {
     const text = '2025-08按计划完成78.20%，放行正常79.42%，此前12个月均值83.81%，差值-5.61个百分点，同类79.58%。20:05已核验；20:08未核验。';
     const html = render(text);
-    expect(html.replace(/<[^>]+>/g, '')).toBe(text);
+    expect(html.replace(/<aside class="discussion-notice"[^>]*>[\s\S]*?<\/aside>/g, '').replace(/<[^>]+>/g, '')).toBe(text);
     for (const value of ['78.20%', '79.42%', '83.81%', '-5.61个百分点', '79.58%', '12个月', '20:05', '20:08']) {
       expect(html).toContain(`<span class="data-highlight">${value}</span>`);
     }
@@ -102,7 +107,7 @@ describe('discussion Markdown and evidence links', () => {
     const text = '| Measure | Value |\n| --- | --- |\n| Release | **79.42%** |\n| Difference | *-5.61 pp* |\n\n[2025-08 source](#evidence:OPS-BEI-2025-08)';
     const html = render(text, ['OPS-BEI-2025-08']);
     const baseline = renderToStaticMarkup(React.createElement(Markdown, {children: text, remarkPlugins: [remarkGfm]}));
-    expect(html.replace(/<[^>]+>/g, '')).toBe(baseline.replace(/<[^>]+>/g, ''));
+    expect(html.replace(/<aside class="discussion-notice"[^>]*>[\s\S]*?<\/aside>/g, '').replace(/<[^>]+>/g, '')).toBe(baseline.replace(/<[^>]+>/g, ''));
     expect(html).toContain('<strong><span class="data-highlight">79.42%</span></strong>');
     expect(html).toContain('class="inline-citation" data-evidence-id="OPS-BEI-2025-08"');
     expect(html.match(/class="data-highlight"/g)).toHaveLength(2);

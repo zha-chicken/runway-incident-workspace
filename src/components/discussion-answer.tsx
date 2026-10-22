@@ -13,7 +13,7 @@ export function DiscussionAnswer({text, evidenceIds, version, t}: {text: string;
   const {notice, body} = splitDiscussionNotice(text);
   const allowed = new Set(evidenceIds);
   return <>
-    {notice && <aside className="discussion-notice" role="note"><em>{notice}</em></aside>}
+    <aside className="discussion-notice" role="note"><em>{notice || 'SIMULATION / 模拟 — DRAFT / 草案'}</em></aside>
     <div className="discussion-markdown">
       <Markdown skipHtml remarkPlugins={[remarkGfm, [remarkSingleDiscussionNotice, {enabled: !!notice}], [remarkKnownCitations, {evidenceIds}], remarkDataHighlights]}
         allowedElements={['p', 'br', 'span', 'strong', 'em', 'del', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'blockquote', 'hr', 'pre', 'code', 'a', 'img', 'table', 'thead', 'tbody', 'tr', 'th', 'td']}

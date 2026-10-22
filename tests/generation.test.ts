@@ -38,7 +38,7 @@ describe('generation persistence and bounded recovery',()=>{
   it('rejects the observed internal-field prose while accepting plain-language content',()=>{
     const evidence=evidenceFor(input),policy=evaluatePolicy(input);
     try{validateAssessment(recorded.result,input,evidence,policy);throw new Error('Expected validation failure');}
-    catch(e){expect(e).toBeInstanceOf(ValidationFailure);expect((e as ValidationFailure).issues).toContain('Use plain operational language instead of implementation identifiers in narrative text.');}
+    catch(e){expect(e).toBeInstanceOf(ValidationFailure);expect((e as ValidationFailure).issues).toContain('assessment: Use plain operational language instead of implementation identifiers in narrative text.');}
     expect(validateAssessment(valid(),input,evidence,policy).riskLevel).toBe('medium');
   });
   it('repairs malformed JSON once and charges both attempts',async()=>{

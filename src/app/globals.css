@@ -422,6 +422,13 @@ summary { cursor: pointer; }
 .decide-item.current .decide-num { border-color: var(--inv-ink); color: var(--inv-ink); }
 .decide-item.current.complete .decide-num { background: var(--inv-ink); color: var(--inv-bg); }
 .decide-item.current .decide-item-kind { color: var(--inv-muted); }
+.reanalysis-banner { scroll-margin-top: 20px; display: flex; align-items: flex-start; gap: 14px; border: 1px solid var(--line-strong); border-radius: 16px; background: var(--surface-2); padding: 20px; margin-bottom: 24px; }
+.reanalysis-banner > svg { flex-shrink: 0; margin-top: 3px; }
+.reanalysis-copy { min-width: 0; }
+.reanalysis-copy h2 { font-size: 17px; line-height: 1.4; }
+.reanalysis-copy p { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 6px 0 16px; }
+.reanalysis-copy button { white-space: normal; text-align: left; }
+@media (max-width: 600px) { .reanalysis-banner { padding: 16px; gap: 10px; } .reanalysis-copy .button-row { flex-direction: column; align-items: stretch; } }
 .decide-main { min-width: 0; }
 .decision-card { scroll-margin-top: 72px; background: var(--surface); border: 1.5px solid var(--ink); border-radius: 18px; padding: 28px; }
 .decision-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -945,3 +952,14 @@ table.runs td:nth-child(3), table.runs td:nth-child(4) { white-space: nowrap; }
   .print-report .constraint { background: none; border: 1px solid #000; color: #000; }
   .print-draft .draft-prose { font-size: 11px; max-width: none; }
 }
+
+/* Review notes accompany usable model output without changing its risk or stop state. */
+.validation-notice{border:1px solid #a58b514d;background:#a58b5112;border-radius:16px;padding:16px 20px;margin:16px 0;color:var(--text,inherit);font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.validation-notice summary{cursor:pointer;display:flex;align-items:center;gap:10px}
+.validation-notice summary>span{margin-left:auto;font-variant-numeric:tabular-nums}
+.validation-notice p{margin:8px 0}
+.validation-notice ul{list-style:none;padding:0;margin:12px 0 0}
+.validation-notice li+li{border-top:1px solid #8883;margin-top:14px;padding-top:14px}
+.validation-notice blockquote{margin:8px 0;padding:10px 14px;border-left:3px solid #a58b51;background:#8881;border-radius:0 8px 8px 0;white-space:pre-wrap}
+.validation-notice li details{font-size:12px;opacity:.85}
+@media print{.validation-notice details>*{display:block!important}.validation-notice{break-inside:avoid;color:#111;background:#fff}}

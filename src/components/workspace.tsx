@@ -1,5 +1,7 @@
 'use client';
 
+import {ValidationNotice} from './validation-notice';
+
 import {useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode} from 'react';
 import {NextIntlClientProvider, useTranslations} from 'next-intl';
 import {ArrowUpRight, CircleAlert, LayoutGrid, LoaderCircle, Menu, Plus, Printer, RotateCcw, X} from 'lucide-react';
@@ -10,8 +12,8 @@ import {AeroContextMark, AiMark, BrandName, Constraints, DraftMark, Field, FormE
 import {OverviewView} from './overview';
 import {EvidenceView, SourceView} from './evidence';
 import {AssessmentView} from './assessment';
-import {AirportHeader, AirportHub, AnalysisProgress, DecisionFlow, Preflight, ViewHeader, WorkspaceHome} from './guided-workflow';
-import {airportStage} from './workflow';
+import {AirportHeader, AirportHub, AnalysisProgress, DecisionFlow, Preflight, ReanalysisBanner, ViewHeader, WorkspaceHome} from './guided-workflow';
+import {airportStage, nextDecision} from './workflow';
 import {DraftsView} from './drafts';
 import {DiscussionView} from './discussion';
 import {HistoryView} from './history';
@@ -74,8 +76,16 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   const airport=boot?.airports.find(a=>a.id===detail?.snapshot.airportId);
   const eventTitle=(sourceEventId:string|null,fallback:string)=>sourceEventId?boot?.events.find(e=>e.id===sourceEventId)?.title[locale]||fallback:fallback;
   const title=detail?eventTitle(detail.snapshot.sourceEventId,detail.snapshot.title):'';
-  const refresh=async(id=selected)=>{await Promise.all([load(id),refreshBoot()]);};
+  const refresh=async(id=selected)=>{const [updated]=await Promise.all([load(id),refreshBoot()]);return updated;};
   const aiBlocked=!!localRequest||!!running||!boot?.apiConfigured;
+  async function recordReview(input:ReviewInput) {
+    const id=selected;
+    await api(`incidents/${id}/reviews`,input);
+    try{localStorage.setItem('runway-reviewer',input.reviewerLabel);}catch{}
+    const updated=await refresh(id).catch(e=>{if(selection.current===id)setError(e.message);});
+    const assessment=updated&&currentAssessment(updated);
+    if(updated&&assessment&&selection.current===id&&nextDecision(assessment,latestReviews(updated.reviews,assessment.id))<0)setTab(null);
+  }
   async function generate(id=selected,version=detail?.snapshot.version,action:'generate'|'discuss'='generate') {
     if(!version||inFlight.current.has(id)||(id===selected&&running))return;
     const since=new Date().toISOString(),asked=action==='discuss'?question:'';
@@ -139,6 +149,8 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   const discussing=localRequest?.action==='discuss'?{question:localRequest.question,since:localRequest.since}:(running?.action==='discussion'?{question:null,since:running.created_at}:null);
   const cancelRun=running?()=>void work(async()=>{await api(`runs/${running.id}/cancel`,{});await refresh();}):undefined;
   const stage=airportStage(detail,localRequest?.action);
+  // Completion comes from saved reviews, so refreshes and later Accept decisions cannot lose the prompt.
+  const showReanalysis=stage==='ready'&&!tab&&actions.length>0&&decided===actions.length;
   const analyzing=[...Object.entries(requests).filter(([,request])=>request.action==='generate').map(([id])=>id),...(running?.action==='assessment'?[selected]:[])];
   const language=<div className="language" role="group" aria-label={t('language')}><button aria-pressed={locale==='en'} onClick={()=>setLocale('en')} lang="en">EN</button><button aria-pressed={locale==='zh'} onClick={()=>setLocale('zh')} lang="zh-CN">中文</button></div>;
   const controls=<div className="controls">{language}<ThemeSwitch theme={theme} setTheme={setTheme} t={t}/></div>;
@@ -164,6 +176,8 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
         {!selected?<WorkspaceHome boot={boot} locale={locale} t={t} active={analyzing} controls={controls} onChoose={choose} onNew={newIncident} onReset={()=>setResetOpen(true)}/>:
         !detail?<div className="loading"><LoaderCircle className="spin" size={22}/>{t('loading')}</div>:<>
           {(stage!=='ready'||!tab)&&<AirportHeader detail={detail} airportName={airport?.name[locale]||''} title={title} stage={stage} decided={decided} total={actions.length} t={t} onHome={goHome}/>}
+          {stage==='ready'&&current&&<ValidationNotice validation={current.validation} locale={locale}/>}
+          {showReanalysis&&<ReanalysisBanner t={t} blocked={aiBlocked||busy} onConfirm={()=>void generate()} onModify={()=>openView('assessment')}/>}
           {stage==='analyzing'?<AnalysisProgress detail={detail} since={running?.created_at||localRequest!.since} t={t} onCancel={cancelRun} busy={busy}/>:
           stage==='preflight'?<Preflight detail={detail} locale={locale} t={t} blocked={aiBlocked} apiConfigured={boot.apiConfigured} onStart={()=>void generate()} onEdit={editIncident}/>:
           !tab||!current?<AirportHub detail={detail} assessment={current!} reviews={reviewMap} locale={locale} t={t} answering={!!discussing} onOpen={openView}/>:<>
@@ -171,9 +185,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
             <section className={`view view-${tab}`} key={`${selected}-${tab}`} aria-label={t(`tab_${tab}`)}>
               {tab==='overview'&&<OverviewView detail={detail} t={t} locale={locale} onEdit={editIncident}/>}
               {tab==='evidence'&&<EvidenceView evidence={detail.evidence} historicalThrough={detail.snapshot.historicalThrough} locale={locale} t={t}/>}
-              {tab==='assessment'&&<DecisionFlow key={current.id} assessment={current} reviews={reviewMap} locale={locale} t={t} reviewer={savedReviewer()} onExit={()=>openView(null)} onSave={async input=>{
-                const id=selected;await api(`incidents/${id}/reviews`,input);try{localStorage.setItem('runway-reviewer',input.reviewerLabel);}catch{}await refresh(id).catch(e=>setError(e.message));
-              }}/>}
+              {tab==='assessment'&&<DecisionFlow key={current.id} assessment={current} reviews={reviewMap} locale={locale} t={t} reviewer={savedReviewer()} onExit={()=>openView(null)} onSave={recordReview}/>}
               {tab==='drafts'&&<DraftsView detail={detail} current={current} displayed={displayed} locale={locale} t={t} draftText={draftText} onEdit={editDraft}/>}
               {tab==='discussion'&&<DiscussionView detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} asking={discussing} onCancel={running?.action==='discussion'?cancelRun:undefined} aiBlocked={aiBlocked} busy={busy}/>}
               {tab==='history'&&<HistoryView detail={detail} locale={locale} t={t} onReview={reviewAction}/>}
@@ -196,7 +208,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
     <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('airports')} t={t} drawer>{rail}</Modal>
     <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await api<{id:string}>('incidents',editor);await refreshBoot();choose(created.id);}else if(detail){await api(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor});await refresh();}setEditor(null);})}/>}</Modal>
     <Modal open={!!source} onClose={()=>setSource(null)} title={t('original')} description={t('originalHint')} t={t} sheet>{source&&detail&&<SourceView id={source.id} evidence={source.bundle} locale={locale} t={t}/>}</Modal>
-    <Modal open={!!review} onClose={()=>setReview(null)} title={t('decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await api(`incidents/${selected}/reviews`,review.input);try{localStorage.setItem('runway-reviewer',review.input.reviewerLabel);}catch{}setReview(null);await refresh();})}/>}</Modal>
+    <Modal open={!!review} onClose={()=>setReview(null)} title={t('decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await recordReview(review.input);setReview(null);})}/>}</Modal>
     <Modal open={!!draftEdit} onClose={()=>setDraftEdit(null)} title={draftEdit?`${t(draftEdit.audience)} · ${draftEdit.locale==='zh'?'中文':'English'}`:t('drafts')} description={t('draftHint')} t={t} wide>{draftEdit&&<form className="form-stack" onSubmit={e=>{e.preventDefault();void work(async()=>{await api(`incidents/${selected}/drafts`,{assessmentId:draftEdit.assessmentId,audience:draftEdit.audience,locale:draftEdit.locale,text:draftEdit.text,expectedRevision:draftEdit.revision});setDraftEdit(null);await refresh();});}}>
       <div className="mark-row"><DraftMark t={t}/><AiMark t={t}/></div>
       <Field label={t('draftText')} hint={t('translationReview')}><textarea rows={14} required value={draftEdit.text} lang={draftEdit.locale==='zh'?'zh-CN':'en'} onChange={e=>setDraftEdit({...draftEdit,text:e.target.value})}/></Field>

@@ -1,5 +1,7 @@
 'use client';
 
+import {ValidationNotice} from './validation-notice';
+
 import {useEffect, useRef} from 'react';
 import {ArrowRight, Check, ChevronDown, CircleDashed, LoaderCircle} from 'lucide-react';
 import type {Locale} from '../domain/types';
@@ -30,6 +32,7 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
       <div className="msg ai">
         <span className="msg-meta"><span className="ai-avatar" aria-hidden><AeroContextMark/></span>{t('assistant')}<AiMark t={t}/></span>
         <div className="msg-body">
+          <ValidationNotice validation={entry.validation} locale={locale}/>
           <DiscussionAnswer text={r.answer[locale]} evidenceIds={r.evidenceIds} version={v} t={t}/>
           <Constraints policy={r.decisionConstraints} input={inputAtSnapshot(detail,entry.snapshot_id)} request={entry.question} locale={locale} t={t}/>
           <Citations ids={r.evidenceIds} version={v} t={t}/>

@@ -1,7 +1,10 @@
 'use client';
 
+import {ValidationNotice} from './validation-notice';
+import {warningsForPath} from '../domain/validation-notes';
+
 import {useEffect, useRef, useState, type ReactNode} from 'react';
-import {ArrowLeft, ArrowRight, Check, ChevronDown, CircleDashed, Clock, FileText, LoaderCircle, MessageSquare, Paperclip, Pencil, Plane, Play, Plus, Scale, ShieldCheck, Sparkles, TriangleAlert, Upload, X} from 'lucide-react';
+import {ArrowLeft, ArrowRight, Check, ChevronDown, CircleDashed, Clock, FileText, LoaderCircle, MessageSquare, Paperclip, Pencil, Plane, Play, Plus, RotateCcw, Scale, ShieldCheck, Sparkles, TriangleAlert, Upload, X} from 'lucide-react';
 import type {Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {isAnomaly, recommendationsOf, type Bootstrap, type Detail, type Review, type T, type Tab} from './client';
 import {AeroContextMark, AiMark, BrandName, Citations, DraftMark, Elapsed, Empty, Field, RiskBadge, SimMark, constraintOf} from './ui';
@@ -170,6 +173,22 @@ export function AirportHub({detail, assessment, reviews, locale, t, answering, o
   </nav>;
 }
 
+export function ReanalysisBanner({t,blocked,onConfirm,onModify}:{t:T;blocked:boolean;onConfirm:()=>void;onModify:()=>void}) {
+  const heading=useRef<HTMLHeadingElement>(null),banner=useRef<HTMLElement>(null);
+  useEffect(()=>{heading.current?.focus({preventScroll:true});banner.current?.scrollIntoView({block:'nearest'});},[]);
+  return <section ref={banner} className="reanalysis-banner" aria-labelledby="reanalysis-title">
+    <RotateCcw size={20} aria-hidden/>
+    <div className="reanalysis-copy">
+      <h2 id="reanalysis-title" ref={heading} tabIndex={-1}>{t('reanalysisTitle')}</h2>
+      <p>{t('reanalysisBody')}</p>
+      <div className="button-row">
+        <button className="primary" disabled={blocked} onClick={onConfirm}>{t('reanalysisYes')}<ArrowRight size={15} aria-hidden/></button>
+        <button className="secondary" onClick={onModify}>{t('reanalysisModify')}</button>
+      </div>
+    </div>
+  </section>;
+}
+
 export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, onExit}: {
   assessment:StoredAssessment; reviews:Map<string,Review>; locale:Locale; t:T; reviewer:string; onSave:(input:ReviewInput)=>Promise<void>; onExit:()=>void;
 }) {
@@ -181,6 +200,7 @@ export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, 
   const mounted=useRef(true),savingRef=useRef(false),heading=useRef<HTMLHeadingElement>(null),card=useRef<HTMLElement>(null),moved=useRef(false);
   useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
   const action=actions[index],review=decidedIn(reviews,action.id);
+  const actionWarnings=warningsForPath(assessment.validation,`actions.${index}`);
   const decided=actions.filter(x=>decidedIn(reviews,x.id)).length;
   const {label,Icon:ConstraintIcon}=constraintOf(a.decisionConstraints);
   const move=(to:number)=>{moved.current=true;setIndex(to);setChoice(null);setReason('');setFinalAction('');setError('');};
@@ -223,6 +243,7 @@ export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, 
     <div className="decide-main">
       <article className="decision-card" ref={card}>
         <div className="decision-top"><span className="decision-position">{t('decisionPosition',{current:index+1,total:actions.length})}</span><span className="action-kind">{t(`kind_${action.kind}`)}</span>{index===0&&<span className="first-flag">{t('first')}</span>}<AiMark t={t}/></div>
+        <ValidationNotice validation={assessment.validation&&{...assessment.validation,warnings:actionWarnings}} locale={locale} expanded/>
         <h2 ref={heading} tabIndex={-1} className="decision-text">{action.text[locale]}</h2>
         {action.evidenceIds.length+action.ruleIds.length>0&&<div className="based-on"><span className="mini-label">{t('basedOn')}</span><Citations ids={[...action.evidenceIds,...action.ruleIds]} version={assessment.snapshotVersion} t={t}/></div>}
         {review&&Recorded&&<p className="decision-recorded"><Recorded size={15} aria-hidden/><span><strong>{t(review.disposition)}</strong> · {review.reviewerLabel}{review.reason&&<> — {review.reason}</>}</span></p>}
@@ -234,9 +255,9 @@ export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, 
           <div className="button-row end"><button className="secondary" type="button" disabled={saving} onClick={()=>setChoice(null)}>{t('cancel')}</button><button className="primary" disabled={saving}>{saving?t('saving'):t('saveAndContinue')}<ArrowRight size={15} aria-hidden/></button></div>
         </form>:<>
           <div className="decision-choices" role="group" aria-label={t('decision')}>
-            <button className="primary" disabled={saving||!alias.trim()} onClick={()=>void save('accepted')}><Check size={17} aria-hidden/>{saving?t('saving'):t('accept')}</button>
-            <button className="secondary" disabled={saving} onClick={()=>setChoice('modified')}><Pencil size={15} aria-hidden/>{t('modify')}</button>
-            <button className="secondary" disabled={saving} onClick={()=>setChoice('rejected')}><X size={17} aria-hidden/>{t('reject')}</button>
+            <button className="primary" disabled={saving||!alias.trim()} onClick={()=>void save('accepted')}><Check size={17} aria-hidden/>{saving?t('saving'):actionWarnings.length?(locale==='zh'?'复核后接受':'Accept after review'):t('accept')}</button>
+            <button className="secondary" disabled={saving} onClick={()=>{setChoice('modified');setReason(review?.reason||'');setFinalAction(review?.finalAction||'');}}><Pencil size={15} aria-hidden/>{t('modify')}</button>
+            <button className="secondary" disabled={saving} onClick={()=>{setChoice('rejected');setReason(review?.reason||'');}}><X size={17} aria-hidden/>{t('reject')}</button>
           </div>
           <details className="reviewer-choice"><summary>{t('reviewingAs',{reviewer:alias})}<span className="text-button">{t('change')}</span></summary><Field label={t('reviewer')}><input maxLength={80} value={alias} onChange={e=>setAlias(e.target.value)}/></Field></details>
         </>}

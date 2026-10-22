@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import type {OutputValidation} from './validation-notes';
 
 export const bilingual = z.object({en: z.string().min(1), zh: z.string().min(1)});
 export type Bilingual = z.infer<typeof bilingual>;
@@ -82,6 +83,7 @@ export type Assessment = z.infer<typeof assessmentSchema>;
 export type StoredAssessment = {
   id: string; incidentId: string; snapshotId: string; snapshotVersion: number;
   generatedAt: string; runId: string; result: Assessment; origin: 'live_model' | 'recorded_example';
+  validation?: OutputValidation;
 };
 export const discussionSchema = z.object({
   answer: bilingual,
