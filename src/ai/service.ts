@@ -118,7 +118,7 @@ export async function generate(args: {workspaceId: string; incidentId: string; e
         const value: unknown = JSON.parse(response.text);
         assertNoPersonalData(value);
         const evidence = evidenceFor(snapshot), policy = evaluatePolicy(snapshot, args.question || snapshot.decisionRequest);
-        result = args.action === 'assessment' ? validateAssessment(value, snapshot, evidence, policy) : validateDiscussion(value, evidence, policy);
+        result = args.action === 'assessment' ? validateAssessment(value, snapshot, evidence, policy) : validateDiscussion(value, evidence, policy, snapshot);
       } catch (error) {
         if (error instanceof AppError) throw error;
         const issues = error instanceof ValidationFailure ? error.issues : error instanceof z.ZodError ? error.issues.map(i => `${i.path.join('.')}: ${i.message}`) : ['Response must be a non-empty JSON object.'];

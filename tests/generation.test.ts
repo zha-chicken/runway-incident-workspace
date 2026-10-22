@@ -80,4 +80,24 @@ describe('generation persistence and bounded recovery',()=>{
     const row=database().native.prepare('SELECT status,cost_micro,reserved_micro FROM ai_runs').get() as {status:string;cost_micro:number;reserved_micro:number};
     expect(row.status).toBe('failed');expect(row.cost_micro).toBe(row.reserved_micro);expect(provider.callModel).toHaveBeenCalledTimes(1);
   });
+  it('repairs a semantically invalid draft once before saving any assessment',async()=>{
+    const args=setup(),invalid=valid();
+    invalid.drafts.operations.text.en='SIMULATION / 模拟 — DRAFT / 草案. Cancel all evening flights immediately.';
+    const mock=vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(JSON.stringify(invalid))).mockResolvedValueOnce(response(JSON.stringify(valid())));
+    await generate(args);
+    const detail=incidentDetail(args.workspaceId,args.incidentId);
+    expect(mock).toHaveBeenCalledTimes(2);expect(detail.assessments).toHaveLength(1);
+    expect(detail.assessments[0].result.drafts.operations.text.en).toBe(valid().drafts.operations.text.en);
+    expect(JSON.stringify(detail.runs[0].metadata)).toContain('drafts.operations.en');
+  });
+  it('rejects two invalid attempts without replacing the last valid saved result',async()=>{
+    const args=setup(),invalid=valid();invalid.drafts.passenger.text.zh='取消全部航班。';
+    const mock=vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(JSON.stringify(valid()))).mockResolvedValue(response(JSON.stringify(invalid)));
+    await generate(args);const before=incidentDetail(args.workspaceId,args.incidentId).incident.current_assessment_id;
+    await expect(generate({...args,idempotencyKey:'invalid-followup'})).rejects.toThrow('MODEL_OUTPUT_INVALID');
+    const detail=incidentDetail(args.workspaceId,args.incidentId);
+    expect(mock).toHaveBeenCalledTimes(3);expect(detail.assessments).toHaveLength(1);
+    expect(detail.incident.current_assessment_id).toBe(before);
+    expect(database().native.prepare("SELECT status,error_code FROM ai_runs WHERE idempotency_key='invalid-followup'").get()).toMatchObject({status:'failed',error_code:'MODEL_OUTPUT_INVALID'});
+  });
 });

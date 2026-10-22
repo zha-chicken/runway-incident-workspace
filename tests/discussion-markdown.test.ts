@@ -16,7 +16,7 @@ const evidence = evidenceFor(input), policy = evaluatePolicy(input);
 const reportId = evidence.reportEvidence[0].id;
 const render = (text: string, ids = ['RULE012', reportId]) => renderToStaticMarkup(React.createElement(DiscussionAnswer, {text, evidenceIds: ids, version: 1, t: key => key}));
 const answer = (): Discussion => ({
-  answer: {en: `## Decision boundary\n\nAction conclusions remain stopped. [RULE012](${citationHref('RULE012')})`, zh: `## 决策边界\n\n行动结论仍停止。[RULE012](${citationHref('RULE012')})`},
+  answer: {en: `SIMULATION / 模拟 — DRAFT / 草案.\n\n## Decision boundary\n\nAction conclusions remain stopped. [RULE012](${citationHref('RULE012')})`, zh: `SIMULATION / 模拟 — DRAFT / 草案.\n\n## 决策边界\n\n行动结论仍停止。[RULE012](${citationHref('RULE012')})`},
   evidenceIds: ['RULE012'], proposedFacts: [], decisionConstraints: structuredClone(policy.constraints)
 });
 
