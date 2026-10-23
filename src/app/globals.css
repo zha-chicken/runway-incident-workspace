@@ -655,6 +655,11 @@ tr.anomaly .delta { color: var(--caution); font-weight: 700; }
 .draft-prose { white-space: pre-wrap; font-size: 15.5px; line-height: 1.75; max-width: 76ch; overflow-wrap: anywhere; }
 .draft-prose:lang(zh-CN) { line-height: 1.85; }
 .draft-grid.three .draft-prose { font-size: 14.5px; }
+.draft-lang { min-width: 0; }
+.message-content { min-width: 0; max-width: 76ch; }
+.message-content .discussion-markdown { font-size: 15.5px; }
+.message-content:lang(zh-CN) .discussion-markdown { line-height: 1.85; }
+.draft-grid.three .message-content .discussion-markdown { font-size: 14.5px; }
 .draft-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
 .draft-foot { display: flex; align-items: center; gap: 4px 12px; flex-wrap: wrap; padding: 12px 22px 14px; border-top: 1px solid var(--line); background: var(--surface-2); }
 .draft-foot .citations { margin-top: 0; }
@@ -951,6 +956,13 @@ table.runs td:nth-child(3), table.runs td:nth-child(4) { white-space: nowrap; }
   .print-refs { font-family: var(--mono); font-size: 8.5px !important; color: #444; overflow-wrap: anywhere; }
   .print-report .constraint { background: none; border: 1px solid #000; color: #000; }
   .print-draft .draft-prose { font-size: 11px; max-width: none; }
+  .print-draft .message-content { max-width: none; }
+  .print-draft .discussion-markdown { font-size: 11px; line-height: 1.5; }
+  .print-draft .discussion-markdown h3, .print-draft .discussion-markdown h4 { font-size: 12px; }
+  .print-draft .discussion-table { overflow: visible; }
+  .print-draft .discussion-table table { width: 100%; max-width: none; table-layout: fixed; }
+  .print-draft .discussion-table th, .print-draft .discussion-table td { min-width: 0; max-width: none; }
+  .print-draft pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
 /* Review notes accompany usable model output without changing its risk or stop state. */

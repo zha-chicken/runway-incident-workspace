@@ -6,6 +6,7 @@ import type {Locale, StoredAssessment} from '../domain/types';
 import {audiences, type Audience, type Detail, type T} from './client';
 import {AiMark, Citations, DraftMark, Empty} from './ui';
 import {hasDraftNotice} from '../domain/output-checks';
+import {MessageContent} from './message-content';
 
 const audienceIcons={operations:Radar,airportCoordination:Building2,passenger:UsersRound};
 
@@ -41,8 +42,7 @@ export function DraftsView({detail,current,displayed,locale,t,draftText,onEdit}:
               {langs.length>1&&<span className="lang-label">{lang==='zh'?'中文':'English'}</span>}
               {flag==='translation'?<span className="tag caution">{t('needsTranslation')}</span>:flag==='edited'?<span className="tag good">{t('edited')} · {t('revision')} {latest!.revision}</span>:<AiMark t={t}/>}
             </div>
-            {!hasDraftNotice(draftText(displayed,audience,lang))&&<aside className="discussion-notice"><em>SIMULATION / 模拟 — DRAFT / 草案</em></aside>}
-            <p className="draft-prose" lang={lang==='zh'?'zh-CN':'en'}>{draftText(displayed,audience,lang)}</p>
+            <MessageContent text={draftText(displayed,audience,lang)} evidenceIds={displayed.result.drafts[audience].evidenceIds} version={displayed.snapshotVersion} locale={lang} t={t}/>
             <div className="draft-actions"><CopyButton text={hasDraftNotice(draftText(displayed,audience,lang))?draftText(displayed,audience,lang):`SIMULATION / 模拟 — DRAFT / 草案\n\n${draftText(displayed,audience,lang)}`} t={t}/><button className="secondary small" onClick={()=>onEdit(displayed,audience,lang)}><Pencil size={13} aria-hidden/>{t('edit')}</button></div>
           </div>;
         })}</div>

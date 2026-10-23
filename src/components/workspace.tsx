@@ -16,6 +16,7 @@ import {AirportHeader, AirportHub, AnalysisProgress, DecisionFlow, Preflight, Re
 import {airportStage, nextDecision} from './workflow';
 import {feedbackDraft} from './feedback';
 import {DraftsView} from './drafts';
+import {MessageContent} from './message-content';
 import {DiscussionView} from './discussion';
 import {HistoryView} from './history';
 import {IncidentEditor, ReviewForm} from './editor';
@@ -200,7 +201,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
             <p>{t('draftHint')}</p>{!current&&<p>{t('stale')}</p>}
             <Constraints policy={displayed.result.decisionConstraints} input={inputAtSnapshot(detail,displayed.snapshotId)} locale={locale} t={t}/>
             <AssessmentView assessment={displayed} locale={locale} t={t} print/>
-            {(['operations','airportCoordination','passenger'] as const).map(a=><section key={a} className="print-draft"><h2>{t(a)} · {t('draft')}</h2><p className="draft-prose">{draftText(displayed,a)}</p><p className="print-refs">{displayed.result.drafts[a].evidenceIds.join(', ')}</p></section>)}
+            {(['operations','airportCoordination','passenger'] as const).map(a=><section key={a} className="print-draft"><h2>{t(a)} · {t('draft')}</h2><MessageContent text={draftText(displayed,a)} evidenceIds={displayed.result.drafts[a].evidenceIds} version={displayed.snapshotVersion} locale={locale} t={t} print/><p className="print-refs">{displayed.result.drafts[a].evidenceIds.join(', ')}</p></section>)}
             <h2>{t('reviewLog')}</h2>{detail.reviews.map(r=><p key={r.id}>{r.reviewedAt} · {r.reviewerLabel} · {r.recommendationId} · {t(r.disposition)} · {r.reason} · {t('modifiedAction')}: {r.revisedRecommendation||t('notApplicable')} · {t('finalAction')}: {r.finalAction||t('notApplicable')} · {t(r.outcomeStatus)}: {r.outcome||t('pending')} · {t('improvement')}: {r.nextImprovement||t('notApplicable')}</p>)}
             <p className="print-refs">{t('sourceHash')}: {detail.evidence.sourceHash}</p>
           </div>}
