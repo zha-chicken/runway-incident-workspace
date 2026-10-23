@@ -155,7 +155,7 @@ export function incidentDetail(workspaceId: string, incidentId: string) {
     incident, snapshot: snapshotFor(workspaceId, incidentId),
     assessments: assessmentsFor(workspaceId, incidentId),
     history: (db.prepare('SELECT * FROM snapshots WHERE incident_id=? ORDER BY version DESC').all(incidentId) as Array<Record<string, unknown>>).map(r => ({id: r.id, version: r.version, createdAt: r.created_at, input: JSON.parse(String(r.payload))})),
-    reviews: (db.prepare('SELECT id,payload FROM reviews WHERE incident_id=? ORDER BY created_at DESC').all(incidentId) as Array<{id: string; payload: string}>).map(r => ({id: r.id, ...JSON.parse(r.payload)})),
+    reviews: (db.prepare('SELECT id,payload FROM reviews WHERE incident_id=? ORDER BY created_at DESC,rowid DESC').all(incidentId) as Array<{id: string; payload: string}>).map(r => ({id: r.id, ...JSON.parse(r.payload)})),
     drafts: db.prepare('SELECT * FROM drafts WHERE incident_id=? ORDER BY revision DESC').all(incidentId),
     discussions: (db.prepare('SELECT d.*,r.metadata AS run_metadata FROM discussions d LEFT JOIN ai_runs r ON r.id=d.run_id WHERE d.incident_id=? ORDER BY d.created_at DESC').all(incidentId) as Array<Record<string, unknown>>).map(({run_metadata,...r}) => ({...r, response: JSON.parse(String(r.response)), validation: run_metadata ? JSON.parse(String(run_metadata)).validation : undefined})),
     runs: (db.prepare('SELECT id,snapshot_id,action,status,error_code,metadata,created_at,finished_at,cost_micro,reserved_micro FROM ai_runs WHERE workspace_id=? AND incident_id=? ORDER BY created_at DESC').all(workspaceId, incidentId) as Array<Record<string, unknown>>).map(r => ({...r, metadata: JSON.parse(String(r.metadata))}))

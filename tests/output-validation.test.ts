@@ -32,27 +32,35 @@ describe('output contract validation (synthetic probes, not observed model failu
     for(const stopped of [false,true]){const c=context(stopped),before=structuredClone(c.result);expect(check(c)).toEqual(before);expect(c.result).toEqual(before);}
   });
 
-  it.each(['action','operations','coordination','passenger','rationale','humanDecisions'])('rejects cancellation prose hidden in %s despite correct restriction flags',field=>{
+  it.each(['action','operations','coordination','passenger','rationale','humanDecisions'])('does not phrase-filter cancellation prose in %s; structured restriction flags remain',field=>{
     const c=context(true),text={en:'Cancel all evening flights immediately.',zh:'立即取消全部晚间航班。'};
     if(field==='action')c.result.firstAction.text=text;
     else if(field==='rationale')c.result.rationale[0].text=text;
     else if(field==='humanDecisions')c.result.humanDecisions[0]=text;
     else c.result.drafts[field==='coordination'?'airportCoordination':field as 'operations'|'passenger'].text={en:notice+' '+text.en,zh:notice+' '+text.zh};
-    expect(()=>check(c)).toThrow(ValidationFailure);
+    expect(()=>check(c)).not.toThrow();
+    expect(c.result.decisionConstraints.actionConclusionsStopped).toBe(true);
   });
 
   it.each([
     'Cancel all flights now.','Ask operations to cancel the flight.',
     'Do not wait; release the aircraft.', 'No delay is confirmed, but dispatch the aircraft.',
     'Evacuate the passengers immediately.','If smoke is confirmed, tow the aircraft.',
-    'Send the passenger notification now.','The notification has been sent.',
+    'Send the passenger notification now.',
     'Do not cancel flights\n\nRelease the aircraft',
     '- Do not cancel flights\n- Release the aircraft',
     '<b>Cancel</b> all flights.', '![Cancel all flights](https://example.invalid/image.png)',
     'Can\u200bcel all flights.',
-    '立即取消航班。','请运营负责人放行飞机。','不要等待；立即疏散旅客。','现在向旅客发送通知。'
-  ])('rejects a clear instruction or false sending claim: %s',text=>{
-    expect(()=>checkDiscussion(discussion(`${text} [RULE012](#evidence:RULE012)`))).toThrow(ValidationFailure);
+    '立即取消航班。','请运营负责人放行飞机。','不要等待；立即疏散旅客。','现在向旅客发送通知。',
+    'All delays are caused by weather.','全部异常均由天气造成。',
+    'Flights are cancelled.','航班已延误。',
+    '本输出不决定也不建议维修放行、拖曳/航空器移动或旅客下机',
+    '维修放行、拖曳或航空器移动、旅客下机分别属于维修控制、运营负责人会同机坪控制与维修、运营负责人会同客舱安全与旅客服务的专业判断范围'
+  ])('does not filter removed prose categories: %s',text=>{
+    const errors:string[]=[],warnings:import('../src/domain/validation-notes').ValidationWarning[]=[];
+    checkProse(text,true,true,'answer.zh',errors,warnings);
+    expect(errors).toEqual([]);expect(warnings).toEqual([]);
+    expect(()=>checkDiscussion(discussion(`${text} [RULE012](#evidence:RULE012)`))).not.toThrow();
   });
 
   it.each([
@@ -70,8 +78,12 @@ describe('output contract validation (synthetic probes, not observed model failu
 
   it('checks proposed-fact prose too, without mistaking its source label for authority',()=>{
     const d=discussion('Refer the decision to the operations lead. [RULE012](#evidence:RULE012)');
-    d.proposedFacts=[{sourceLabel:'Human verified',text:{en:'Release the aircraft now.',zh:'立即放行飞机。'}}];
+    d.proposedFacts=[{sourceLabel:'Human verified',text:{en:'The notification has been sent.',zh:'已发送通知。'}}];
     expect(()=>checkDiscussion(d)).toThrow(ValidationFailure);
+  });
+
+  it.each(['The notification has been sent.','Messages were sent.','已发送通知。','已经向旅客发送了消息。'])('still rejects false sending claims: %s',text=>{
+    expect(()=>checkDiscussion(discussion(`${text} [RULE012](#evidence:RULE012)`))).toThrow(ValidationFailure);
   });
 
   it.each(['en','zh'] as const)('requires a notice in each %s assessment draft and discussion answer',locale=>{
@@ -88,8 +100,8 @@ describe('output contract validation (synthetic probes, not observed model failu
     const d=context();d.result.outputStatus='draft';expect(()=>check(d)).toThrow(ValidationFailure);
   });
 
-  it('rejects an unsupported official-status assertion in chat while accepting uncertainty',()=>{
-    expect(()=>checkDiscussion(discussion('Flights are cancelled. [RULE012](#evidence:RULE012)'))).toThrow(ValidationFailure);
+  it('does not phrase-filter official-status wording in chat',()=>{
+    expect(()=>checkDiscussion(discussion('Flights are cancelled. [RULE012](#evidence:RULE012)'))).not.toThrow();
     expect(()=>checkDiscussion(discussion('Verify whether flights are cancelled. [RULE012](#evidence:RULE012)'))).not.toThrow();
   });
 });

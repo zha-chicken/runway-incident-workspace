@@ -53,22 +53,30 @@ export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave}:{i
 }
 
 const dispositions=['accepted','modified','rejected','pending'] as const;
-export function ReviewForm({review,recommendation,setReview,t,busy,onSave}:{review:ReviewInput;recommendation:string;setReview:(r:ReviewInput)=>void;t:T;busy:boolean;onSave:()=>void}) {
+export function ReviewForm({review,recommendation,setReview,t,busy,onSave,mode='decision',submitLabel,onCancel}:{review:ReviewInput;recommendation:string;setReview:(r:ReviewInput)=>void;t:T;busy:boolean;onSave:()=>void;mode?:'decision'|'outcome';submitLabel?:string;onCancel?:()=>void}) {
   const needsReason=['modified','rejected'].includes(review.disposition);
-  return <form className="form-stack" onSubmit={e=>{e.preventDefault();onSave();}}>
-    <div className="review-target"><span className="mini-label">{t('recommendation')}</span><blockquote>{recommendation}</blockquote></div>
-    <fieldset className="disposition"><legend className="field-label">{t('decision')}</legend>
-      <div className="disposition-options">{dispositions.map(v=><label key={v} className={`disposition-option ${v}`}><input type="radio" name="disposition" value={v} checked={review.disposition===v} onChange={()=>setReview({...review,disposition:v})}/><span>{t(v)}</span></label>)}</div>
-    </fieldset>
-    <Field label={needsReason?t('reason'):t('reasonOptional')} hint={needsReason?t('reasonRequired'):undefined}><textarea rows={2} value={review.reason} required={needsReason} onChange={e=>setReview({...review,reason:e.target.value})}/></Field>
-    <Field label={t('reviewer')}><input value={review.reviewerLabel} required maxLength={80} onChange={e=>setReview({...review,reviewerLabel:e.target.value})}/></Field>
-    <details className="more-fields" open={!!(review.finalAction||review.outcome||review.nextImprovement||review.outcomeStatus!=='pending')}>
-      <summary>{t('moreFields')}</summary>
-      <div className="form-stack">
-        {(['finalAction','outcome','nextImprovement'] as const).map(key=><Field key={key} label={t(key==='nextImprovement'?'improvement':key)}><textarea rows={2} value={review[key]} onChange={e=>setReview({...review,[key]:e.target.value})}/></Field>)}
+  return <form className="form-stack" onSubmit={e=>{e.preventDefault();if(!busy)onSave();}}>
+    <p className="mini-label">{t(mode==='decision'?'feedbackStageOne':'feedbackStageTwo')}</p>
+    <p className="field-hint">{t(mode==='decision'?'decisionOnlyHint':'outcomeLaterHint')}</p>
+    {recommendation&&<div className="review-target"><span className="mini-label">{t('recommendation')}</span><blockquote>{recommendation}</blockquote></div>}
+    <fieldset disabled={busy} className="feedback-fields form-stack">
+      {mode==='decision'?<>
+        <fieldset className="disposition"><legend className="field-label">{t('decision')}</legend>
+          <div className="disposition-options">{dispositions.map(v=><label key={v} className={`disposition-option ${v}`}><input type="radio" name="disposition" value={v} checked={review.disposition===v} onChange={()=>setReview({...review,disposition:v})}/><span>{t(v)}</span></label>)}</div>
+        </fieldset>
+        <Field label={needsReason?t('reason'):t('reasonOptional')} hint={needsReason?t('reasonRequired'):undefined}><textarea rows={2} maxLength={4000} value={review.reason} required={needsReason} onChange={e=>setReview({...review,reason:e.target.value})}/></Field>
+        {(review.disposition==='modified'||!!review.revisedRecommendation)&&<Field label={t('modifiedAction')} hint={t('proposalOnlyHint')}><textarea rows={2} maxLength={4000} value={review.revisedRecommendation??''} onChange={e=>setReview({...review,revisedRecommendation:e.target.value})}/></Field>}
+      </>:<>
+        <p className="review-chip">{t('decision')}: {t(review.disposition)}</p>
+        {review.revisedRecommendation&&<div className="read-field"><h3>{t('modifiedAction')}</h3><p>{review.revisedRecommendation}</p></div>}
+        <Field label={t('finalAction')} hint={t('actualActionHint')}><textarea rows={3} maxLength={4000} value={review.finalAction} onChange={e=>setReview({...review,finalAction:e.target.value})}/></Field>
+        {review.revisedRecommendation===undefined&&review.disposition==='modified'&&review.finalAction&&<p className="field-hint">{t('legacyActionHint')}</p>}
         <Field label={t('outcomeStatus')}><select value={review.outcomeStatus} onChange={e=>setReview({...review,outcomeStatus:e.target.value as ReviewInput['outcomeStatus']})}><option value="pending">{t('pending')}</option><option value="simulated_observed">{t('simulated_observed')}</option></select></Field>
-      </div>
-    </details>
-    <div className="modal-actions"><span className="help">{t('reviewRecorded')}</span><button className="primary" disabled={busy}>{busy?t('saving'):t('saveReview')}</button></div>
+        <Field label={t('outcome')} hint={t('outcomeHint')}><textarea rows={3} maxLength={4000} required={review.outcomeStatus==='simulated_observed'} value={review.outcome} onChange={e=>setReview({...review,outcome:e.target.value})}/></Field>
+        <Field label={t('improvement')}><textarea rows={2} maxLength={4000} value={review.nextImprovement} onChange={e=>setReview({...review,nextImprovement:e.target.value})}/></Field>
+      </>}
+      <Field label={t('reviewer')}><input value={review.reviewerLabel} required maxLength={80} onChange={e=>setReview({...review,reviewerLabel:e.target.value})}/></Field>
+    </fieldset>
+    <div className="modal-actions"><span className="help">{t('reviewRecorded')}</span>{onCancel&&<button type="button" className="secondary" disabled={busy} onClick={onCancel}>{t('cancel')}</button>}<button className="primary" disabled={busy}>{busy?t('saving'):submitLabel||t(mode==='decision'?'saveReview':'saveOutcome')}</button></div>
   </form>;
 }

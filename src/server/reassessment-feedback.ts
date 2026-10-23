@@ -4,7 +4,7 @@ import {database, ownIncident} from './db';
 
 // Context bounds, not usage quotas. Keep whole records; never truncate a reason or its negation.
 export const FEEDBACK_CONTEXT_LIMITS = {reviews: 24, bytes: 48_000} as const;
-type ReviewContent = Pick<ReviewInput, 'disposition'|'reason'|'finalAction'|'outcome'|'outcomeStatus'|'nextImprovement'>;
+type ReviewContent = Pick<ReviewInput, 'disposition'|'reason'|'revisedRecommendation'|'finalAction'|'outcome'|'outcomeStatus'|'nextImprovement'>;
 export type ReassessmentFeedbackEntry = {
   reviewId: string; reviewedAt: string; assessmentId: string; assessmentGeneratedAt: string;
   sourceSnapshotId: string; sourceVersion: number; sourceAirportId: string; sourceScenarioPeriod: string;
@@ -58,7 +58,8 @@ export function feedbackForReassessment(workspaceId: string, snapshot: Snapshot)
       sourceSnapshotId:row.snapshot_id,sourceVersion:row.version,sourceAirportId:source.airportId,sourceScenarioPeriod:source.scenarioPeriod,
       applicability:row.snapshot_id===snapshot.id?'current_snapshot':'prior_snapshot',
       originalRecommendation:actionSchema.parse(recommendation),
-      review:{disposition:review.disposition,reason:review.reason,finalAction:review.finalAction,
+      review:{disposition:review.disposition,reason:review.reason,
+        ...(review.revisedRecommendation!==undefined?{revisedRecommendation:review.revisedRecommendation}:{}),finalAction:review.finalAction,
         outcome:review.outcome,outcomeStatus:review.outcomeStatus,nextImprovement:review.nextImprovement}
     };
     const size=Buffer.byteLength(JSON.stringify(entry),'utf8');

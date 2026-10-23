@@ -963,3 +963,14 @@ table.runs td:nth-child(3), table.runs td:nth-child(4) { white-space: nowrap; }
 .validation-notice blockquote{margin:8px 0;padding:10px 14px;border-left:3px solid #a58b51;background:#8881;border-radius:0 8px 8px 0;white-space:pre-wrap}
 .validation-notice li details{font-size:12px;opacity:.85}
 @media print{.validation-notice details>*{display:block!important}.validation-notice{break-inside:avoid;color:#111;background:#fff}}
+
+/* Decision review and later outcome recording share the same saved review history. */
+.feedback-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.feedback-followup h2 { margin-top: 8px; }
+.followup-list { list-style: none; padding: 0; margin: 20px 0 0; }
+.followup-list li { padding: 16px 0; border-top: 1px solid var(--line); }
+.followup-list li > p { margin: 12px 0; overflow-wrap: anywhere; }
+.followup-list .review-top { flex-wrap: wrap; }
+.decision-card .form-stack { margin-top: 16px; }
+.decision-choices { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 600px) { .followup-list .button-row { flex-wrap: wrap; } .decision-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

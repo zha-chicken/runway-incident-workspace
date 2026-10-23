@@ -96,6 +96,7 @@ export const reviewSchema = z.object({
   assessmentId: z.string(), recommendationId: z.string(),
   disposition: z.enum(['pending', 'accepted', 'modified', 'rejected']),
   reason: z.string().max(4000),
+  revisedRecommendation: z.string().max(4000).optional(),
   finalAction: z.string().max(4000),
   outcome: z.string().max(4000),
   outcomeStatus: z.enum(['pending', 'simulated_observed']),

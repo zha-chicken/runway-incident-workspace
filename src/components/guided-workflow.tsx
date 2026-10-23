@@ -7,11 +7,13 @@ import {useEffect, useRef, useState, type ReactNode} from 'react';
 import {ArrowLeft, ArrowRight, Check, ChevronDown, CircleDashed, Clock, FileText, LoaderCircle, MessageSquare, Paperclip, Pencil, Plane, Play, Plus, RotateCcw, Scale, ShieldCheck, Sparkles, TriangleAlert, Upload, X} from 'lucide-react';
 import type {Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {isAnomaly, recommendationsOf, type Bootstrap, type Detail, type Review, type T, type Tab} from './client';
-import {AeroContextMark, AiMark, BrandName, Citations, DraftMark, Elapsed, Empty, Field, RiskBadge, SimMark, constraintOf} from './ui';
+import {AeroContextMark, AiMark, BrandName, Citations, DraftMark, Elapsed, Empty, RiskBadge, SimMark, constraintOf} from './ui';
 import {EvidenceStats, EvidenceView} from './evidence';
 import {ReportList} from './overview';
 import {Claims, MustList, mustKnowLists} from './assessment';
 import {nextDecision, type AirportStage} from './workflow';
+import {feedbackDraft, nextAfterReview} from './feedback';
+import {ReviewForm} from './editor';
 
 const decisionIcons={accepted:Check,modified:Pencil,rejected:X,pending:CircleDashed};
 const decidedIn=(reviews:Map<string,Review>,id:string)=>{const r=reviews.get(id);return r&&r.disposition!=='pending'?r:undefined;};
@@ -173,7 +175,7 @@ export function AirportHub({detail, assessment, reviews, locale, t, answering, o
   </nav>;
 }
 
-export function ReanalysisBanner({t,blocked,onConfirm,onModify}:{t:T;blocked:boolean;onConfirm:()=>void;onModify:()=>void}) {
+export function ReanalysisBanner({t,blocked,onConfirm,onModify,onOutcomes}:{t:T;blocked:boolean;onConfirm:()=>void;onModify:()=>void;onOutcomes?:()=>void}) {
   const heading=useRef<HTMLHeadingElement>(null),banner=useRef<HTMLElement>(null);
   useEffect(()=>{heading.current?.focus({preventScroll:true});banner.current?.scrollIntoView({block:'nearest'});},[]);
   return <section ref={banner} className="reanalysis-banner" aria-labelledby="reanalysis-title">
@@ -184,40 +186,43 @@ export function ReanalysisBanner({t,blocked,onConfirm,onModify}:{t:T;blocked:boo
       <div className="button-row">
         <button className="primary" disabled={blocked} onClick={onConfirm}>{t('reanalysisYes')}<ArrowRight size={15} aria-hidden/></button>
         <button className="secondary" onClick={onModify}>{t('reanalysisModify')}</button>
+        {onOutcomes&&<button className="secondary" onClick={onOutcomes}>{t('recordOutcomes')}</button>}
       </div>
     </div>
   </section>;
 }
 
-export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, onExit}: {
-  assessment:StoredAssessment; reviews:Map<string,Review>; locale:Locale; t:T; reviewer:string; onSave:(input:ReviewInput)=>Promise<void>; onExit:()=>void;
+export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, onExit, onOutcome}: {
+  assessment:StoredAssessment; reviews:Map<string,Review>; locale:Locale; t:T; reviewer:string; onSave:(input:ReviewInput)=>Promise<void>; onExit:()=>void; onOutcome?:(id:string)=>void;
 }) {
   const actions=recommendationsOf(assessment),a=assessment.result;
   const [index,setIndex]=useState(()=>Math.max(0,nextDecision(assessment,reviews)));
-  const [choice,setChoice]=useState<'modified'|'rejected'|null>(null);
-  const [reason,setReason]=useState(''),[finalAction,setFinalAction]=useState(''),[alias,setAlias]=useState(reviewer);
+  const [draft,setDraft]=useState<ReviewInput|null>(null);
   const [saving,setSaving]=useState(false),[error,setError]=useState('');
   const mounted=useRef(true),savingRef=useRef(false),heading=useRef<HTMLHeadingElement>(null),card=useRef<HTMLElement>(null),moved=useRef(false);
   useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
-  const action=actions[index],review=decidedIn(reviews,action.id);
+  const action=actions[index],review=reviews.get(action.id);
   const actionWarnings=warningsForPath(assessment.validation,`actions.${index}`);
   const decided=actions.filter(x=>decidedIn(reviews,x.id)).length;
   const {label,Icon:ConstraintIcon}=constraintOf(a.decisionConstraints);
-  const move=(to:number)=>{moved.current=true;setIndex(to);setChoice(null);setReason('');setFinalAction('');setError('');};
+  const move=(to:number)=>{moved.current=true;setIndex(to);setDraft(null);setError('');};
   useEffect(()=>{
     heading.current?.focus({preventScroll:true});
     // On phones the list sits above the card; bring the next recommendation back into view.
     if(moved.current)card.current?.scrollIntoView({block:'nearest',behavior:'smooth'});
   },[index]);
-  async function save(disposition:'accepted'|'modified'|'rejected') {
-    if(savingRef.current||!alias.trim()||(disposition!=='accepted'&&!reason.trim()))return;
+  function choose(disposition:ReviewInput['disposition']) {
+    setDraft(feedbackDraft(assessment.id,action.id,review,reviewer,disposition));setError('');
+  }
+  async function save() {
+    if(savingRef.current||!draft||!draft.reviewerLabel.trim()||(['modified','rejected'].includes(draft.disposition)&&!draft.reason.trim()))return;
     savingRef.current=true;setSaving(true);setError('');
-    const input:ReviewInput={assessmentId:assessment.id,recommendationId:action.id,disposition,reason:disposition==='accepted'?'':reason.trim(),finalAction:disposition==='modified'?finalAction.trim():'',outcome:'',outcomeStatus:'pending',nextImprovement:'',reviewerLabel:alias.trim()};
+    const input={...draft,reason:draft.reason.trim(),reviewerLabel:draft.reviewerLabel.trim()};
     try {
       await onSave(input);
       if(!mounted.current)return;
       const updated=new Map(reviews);updated.set(action.id,{...input,id:'saved',reviewedAt:new Date().toISOString()});
-      const next=nextDecision(assessment,updated);
+      const next=nextAfterReview(assessment,updated,input);
       if(next<0)onExit();else move(next);
     } catch {if(mounted.current)setError(t('decisionSaveFailed'));}
     finally {savingRef.current=false;if(mounted.current)setSaving(false);}
@@ -233,10 +238,10 @@ export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, 
       <div className="decide-list-head"><span className="mini-label">{t('recommendations')}</span><span>{t('decidedCount',{done:decided,total:actions.length})}</span></div>
       <span className="progress" aria-hidden><span style={{width:`${decided/actions.length*100}%`}}/></span>
       <ol className="decide-list" aria-label={t('decisionProgress')}>{actions.map((item,i)=>{
-        const done=decidedIn(reviews,item.id),DoneIcon=done?decisionIcons[done.disposition]:null;
+        const saved=reviews.get(item.id),done=decidedIn(reviews,item.id),DoneIcon=saved?decisionIcons[saved.disposition]:null;
         return <li key={item.id}><button className={`decide-item ${i===index?'current':''} ${done?'complete':''}`} disabled={saving} aria-current={i===index?'step':undefined} onClick={()=>move(i)}>
           <span className="decide-num">{DoneIcon?<DoneIcon size={13} aria-hidden/>:i+1}</span>
-          <span className="decide-item-body"><span className="decide-item-kind">{t(`kind_${item.kind}`)} · {done?t(done.disposition):t('open')}</span><span className="decide-item-text">{item.text[locale]}</span></span>
+          <span className="decide-item-body"><span className="decide-item-kind">{t(`kind_${item.kind}`)} · {saved?t(saved.disposition):t('open')}</span><span className="decide-item-text">{item.text[locale]}</span></span>
         </button></li>;
       })}</ol>
     </aside>
@@ -247,19 +252,15 @@ export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, 
         <h2 ref={heading} tabIndex={-1} className="decision-text">{action.text[locale]}</h2>
         {action.evidenceIds.length+action.ruleIds.length>0&&<div className="based-on"><span className="mini-label">{t('basedOn')}</span><Citations ids={[...action.evidenceIds,...action.ruleIds]} version={assessment.snapshotVersion} t={t}/></div>}
         {review&&Recorded&&<p className="decision-recorded"><Recorded size={15} aria-hidden/><span><strong>{t(review.disposition)}</strong> · {review.reviewerLabel}{review.reason&&<> — {review.reason}</>}</span></p>}
-        {choice?<form className="decision-edit form-stack" onSubmit={e=>{e.preventDefault();void save(choice);}}>
-          <p className="decision-edit-title">{choice==='modified'?<Pencil size={15} aria-hidden/>:<X size={15} aria-hidden/>}{t(choice==='modified'?'modify':'reject')}</p>
-          <Field label={t('reason')} hint={t('reasonRequired')}><textarea autoFocus required rows={2} maxLength={4000} value={reason} onChange={e=>setReason(e.target.value)}/></Field>
-          {choice==='modified'&&<Field label={t('modifiedAction')}><textarea rows={2} maxLength={4000} value={finalAction} onChange={e=>setFinalAction(e.target.value)}/></Field>}
-          <Field label={t('reviewer')}><input required maxLength={80} value={alias} onChange={e=>setAlias(e.target.value)}/></Field>
-          <div className="button-row end"><button className="secondary" type="button" disabled={saving} onClick={()=>setChoice(null)}>{t('cancel')}</button><button className="primary" disabled={saving}>{saving?t('saving'):t('saveAndContinue')}<ArrowRight size={15} aria-hidden/></button></div>
-        </form>:<>
+        {review&&onOutcome&&<button className="text-button" disabled={saving} onClick={()=>onOutcome(action.id)}>{t('recordOutcome')}</button>}
+        {draft?<ReviewForm review={draft} recommendation="" setReview={setDraft} t={t} busy={saving} mode="decision" submitLabel={t(draft.disposition==='pending'?'savePendingAndContinue':'saveAndContinue')} onSave={()=>void save()} onCancel={()=>setDraft(null)}/>:<>
+          <p className="field-hint">{t('decisionOnlyHint')}</p>
           <div className="decision-choices" role="group" aria-label={t('decision')}>
-            <button className="primary" disabled={saving||!alias.trim()} onClick={()=>void save('accepted')}><Check size={17} aria-hidden/>{saving?t('saving'):actionWarnings.length?(locale==='zh'?'复核后接受':'Accept after review'):t('accept')}</button>
-            <button className="secondary" disabled={saving} onClick={()=>{setChoice('modified');setReason(review?.reason||'');setFinalAction(review?.finalAction||'');}}><Pencil size={15} aria-hidden/>{t('modify')}</button>
-            <button className="secondary" disabled={saving} onClick={()=>{setChoice('rejected');setReason(review?.reason||'');}}><X size={17} aria-hidden/>{t('reject')}</button>
+            <button className="primary" disabled={saving} onClick={()=>choose('accepted')}><Check size={17} aria-hidden/>{actionWarnings.length?(locale==='zh'?'复核后接受':'Accept after review'):t('accept')}</button>
+            <button className="secondary" disabled={saving} onClick={()=>choose('modified')}><Pencil size={15} aria-hidden/>{t('modify')}</button>
+            <button className="secondary" disabled={saving} onClick={()=>choose('rejected')}><X size={15} aria-hidden/>{t('reject')}</button>
+            <button className="secondary" disabled={saving} onClick={()=>choose('pending')}><CircleDashed size={15} aria-hidden/>{t('pending')}</button>
           </div>
-          <details className="reviewer-choice"><summary>{t('reviewingAs',{reviewer:alias})}<span className="text-button">{t('change')}</span></summary><Field label={t('reviewer')}><input maxLength={80} value={alias} onChange={e=>setAlias(e.target.value)}/></Field></details>
         </>}
         {error&&<p role="alert" className="decision-error">{error}</p>}
       </article>

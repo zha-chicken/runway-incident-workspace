@@ -43,16 +43,16 @@ describe('blocking errors versus review notes',()=>{
   expect(checked.warnings.map(w=>w.code)).toEqual(['citation','citation']);
   expect(checked.warnings[0].excerpt).toContain('5 percentage points');
  });
- it('marks descriptive professional-decision wording for review without claiming it is verified',()=>{
-  const c=context(true);c.result.firstAction.text={en:'Review the authority to release the aircraft.',zh:'由运营负责人审查放行飞机的必要性。'};
+ it('retains ambiguous message-sending review notes without claiming they are verified',()=>{
+  const c=context(true);c.result.firstAction.text={en:'The record says the notification has been sent.',zh:'记录称已发送通知。'};
   const checked=inspect(c);expect(checked.warnings.map(w=>w.code)).toEqual(['wording','wording']);
   expect(warningsForPath({version:'2026-10-23-recovery-v1',status:'review_required',warnings:checked.warnings},'actions.0')).toHaveLength(2);
  });
- it.each(['Cancel all flights now.','Ask operations to cancel the flight.','Do not wait; release the aircraft.','We will release the aircraft.','我们将放行飞机。','If smoke is confirmed, tow the aircraft.','立即取消航班。','请运营负责人放行飞机。'])('still blocks explicit instructions: %s',text=>{
+ it.each(['Notification has been sent.','Messages were sent.','已发送通知。'])('still blocks false sending claims: %s',text=>{
   const c=context(true);c.result.firstAction.text={en:text,zh:text};expect(()=>inspect(c)).toThrow(ValidationFailure);
  });
  it('does not borrow negation from another sentence',()=>{
-  const c=context(true);c.result.firstAction.text={en:'Do not send messages; release the aircraft.',zh:'不发送消息；立即放行飞机。'};expect(()=>inspect(c)).toThrow(ValidationFailure);
+  const c=context(true);c.result.firstAction.text={en:'No notification has been sent; the notification has been sent.',zh:'未发送通知；已发送通知。'};expect(()=>inspect(c)).toThrow(ValidationFailure);
  });
  it('blocks a concrete mislabeled metric, even if the value exists elsewhere',()=>{
   const c=context(),row='OPS-LIN-2025-08',completion=c.evidence.metrics.find(m=>m.id===row+':completion')!;
@@ -81,6 +81,19 @@ describe('actual generation path with an isolated database and mocked provider',
   closeDatabase();d=incidentDetail(args.workspaceId,args.incidentId);expect(d.assessments[0].validation?.warnings).toHaveLength(2);
   expect(JSON.stringify(d)).toContain('5 percentage points');await generate(args);expect(mock).toHaveBeenCalledTimes(2);
  });
+
+ it.each([
+  '本输出不决定也不建议维修放行、拖曳/航空器移动或旅客下机',
+  '维修放行、拖曳或航空器移动、旅客下机分别属于维修控制、运营负责人会同机坪控制与维修、运营负责人会同客舱安全与旅客服务的专业判断范围'
+ ])('saves the observed Chinese false-positive wording on the first attempt: %s',async text=>{
+  const {args,c}=setup(true),d:Discussion={answer:{en:notice+' Refer decisions to qualified professionals. [RULE012](#evidence:RULE012)',zh:notice+' '+text+' [RULE012](#evidence:RULE012)'},evidenceIds:['RULE012'],proposedFacts:[],decisionConstraints:c.policy.constraints};
+  const mock=vi.spyOn(provider,'callModel').mockResolvedValue(response(d));
+  await generate({...args,action:'discussion',question:'Check the incident'});
+  const detail=incidentDetail(args.workspaceId,args.incidentId);
+  expect(mock).toHaveBeenCalledTimes(1);expect(detail.discussions[0].response).toEqual(d);
+  expect(detail.discussions[0].validation).toMatchObject({status:'passed',warnings:[]});
+  expect(detail.discussions[0].response.decisionConstraints.actionConclusionsStopped).toBe(true);
+ });
  it('saves only warnings from the accepted attempt, and drops resolved warnings',async()=>{
   const {args,c}=setup();const mock=vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(soft().result)).mockResolvedValueOnce(response(c.result));await generate(args);
   expect(mock).toHaveBeenCalledTimes(2);const d=incidentDetail(args.workspaceId,args.incidentId);
@@ -96,14 +109,13 @@ describe('actual generation path with an isolated database and mocked provider',
   ['invented trigger',a=>a.decisionConstraints.triggeredRuleIds.push('RULE999')],['missing rule',a=>a.ruleIds=[]],
   ['unknown citation',a=>a.evidenceReferences.push('MADE-UP')],['unknown metric',a=>a.rationale[0].metricIds.push('MADE-UP')],
   ['forbidden action type',a=>a.firstAction.kind='verify'],['false status',a=>a.outputStatus='needs_review'],
-  ['explicit directive',a=>a.firstAction.text.en='Cancel all flights immediately.'],
+  ['false sending claim',a=>a.firstAction.text.en='Notification has been sent.'],
   ['invented number',a=>a.rationale[0].text.en='Completed as planned: 999.99%.'],
-  ['unconfirmed official status',a=>a.drafts.operations.text.en=notice+' Flights are cancelled.'],
   ['duplicate actions',a=>a.subsequentActions[0].id=a.firstAction.id],
  ];
  it.each(blockingCases)('does not relax %s on the second attempt; preserves the old assessment',async(_name,mutate)=>{
   const {args,c}=setup(true),bad=structuredClone(c.result);mutate(bad);
-  const warning=structuredClone(c.result);warning.humanDecisions[0].en='Review the authority to release the aircraft.';
+  const warning=structuredClone(c.result);warning.humanDecisions[0].en='The record says the notification has been sent.';
   const mock=vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(c.result)).mockResolvedValueOnce(response(warning)).mockResolvedValueOnce(response(bad));
   await generate(args);const before=incidentDetail(args.workspaceId,args.incidentId).incident.current_assessment_id;
   await expect(generate({...args,idempotencyKey:'second'})).rejects.toThrow('MODEL_OUTPUT_INVALID');
@@ -113,12 +125,18 @@ describe('actual generation path with an isolated database and mocked provider',
   const {args}=setup();vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(soft().result)).mockResolvedValueOnce(response(bad));
   await expect(generate(args)).rejects.toThrow('MODEL_OUTPUT_INVALID');expect(incidentDetail(args.workspaceId,args.incidentId).assessments).toHaveLength(0);
  });
- it('still stops immediately on detected personal data',async()=>{
-  const {args,c}=setup();c.result.humanDecisions[0].en='Contact person@example.test';
+ it.each(['13800000000','110101199001011234','person@example.test','passport: TESTONLY','passenger name: TEST PERSON'])('still stops immediately on detected personal data: %s',async text=>{
+  const {args,c}=setup();c.result.humanDecisions[0].en=text;
   const mock=vi.spyOn(provider,'callModel').mockResolvedValue(response(c.result));await expect(generate(args)).rejects.toThrow('PERSONAL_DATA_REJECTED');expect(mock).toHaveBeenCalledTimes(1);
  });
+
+ it('rejects personal data in a question before calling the provider',async()=>{
+  const {args}=setup();const mock=vi.spyOn(provider,'callModel');
+  await expect(generate({...args,action:'discussion',question:'Call 13800000000'})).rejects.toThrow('PERSONAL_DATA_REJECTED');
+  expect(mock).not.toHaveBeenCalled();expect(incidentDetail(args.workspaceId,args.incidentId).runs).toHaveLength(0);
+ });
  it('applies warning recovery to discussion and proposed facts without overwriting assessments',async()=>{
-  const {args,c}=setup(),d:Discussion={answer:{en:notice+' Review the authority to release the aircraft. [RULE007](#evidence:RULE007)',zh:notice+' 由运营负责人审查放行飞机的必要性。 [RULE007](#evidence:RULE007)'},evidenceIds:['RULE007'],proposedFacts:[{sourceLabel:'Proposed check',text:{en:'Review the authority to release the aircraft.',zh:'由运营负责人审查放行飞机的必要性。'}}],decisionConstraints:evaluatePolicy(c.input,'Check the incident').constraints};
+  const {args,c}=setup(),d:Discussion={answer:{en:notice+' The record says the notification has been sent. [RULE007](#evidence:RULE007)',zh:notice+' 记录称已发送通知。 [RULE007](#evidence:RULE007)'},evidenceIds:['RULE007'],proposedFacts:[{sourceLabel:'Proposed check',text:{en:'The record says the notification has been sent.',zh:'记录称已发送通知。'}}],decisionConstraints:evaluatePolicy(c.input,'Check the incident').constraints};
   vi.spyOn(provider,'callModel').mockResolvedValue(response(d));await generate({...args,action:'discussion',question:'Check the incident'});
   const detail=incidentDetail(args.workspaceId,args.incidentId);expect(detail.discussions[0].validation.status).toBe('review_required');expect(detail.discussions[0].response).toEqual(d);expect(detail.assessments).toHaveLength(0);
  });

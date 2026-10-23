@@ -82,7 +82,7 @@ describe('generation persistence and bounded recovery',()=>{
   });
   it('repairs a semantically invalid draft once before saving any assessment',async()=>{
     const args=setup(),invalid=valid();
-    invalid.drafts.operations.text.en='SIMULATION / 模拟 — DRAFT / 草案. Cancel all evening flights immediately.';
+    invalid.drafts.operations.text.en='SIMULATION / 模拟 — DRAFT / 草案. The notification has been sent.';
     const mock=vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(JSON.stringify(invalid))).mockResolvedValueOnce(response(JSON.stringify(valid())));
     await generate(args);
     const detail=incidentDetail(args.workspaceId,args.incidentId);
@@ -91,7 +91,7 @@ describe('generation persistence and bounded recovery',()=>{
     expect(JSON.stringify(detail.runs[0].metadata)).toContain('drafts.operations.en');
   });
   it('rejects two invalid attempts without replacing the last valid saved result',async()=>{
-    const args=setup(),invalid=valid();invalid.drafts.passenger.text.zh='取消全部航班。';
+    const args=setup(),invalid=valid();invalid.drafts.passenger.text.zh='SIMULATION / 模拟 — DRAFT / 草案。已发送通知。';
     const mock=vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(JSON.stringify(valid()))).mockResolvedValue(response(JSON.stringify(invalid)));
     await generate(args);const before=incidentDetail(args.workspaceId,args.incidentId).incident.current_assessment_id;
     await expect(generate({...args,idempotencyKey:'invalid-followup'})).rejects.toThrow('MODEL_OUTPUT_INVALID');

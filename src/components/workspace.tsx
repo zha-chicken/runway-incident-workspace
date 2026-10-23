@@ -14,6 +14,7 @@ import {EvidenceView, SourceView} from './evidence';
 import {AssessmentView} from './assessment';
 import {AirportHeader, AirportHub, AnalysisProgress, DecisionFlow, Preflight, ReanalysisBanner, ViewHeader, WorkspaceHome} from './guided-workflow';
 import {airportStage, nextDecision} from './workflow';
+import {feedbackDraft} from './feedback';
 import {DraftsView} from './drafts';
 import {DiscussionView} from './discussion';
 import {HistoryView} from './history';
@@ -46,7 +47,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   const [editor,setEditor]=useState<IncidentInput|null>(null),[isNew,setIsNew]=useState(false),[busy,setBusy]=useState(false);
   const [requests,setRequests]=useState<Record<string,LocalRequest>>({}),[questions,setQuestions]=useState<Record<string,string>>({}),[source,setSource]=useState<{id:string;bundle:EvidenceBundle}|null>(null);
   const [requestErrors,setRequestErrors]=useState<Record<string,string>>({});
-  const [review,setReview]=useState<{input:ReviewInput;text:string}|null>(null),[draftEdit,setDraftEdit]=useState<DraftEdit|null>(null);
+  const [review,setReview]=useState<{input:ReviewInput;text:string;mode:'decision'|'outcome'}|null>(null),[draftEdit,setDraftEdit]=useState<DraftEdit|null>(null);
   const [resetOpen,setResetOpen]=useState(false),[navOpen,setNavOpen]=useState(false);
   const selection=useRef(''),initialRequest=useRef<Promise<Bootstrap>|null>(null);
   const loadSequence=useRef<Record<string,number>>({});
@@ -78,13 +79,13 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   const title=detail?eventTitle(detail.snapshot.sourceEventId,detail.snapshot.title):'';
   const refresh=async(id=selected)=>{const [updated]=await Promise.all([load(id),refreshBoot()]);return updated;};
   const aiBlocked=!!localRequest||!!running||!boot?.apiConfigured;
-  async function recordReview(input:ReviewInput) {
+  async function recordReview(input:ReviewInput,returnToHub=true) {
     const id=selected;
     await api(`incidents/${id}/reviews`,input);
     try{localStorage.setItem('runway-reviewer',input.reviewerLabel);}catch{}
     const updated=await refresh(id).catch(e=>{if(selection.current===id)setError(e.message);});
     const assessment=updated&&currentAssessment(updated);
-    if(updated&&assessment&&selection.current===id&&nextDecision(assessment,latestReviews(updated.reviews,assessment.id))<0)setTab(null);
+    if(returnToHub&&input.assessmentId===assessment?.id&&updated&&assessment&&selection.current===id&&nextDecision(assessment,latestReviews(updated.reviews,assessment.id))<0)setTab(null);
   }
   async function generate(id=selected,version=detail?.snapshot.version,action:'generate'|'discuss'='generate') {
     if(!version||inFlight.current.has(id)||(id===selected&&running))return;
@@ -122,9 +123,10 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
     setEditor({title:t('untitled'),airportId:airport?.id || 'HAI',scenarioPeriod:locale==='zh'?'模拟第7天 14:00':'Simulation Day 7, 14:00',historicalThrough:null,businessImportance:'medium',knownInformation:'',unknowns:'',safetyIssue:false,sourceReliabilityUnknown:false,decisionRequest:'',officialStatus:'unconfirmed',officialStatusSourceId:null,reports:[],sourceEventId:null});
   };
   const editIncident=()=>{if(detail){setIsNew(false);setEditor(inputOf(detail.snapshot));}};
-  const reviewAction=(assessment:StoredAssessment,recommendationId:string,disposition:ReviewInput['disposition']='pending')=>{
+  const reviewAction=(assessment:StoredAssessment,recommendationId:string,disposition?:ReviewInput['disposition'],mode:'decision'|'outcome'='decision')=>{
     const recommendation=recommendationsOf(assessment).find(r=>r.id===recommendationId);
-    setReview({text:recommendation?.text[locale]||recommendationId,input:{assessmentId:assessment.id,recommendationId,disposition,reason:'',finalAction:'',outcome:'',outcomeStatus:'pending',nextImprovement:'',reviewerLabel:savedReviewer()}});
+    const previous=latestReviews(detail?.reviews||[],assessment.id).get(recommendationId);
+    setReview({text:recommendation?.text[locale]||recommendationId,mode,input:feedbackDraft(assessment.id,recommendationId,previous,savedReviewer(),disposition)});
   };
   function draftText(a:StoredAssessment,audience:Audience,lang:Locale=locale) {
     return detail?.drafts.find(d=>d.assessment_id===a.id&&d.audience===audience&&d.locale===lang)?.text || a.result.drafts[audience].text[lang];
@@ -177,7 +179,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
         !detail?<div className="loading"><LoaderCircle className="spin" size={22}/>{t('loading')}</div>:<>
           {(stage!=='ready'||!tab)&&<AirportHeader detail={detail} airportName={airport?.name[locale]||''} title={title} stage={stage} decided={decided} total={actions.length} t={t} onHome={goHome}/>}
           {stage==='ready'&&current&&<ValidationNotice validation={current.validation} locale={locale}/>}
-          {showReanalysis&&<ReanalysisBanner t={t} blocked={aiBlocked||busy} onConfirm={()=>void generate()} onModify={()=>openView('assessment')}/>}
+          {showReanalysis&&<ReanalysisBanner t={t} blocked={aiBlocked||busy} onConfirm={()=>void generate()} onModify={()=>openView('assessment')} onOutcomes={()=>openView('history')}/>}
           {stage==='analyzing'?<AnalysisProgress detail={detail} since={running?.created_at||localRequest!.since} t={t} onCancel={cancelRun} busy={busy}/>:
           stage==='preflight'?<Preflight detail={detail} locale={locale} t={t} blocked={aiBlocked} apiConfigured={boot.apiConfigured} onStart={()=>void generate()} onEdit={editIncident}/>:
           !tab||!current?<AirportHub detail={detail} assessment={current!} reviews={reviewMap} locale={locale} t={t} answering={!!discussing} onOpen={openView}/>:<>
@@ -185,7 +187,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
             <section className={`view view-${tab}`} key={`${selected}-${tab}`} aria-label={t(`tab_${tab}`)}>
               {tab==='overview'&&<OverviewView detail={detail} t={t} locale={locale} onEdit={editIncident}/>}
               {tab==='evidence'&&<EvidenceView evidence={detail.evidence} historicalThrough={detail.snapshot.historicalThrough} locale={locale} t={t}/>}
-              {tab==='assessment'&&<DecisionFlow key={current.id} assessment={current} reviews={reviewMap} locale={locale} t={t} reviewer={savedReviewer()} onExit={()=>openView(null)} onSave={recordReview}/>}
+              {tab==='assessment'&&<DecisionFlow key={current.id} assessment={current} reviews={reviewMap} locale={locale} t={t} reviewer={savedReviewer()} onExit={()=>openView(null)} onSave={recordReview} onOutcome={id=>reviewAction(current,id,undefined,'outcome')}/>}
               {tab==='drafts'&&<DraftsView detail={detail} current={current} displayed={displayed} locale={locale} t={t} draftText={draftText} onEdit={editDraft}/>}
               {tab==='discussion'&&<DiscussionView detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} asking={discussing} onCancel={running?.action==='discussion'?cancelRun:undefined} aiBlocked={aiBlocked} busy={busy}/>}
               {tab==='history'&&<HistoryView detail={detail} locale={locale} t={t} onReview={reviewAction}/>}
@@ -199,7 +201,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
             <Constraints policy={displayed.result.decisionConstraints} input={inputAtSnapshot(detail,displayed.snapshotId)} locale={locale} t={t}/>
             <AssessmentView assessment={displayed} locale={locale} t={t} print/>
             {(['operations','airportCoordination','passenger'] as const).map(a=><section key={a} className="print-draft"><h2>{t(a)} · {t('draft')}</h2><p className="draft-prose">{draftText(displayed,a)}</p><p className="print-refs">{displayed.result.drafts[a].evidenceIds.join(', ')}</p></section>)}
-            <h2>{t('reviewLog')}</h2>{detail.reviews.map(r=><p key={r.id}>{r.reviewedAt} · {r.reviewerLabel} · {r.recommendationId} · {t(r.disposition)} · {r.reason} · {r.finalAction} · {r.outcome||t('pending')}</p>)}
+            <h2>{t('reviewLog')}</h2>{detail.reviews.map(r=><p key={r.id}>{r.reviewedAt} · {r.reviewerLabel} · {r.recommendationId} · {t(r.disposition)} · {r.reason} · {t('modifiedAction')}: {r.revisedRecommendation||t('notApplicable')} · {t('finalAction')}: {r.finalAction||t('notApplicable')} · {t(r.outcomeStatus)}: {r.outcome||t('pending')} · {t('improvement')}: {r.nextImprovement||t('notApplicable')}</p>)}
             <p className="print-refs">{t('sourceHash')}: {detail.evidence.sourceHash}</p>
           </div>}
         </>}
@@ -208,7 +210,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
     <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('airports')} t={t} drawer>{rail}</Modal>
     <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await api<{id:string}>('incidents',editor);await refreshBoot();choose(created.id);}else if(detail){await api(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor});await refresh();}setEditor(null);})}/>}</Modal>
     <Modal open={!!source} onClose={()=>setSource(null)} title={t('original')} description={t('originalHint')} t={t} sheet>{source&&detail&&<SourceView id={source.id} evidence={source.bundle} locale={locale} t={t}/>}</Modal>
-    <Modal open={!!review} onClose={()=>setReview(null)} title={t('decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await recordReview(review.input);setReview(null);})}/>}</Modal>
+    <Modal open={!!review} onClose={()=>{if(!busy)setReview(null);}} title={t(review?.mode==='outcome'?'recordOutcome':'decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} mode={review.mode} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await recordReview(review.input,review.mode==='decision');setReview(null);})}/>}</Modal>
     <Modal open={!!draftEdit} onClose={()=>setDraftEdit(null)} title={draftEdit?`${t(draftEdit.audience)} · ${draftEdit.locale==='zh'?'中文':'English'}`:t('drafts')} description={t('draftHint')} t={t} wide>{draftEdit&&<form className="form-stack" onSubmit={e=>{e.preventDefault();void work(async()=>{await api(`incidents/${selected}/drafts`,{assessmentId:draftEdit.assessmentId,audience:draftEdit.audience,locale:draftEdit.locale,text:draftEdit.text,expectedRevision:draftEdit.revision});setDraftEdit(null);await refresh();});}}>
       <div className="mark-row"><DraftMark t={t}/><AiMark t={t}/></div>
       <Field label={t('draftText')} hint={t('translationReview')}><textarea rows={14} required value={draftEdit.text} lang={draftEdit.locale==='zh'?'zh-CN':'en'} onChange={e=>setDraftEdit({...draftEdit,text:e.target.value})}/></Field>

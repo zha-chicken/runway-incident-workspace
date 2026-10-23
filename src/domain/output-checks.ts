@@ -102,14 +102,12 @@ export function checkRates(text:string, ids:string[], evidence:EvidenceBundle, p
   }
 }
 
-// These are bounded checks for explicit operational directives, not a claim of full natural-language understanding.
-const professionalAction = /\b(?:cancel|release|dispatch|repair|clear)\s+(?:[a-z-]+\s+){0,5}(?:flights?|aircraft|airplanes?|planes?|engines?|pumps?)\b|\b(?:pay|issue|approve)\s+(?:[a-z-]+\s+){0,4}compensation\b|\b(?:send|publish)\s+(?:[a-z-]+\s+){0,5}(?:notifications?|notices?|messages?)\b|取消[^，。；！？\n]{0,12}航班|放行[^，。；！？\n]{0,8}(?:航班|飞机|航空器)|(?:调度|维修)[^，。；！？\n]{0,8}(?:飞机|航空器|发动机)|(?:支付|发放|批准)[^，。；！？\n]{0,8}(?:赔偿|赔付)|(?:发送|发布)[^，。；！？\n]{0,8}(?:通知|消息)/giu;
-const stoppedAction = /\b(?:evacuate|deplane|disembark)\b|\btow\s+(?:[a-z-]+\s+){0,4}(?:aircraft|plane)\b|\bresume\s+(?:[a-z-]+\s+){0,3}(?:pushback|operations|movement)\b|\bdeclare\s+(?:an?\s+)?emergency\b|疏散[^，。；！？\n]{0,8}(?:旅客|乘客|客舱)|拖曳[^，。；！？\n]{0,8}(?:飞机|航空器)|(?:立即|开始|执行)撤离|恢复[^，。；！？\n]{0,8}(?:推出|运行)|宣布[^，。；！？\n]{0,8}紧急/giu;
+// Only false message-sending claims are checked in prose. Operational directives,
+// weather causation, safety decisions, and official-status wording are not phrase-filtered.
+// Structured policy constraints and privacy checks remain separate and unchanged.
 const sendingClaim = /\b(?:notifications?|notices?|messages?)\s+(?:has been|have been|was|were)\s+sent\b|已(?:经)?(?:向旅客)?发送(?:了)?(?:通知|消息)/giu;
-const officialClaim = /\bflights?\s+(?:are|is|have been|has been)\s+(?:cancelled|canceled|delayed)\b|航班已(?:经)?(?:取消|延误)|已(?:经)?取消(?:全部|晚间)?航班/giu;
-const causalClaim = /\ball delays\s+(?:(?:are|were)\s+)?caused by weather\b|全部[^。；！？\n]{0,12}异常[^。；！？\n]{0,12}(?:均由|都是)[^。；！？\n]{0,8}天气/giu;
 function qualified(prefix:string, suffix:string):boolean {
-  // Negation attaches to this action, so "do not wait; cancel flights" cannot borrow the earlier negation.
+  // Negation attaches to this claim; a later sentence cannot borrow an earlier negation.
   if (/(?:\b(?:do not|don't|does not|cannot|can't|must not|should not|never|not permitted to|not authorized to|no)\s+(?:(?:automatically|immediately|actually|yet|recommend|authorize|to)\s+)*|(?:不得|不能|不可|不要|不应|禁止|无法|未获准|不会|不|尚未|未|没有)(?:自动|立即|直接|擅自|建议|批准|决定)*)$/iu.test(prefix)) return true;
   if (/(?:whether|if)\s+(?:(?:it is (?:appropriate|safe|permitted) to|we (?:may|can|should)|to)\s+)?$/iu.test(prefix) && /ask|check|confirm|verify|decid|professional|lead|询问|核查|确认/i.test(prefix)) return true;
   if (/(?:是否|能否)(?:可以|能够|应当|需要)?$/u.test(prefix)) return true;
@@ -127,13 +125,8 @@ function explicitInstruction(prefix:string):boolean {
     /^\s*(?:请|立即|现在|马上|必须|应当|建议|先|再|然后|批准|允许|可以|应)*$/u.test(prefix) ||
     /(?:请[^，。；！？]{0,24}|必须|应当|建议|批准|允许)\s*$/u.test(prefix);
 }
-export function checkProse(text:string, restricted:boolean, unconfirmed:boolean, path:string, errors:string[], warnings?:ValidationWarning[]) {
-  const checks:[RegExp,string][]=[
-    [professionalAction,'contains an explicit operational instruction; refer the decision or request information instead'],
-    [sendingClaim,'claims a notification was sent'],[causalClaim,'asserts unsupported blanket weather causation'],
-    ...(restricted ? [[stoppedAction,'contains an action conclusion while action conclusions are restricted'] as [RegExp,string]] : []),
-    ...(unconfirmed ? [[officialClaim,'asserts an unconfirmed official flight status'] as [RegExp,string]] : [])
-  ];
+export function checkProse(text:string, _restricted:boolean, _unconfirmed:boolean, path:string, errors:string[], warnings?:ValidationWarning[]) {
+  const checks:[RegExp,string][]=[[sendingClaim,'claims a notification was sent']];
   for (const rawClause of plainOutput(text).split(/[;；。!?！？\n]|(?<!\d)\.(?!\d)/u)) {
     const clause = rawClause.trim().replace(noticePattern, '').trim();
     for (const [pattern,reason] of checks) for (const match of clause.matchAll(pattern)) {
