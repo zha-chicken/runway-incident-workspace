@@ -166,10 +166,10 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
 
   return <FormError.Provider value={errorText}><Inspect.Provider value={{inspect:(id,v)=>void inspectSource(id,v),describe}}><div className={`app ${selected?'with-rail':'is-home'}`}>
     <a className="skip-link" href="#main">{t('skip')}</a>
-    {selected&&<aside className="desktop-rail" aria-label={t('airports')}>{rail}</aside>}
+    {selected&&<aside className="desktop-rail" aria-label={t('incidents')}>{rail}</aside>}
     <div className="main-column">
       {selected&&<div className="mobile-bar">
-        <button className="icon-button" onClick={()=>setNavOpen(true)} aria-label={t('airports')}><Menu size={20}/></button>
+        <button className="icon-button" onClick={()=>setNavOpen(true)} aria-label={t('incidents')}><Menu size={20}/></button>
         <span className="mobile-title">{detail&&<span className="code-tag">{detail.snapshot.airportId}</span>}<span>{detail?title:t('loading')}</span></span>
         {language}
       </div>}
@@ -207,7 +207,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
         </>}
       </main>
     </div>
-    <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('airports')} t={t} drawer>{rail}</Modal>
+    <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('incidents')} t={t} drawer>{rail}</Modal>
     <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await api<{id:string}>('incidents',editor);await refreshBoot();choose(created.id);}else if(detail){await api(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor});await refresh();}setEditor(null);})}/>}</Modal>
     <Modal open={!!source} onClose={()=>setSource(null)} title={t('original')} description={t('originalHint')} t={t} sheet>{source&&detail&&<SourceView id={source.id} evidence={source.bundle} locale={locale} t={t}/>}</Modal>
     <Modal open={!!review} onClose={()=>{if(!busy)setReview(null);}} title={t(review?.mode==='outcome'?'recordOutcome':'decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} mode={review.mode} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await recordReview(review.input,review.mode==='decision');setReview(null);})}/>}</Modal>
@@ -223,10 +223,10 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
 function Rail({boot,t,selected,analyzing,eventTitle,controls,onChoose,onHome,onNew,onReset}:{boot:Bootstrap;t:T;selected:string;analyzing:string[];eventTitle:(id:string|null,fallback:string)=>string;controls:ReactNode;onChoose:(id:string)=>void;onHome:()=>void;onNew:()=>void;onReset:()=>void}) {
   return <div className="rail-inner">
     <button className="rail-brand" onClick={onHome}><span className="brand-tile"><AeroContextMark size={18}/></span><span className="rail-brand-text"><BrandName/><small>{t('tagline')}</small></span></button>
-    <p className="rail-sim"><SimMark t={t}/><span>{t('simShort')}</span></p>
-    <button className="rail-home" onClick={onHome}><LayoutGrid size={16} aria-hidden/>{t('allAirports')}</button>
-    <p className="rail-label">{t('airports')}<span className="count">{boot.incidents.length}</span></p>
-    <nav className="rail-list" aria-label={t('airports')}>{boot.incidents.map(i=>{const active=i.id===selected;return <button key={i.id} className={`rail-item ${active?'active':''}`} onClick={()=>onChoose(i.id)} aria-current={active?'page':undefined}>
+    <p className="rail-sim"><SimMark t={t}/></p>
+    <button className="rail-home" onClick={onHome}><LayoutGrid size={16} aria-hidden/>{t('allIncidents')}</button>
+    <p className="rail-label">{t('incidents')}<span className="count">{boot.incidents.length}</span></p>
+    <nav className="rail-list" aria-label={t('incidents')}>{boot.incidents.map(i=>{const active=i.id===selected;return <button key={i.id} className={`rail-item ${active?'active':''}`} onClick={()=>onChoose(i.id)} aria-current={active?'page':undefined}>
       <span className="code-tag">{i.airportId}</span>
       <span className="rail-item-text"><span className="rail-item-title">{eventTitle(i.sourceEventId,i.title)}</span>
         <span className="rail-item-status">{analyzing.includes(i.id)?<><LoaderCircle size={12} className="spin" aria-hidden/>{t('analysisInProgress')}</>:<><RiskIcon level={i.riskLevel} size={12}/>{i.riskLevel?t(`risk_${i.riskLevel}`):t('unassessed')}</>}</span>

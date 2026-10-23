@@ -29,7 +29,7 @@ export function WorkspaceHome({boot, locale, t, active, controls, onChoose, onNe
       <div className="home-controls"><SimMark t={t}/>{controls}</div>
     </header>
     <section className="home-hero">
-      <div><p className="mini-label">{t('tagline')}</p><h1>{t('chooseAirport')}</h1><p className="home-intro">{t('homeIntro')}</p></div>
+      <div><p className="mini-label">{t('tagline')}</p><h1>{t('chooseIncident')}</h1></div>
       <button className="secondary" onClick={onNew}><Plus size={16} aria-hidden/>{t('newIncident')}</button>
     </section>
     {boot.incidents.length?<>
@@ -66,7 +66,7 @@ export function AirportHeader({detail, airportName, title, stage, decided, total
     {key:'share',state:stage==='ready'&&open===0?'now':'todo'}
   ];
   return <header className="airport-header">
-    <nav className="crumbs" aria-label={t('breadcrumb')}><button type="button" onClick={onHome}>{t('allAirports')}</button><span aria-hidden>/</span><span aria-current="page">{s.airportId}</span></nav>
+    <nav className="crumbs" aria-label={t('breadcrumb')}><button type="button" onClick={onHome}>{t('allIncidents')}</button><span aria-hidden>/</span><span aria-current="page">{s.airportId}</span></nav>
     <div className="airport-title">
       <span className="code-tag large">{s.airportId}</span>
       <div><h1>{title}</h1><p className="airport-meta"><span>{airportName}</span><span className="dot" aria-hidden>·</span><span>{s.scenarioPeriod}</span><span className="dot" aria-hidden>·</span><span>{t('version')} {s.version}</span></p></div>
@@ -157,7 +157,7 @@ export function AirportHub({detail, assessment, reviews, locale, t, answering, o
     {tab:'discussion',icon:Sparkles,summary:answering?t('answering'):t('threadCount',{count:detail.discussions.length}),note:t('askHint')},
     {tab:'history',icon:Upload,summary:t('reviewCount',{count:detail.reviews.length}),note:t('recordHint')}
   ];
-  return <nav className="hub" aria-label={t('airportMenu')}>
+  return <nav className="hub" aria-label={t('incidentMenu')}>
     <button className="hub-hero inverse" onClick={()=>onOpen('assessment')}>
       <span className="hub-hero-top"><span className="hub-label"><Scale size={17} aria-hidden/>{t('tab_assessment')}</span><span className="mark-row"><AiMark t={t}/><DraftMark t={t}/></span></span>
       <span className="hub-risk"><RiskBadge level={a.riskLevel} t={t} large/><span className="hub-constraint"><Icon size={16} aria-hidden/>{t(label)}</span></span>

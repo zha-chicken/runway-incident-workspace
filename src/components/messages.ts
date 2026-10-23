@@ -1,7 +1,7 @@
 const en={
   workspace:"Workspace",
-  chooseAirport:"Choose an airport",
-  airportMenu:"Airport menu",
+  chooseIncident:"Choose an incident",
+  incidentMenu:"Incident menu",
   startAnalysis:"Start analysis",
   analyzingAirport:"Analyzing {airport}…",
   analysisInProgress:"Analyzing…",
@@ -31,7 +31,7 @@ const en={
   reanalysisBody:"Reassess using your saved feedback, or choose a recommendation to modify before proceeding.",
   reanalysisYes:"Reassess",
   reanalysisModify:"Modify a decision",
-  allAirports:'All airports',airports:'Airports',incident:'Incident',
+  allIncidents:'All incidents',incident:'Incident',
   homeIntro:'Each airport has one simulated incident. Open one to read the situation, run the AI analysis and record your decisions.',
   homeCounts:'{total} incidents · {analyzed} analyzed · {waiting} not analyzed',
   theme:'Theme',themeSystem:'Match system',themeLight:'Light',themeDark:'Dark',
@@ -116,8 +116,8 @@ const en={
 };
 const zh:Record<keyof typeof en,string>={
   workspace:"工作区",
-  chooseAirport:"选择一个机场",
-  airportMenu:"机场菜单",
+  chooseIncident:"选择一个事件",
+  incidentMenu:"事件菜单",
   startAnalysis:"开始分析",
   analyzingAirport:"正在分析 {airport}…",
   analysisInProgress:"分析中…",
@@ -147,7 +147,7 @@ const zh:Record<keyof typeof en,string>={
   reanalysisBody:"根据已保存的反馈重新评估，或先选择一项建议修改决定。",
   reanalysisYes:"重新评估",
   reanalysisModify:"修改一项决定",
-  allAirports:'全部机场',airports:'机场',incident:'事件',
+  allIncidents:'全部事件',incident:'事件',
   homeIntro:'每个机场对应一个模拟事件。打开后可阅读情况、运行 AI 分析并记录你的决定。',
   homeCounts:'共 {total} 个事件 · 已分析 {analyzed} 个 · 未分析 {waiting} 个',
   theme:'外观',themeSystem:'跟随系统',themeLight:'浅色',themeDark:'深色',
