@@ -12,10 +12,12 @@ import {DiscussionAnswer} from './discussion-answer';
 /** A question in flight: known locally after sending, or only as a running run after a reload. */
 export type Asking = {question:string|null;since:string};
 
-export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onApply,onCancel,asking,aiBlocked,busy}:{detail:Detail;locale:Locale;t:T;question:string;setQuestion:(q:string)=>void;onSend:()=>void;onApply:(entry:DiscussionRow,index:number)=>void;onCancel?:()=>void;asking:Asking|null;aiBlocked:boolean;busy:boolean}) {
+export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onApply,onCancel,asking,aiBlocked,busy,error}:{detail:Detail;locale:Locale;t:T;question:string;setQuestion:(q:string)=>void;onSend:()=>void;onApply:(entry:DiscussionRow,index:number)=>void;onCancel?:()=>void;asking:Asking|null;aiBlocked:boolean;busy:boolean;error?:string}) {
   const entries=[...detail.discussions].reverse();
   const versionOf=(snapshotId:string)=>detail.history.find(s=>s.id===snapshotId)?.version;
   const suggestions=[t('suggestWhy'),t('suggestVerify'),t('suggestChange')];
+  const failure=useRef<HTMLDivElement>(null);
+  useEffect(()=>{if(error){failure.current?.scrollIntoView({behavior:'smooth',block:'center'});failure.current?.focus({preventScroll:true});}},[error]);
   const thread=useRef<HTMLOListElement>(null),seen=useRef(entries.length);
   // Keep the newest activity in view: the pending question when sent, the answer when it arrives.
   useEffect(()=>{if(asking)thread.current?.querySelector('.exchange.pending')?.scrollIntoView({behavior:'smooth',block:'center'});},[asking]);
@@ -66,13 +68,14 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
     </li>}
     </ol>
     <form className={`composer card ${asking?'is-waiting':''}`} onSubmit={e=>{e.preventDefault();onSend();}}>
+      {error&&<div ref={failure} id="discussion-error" className="notice error discussion-error" role="alert" tabIndex={-1}><div><p>{error}</p><p>{t('questionRestored')}</p></div></div>}
       <label className="composer-label" htmlFor="question">{t('ask')}</label>
       {entries.length===0&&!asking&&<p className="section-sub">{t('noDiscussion')}</p>}
       <div className="suggestions">{suggestions.map(s=><button type="button" key={s} className="chip" disabled={!!asking} onClick={()=>setQuestion(s)}>{s}</button>)}</div>
-      <textarea id="question" value={question} maxLength={6000} disabled={!!asking} onChange={e=>setQuestion(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)&&question.trim()&&!aiBlocked){e.preventDefault();onSend();}}} placeholder={asking?t('waitingAnswer'):t('askPlaceholder')} rows={3} required/>
+      <textarea id="question" aria-describedby={error?"discussion-error":undefined} value={question} maxLength={6000} disabled={!!asking} onChange={e=>setQuestion(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)&&question.trim()&&!aiBlocked){e.preventDefault();onSend();}}} placeholder={asking?t('waitingAnswer'):t('askPlaceholder')} rows={3} required/>
       <div className="composer-foot">
         <span className={`section-sub ${aiBlocked&&!asking?'busy-note':''}`}>{asking?t('thinkingHint'):aiBlocked&&detail.runs.some(r=>r.status==='running')?t('composerBusy'):t('discussionNote')}</span>
-        <button className="primary" disabled={aiBlocked||!question.trim()}>{asking?<><LoaderCircle size={15} className="spin" aria-hidden/>{t('waitingAnswer')}</>:<>{t('send')}<ArrowRight size={15} aria-hidden/></>}</button>
+        <button className="primary" disabled={aiBlocked||!question.trim()}>{asking?<><LoaderCircle size={15} className="spin" aria-hidden/>{t('waitingAnswer')}</>:<>{t(error?'retry':'send')}<ArrowRight size={15} aria-hidden/></>}</button>
       </div>
     </form>
   </div>;

@@ -1,3 +1,4 @@
+import type {InputPrivacyReview,PrivacyReviewRecord} from '../domain/input-privacy';
 import type {Assessment, Dataset, Discussion, EvidenceBundle, IncidentInput, Locale, Policy, ReviewInput, Snapshot, StoredAssessment} from '../domain/types';
 import type {OutputValidation} from '../domain/validation-notes';
 import {sourceStopRequest} from '../domain/policy';
@@ -8,7 +9,7 @@ export type DraftRow = {id:string;assessment_id:string;audience:Audience;locale:
 export type DiscussionRow = {validation?:OutputValidation;id:string;question:string;response:Discussion;snapshot_id:string;applied_snapshot_id:string|null;created_at:string};
 export type Run = {id:string;status:string;action:string;error_code:string|null;cost_micro:number|null;reserved_micro:number;created_at:string;metadata:Record<string,unknown>};
 export type Review = ReviewInput&{id:string;reviewedAt:string};
-export type Detail = {incident:{id:string;version:number;current_assessment_id:string|null};snapshot:Snapshot;assessments:StoredAssessment[];evidence:EvidenceBundle;policy:Policy;history:{id:string;version:number;createdAt:string;input:IncidentInput}[];reviews:Review[];drafts:DraftRow[];discussions:DiscussionRow[];runs:Run[]};
+export type Detail = {incident:{id:string;version:number;current_assessment_id:string|null};snapshot:Snapshot;assessments:StoredAssessment[];evidence:EvidenceBundle;policy:Policy;history:{id:string;version:number;createdAt:string;input:IncidentInput}[];reviews:Review[];drafts:DraftRow[];discussions:DiscussionRow[];runs:Run[];privacyReviews?:PrivacyReviewRecord[]};
 export type Tab = 'overview'|'evidence'|'assessment'|'drafts'|'discussion'|'history';
 export type Audience = keyof Assessment['drafts'];
 export type T = (key:string,values?:Record<string,string|number>)=>string;
@@ -33,8 +34,8 @@ export function stopReasonKeys(policy:Policy['constraints'],input?:IncidentInput
   return reasons.length ? reasons : ['stopReasonUnavailable'];
 }
 
-export async function api<R>(path:string,body?:unknown):Promise<R> {
-  const response=await fetch(`/api/${path}`,body===undefined?{cache:'no-store'}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+export async function api<R>(path:string,body?:unknown,privacyReview?:InputPrivacyReview):Promise<R> {
+  const response=await fetch(`/api/${path}`,body===undefined?{cache:'no-store'}:{method:'POST',headers:{'Content-Type':'application/json',...(privacyReview?{'X-Input-Privacy-Review':encodeURIComponent(JSON.stringify(privacyReview))}:{})},body:JSON.stringify(body)});
   const result=await response.json();
   if(!response.ok)throw new Error(result.error || 'INTERNAL_ERROR');
   return result as R;

@@ -43,12 +43,21 @@ describe('HTTP route contracts',()=>{
     expect((await request(`incidents/${id}/reviews`,b.cookie,{})).response.status).toBe(404);
     expect((await request(`runs/unowned/cancel`,b.cookie,{})).response.status).toBe(404);
   });
-  it('rejects personal data before storing an incident, without echoing it',async()=>{
+  it('requires input privacy review before storing detected personal information',async()=>{
     const a=await request('workspace');
     const before=database().native.prepare('SELECT COUNT(*) AS n FROM snapshots').get();
-    const result=await request('incidents',a.cookie,{...dataset.events[0].input,knownInformation:'Passenger phone 13800000000'});
-    expect(result.response.status).toBe(400);
-    expect(result.body).toEqual({error:'PERSONAL_DATA_REJECTED'});
+    const result=await request('incidents',a.cookie,{...dataset.events[0].input,knownInformation:'Synthetic contact person@example.test, 13800000000'});
+    expect(result.response.status).toBe(409);expect(result.body).toEqual({error:'PRIVACY_REVIEW_REQUIRED'});
     expect(database().native.prepare('SELECT COUNT(*) AS n FROM snapshots').get()).toEqual(before);
+  });
+  it('renews the same one-year session on reads, writes, source/export reads and handled errors',async()=>{
+    const a=await request('workspace'),id=a.body.incidents[0].id;
+    for(const result of [a,await request('workspace',a.cookie),await request(`incidents/${id}`,a.cookie),
+      await request(`incidents/${id}/sources?version=1`,a.cookie),await request(`incidents/${id}/export`,a.cookie),
+      await request('missing',a.cookie),await request('incidents',a.cookie,{...dataset.events[0].input,title:'Cookie refresh'})]) {
+      const header=result.response.headers.get('set-cookie');
+      expect(result.cookie).toBe(a.cookie);
+      expect(header).toContain('Max-Age=31536000');expect(header).toContain('HttpOnly');expect(header).toContain('SameSite=lax');expect(header).toContain('Path=/');
+    }
   });
 });

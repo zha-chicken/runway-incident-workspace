@@ -1,5 +1,4 @@
 import {actionSchema, reviewSchema, type Assessment, type ReviewInput, type Snapshot} from '../domain/types';
-import {assertNoPersonalData} from '../domain/privacy';
 import {database, ownIncident} from './db';
 
 // Context bounds, not usage quotas. Keep whole records; never truncate a reason or its negation.
@@ -66,7 +65,6 @@ export function feedbackForReassessment(workspaceId: string, snapshot: Snapshot)
     if (feedback.reviews.length>=FEEDBACK_CONTEXT_LIMITS.reviews || bytes+size>FEEDBACK_CONTEXT_LIMITS.bytes) {
       feedback.omittedReviewCount++; continue;
     }
-    assertNoPersonalData(entry);
     feedback.reviews.push(entry); bytes+=size;
   }
   return feedback;

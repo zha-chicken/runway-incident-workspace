@@ -5,16 +5,17 @@ import {mkdirSync, readFileSync} from 'node:fs';
 import {dirname, resolve} from 'node:path';
 import {createHash, randomBytes, randomUUID} from 'node:crypto';
 import {dataset} from '../domain/evidence';
-import {AppError, assertNoPersonalData, requireKnownAirport} from '../domain/privacy';
+import {AppError, requireKnownAirport} from '../domain/privacy';
 import {incidentInputSchema, reviewSchema, type IncidentInput, type Snapshot, type StoredAssessment, type Assessment, type Discussion} from '../domain/types';
 import {workspaceTable} from './schema';
+import {hasCurrentOfficialStatusSource} from '../domain/official-status';
 
 type DatabaseState = {native: Database.Database; orm: ReturnType<typeof drizzle>};
 const shared = globalThis as typeof globalThis & {runwayDB?: DatabaseState};
 export const now = () => new Date().toISOString();
 export const newId = () => randomUUID();
 export function database(): DatabaseState {
-  if (shared.runwayDB) return shared.runwayDB;
+  if (shared.runwayDB) {migrateInputPrivacy(shared.runwayDB.native);return shared.runwayDB;}
   const path = resolve(/* turbopackIgnore: true */ process.env.DATABASE_PATH || 'runtime/runway.sqlite');
   mkdirSync(dirname(path), {recursive: true});
   const native = new Database(path);
@@ -22,22 +23,24 @@ export function database(): DatabaseState {
   if (native.pragma('user_version', {simple: true}) === 0) {
     native.transaction(() => native.exec(readFileSync(resolve('migrations/0001_initial.sql'), 'utf8')))();
   }
+  migrateInputPrivacy(native);
   // A prior process cannot finish its own requests after restarting.
   native.prepare("UPDATE ai_runs SET status='interrupted',cost_micro=reserved_micro,error_code='SERVER_RESTART',finished_at=? WHERE status='running'").run(now());
   shared.runwayDB = {native, orm: drizzle(native)};
   return shared.runwayDB;
 }
+function migrateInputPrivacy(native:Database.Database) {
+  if(native.pragma('user_version',{simple:true})===1)native.transaction(()=>native.exec(readFileSync(resolve('migrations/0002_input_privacy.sql'),'utf8')))();
+}
 export function closeDatabase() {shared.runwayDB?.native.close(); delete shared.runwayDB;}
 export const hash = (text: string) => createHash('sha256').update(text).digest('hex');
-export function workspaceFor(token?: string): {id: string; token?: string} {
+export function workspaceFor(token?: string): {id: string; token: string} {
   const {native, orm} = database();
   if (token && /^[a-f0-9]{64}$/.test(token)) {
     const existing = orm.select().from(workspaceTable).where(eq(workspaceTable.tokenHash, hash(token))).get();
     if (existing) {
-      const expired = Date.now() - Date.parse(existing.lastSeen) > 14 * 86400_000;
-      if (expired) resetWorkspace(existing.id);
       native.prepare('UPDATE workspaces SET last_seen=? WHERE id=?').run(now(), existing.id);
-      return {id: existing.id};
+      return {id: existing.id, token};
     }
   }
   const id = newId(), secret = randomBytes(32).toString('hex');
@@ -48,7 +51,6 @@ export function workspaceFor(token?: string): {id: string; token?: string} {
   return {id, token: secret};
 }
 export function validateInput(value: unknown): IncidentInput {
-  assertNoPersonalData(value);
   const data = incidentInputSchema.parse(value);
   requireKnownAirport(data.airportId, dataset.airports.map(a => a.id));
   if (new Set(data.reports.map(r => r.id)).size !== data.reports.length) throw new AppError('DUPLICATE_REPORT_ID');
@@ -60,7 +62,7 @@ export function validateInput(value: unknown): IncidentInput {
     }
     if (r.provenanceKind === 'team_simulation' && r.reliability === 'scenario_given') throw new AppError('SOURCE_REPORT_IMMUTABLE');
   }
-  if (data.officialStatus !== 'unconfirmed' && !data.reports.some(r => r.id === data.officialStatusSourceId && r.reliability === 'human_verified' && r.verificationBasis && r.reportedAt)) {
+  if (data.officialStatus !== 'unconfirmed' && !hasCurrentOfficialStatusSource(data)) {
     throw new AppError('OFFICIAL_STATUS_NEEDS_VERIFIED_SOURCE');
   }
   return data;
@@ -128,7 +130,6 @@ export function saveDiscussion(workspaceId: string, snapshot: Snapshot, runId: s
   return id;
 }
 export function saveReview(workspaceId: string, incidentId: string, raw: unknown) {
-  assertNoPersonalData(raw);
   const review = reviewSchema.parse(raw);
   const assessment = assessmentsFor(workspaceId, incidentId).find(a => a.id === review.assessmentId);
   if (!assessment || ![assessment.result.firstAction, ...assessment.result.subsequentActions].some(a => a.id === review.recommendationId)) throw new AppError('NOT_FOUND', 404);
@@ -137,7 +138,6 @@ export function saveReview(workspaceId: string, incidentId: string, raw: unknown
   return id;
 }
 export function saveDraft(workspaceId: string, incidentId: string, data: {assessmentId: string; audience: string; locale: string; text: string; expectedRevision: number}) {
-  assertNoPersonalData(data);
   if (!['operations', 'airportCoordination', 'passenger'].includes(data.audience) || !['en', 'zh'].includes(data.locale) || !data.text.trim() || data.text.length > 12000) throw new AppError('INVALID_DRAFT');
   if (!assessmentsFor(workspaceId, incidentId).some(a => a.id === data.assessmentId)) throw new AppError('NOT_FOUND', 404);
   const db = database().native;
@@ -155,6 +155,7 @@ export function incidentDetail(workspaceId: string, incidentId: string) {
     incident, snapshot: snapshotFor(workspaceId, incidentId),
     assessments: assessmentsFor(workspaceId, incidentId),
     history: (db.prepare('SELECT * FROM snapshots WHERE incident_id=? ORDER BY version DESC').all(incidentId) as Array<Record<string, unknown>>).map(r => ({id: r.id, version: r.version, createdAt: r.created_at, input: JSON.parse(String(r.payload))})),
+    privacyReviews: (db.prepare('SELECT id,action,review,created_at FROM privacy_reviews WHERE workspace_id=? AND incident_id=? ORDER BY created_at DESC,rowid DESC').all(workspaceId,incidentId) as Array<{id:string;action:string;review:string;created_at:string}>).map(r=>({id:r.id,action:r.action,reviewedAt:r.created_at,...JSON.parse(r.review)})),
     reviews: (db.prepare('SELECT id,payload FROM reviews WHERE incident_id=? ORDER BY created_at DESC,rowid DESC').all(incidentId) as Array<{id: string; payload: string}>).map(r => ({id: r.id, ...JSON.parse(r.payload)})),
     drafts: db.prepare('SELECT * FROM drafts WHERE incident_id=? ORDER BY revision DESC').all(incidentId),
     discussions: (db.prepare('SELECT d.*,r.metadata AS run_metadata FROM discussions d LEFT JOIN ai_runs r ON r.id=d.run_id WHERE d.incident_id=? ORDER BY d.created_at DESC').all(incidentId) as Array<Record<string, unknown>>).map(({run_metadata,...r}) => ({...r, response: JSON.parse(String(r.response)), validation: run_metadata ? JSON.parse(String(run_metadata)).validation : undefined})),

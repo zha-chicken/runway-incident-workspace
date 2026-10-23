@@ -14,6 +14,14 @@ export function HistoryView({detail,locale,t,onReview}:{detail:Detail;locale:Loc
   const recommendation=(assessmentId:string,id:string)=>{const a=detail.assessments.find(x=>x.id===assessmentId);return {a,text:a&&recommendationsOf(a).find(r=>r.id===id)?.text[locale]};};
   const followUps=detail.assessments.flatMap(a=>[...latestReviews(detail.reviews,a.id).values()].map(review=>({assessment:a,review})));
   return <div className="stack">
+    {!!detail.privacyReviews?.length&&<article className="card">
+      <div className="section-heading"><div><h2>{t('privacyLog')}</h2><p className="section-sub">{t('privacyLogHint')}</p></div></div>
+      <ol className="review-list">{detail.privacyReviews.map(review=><li className="review-card" key={review.id}>
+        <div className="review-top"><span className="review-chip">{t(`privacyResolution_${review.resolution}`)}</span><strong>{review.reviewerLabel}</strong><span>{time(review.reviewedAt,locale)}</span></div>
+        <p>{t(`privacyAction_${review.action}`)} · {t('privacyFound',{count:review.findingCount})}</p><p>{review.reason}</p>
+        {review.resolution==='human_approved'&&<p className="field-hint">{t('privacyOverrideRecorded')}</p>}
+      </li>)}</ol>
+    </article>}
     <section className="card feedback-followup" aria-labelledby="followup-title">
       <p className="mini-label">{t('feedbackStageTwo')}</p>
       <h2 id="followup-title">{t('recordOutcomes')}</h2>

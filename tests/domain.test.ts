@@ -1,7 +1,6 @@
 import {describe, expect, it} from 'vitest';
 import {dataset, evidenceFor, isAnomaly} from '../src/domain/evidence';
 import {evaluatePolicy} from '../src/domain/policy';
-import {assertNoPersonalData} from '../src/domain/privacy';
 import {normalizeResponse, requestBody, type ModelRequest} from '../src/ai/provider';
 import {estimateTokens, reserveFor, usageCost} from '../src/server/budget';
 import type {IncidentInput} from '../src/domain/types';
@@ -101,9 +100,5 @@ describe('provider boundaries and accounting', () => {
     expect(normalizeResponse({...body,output:[{type:'function_call'}]},'responses').status).toBe('failed');
     expect(normalizeResponse({choices:[{finish_reason:'length',message:{content:'{}'}}]},'chat_completions').status).toBe('incomplete');
   });
-  it('rejects personal data without putting it into the error', () => {
-    const text = '旅客姓名：示例，手机号 13800000000';
-    expect(() => assertNoPersonalData(text)).toThrow('PERSONAL_DATA_REJECTED');
-    try {assertNoPersonalData(text);} catch (e) {expect(String(e)).not.toContain('13800000000');}
-  });
+
 });

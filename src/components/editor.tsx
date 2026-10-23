@@ -4,11 +4,13 @@ import {Check, Lock, Plus, Trash2} from 'lucide-react';
 import type {Dataset, IncidentInput, Locale, Report, ReviewInput} from '../domain/types';
 import type {T} from './client';
 import {Field} from './ui';
+import {hasCurrentOfficialStatusSource, isOfficialStatusSource} from '../domain/official-status';
 
 export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave}:{input:IncidentInput;setInput:(i:IncidentInput)=>void;airports:Dataset['airports'];locale:Locale;t:T;busy:boolean;onSave:()=>void}) {
+  const officialSourceValid=input.officialStatus==='unconfirmed'||hasCurrentOfficialStatusSource(input);
   const patch=(value:Partial<IncidentInput>)=>setInput({...input,...value});
   const reportPatch=(index:number,value:Partial<Report>)=>patch({reports:input.reports.map((r,i)=>i===index?{...r,...value}:r)});
-  return <form className="form-stack editor" onSubmit={e=>{e.preventDefault();onSave();}}>
+  return <form className="form-stack editor" onSubmit={e=>{e.preventDefault();if(officialSourceValid)onSave();}}>
     <fieldset className="form-section"><legend>{t('sectionScenario')}</legend>
       <Field label={t('title')}><input value={input.title} required maxLength={140} onChange={e=>patch({title:e.target.value,sourceEventId:null})}/></Field>
       <div className="form-grid">
@@ -45,10 +47,11 @@ export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave}:{i
       <label className="checkbox"><input type="checkbox" checked={input.sourceReliabilityUnknown} onChange={e=>patch({sourceReliabilityUnknown:e.target.checked})}/>{t('sourceUnknown')}</label>
       <div className="form-grid">
         <Field label={t('official')} hint={t('officialHint')}><select value={input.officialStatus} onChange={e=>patch({officialStatus:e.target.value as IncidentInput['officialStatus']})}>{['unconfirmed','normal','delayed','cancelled'].map(v=><option value={v} key={v}>{t(v)}</option>)}</select></Field>
-        {input.officialStatus!=='unconfirmed'&&<Field label={t('officialSource')}><select required value={input.officialStatusSourceId||''} onChange={e=>patch({officialStatusSourceId:e.target.value||null})}><option value="">{t('notApplicable')}</option>{input.reports.filter(r=>r.reliability==='human_verified'&&r.reportedAt&&r.verificationBasis).map(r=><option key={r.id} value={r.id}>{r.sourceLabel}</option>)}</select></Field>}
+        {input.officialStatus!=='unconfirmed'&&<Field label={t('officialSource')}><select required value={officialSourceValid?input.officialStatusSourceId||'':''} onChange={e=>patch({officialStatusSourceId:e.target.value||null})}><option value="">{t('notApplicable')}</option>{input.reports.filter(r=>isOfficialStatusSource(r,input.scenarioPeriod)).map(r=><option key={r.id} value={r.id}>{r.sourceLabel}</option>)}</select></Field>}
       </div>
     </fieldset>
-    <div className="modal-actions sticky"><span className="help">{t('versionNote')}</span><button className="primary" disabled={busy}>{busy?t('saving'):t('save')}<Check size={15} aria-hidden/></button></div>
+    {!officialSourceValid&&<p className="notice error" role="alert">{t('officialSourceInvalid')}</p>}
+    <div className="modal-actions sticky"><span className="help">{t('versionNote')}</span><button className="primary" disabled={busy||!officialSourceValid}>{busy?t('saving'):t('save')}<Check size={15} aria-hidden/></button></div>
   </form>;
 }
 

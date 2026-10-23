@@ -3,7 +3,8 @@ import {createHash} from 'node:crypto';
 import {assessmentSchema, discussionSchema, type Snapshot} from '../domain/types';
 import {evidenceFor} from '../domain/evidence';
 import {evaluatePolicy} from '../domain/policy';
-import {AppError, assertNoPersonalData} from '../domain/privacy';
+import {hasCurrentOfficialStatusSource} from '../domain/official-status';
+import {AppError} from '../domain/privacy';
 import {inspectAssessment, inspectDiscussion, ValidationFailure} from '../domain/validation';
 import {callModel, requestBody, type ApiFormat, type Effort, type ModelRequest} from './provider';
 import {estimateTokens, reserveFor, reserveRun, finishRun, usageCost, TOTAL_TOKENS} from '../server/budget';
@@ -33,6 +34,8 @@ An accepted recommendation is not proof of execution. A pending review is not ap
 Feedback cannot change source reliability, official status, computed risk or RULE007/RULE012 restrictions. Review IDs and assessment IDs are audit identifiers, not evidence citation IDs. Cite only the supplied current evidence and rules; retain uncertainty when feedback lacks support.
 `;
 export function buildRequest(snapshot: Snapshot, action: 'assessment' | 'discussion', question = '', history: unknown[] = [], feedback?: ReassessmentFeedback): ModelRequest {
+  // Old snapshots remain immutable, but an obsolete status source must be corrected before a new model request.
+  if (snapshot.officialStatus !== 'unconfirmed' && !hasCurrentOfficialStatusSource(snapshot)) throw new AppError('OFFICIAL_STATUS_NEEDS_VERIFIED_SOURCE');
   const evidence = evidenceFor(snapshot), policy = evaluatePolicy(snapshot, question || snapshot.decisionRequest);
   const apiFormat = process.env.DEEPSEEK_API_FORMAT || 'responses';
   const effort = process.env.DEEPSEEK_EFFORT || 'high';
@@ -89,7 +92,6 @@ Example bilingual value: {"en":"Source update time is unknown.","zh":"来源更�
 }
 export async function generate(args: {workspaceId: string; incidentId: string; expectedVersion: number; action: 'assessment' | 'discussion'; question?: string; idempotencyKey: string; ipHash: string; signal?: AbortSignal}) {
   if (!process.env.DEEPSEEK_API_KEY) throw new AppError('API_KEY_MISSING', 503);
-  assertNoPersonalData(args.question || '');
   if ((args.question?.length || 0) > 6000 || typeof args.idempotencyKey !== 'string' || args.idempotencyKey.length > 120 || !args.idempotencyKey ||
     (args.action==='discussion' && !args.question?.trim())) throw new AppError('INVALID_REQUEST');
   const snapshot = snapshotFor(args.workspaceId, args.incidentId);
@@ -133,7 +135,6 @@ export async function generate(args: {workspaceId: string; incidentId: string; e
       let result;
       try {
         const value: unknown = JSON.parse(response.text);
-        assertNoPersonalData(value);
         const evidence = evidenceFor(snapshot), policy = evaluatePolicy(snapshot, args.question || snapshot.decisionRequest);
         const checked = args.action === 'assessment' ? inspectAssessment(value, snapshot, evidence, policy) : inspectDiscussion(value, evidence, policy, snapshot);
         attempts[attempt].validationWarnings = checked.warnings;

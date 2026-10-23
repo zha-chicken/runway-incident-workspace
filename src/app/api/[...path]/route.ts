@@ -4,10 +4,12 @@ import {z} from 'zod';
 import {workspaceFor, listIncidents, createIncident, updateIncident, incidentDetail, snapshotFor, saveReview, saveDraft, resetWorkspace, database, newId, ownIncident} from '../../../server/db';
 import {dataset, evidenceFor} from '../../../domain/evidence';
 import {evaluatePolicy} from '../../../domain/policy';
-import {AppError, assertNoPersonalData} from '../../../domain/privacy';
+import {AppError} from '../../../domain/privacy';
 import {generate, cancelRun} from '../../../ai/service';
 import {budgetStatus} from '../../../server/budget';
 import {discussionSchema, reportSchema} from '../../../domain/types';
+import {checkInputPrivacy,recordInputPrivacy} from '../../../server/input-privacy';
+import {maskInputPrivacy,privacyReviewPayload} from '../../../domain/input-privacy';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -41,7 +43,9 @@ async function handle(req: NextRequest, ctx: Context) {
         if(command==='sources') {
           const version=z.coerce.number().int().min(1).parse(req.nextUrl.searchParams.get('version'));
           result=evidenceFor(snapshotFor(workspace.id,id,version));
-          return NextResponse.json(result,{headers:{'Cache-Control':'no-store'}});
+          const response=NextResponse.json(result,{headers:{'Cache-Control':'no-store'}});
+          setSession(response,workspace.token);
+          return response;
         }
         const detail = incidentDetail(workspace.id, id), evidence = evidenceFor(detail.snapshot);
         result = {...detail, evidence, policy: evaluatePolicy(detail.snapshot)};
@@ -57,24 +61,30 @@ async function handle(req: NextRequest, ctx: Context) {
       const text = await req.text();
       if (Buffer.byteLength(text)>200000) throw new AppError('REQUEST_TOO_LARGE',413);
       const body = JSON.parse(text);
-      assertNoPersonalData(body);
+      const privacyScope=path.join('/'),privacyHeader=req.headers.get('x-input-privacy-review');
+      const reviewedWrite=(action:string,write:()=>{id:string}|{id:string;version:number})=>{
+        const checked=checkInputPrivacy(privacyScope,body,privacyHeader),db=database().native;
+        return db.transaction(()=>{const saved=write();recordInputPrivacy(db,workspace.id,id||saved.id,action,checked);return saved;})();
+      };
       if (resource === 'workspace' && command === undefined && id === 'reset') {
         resetWorkspace(workspace.id); result = {ok:true};
       } else if (resource === 'runs' && id && command === 'cancel') {
         cancelRun(workspace.id,id); result = {ok:true};
       } else if (resource === 'incidents' && !id) {
-        result = {id:createIncident(workspace.id,body)};
+        result = reviewedWrite('create_incident',()=>({id:createIncident(workspace.id,body)}));
       } else if (resource === 'incidents' && id) {
         ownIncident(workspace.id,id);
-        if (!command) result = updateIncident(workspace.id,id,body.expectedVersion,body.input);
+        if (!command) result = reviewedWrite('update_incident',()=>updateIncident(workspace.id,id,body.expectedVersion,body.input));
         else if (command === 'generate' || command === 'discuss') {
           const forwarded = process.env.TRUST_PROXY === 'true' ? req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() : null;
           const ipHash = createHmac('sha256',process.env.SESSION_SECRET || 'local-development-only').update(forwarded || 'local-network').digest('hex');
+          const checked=checkInputPrivacy(privacyScope,body,privacyHeader);
+          recordInputPrivacy(database().native,workspace.id,id,command==='discuss'?'discussion':'assessment_request',checked);
           result = await generate({workspaceId:workspace.id,incidentId:id,expectedVersion:body.expectedVersion,
             action:command==='generate'?'assessment':'discussion',question:body.question,
             idempotencyKey:body.idempotencyKey,ipHash,signal:req.signal});
-        } else if (command === 'reviews') result = {id:saveReview(workspace.id,id,body)};
-        else if (command === 'drafts') result = {id:saveDraft(workspace.id,id,body)};
+        } else if (command === 'reviews') result = reviewedWrite('human_feedback',()=>({id:saveReview(workspace.id,id,body)}));
+        else if (command === 'drafts') result = reviewedWrite('edit_draft',()=>({id:saveDraft(workspace.id,id,body)}));
         else if (command === 'apply') {
           const db=database().native;
           result=db.transaction(() => {
@@ -85,14 +95,18 @@ async function handle(req: NextRequest, ctx: Context) {
             if(snapshot.id!==entry.snapshot_id || snapshot.version!==body.expectedVersion)throw new AppError('VERSION_CONFLICT',409);
             const proposal=discussionSchema.parse(JSON.parse(entry.response)).proposedFacts[Number(body.index)];
             if(!proposal)throw new AppError('NOT_FOUND',404);
+            const submitted=body.proposal??proposal;
+            if(![proposal,maskInputPrivacy(proposal)].some(value=>privacyReviewPayload('',value)===privacyReviewPayload('',submitted)))throw new AppError('INVALID_INPUT');
+            const checked=checkInputPrivacy(privacyScope,{...body,proposal:submitted},privacyHeader);
             const report=reportSchema.parse({
-              id:newId(),text:`${proposal.text.en}\n${proposal.text.zh}`,sourceLabel:proposal.sourceLabel,
+              id:newId(),text:`${submitted.text.en}\n${submitted.text.zh}`,sourceLabel:submitted.sourceLabel,
               originReportId:null,reportedAt:null,applicablePeriod:snapshot.scenarioPeriod,
               reliability:'unverified',independenceGroup:null,verificationBasis:null,signal:'context',
               expandingImpact:false,provenanceKind:'team_simulation',sourceEvidenceId:null
             });
             const next=updateIncident(workspace.id,id,snapshot.version,{...snapshot,reports:[...snapshot.reports,report]});
             db.prepare('UPDATE discussions SET applied_snapshot_id=? WHERE id=?').run(next.id,body.discussionId);
+            recordInputPrivacy(db,workspace.id,id,'apply_proposal',checked);
             return next;
           })();
         } else throw new AppError('NOT_FOUND',404);
@@ -110,7 +124,7 @@ async function handle(req: NextRequest, ctx: Context) {
   }
 }
 function setSession(response:NextResponse,token:string) {
-  response.cookies.set('runway-session',token,{httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'lax',path:'/',maxAge:14*86400});
+  response.cookies.set('runway-session',token,{httpOnly:true,secure:process.env.NODE_ENV==='production',sameSite:'lax',path:'/',maxAge:365*86400});
 }
 export const GET=handle;
 export const POST=handle;

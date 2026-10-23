@@ -11,7 +11,7 @@ This file tracks actual evidence; unchecked items are not complete.
 - [x] Real DeepSeek assessment, schemas, citation/policy validation, budget accounting.
 - [x] Three editable bilingual drafts, discussion, explicit application of proposed facts.
 - [x] Review-entry workflow, history, reassessment, stale-result handling, JSON export.
-- [ ] Failure recovery, privacy guards, quotas, ownership, accessibility, browser checks.
+- [ ] Failure recovery, quotas, ownership, accessibility, browser checks. Input-stage privacy review added with false-positive handling and masking; no output privacy filter. RULE011 remains, with no human-approval override.
 - [ ] Public test suite in both languages; sealed final holdouts and evaluation report.
 - [ ] Effort comparison after verified prototype; manual and basic-model baselines.
 - [ ] Eight substantive submission materials, editable presentation and PDF.

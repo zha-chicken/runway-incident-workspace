@@ -62,7 +62,7 @@ flowchart LR
   Ownership --> Evidence["Version-scoped evidence and deterministic policy"]
   Evidence --> Budget["Transactional quota and cost reservation"]
   Budget --> Adapter["Stateless DeepSeek endpoint adapter"]
-  Adapter --> Validate["Schema, citation, policy and privacy checks"]
+  Adapter --> Validate["Schema, citation and policy checks"]
   Validate --> DB
   DB --> UI
 ```
@@ -110,3 +110,5 @@ The original recommendation remains in its assessment. Rejecting or editing it d
 ## Limits requiring evaluation
 
 Resolvable citations do not prove the prose is supported by them. Current numeric checks verify referenced metric identity but do not fully compare every number in free text. Rule keywords are not a complete semantic safety classifier. This is why the final plan requires bilingual public cases, held-out scenarios, claim review, and independent human feedback before release claims.
+
+New input is screened locally and at the API boundary before storage/model submission. Detected data requires masking/removal or a recorded false-positive decision for text that is not personal information; human approval cannot override RULE011. The original competition rule is unchanged. These review records are audit data and are not supplied as model evidence.

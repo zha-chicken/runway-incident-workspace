@@ -14,6 +14,7 @@ import {Claims, MustList, mustKnowLists} from './assessment';
 import {nextDecision, type AirportStage} from './workflow';
 import {feedbackDraft, nextAfterReview} from './feedback';
 import {ReviewForm} from './editor';
+import {PrivacyReviewCancelled} from './input-privacy';
 
 const decisionIcons={accepted:Check,modified:Pencil,rejected:X,pending:CircleDashed};
 const decidedIn=(reviews:Map<string,Review>,id:string)=>{const r=reviews.get(id);return r&&r.disposition!=='pending'?r:undefined;};
@@ -224,7 +225,7 @@ export function DecisionFlow({assessment, reviews, locale, t, reviewer, onSave, 
       const updated=new Map(reviews);updated.set(action.id,{...input,id:'saved',reviewedAt:new Date().toISOString()});
       const next=nextAfterReview(assessment,updated,input);
       if(next<0)onExit();else move(next);
-    } catch {if(mounted.current)setError(t('decisionSaveFailed'));}
+    } catch(error) {if(mounted.current&&!(error instanceof PrivacyReviewCancelled))setError(t('decisionSaveFailed'));}
     finally {savingRef.current=false;if(mounted.current)setSaving(false);}
   }
   const Recorded=review?decisionIcons[review.disposition]:null;

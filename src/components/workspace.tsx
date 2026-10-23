@@ -7,18 +7,18 @@ import {NextIntlClientProvider, useTranslations} from 'next-intl';
 import {ArrowUpRight, CircleAlert, LayoutGrid, LoaderCircle, Menu, Plus, Printer, RotateCcw, X} from 'lucide-react';
 import type {EvidenceBundle, IncidentInput, Locale, ReviewInput, StoredAssessment} from '../domain/types';
 import {messages, errors} from './messages';
-import {api, currentAssessment, inputAtSnapshot, inputOf, latestReviews, recommendationsOf, type Audience, type Bootstrap, type Detail, type DiscussionRow, type Review, type T, type Tab} from './client';
-import {AeroContextMark, AiMark, BrandName, Constraints, DraftMark, Field, FormError, Inspect, Modal, RiskIcon, SimMark, ThemeSwitch, type Theme} from './ui';
+import {api, currentAssessment, inputOf, latestReviews, recommendationsOf, type Audience, type Bootstrap, type Detail, type DiscussionRow, type Review, type T, type Tab} from './client';
+import {AeroContextMark, AiMark, BrandName, DraftMark, Field, FormError, Inspect, Modal, RiskIcon, SimMark, ThemeSwitch, type Theme} from './ui';
 import {OverviewView} from './overview';
 import {EvidenceView, SourceView} from './evidence';
-import {AssessmentView} from './assessment';
 import {AirportHeader, AirportHub, AnalysisProgress, DecisionFlow, Preflight, ReanalysisBanner, ViewHeader, WorkspaceHome} from './guided-workflow';
 import {airportStage, nextDecision} from './workflow';
 import {feedbackDraft} from './feedback';
 import {DraftsView} from './drafts';
-import {MessageContent} from './message-content';
+import {PrintReport} from './print-report';
 import {DiscussionView} from './discussion';
 import {HistoryView} from './history';
+import {useInputPrivacy,PrivacyReviewCancelled} from './input-privacy';
 import {IncidentEditor, ReviewForm} from './editor';
 
 type DraftEdit = {audience:Audience;text:string;revision:number;locale:Locale;assessmentId:string};
@@ -43,11 +43,12 @@ export default function Workspace() {
 
 function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLocale:(l:Locale)=>void;theme:Theme;setTheme:(theme:Theme)=>void}) {
   const t=useTranslations() as T;
+  const privacy=useInputPrivacy(t);
   const [boot,setBoot]=useState<Bootstrap|null>(null),[detail,setDetail]=useState<Detail|null>(null);
   const [selected,setSelected]=useState(''),[tab,setTab]=useState<Tab|null>(null),[error,setError]=useState('');
   const [editor,setEditor]=useState<IncidentInput|null>(null),[isNew,setIsNew]=useState(false),[busy,setBusy]=useState(false);
   const [requests,setRequests]=useState<Record<string,LocalRequest>>({}),[questions,setQuestions]=useState<Record<string,string>>({}),[source,setSource]=useState<{id:string;bundle:EvidenceBundle}|null>(null);
-  const [requestErrors,setRequestErrors]=useState<Record<string,string>>({});
+  const [requestErrors,setRequestErrors]=useState<Record<string,{code:string;action:'generate'|'discuss'}|undefined>>({});
   const [review,setReview]=useState<{input:ReviewInput;text:string;mode:'decision'|'outcome'}|null>(null),[draftEdit,setDraftEdit]=useState<DraftEdit|null>(null);
   const [resetOpen,setResetOpen]=useState(false),[navOpen,setNavOpen]=useState(false);
   const selection=useRef(''),initialRequest=useRef<Promise<Bootstrap>|null>(null);
@@ -72,7 +73,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
     const timer=setInterval(()=>{void load(selected).catch(()=>{});},2500);
     return()=>clearInterval(timer);
   },[localRequest,running?.id,selected,load]);
-  const work=async(fn:()=>Promise<void>)=>{setBusy(true);setError('');try{await fn();}catch(e){setError((e as Error).message);}finally{setBusy(false);}};
+  const work=async(fn:()=>Promise<void>)=>{setBusy(true);setError('');try{await fn();}catch(e){if(!(e instanceof PrivacyReviewCancelled))setError((e as Error).message);}finally{setBusy(false);}};
   const current=detail?currentAssessment(detail):undefined;
   const displayed=current || detail?.assessments[0];
   const airport=boot?.airports.find(a=>a.id===detail?.snapshot.airportId);
@@ -82,25 +83,33 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   const aiBlocked=!!localRequest||!!running||!boot?.apiConfigured;
   async function recordReview(input:ReviewInput,returnToHub=true) {
     const id=selected;
-    await api(`incidents/${id}/reviews`,input);
-    try{localStorage.setItem('runway-reviewer',input.reviewerLabel);}catch{}
+    let submitted=input;
+    await privacy.submit(`incidents/${id}/reviews`,input,value=>{submitted=value;});
+    try{localStorage.setItem('runway-reviewer',submitted.reviewerLabel);}catch{}
     const updated=await refresh(id).catch(e=>{if(selection.current===id)setError(e.message);});
     const assessment=updated&&currentAssessment(updated);
     if(returnToHub&&input.assessmentId===assessment?.id&&updated&&assessment&&selection.current===id&&nextDecision(assessment,latestReviews(updated.reviews,assessment.id))<0)setTab(null);
   }
   async function generate(id=selected,version=detail?.snapshot.version,action:'generate'|'discuss'='generate') {
     if(!version||inFlight.current.has(id)||(id===selected&&running))return;
-    const since=new Date().toISOString(),asked=action==='discuss'?question:'';
+    const path=`incidents/${id}/${action}`;
+    let prepared;
+    try {
+      prepared=action==='discuss'?await privacy.prepare(path,{expectedVersion:version,idempotencyKey:crypto.randomUUID(),question}):{body:{expectedVersion:version,idempotencyKey:crypto.randomUUID(),question:undefined},review:undefined};
+    }catch(e){if(!(e instanceof PrivacyReviewCancelled))setError((e as Error).message);return;}
+    // The privacy review may have taken time; do not start a duplicate request.
+    if(inFlight.current.has(id))return;
+    const since=new Date().toISOString(),asked=prepared.body.question||'';
     inFlight.current.add(id);
     setRequests(previous=>({...previous,[id]:{since,action,question:asked}}));setError('');
-    setRequestErrors(previous=>({...previous,[id]:''}));
+    setRequestErrors(previous=>({...previous,[id]:undefined}));
     if(action==='generate'&&selection.current===id)setTab(null);
     // A sent question moves into the thread at once; it returns to the box if the request fails.
     if(action==='discuss')setQuestions(previous=>({...previous,[id]:''}));
     try {
-      await api(`incidents/${id}/${action}`,{expectedVersion:version,idempotencyKey:crypto.randomUUID(),...(action==='discuss'?{question:asked}: {})});
+      await api(path,prepared.body,prepared.review);
     } catch(e) {
-      setRequestErrors(previous=>({...previous,[id]:(e as Error).message}));
+      setRequestErrors(previous=>({...previous,[id]:{code:(e as Error).message,action}}));
       if(action==='discuss')setQuestions(previous=>({...previous,[id]:asked}));
     } finally {
       await refresh(id).catch(()=>{});
@@ -138,10 +147,10 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   };
   const applyProposal=(entry:DiscussionRow,index:number)=>void work(async()=>{
     if(!detail)return;
-    const next=await api<{version:number}>(`incidents/${selected}/apply`,{discussionId:entry.id,index,expectedVersion:detail.snapshot.version});
+    const next=await privacy.submit<{version:number}>(`incidents/${selected}/apply`,{discussionId:entry.id,index,expectedVersion:detail.snapshot.version,proposal:entry.response.proposedFacts[index]});
     await refresh();await generate(selected,next.version);
   });
-  const visibleError=error||requestErrors[selected];
+  const visibleError=error||requestErrors[selected]?.code;
   const errorText=visibleError?(errors[visibleError]?.[locale]||`${t('error')} (${visibleError})`):'';
 
   if(!boot)return <div className="startup"><span className="brand-tile large"><AeroContextMark size={28}/></span><h1><BrandName/></h1><p role="status">{error?(errors[error]?.[locale] || t('error')):t('loading')}</p>{error?<button className="secondary" onClick={()=>location.reload()}>{t('retry')}</button>:<LoaderCircle className="spin" size={20} aria-hidden/>}</div>;
@@ -175,7 +184,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
         {language}
       </div>}
       <main id="main" className={`main ${selected?`stage-${stage}`:'home-main'}`}>
-        {visibleError&&<div className="notice error" role="alert"><CircleAlert size={17} aria-hidden/><span>{errorText}</span><button className="icon-button" onClick={()=>{setError('');setRequestErrors(previous=>({...previous,[selected]:''}));}} aria-label={t('close')}><X size={16}/></button></div>}
+        {visibleError&&<div className="notice error" role="alert"><CircleAlert size={17} aria-hidden/><span>{errorText}</span><button className="icon-button" onClick={()=>{setError('');setRequestErrors(previous=>({...previous,[selected]:undefined}));}} aria-label={t('close')}><X size={16}/></button></div>}
         {!selected?<WorkspaceHome boot={boot} locale={locale} t={t} active={analyzing} controls={controls} onChoose={choose} onNew={newIncident} onReset={()=>setResetOpen(true)}/>:
         !detail?<div className="loading"><LoaderCircle className="spin" size={22}/>{t('loading')}</div>:<>
           {(stage!=='ready'||!tab)&&<AirportHeader detail={detail} airportName={airport?.name[locale]||''} title={title} stage={stage} decided={decided} total={actions.length} t={t} onHome={goHome}/>}
@@ -190,34 +199,25 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
               {tab==='evidence'&&<EvidenceView evidence={detail.evidence} historicalThrough={detail.snapshot.historicalThrough} locale={locale} t={t}/>}
               {tab==='assessment'&&<DecisionFlow key={current.id} assessment={current} reviews={reviewMap} locale={locale} t={t} reviewer={savedReviewer()} onExit={()=>openView(null)} onSave={recordReview} onOutcome={id=>reviewAction(current,id,undefined,'outcome')}/>}
               {tab==='drafts'&&<DraftsView detail={detail} current={current} displayed={displayed} locale={locale} t={t} draftText={draftText} onEdit={editDraft}/>}
-              {tab==='discussion'&&<DiscussionView detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} asking={discussing} onCancel={running?.action==='discussion'?cancelRun:undefined} aiBlocked={aiBlocked} busy={busy}/>}
+              {tab==='discussion'&&<DiscussionView error={requestErrors[selected]?.action==='discuss'?(errors[requestErrors[selected]!.code]?.[locale]||`${t('error')} (${requestErrors[selected]!.code})`):undefined} detail={detail} locale={locale} t={t} question={question} setQuestion={setQuestion} onSend={()=>void generate(selected,detail.snapshot.version,'discuss')} onApply={applyProposal} asking={discussing} onCancel={running?.action==='discussion'?cancelRun:undefined} aiBlocked={aiBlocked} busy={busy}/>}
               {tab==='history'&&<HistoryView detail={detail} locale={locale} t={t} onReview={reviewAction}/>}
             </section>
           </>}
-          {displayed&&<div className="print-report">
-            <p className="print-flag">{t('simulation')} · {t('draft')} · {t('aiGenerated')}</p>
-            <h1>{t('brand')} · {title}</h1>
-            <p>{detail.snapshot.scenarioPeriod} · {t('version')} {displayed.snapshotVersion} · {t(`risk_${displayed.result.riskLevel}`)} · {t('official')}: {t(detail.snapshot.officialStatus)}</p>
-            <p>{t('draftHint')}</p>{!current&&<p>{t('stale')}</p>}
-            <Constraints policy={displayed.result.decisionConstraints} input={inputAtSnapshot(detail,displayed.snapshotId)} locale={locale} t={t}/>
-            <AssessmentView assessment={displayed} locale={locale} t={t} print/>
-            {(['operations','airportCoordination','passenger'] as const).map(a=><section key={a} className="print-draft"><h2>{t(a)} · {t('draft')}</h2><MessageContent text={draftText(displayed,a)} evidenceIds={displayed.result.drafts[a].evidenceIds} version={displayed.snapshotVersion} locale={locale} t={t} print/><p className="print-refs">{displayed.result.drafts[a].evidenceIds.join(', ')}</p></section>)}
-            <h2>{t('reviewLog')}</h2>{detail.reviews.map(r=><p key={r.id}>{r.reviewedAt} · {r.reviewerLabel} · {r.recommendationId} · {t(r.disposition)} · {r.reason} · {t('modifiedAction')}: {r.revisedRecommendation||t('notApplicable')} · {t('finalAction')}: {r.finalAction||t('notApplicable')} · {t(r.outcomeStatus)}: {r.outcome||t('pending')} · {t('improvement')}: {r.nextImprovement||t('notApplicable')}</p>)}
-            <p className="print-refs">{t('sourceHash')}: {detail.evidence.sourceHash}</p>
-          </div>}
+          {displayed&&<PrintReport detail={detail} displayed={displayed} isCurrent={!!current} locale={locale} t={t} eventTitle={eventTitle} draftText={draftText}/>}
         </>}
       </main>
     </div>
     <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('incidents')} t={t} drawer>{rail}</Modal>
-    <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await api<{id:string}>('incidents',editor);await refreshBoot();choose(created.id);}else if(detail){await api(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor});await refresh();}setEditor(null);})}/>}</Modal>
+    <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await privacy.submit<{id:string},IncidentInput>('incidents',editor,setEditor);await refreshBoot();choose(created.id);}else if(detail){await privacy.submit(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor},value=>setEditor(value.input));await refresh();}setEditor(null);})}/>}</Modal>
     <Modal open={!!source} onClose={()=>setSource(null)} title={t('original')} description={t('originalHint')} t={t} sheet>{source&&detail&&<SourceView id={source.id} evidence={source.bundle} locale={locale} t={t}/>}</Modal>
     <Modal open={!!review} onClose={()=>{if(!busy)setReview(null);}} title={t(review?.mode==='outcome'?'recordOutcome':'decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} mode={review.mode} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await recordReview(review.input,review.mode==='decision');setReview(null);})}/>}</Modal>
-    <Modal open={!!draftEdit} onClose={()=>setDraftEdit(null)} title={draftEdit?`${t(draftEdit.audience)} · ${draftEdit.locale==='zh'?'中文':'English'}`:t('drafts')} description={t('draftHint')} t={t} wide>{draftEdit&&<form className="form-stack" onSubmit={e=>{e.preventDefault();void work(async()=>{await api(`incidents/${selected}/drafts`,{assessmentId:draftEdit.assessmentId,audience:draftEdit.audience,locale:draftEdit.locale,text:draftEdit.text,expectedRevision:draftEdit.revision});setDraftEdit(null);await refresh();});}}>
+    <Modal open={!!draftEdit} onClose={()=>setDraftEdit(null)} title={draftEdit?`${t(draftEdit.audience)} · ${draftEdit.locale==='zh'?'中文':'English'}`:t('drafts')} description={t('draftHint')} t={t} wide>{draftEdit&&<form className="form-stack" onSubmit={e=>{e.preventDefault();void work(async()=>{await privacy.submit(`incidents/${selected}/drafts`,{assessmentId:draftEdit.assessmentId,audience:draftEdit.audience,locale:draftEdit.locale,text:draftEdit.text,expectedRevision:draftEdit.revision},value=>setDraftEdit({...draftEdit,text:value.text}));setDraftEdit(null);await refresh();});}}>
       <div className="mark-row"><DraftMark t={t}/><AiMark t={t}/></div>
       <Field label={t('draftText')} hint={t('translationReview')}><textarea rows={14} required value={draftEdit.text} lang={draftEdit.locale==='zh'?'zh-CN':'en'} onChange={e=>setDraftEdit({...draftEdit,text:e.target.value})}/></Field>
       <div className="modal-actions"><button type="button" className="secondary" onClick={()=>setDraftEdit(null)}>{t('cancel')}</button><button className="primary" disabled={busy}>{busy?t('saving'):t('saveDraft')}</button></div>
     </form>}</Modal>
     <Modal open={resetOpen} onClose={()=>setResetOpen(false)} title={t('reset')} t={t}><p>{t('resetConfirm')}</p><div className="modal-actions"><button className="secondary" onClick={()=>setResetOpen(false)}>{t('cancel')}</button><button className="primary danger" disabled={busy} onClick={()=>void work(async()=>{await api('workspace/reset',{});await refreshBoot();goHome();setResetOpen(false);})}><RotateCcw size={15} aria-hidden/>{t('confirmReset')}</button></div></Modal>
+    {privacy.dialog}
   </div></Inspect.Provider></FormError.Provider>;
 }
 

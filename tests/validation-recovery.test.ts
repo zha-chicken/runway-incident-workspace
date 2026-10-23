@@ -125,15 +125,18 @@ describe('actual generation path with an isolated database and mocked provider',
   const {args}=setup();vi.spyOn(provider,'callModel').mockResolvedValueOnce(response(soft().result)).mockResolvedValueOnce(response(bad));
   await expect(generate(args)).rejects.toThrow('MODEL_OUTPUT_INVALID');expect(incidentDetail(args.workspaceId,args.incidentId).assessments).toHaveLength(0);
  });
- it.each(['13800000000','110101199001011234','person@example.test','passport: TESTONLY','passenger name: TEST PERSON'])('still stops immediately on detected personal data: %s',async text=>{
+ it.each(['13800000000','110101199001011234','person@example.test','passport: TESTONLY','passenger name: TEST PERSON'])('does not apply the removed personal-data detector to model output: %s',async text=>{
   const {args,c}=setup();c.result.humanDecisions[0].en=text;
-  const mock=vi.spyOn(provider,'callModel').mockResolvedValue(response(c.result));await expect(generate(args)).rejects.toThrow('PERSONAL_DATA_REJECTED');expect(mock).toHaveBeenCalledTimes(1);
+  const mock=vi.spyOn(provider,'callModel').mockResolvedValue(response(c.result));await generate(args);
+  expect(incidentDetail(args.workspaceId,args.incidentId).assessments[0].result.humanDecisions[0].en).toBe(text);expect(mock).toHaveBeenCalledTimes(1);
  });
-
- it('rejects personal data in a question before calling the provider',async()=>{
-  const {args}=setup();const mock=vi.spyOn(provider,'callModel');
-  await expect(generate({...args,action:'discussion',question:'Call 13800000000'})).rejects.toThrow('PERSONAL_DATA_REJECTED');
-  expect(mock).not.toHaveBeenCalled();expect(incidentDetail(args.workspaceId,args.incidentId).runs).toHaveLength(0);
+ it('passes synthetic contact text in a question to the mocked provider without privacy filtering',async()=>{
+  const {args,c}=setup(),question='Review contact person@example.test and 13800000000';
+  const d:Discussion={answer:{en:notice+' Review the supplied source. [RULE011](#evidence:RULE011)',zh:notice+' 请核查所给来源。 [RULE011](#evidence:RULE011)'},evidenceIds:['RULE011'],proposedFacts:[],decisionConstraints:evaluatePolicy(c.input,question).constraints};
+  const mock=vi.spyOn(provider,'callModel').mockResolvedValue(response(d));
+  await generate({...args,action:'discussion',question});
+  expect(mock).toHaveBeenCalledTimes(1);expect(JSON.parse(mock.mock.calls[0][0].input).question).toBe(question);
+  expect(database().native.prepare('SELECT question FROM discussions WHERE incident_id=?').get(args.incidentId)).toEqual({question});
  });
  it('applies warning recovery to discussion and proposed facts without overwriting assessments',async()=>{
   const {args,c}=setup(),d:Discussion={answer:{en:notice+' The record says the notification has been sent. [RULE007](#evidence:RULE007)',zh:notice+' 记录称已发送通知。 [RULE007](#evidence:RULE007)'},evidenceIds:['RULE007'],proposedFacts:[{sourceLabel:'Proposed check',text:{en:'The record says the notification has been sent.',zh:'记录称已发送通知。'}}],decisionConstraints:evaluatePolicy(c.input,'Check the incident').constraints};

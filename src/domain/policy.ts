@@ -1,5 +1,6 @@
 import {bi, type IncidentInput, type Policy} from './types';
 import {isCurrentReportPeriod} from './report-period';
+import {hasCurrentOfficialStatusSource} from './official-status';
 
 export const professionalRequest = (text: string) =>
   /cancel|cancellation|dispatch|maintenance|compensat|flight release|clear.*take.?off|取消|放行|调度|维修|赔付|赔偿/i.test(text);
@@ -21,17 +22,20 @@ export function evaluatePolicy(input: IncidentInput, request = input.decisionReq
   const groups = [...new Set(independent.map(r => r.independenceGroup!))];
   const origins = new Set(independent.map(r => r.originReportId));
   const signals = new Set(independent.map(r => r.signal));
-  const conflicted = input.reports.some(r => r.reliability === 'conflicted' || r.signal === 'conflict');
+  const conflicted = input.reports.some(r => isCurrentReportPeriod(r.applicablePeriod, input.scenarioPeriod) &&
+    (r.reliability === 'conflicted' || r.signal === 'conflict'));
+  const officialUnconfirmed = input.officialStatus === 'unconfirmed' || !hasCurrentOfficialStatusSource(input);
   const riskLevel = active.length
     ? groups.length >= 2 && origins.size >= 2 && signals.size >= 2 && active.some(r => r.expandingImpact) ? 'high' : 'medium'
     : usable.some(r => r.signal === 'stable') && !conflicted ? 'low' : 'unable_to_assess';
   const ruleIds = ['RULE009', 'RULE010', 'RULE011'];
   const gaps = [];
+  if (input.officialStatus !== 'unconfirmed' && officialUnconfirmed) gaps.push(bi('The recorded official status lacks a current verified source. Edit the incident and select a current source or mark the status unconfirmed before requesting a new assessment.', '记录的正式状态缺少当前有效的核实来源。请编辑事件，选择当前来源或将状态改为未确认后再请求评估。'));
   if (input.unknowns) gaps.push(bi('Scenario unknowns require verification; see the incident record.', '事件中的未知信息需要核查，请参阅事件记录。'));
   if (conflicted || riskLevel === 'unable_to_assess') ruleIds.push('RULE001');
-  if (active.some(r => r.signal === 'weather') && input.officialStatus === 'unconfirmed') ruleIds.push('RULE002');
+  if (active.some(r => r.signal === 'weather') && officialUnconfirmed) ruleIds.push('RULE002');
   if (active.some(r => r.signal === 'operations')) ruleIds.push('RULE004');
-  if (input.officialStatus === 'unconfirmed' || sendRequest(request)) ruleIds.push('RULE005');
+  if (officialUnconfirmed || sendRequest(request)) ruleIds.push('RULE005');
   if (professional) ruleIds.push('RULE007');
   if (riskLevel === 'high') ruleIds.push('RULE008');
   if (stop) ruleIds.push('RULE012');

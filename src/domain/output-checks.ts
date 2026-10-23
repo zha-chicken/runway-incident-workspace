@@ -104,7 +104,7 @@ export function checkRates(text:string, ids:string[], evidence:EvidenceBundle, p
 
 // Only false message-sending claims are checked in prose. Operational directives,
 // weather causation, safety decisions, and official-status wording are not phrase-filtered.
-// Structured policy constraints and privacy checks remain separate and unchanged.
+// Structured policy constraints remain separate and unchanged.
 const sendingClaim = /\b(?:notifications?|notices?|messages?)\s+(?:has been|have been|was|were)\s+sent\b|已(?:经)?(?:向旅客)?发送(?:了)?(?:通知|消息)/giu;
 function qualified(prefix:string, suffix:string):boolean {
   // Negation attaches to this claim; a later sentence cannot borrow an earlier negation.

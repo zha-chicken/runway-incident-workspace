@@ -103,8 +103,32 @@ The release evaluation, thinking-effort comparison, client presentation, and hos
 
 ### Validation and recovery
 
-Model output is checked before saving. JSON/schema, incident scope, policy risk and stop flags, action types, source/rule/metric identities, and demonstrated numeric contradictions remain mandatory on both attempts. Privacy rejection remains immediate. The competition policy, report reliability checks, and ±30-minute report window are unchanged.
+Model output is checked before saving. JSON/schema, incident scope, policy risk and stop flags, action types, source/rule/metric identities, and demonstrated numeric contradictions remain mandatory on both attempts. Model output has no automated personal-data filter. New user input instead goes through the input privacy review described below. RULE011 remains in the supplied rules and model instructions. The competition policy, report reliability checks, and ±30-minute report window are unchanged.
 
 Ambiguous message-sending claims, figures present in supplied evidence but needing citation/label review, and presentation issues become review notes. One repair is requested first. A second completed response may be saved with these notes only if every blocking check passes; notes identify the affected field and preserve an excerpt. The remaining prose check flags claims that messages were sent; demonstrably unsupported figures still fail. Prose phrase matching no longer checks operational instructions, blanket weather causation, safety-decision wording, or unconfirmed official flight status. Those statements may pass prose validation; model instructions and structured policy checks still apply, and human review remains necessary. Validation does not prove semantic correctness or absence of hallucination.
 
 Review notes are server-generated, stored atomically with the result in its AI-run metadata, returned with assessments/discussions, visible in the workspace and history, and retained in JSON exports/print. The decision flow labels affected actions “Accept after review.” Missing simulation/draft notices are supplied by the display/copy layer without rewriting saved model prose. The last valid assessment is preserved when both attempts fail. No additional model call beyond the existing single repair is introduced.
+
+### Workspace retention and current report scope
+
+Workspaces are no longer reset after inactivity. The opaque session cookie is renewed on API access with a one-year lifetime; explicit workspace reset still clears incidents. Clearing or losing the browser cookie can make the old workspace inaccessible, so export records you need to retain. Server data is not automatically deleted when a cookie expires.
+
+Official status requires a human-verified source with a timestamp, verification basis and applicable period within the same ±30-minute window (or exact named-period match). An older saved incident with an obsolete status source must be edited before a new model request; saved history is preserved. Out-of-window conflict reports remain background context and do not affect current conflict classification.
+
+Ask AeroContext displays request failures beside the restored question and offers Retry. Printed assessments use their own snapshot's title, scenario time and recorded official status, even after the incident has a newer version.
+
+### Input privacy review
+
+Before saving or sending new text, the browser checks for common personal-data patterns: email addresses, phone numbers (including separated digits), identity numbers, labeled passport/bank-account numbers and labeled personal names. The server repeats the check at the API boundary. Detection is heuristic; it can miss information or raise false positives. It is not identity recognition.
+
+Incident/report input, chat questions, human feedback, edited messages and applying proposed facts use the same review dialog. A detected match pauses submission before the application saves that input or sends it to DeepSeek. The dialog highlights the matches and offers:
+
+- **False Positive:** keep the text unchanged after recording who reviewed it and why it is not personal information.
+- **Data Masking:** preview replacement of detected spans only, then explicitly apply the masked text and continue. Other text, numbers and citations are retained.
+- **Back to editing:** cancel the submission and keep the unsaved form text.
+
+Human Approval is not available. RULE011 prohibits storing sensitive personal information; it must be masked or removed. False Positive is only for text that is not personal information, not permission to keep real personal data. The API rejects removed approval resolutions and override flags, including submissions from older clients. Historical approval records remain readable and are marked as no longer available; existing records are not rewritten.
+
+Decisions are bound to the exact request content and route. Changing the text requires another review. Audit entries contain decision type, reviewer, reason, time, detector version, finding count and a content hash; detected private values are not copied into the log. For masked submissions, the original text is not transmitted and the finding count is client-reported. Audit entries appear under Record & export and in JSON exports. A chat privacy review records the submitted decision even if the subsequent model request fails. Audit entries are excluded from model context.
+
+The additive SQLite migration adds a privacy-review table and preserves existing incident/chat records. Existing data is not retrospectively scanned or rewritten, and model output remains outside this input filter. Applying a model-proposed fact counts as new input and is reviewed then. There is no extra model call for detection or review.
