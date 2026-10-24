@@ -2,7 +2,7 @@
 
 ## Project ownership and development assistance
 
-AeroContext is a HackSHSID 2026 Track 3 project maintained by **zha-chicken**. The project owner chose the scope and design decisions, reviewed the demonstrated behavior and approved the submission materials and video. Existing Git author attribution is preserved.
+AeroContext is a HackSHSID 2026 Track 3 project owned by **Benjamin Jin, class 9(4)** (GitHub: **zha-chicken**). The project owner chose the scope and design decisions, reviewed the demonstrated behavior and approved the submission materials and video. Existing Git author attribution is preserved.
 
 OpenAI **Codex** and Anthropic **Claude** assisted with implementation, debugging, tests, documentation and submission preparation. Claude created the promo/demo video, which the project owner watched and approved. Codex helped review code and outputs and prepare the evaluation and publication materials. This disclosure describes development assistance; it does not claim independent expert certification.
 
