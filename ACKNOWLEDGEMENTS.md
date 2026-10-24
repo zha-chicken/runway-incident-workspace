@@ -22,4 +22,4 @@ OpenAI document/presentation tooling and ReportLab were used to prepare the edit
 
 ## Verification and provenance
 
-Application code is pinned to **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**. Submission documents are refreshed for that version; recorded model evaluations and video remain attributed to their original earlier checkpoints. No new model calls were made for this publication refresh. See [submission materials](submission/README.md), [publication verification](submission/PUBLICATION-VERIFICATION.md) and [video provenance](submission/video/README.md).
+Application code is unchanged from **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**; subsequent commits update documentation and submission materials. Submission documents are refreshed for that version; recorded model evaluations and video remain attributed to their original earlier checkpoints. No new model calls were made for this publication refresh. See [submission materials](submission/README.md), [publication verification](submission/PUBLICATION-VERIFICATION.md) and [video provenance](submission/video/README.md).
