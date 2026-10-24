@@ -1,6 +1,6 @@
 # Guided airport workflow — design QA
 
-> The visual design recorded here (charcoal surfaces, amber emphasis, green Accept) was replaced by the black-and-white redesign described in `docs/IMPLEMENTATION.md`. The workflow, stage logic and tests below still apply.
+> Historical design checkpoint from October 20. The visual design below was replaced by the black-and-white redesign; later incident naming, guided feedback, privacy and Markdown changes also supersede portions of the described interaction. Preserve this report as evidence of that checkpoint, not current UI acceptance. See [current implementation](docs/IMPLEMENTATION.md) and [evaluation/browser findings](docs/EVALUATION.md).
 
 Date: 2026-10-20
 

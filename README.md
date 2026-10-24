@@ -2,42 +2,51 @@
 
 A bilingual incident-review prototype for HackSHSID Track 3. It uses the supplied **simulated** airline dataset, inspectable evidence, an explicit risk policy, and DeepSeek Flash to prepare assessments and three audience-specific drafts for human review.
 
+Documentation updated 24 October 2026 for application commit `8ad14e3`. The eight submission materials are assembled locally and the promo/demo video was completed by Claude and approved by the project owner. Publication and judge access remain open. See [submission materials](docs/SUBMISSION.md), [evaluation results](docs/EVALUATION.md) and [remaining release work](PLAN-HACK.md#remaining-release-work).
+
 ## Run locally
 
-Requires Node.js 24 and npm. Native SQLite may require compiler tools if your platform has no prebuilt package.
+Requires Node.js **24.x** and npm. Native SQLite may require compiler tools if your platform has no prebuilt package. The following installation commands are for a fresh checkout. On an existing installation, preserve `.env.local`, its `SESSION_SECRET` and the database rather than replacing them.
 
 ```sh
 npm ci
 cp .env.example .env.local
 ```
 
-Set `DEEPSEEK_API_KEY` in `.env.local` and set `SESSION_SECRET` to a random string. Never commit that file. The existing local installation already has these configured.
+Set your own `DEEPSEEK_API_KEY` and a private random `SESSION_SECRET` in `.env.local`. Keep `DEEPSEEK_API_FORMAT=responses`, `DEEPSEEK_EFFORT=high` and `TRUST_PROXY=false` for the tested local configuration. Never commit this file. A fresh checkout needs its own configuration; the existing development installation already has one. Set `DATABASE_PATH` to a new file when creating an isolated test instance, and use one server process per database.
 
 ```sh
-npm run dev -- --port 3000
+APP_ORIGIN=http://127.0.0.1:3000 npm run dev -- --port 3000
 ```
 
-Open [AeroContext locally](http://127.0.0.1:3000). The launch command supports the existing environment proxy through Node's `--use-env-proxy`. It does not change system proxy settings.
+Open [AeroContext locally](http://127.0.0.1:3000). Keep `APP_ORIGIN` identical to the browser origin, including hostname and port; mixing `localhost` and `127.0.0.1` can cause `ORIGIN_REJECTED`. If the port is in use, reuse the intended server or choose a free port and update both values. The launch command supports an existing environment proxy through Node's `--use-env-proxy`.
 
 Internal identifiers keep the earlier `runway` prefix (session cookie, browser storage keys, database file, Docker volume, package name) so existing sessions and data keep working.
 
 The database is created automatically at `runtime/runway.sqlite`, using the versioned migration. Each browser receives an isolated workspace through an HttpOnly cookie. Keep this directory to preserve history and API budget accounting. Run one application server per database.
 
-For a local production build, stop the development server, then run `npm run build && npm start`. The launcher uses the same database and copies the static assets into the standalone bundle.
+For a local production build, stop the development server for this checkout, then run:
+
+```sh
+npm run build
+APP_ORIGIN=http://127.0.0.1:3000 PORT=3000 npm start
+```
+
+The launcher loads `.env.local`, uses the configured database, and copies static assets into the standalone bundle. The default Turbopack build passed in the recorded current-source verification. A later isolated packaging attempt was blocked by the environment when a worker tried to bind a port; `npm run build -- --webpack` passed in that same clean copy without application changes. See [verification limits](docs/EVALUATION.md#automated-and-packaging-verification). Neither build result establishes external hosting or Docker readiness.
 
 ## Try the workflow
 
-A four-step bar under each airport's title shows where you are: read the situation, run the analysis, decide, then share and record. The dark card on each screen is the next thing to do.
+A four-step bar under each incident's title shows where you are: read the situation, run the analysis, decide, then share and record. The dark card on each screen is the next thing to do.
 
-1. Choose an airport on **Choose an airport**, or create a new incident. Each row shows the current assessment's risk; an unassessed version stays neutral.
-2. Read **Situation** and **Evidence** on the airport page. Use **Edit incident** to change facts; select a source badge to inspect its original record. Monthly history does not establish current flight status.
-3. Select **Start analysis**. A focused progress screen replaces the page until the result is ready. Switching airports keeps each request separate.
-4. After analysis, the airport page leads with **Assess & decide** (risk level, who decides, the next recommendation and your progress) beside **Situation**, **Evidence**, **Messages**, **Ask AeroContext** and **Record & export**.
-5. In **Assess & decide**, review one recommendation at a time; the list beside it shows every recommendation and its decision. Choose Accept, Modify, Reject or Pending, then save the review; Modify and Reject require a reason. Pending advances to an unreviewed card without counting as a completed decision. Each saved decision advances to the next unfinished recommendation. Once every recommendation has a saved Accept, Modify or Reject decision, the airport page shows a completion banner offering **Reassess** or **Modify a decision**. Choosing Modify reopens the decision list; saving the revision returns to the completion prompt. **Back to [airport]** exits at any time, and reopening resumes the first unfinished review.
-6. Inspect or edit the three audience drafts in **Messages**. Discuss new information in **Ask AeroContext**. **Apply and reassess** explicitly creates a new version from a proposed fact, which remains unverified until reviewed in the incident editor.
+1. Open **All incidents → Choose an incident**, select an existing incident, or choose **New incident**. Each row shows the current assessment's risk; an unassessed version stays neutral.
+2. Read **Situation** and **Evidence** on the incident page. Use **Edit incident** to change facts; select a source badge to inspect its original record. Monthly history does not establish current flight status.
+3. Select **Start analysis**. A focused progress screen replaces the page until the result is ready. Switching incidents keeps each request separate.
+4. After analysis, the incident page leads with **Assess & decide** (risk level, who decides, the next recommendation and your progress) beside **Situation**, **Evidence**, **Messages**, **Ask AeroContext** and **Record & export**.
+5. In **Assess & decide**, review one recommendation at a time; the list beside it shows every recommendation and its decision. Choose Accept, Modify, Reject or Pending, then save the review; Modify and Reject require a reason. Pending advances to an unreviewed card without counting as a completed decision. Each saved decision advances to the next unfinished recommendation. Once every recommendation has a saved Accept, Modify or Reject decision, the incident page shows a completion banner offering **Reassess** or **Modify a decision**. Choosing Modify reopens the decision list; saving the revision returns to the completion prompt. **Back to [airport]** exits at any time, and reopening resumes the first unfinished review.
+6. Inspect or edit the three audience drafts in **Messages**. Messages and Ask AeroContext render Markdown and retain citations; simulation/draft notices are displayed separately, and numeric highlights are presentation aids rather than proof of verification. Discuss new information in **Ask AeroContext**. **Apply and reassess** explicitly creates a new version from a proposed fact, which remains unverified until reviewed in the incident editor.
 7. Open **Record & export** for the preserved versions and review history, complete JSON export, and printable report. Editing incident facts returns that version to Situation and Evidence until it is analyzed again.
 
-The completion banner appears only after all recommendations in the current assessment have decisions, including when the final decision is Accept. It is derived from saved reviews, so it remains available after refreshing or returning to the airport page. **Reassess** starts analysis with the latest saved feedback; **Modify a decision** opens the existing decisions without starting an AI request or deleting feedback. The same completion check applies to reviews saved from **Record & export**. You can also run a reassessment through **Situation → Run analysis again**. Each request includes the latest saved review for each original assessment/recommendation, its original wording, and its incident version. Current-version reviews come first; older-version reviews are labeled historical context. The model is asked to explain material changes or why a suggestion cannot be adopted. Saving a review alone does not start a paid request.
+The completion banner appears only after all recommendations in the current assessment have a saved Accept, Modify or Reject decision, including when the final decision is Accept. A Pending decision remains unfinished. It is derived from saved reviews, so it remains available after refreshing or returning to the incident page. **Reassess** starts analysis with the latest saved feedback; **Modify a decision** opens the existing decisions without starting an AI request or deleting feedback. The same completion check applies to reviews saved from **Record & export**. You can also run a reassessment through **Situation → Run analysis again**. Each request includes the latest saved review for each original assessment/recommendation, its original wording, and its incident version. Current-version reviews come first; older-version reviews are labeled historical context. The model is asked to explain material changes or why a suggestion cannot be adopted. Saving a review alone does not start a paid request.
 
 Reviews remain separate from verified reports and cannot change the computed risk, source reliability, or safety restrictions. Acceptance is not proof that an action occurred, and unknown outcomes stay pending. Original assessments and review records are preserved. Request metadata records the included review IDs, source versions, content hash, and omitted count. Feedback context is limited to 24 complete reviews and 48,000 UTF-8 bytes of review entries; excess records remain in history and are not cut mid-sentence. Saved reviews are included in assessment requests, not automatically in **Ask AeroContext** requests.
 
@@ -64,6 +73,10 @@ npm run build
 
 The data importer verifies the source workbook hash, 192 monthly operation rows, twelve historical anomalies, four flagged weather rows, historical means, and peer-group calculations. Do not edit the source workbook to fix application behavior.
 
+Recorded current-source checks passed **345 tests in 18 files**, TypeScript and the default build. Packaging repeated the clean cached installation, data import, TypeScript and all 345 tests; its Webpack build passed, while its default-build attempt hit the worker-port restriction described above. These are recorded results, not checks rerun by this documentation update.
+
+The supplied-test rerun accepted 32/32 model-backed steps but had three qualitative failures. Unseen testing produced 19/20 usable final replies, with three quality failures and one validator-blocked reply. The synthetic feedback example preserved its records but failed reassessment after one repair. See [the full results and denominators](docs/EVALUATION.md). Passing structural checks does not establish that every claim is supported.
+
 ## AI configuration and cost
 
 - Model: `deepseek-flash`; default thinking effort: `high`.
@@ -72,10 +85,11 @@ The data importer verifies the source workbook hash, 192 monthly operation rows,
 - Maximum generated tokens: 65,536 for assessment and 32,768 for discussion.
 - Deadlines: 300 and 180 seconds respectively; at most one validation repair.
 - The application keeps final answers and usage metadata. It discards reasoning content.
-- Development allocation: ¥40; hosted allocation: ¥60. A request reserves enough for its output ceiling and one repair. Unknown interrupted usage retains the reservation.
+- App-accounted pool caps: 40 development / 60 hosted CNY-denominated units. A request reserves enough for its output ceiling and one repair. Unknown interrupted usage retains the reservation.
+- Defaults: 20 AI actions per workspace and 60 per IP over a rolling 24 hours (`VISITOR_DAILY_LIMIT`, `IP_DAILY_LIMIT`); at most three concurrent runs across the application database. These limits still apply in hosted mode.
 - Resetting incidents preserves the spend ledger and request quotas.
 
-This ledger covers this application's requests, not other spending on the provider account. High-versus-max experiments are a later milestone after the complete prototype workflow is verified.
+This ledger covers requests in this application database, not unrelated provider-account spending or a centrally enforced total across independent copies. Cost figures are app estimates, not verified provider invoices or current pricing quotations. Submission quota settings still need review. The high-versus-max experiment was **intentionally skipped**; `high` remains the tested default. Manual timing and basic-prompt comparisons were also intentionally skipped, so no measured time-saving or superiority claim is made.
 
 ## Production packaging
 
@@ -98,7 +112,7 @@ Docker is provided for reproducibility; its runtime and external hosting still r
 - `PLAN-HACK.md`: accepted scope and release criteria.
 - `docs/IMPLEMENTATION.md`: verified milestones and remaining work.
 
-The release evaluation, thinking-effort comparison, client presentation, and hosted demo are tracked separately from the working local build. Passing structural validation does not prove every model claim is semantically supported; the plan requires claim review and held-out evaluations.
+The supplied and unseen evaluations and eight submission materials are complete as local artifacts, with accepted limitations. The promo/demo video is complete and owner-approved; its local file is indexed in [SUBMISSION.md](docs/SUBMISSION.md). Judge access, fresh-install real inference/persistence/export, submission settings and publication remain open. The standalone B787 package was intentionally skipped. Dated reports such as [LOCAL-VERIFICATION.md](docs/LOCAL-VERIFICATION.md) and [design-qa.md](design-qa.md) preserve their original checkpoints rather than claiming to be current release evidence.
 
 
 ### Validation and recovery

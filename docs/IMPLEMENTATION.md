@@ -1,24 +1,40 @@
 # Implementation evidence
 
-Objective: implement PLAN-HACK.md in full. Local implementation and verification come first, per the user's October 20 update. Hosted deployment follows the working local prototype.
+Updated 24 October 2026 for application commit `8ad14e3`. Current behavior and results are summarized here; the October 20 observations below remain a historical record. Documentation edits do not change the application or establish a new test run.
 
-This file tracks actual evidence; unchecked items are not complete.
+## Current milestones
 
-## Milestones
+- [x] Immutable workbook import, provenance, historical/peer calculations and missing-weather handling.
+- [x] Bilingual incident navigation, workspace isolation, snapshots, evidence inspection and inclusive ±30-minute report matching.
+- [x] DeepSeek Responses/high assessments and discussion, three editable drafts, bounded repair, advisories and preservation of the last valid result.
+- [x] Markdown/citation rendering, numeric highlights, separate simulation/draft notice and explicit stop reasons.
+- [x] Two-stage feedback: Pending decisions, preserved reasons/revisions, later outcomes and saved-feedback context for reassessment.
+- [x] Input privacy review with masking/correction or reasoned false-positive handling; no Human Approval bypass and no output privacy filter.
+- [x] Recorded browser exercises in English/Chinese and narrow layouts, keyboard paths, privacy, feedback/reassessment, chat failures, printing and JSON export. Two accepted focus/print limitations remain; this is not a full accessibility certification.
+- [x] Fifteen supplied test cases in both input languages, before/after rerun, and ten additional scenarios in both languages. Remaining quality and validator failures are retained.
+- [x] Fresh synthetic feedback examples accepted with their failed reassessment documented; no real participant study claimed.
+- [x] High/max comparison, manual timing, basic-prompt comparison and standalone B787 package intentionally skipped.
+- [x] D01–D08 assembled locally, including nine editable slides, a twelve-page technical report and source/evidence ZIP.
+- [x] Promo/demo video completed by Claude and watched/approved by the owner; see [SUBMISSION.md](SUBMISSION.md).
+- [x] Clean cached installation, data import, TypeScript, 345 tests and Webpack production build during packaging. Earlier default-build success and later worker-port restriction are separately recorded.
+- [ ] Fresh-install real inference, saved history, restart persistence and export in the intended judge environment.
+- [ ] Submission quota decision, other testing-only settings review, external judge access and Docker verification if offered.
+- [ ] Final publication review, approved release commit/package refresh, portal fields, rehearsal and submission confirmation.
 
-- [x] Immutable workbook import, provenance, calculations, and data-quality validation.
-- [x] Independent workspaces, incident snapshots, source inspection, bilingual interface.
-- [x] Real DeepSeek assessment, schemas, citation/policy validation, budget accounting.
-- [x] Three editable bilingual drafts, discussion, explicit application of proposed facts.
-- [x] Review-entry workflow, history, reassessment, stale-result handling, JSON export.
-- [ ] Failure recovery, quotas, ownership, accessibility, browser checks. Input-stage privacy review added with false-positive handling and masking; no output privacy filter. RULE011 remains, with no human-approval override.
-- [ ] Public test suite in both languages; sealed final holdouts and evaluation report.
-- [ ] Effort comparison after verified prototype; manual and basic-model baselines.
-- [ ] Eight substantive submission materials, editable presentation and PDF.
-- [ ] Clean local setup and reproducibility package.
-- [ ] Hosted deployment, persistence, judge-access verification.
+## Current evidence and limitations
 
-## Current evidence
+[Evaluation results](EVALUATION.md) distinguish usable outputs from content quality. The supplied rerun accepted 32/32 model-backed steps but retained three qualitative failures and required 18 repairs. The unseen run accepted 21/22 steps and 19/20 final replies; three accepted replies failed quality review and one final reply remained validator-blocked.
+
+D05 contains five synthetic feedback records and seven retained revisions. Initial assessment saved; both reassessment candidates used feedback but failed validation, so no replacement assessment was saved. This demonstrates preservation, not a successful complete feedback loop. Independent human evaluation and measured business benefits are not claimed.
+
+The October 24 context patch adds computed historical interpretation, explicit feedback context, report-period reasons and shared grounding guidance. It preserves reliability/risk/safety calculations, response contracts, storage and the single-repair behavior. Recorded regressions include 50,176 equivalent period comparisons and 60 compatible request comparisons. Current prompt versions and exact behavior are documented in [DATA-AND-RULES.md](DATA-AND-RULES.md).
+
+Source and packaging evidence locations, the approved video and all eight deliverables are indexed in [SUBMISSION.md](SUBMISSION.md). The D08 archive remains a frozen `8ad14e3` artifact; it does not yet include these uncommitted documentation updates or the later video.
+
+## Historical implementation evidence — October 20
+
+The following entries are preserved as recorded at their checkpoint. Test counts, UI names and “remaining” statements inside this section describe October 20; they are superseded for current status by the milestones above. Local artifact paths may not exist in a fresh clone.
+
 
 - Plan and all supplied workbook sheets inspected. No existing implementation was present at start.
 - Local-first priority confirmed by user. API credential supplied for local integration; keep it out of source, logs, exports, and submission artifacts.
@@ -38,12 +54,7 @@ This file tracks actual evidence; unchecked items are not complete.
 - Simplified layout on the `claude` branch (the first redesign is kept on `ui-redesign-v1`): a single "Next step" panel holds the page's only primary action (assess, decide, or check messages); a four-cell summary states risk, who decides, official flight status and decision progress in plain language; navigation is four numbered steps plus two tools; each recommendation has inline Accept / Modify / Reject buttons beside a "must know" column (human-only decisions, escalation conditions, unknowns, assumptions). Browser checks against a database copy covered the full decision flow (reason enforced for Modify/Reject, next step advancing to messages), English and Chinese, light and dark, and 390-pixel layouts. Agent QA only; not an independent usability test.
 - October 20 black-and-white redesign of the guided workflow (same stages and APIs): neutral light and dark themes with a System/Light/Dark switch, colour kept for risk, warnings and chart series; an airport board on the home page; a four-step progress bar on each airport; a pre-analysis page with a fixed "Start analysis" panel; an analysis screen that describes the work without claiming per-step progress; an airport overview whose lead card shows risk, decision authority, the next recommendation and progress; and a decision page listing every recommendation beside the current one with its sources and "must know" lists. The simulation label is shown again in the sidebar, home page and printed report. Browser checks against a database copy covered 1440- and 390-pixel layouts, English and Chinese, light and dark (including a saved theme across reloads), a held analysis request, Accept and Modify (reason enforced), the source sheet, editor and review dialogs, and print. Agent QA only; no model requests were made.
 
+
 ## Remaining before release
 
-- Strengthen and evaluate semantic claim support, decision restrictions in free-form discussion, and numeric scope checks. Structural validation alone is insufficient.
-- Include explicit review context in subsequent model requests, with snapshot-bound provenance, rather than relying only on manually added incident facts.
-- Verify a real Chat Completions compatibility request before claiming that alternative endpoint is tested.
-- Complete the planned public cases, sealed holdouts, high/max comparison, independent human review, and manual/basic-model baselines.
-- Verify cancellation/restart edge cases with live transport, print output, and additional accessibility paths. Existing failure tests use deterministic provider stubs.
-- Finish the eight submission materials and clean-install package. Docker is supplied but not yet run.
-- Resolve hosting/domain, deployment, live portal labels/deadline, public repository, and actual submission separately.
+Use the [current release checklist](../PLAN-HACK.md#remaining-release-work). The four skipped experiments/packages are closed decisions, not unfinished milestones. Further fixes or paid reruns of the accepted model failures require a separate decision. A live Chat Completions request must precede any claim that the compatibility format is integration-tested.

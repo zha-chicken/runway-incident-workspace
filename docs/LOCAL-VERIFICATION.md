@@ -1,5 +1,7 @@
 # Local prototype verification — October 20, 2026
 
+> Historical checkpoint, preserved as recorded. The test counts and pending items below describe October 20 and are not the current release checklist. For October 24 results and remaining limitations, see [EVALUATION.md](EVALUATION.md), [IMPLEMENTATION.md](IMPLEMENTATION.md) and [SUBMISSION.md](SUBMISSION.md).
+
 This report records observed software behavior. All incident content is simulated. The browser walkthrough and its review record were entered by the development agent, not an independent operational reviewer.
 
 ## Environment and data

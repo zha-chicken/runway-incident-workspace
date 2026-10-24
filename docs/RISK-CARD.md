@@ -1,31 +1,30 @@
-# 航衡 · AeroContext prototype risk card
+# AeroContext prototype risk card
 
-**Intended use:** education and hackathon demonstration with the supplied fictional airline data and explicitly simulated new incidents.
+**System/version:** AeroContext, `8ad14e3`; reviewed 24 October 2026. **Use:** supervised hackathon simulation for a fictional airline. **Not validated for:** live dispatch, maintenance, aircraft movement, emergency response, official flight status, compensation decisions or passenger publication.
 
-**User:** an operations coordinator reviewing evidence and preparing material for the responsible human reviewer.
+| Risk / trigger | Existing control | Residual risk and responsibility |
+|---|---|---|
+| Unsupported claims and commitments | Scoped evidence, structured rationale, prompt grounding, numeric/reference checks, reviewable drafts | Three quality failures in the latest supplied run and three in unseen accepted replies. Operator must check prose against actual evidence; no “hallucination-free” claim. |
+| False validator rejection | One bounded repair, retained advisories where permitted, old valid result preserved | UNSEEN06-en remained blocked despite a legitimate numeric comparison. Never silently treat a blocked response as accepted. |
+| Safety or professional decision | Policy stop flags, human referral, constrained action kinds, simulation/draft labels | Phrase heuristics cannot understand all language; four prose checks were removed. No automated operational authority. Qualified humans apply actual procedures. |
+| Fabricated or misleading citations | Known IDs, metric membership and scoped evidence validation | An existing citation can still be misinterpreted. D05 repair invented an ID and was rejected. Reviewer verifies support, not just clickability. |
+| Unreliable or correlated reports | Explicit reliability, origin/group/basis/time fields, ±30-minute checks | Metadata is user-entered, not authenticated; copied reports can appear independent if mislabeled. Reviewers must establish provenance. |
+| Wrong time/baseline | Single period comparator, history cutoffs, computed context and tests | Ambiguous formats use exact-match fallback; model can still call a six-month baseline 12 months. Inspect timestamps and baseline counts. |
+| Personal information | Input detection, masking preview/correction, reasoned false-positive review; server-side key | Heuristic misses and false-positive misuse remain; output privacy filter removed. Never enter real sensitive data; configure retention/access before any real pilot. |
+| Feedback misunderstood | Original recommendation/reason and revisions retained; pending and omitted context explicit | D05 reassessment failed twice; context is bounded. Rejection is not proof a replacement was executed. Human confirms a new accepted assessment. |
+| Prompt injection or malicious text | Reports treated as evidence, immutable organizer provenance, scoped schema/policy validation | Defense is incomplete; successful synthetic tests do not prove robust isolation against all attacks. No external tools execute model proposals. |
+| Lost access or unintended retention | SQLite persistence, workspace ownership, export, same-origin checks | Cookie loss can lose workspace access; no automatic retention purge. Owner manages backups, stable secret and database location. |
+| Cost, delay and availability | Pool/daily/concurrency limits, token caps, timeouts, single repair | Unseen median 69.273 s; quota settings can block judges. Cost is app-estimated, not a bill. Release settings and provider access need verification. |
+| Accessibility/printing | Recorded bilingual desktop/narrow/keyboard/print exercises | Two accepted issues: dialog Escape focus to body, print skip-link overlap. Review the exported file and use navigation controls explicitly. |
 
-**Outputs:** qualified risk assessment, evidence references, information gaps, suggested checks or referrals, and three draft communications. The app has no mechanism to send messages or operate flights.
+## Human responsibilities and escalation
 
-| Failure condition | Expected behavior |
-|---|---|
-| No adequate current evidence | Unable-to-assess rating, gaps, and verification/referral |
-| Forecast without official flight status | Distinguish forecast risk from confirmed delay or cancellation |
-| Historical anomaly | Focused historical review; no automatic current high risk or causal conclusion |
-| Conflicting reports | Preserve uncertainty and request scope/time clarification |
-| Professional decision requested | Preserve supported risk; require the relevant professional |
-| Safety issue or unreliable material source | Stop action conclusions and refer; assess risk independently |
-| Missing-weather flag with numeric cells | Preserve the original row for inspection; do not treat those values as reliable weather facts |
-| Personal data | New input pauses for false-positive resolution, previewed masking or removal. RULE011 cannot be overridden by human approval. No automated output privacy filter. |
-| Model truncation, timeout, or invalid result | Preserve prior valid assessment; record failure and usage uncertainty |
-| Newer snapshot while model runs | Keep old result only in history |
-| Budget or quota exhausted | Keep reading, manual review, and exports available; disable new generation |
+Treat every generated message as a draft. Verify report provenance, applicability, unknowns, citations, constraints and any official status before accepting a recommendation. Record why a recommendation is accepted, modified, rejected or pending; record outcomes only after an actual or explicitly simulated outcome. If safety/source reliability triggers a stop, preserve the stopped assessment and refer to a qualified human. Do not convert simulation text into operational instructions.
 
-**Known limitations:** source verification and independence metadata are user assertions; risk levels are a prototype policy; monthly data cannot resolve real-time flight conditions; input privacy pattern detection can miss information or flag ordinary data, reviewer identities are self-reported, false-positive decisions can be incorrect, existing records are not retrospectively cleaned, model output has no privacy filter, and remaining prose checks are incomplete; valid structured output can still contain unsupported reasoning or poor wording. A completed independent evaluation is not yet available.
+## Evidence and release posture
 
-**Human responsibility:** verify sources and claims, correct incident inputs, review audience suitability, and obtain the appropriate professional decision. Never treat this simulation as authority for cancellation, release, dispatch, maintenance, compensation, or real passenger communication.
+See [EVALUATION.md](EVALUATION.md) for denominators, source locations and the distinction between earlier successful default-build verification and the later packaging worker-port restriction. The packaging Webpack build passed.
 
-**Data handling:** isolated cookie workspaces; versioned local SQLite history; server-side provider key; explicit JSON export; bounded generation budgets. The provider receives the simulated incident and relevant evidence. Avoid entering personal or confidential operational data.
+345 automated tests, TypeScript and default production build are recorded as passing on the current source. The latest supplied run accepted all 32 model steps but had three qualitative failures; unseen testing accepted 21/22 steps and 19/20 final replies, with three quality failures among accepted replies. These are bounded demonstrations, not safety certification, measured business benefit or independent real-user validation.
 
-**Current evidence:** local real-model workflow, persisted history, agent-driven QA review, 28 deterministic tests, and a production build. These are not a real-world safety certification, independent operational validation, or final hackathon evaluation.
-
-**Before wider use:** complete the plan's held-out and bilingual tests, human claim review, authorization and data-governance design, deployment isolation and retention review, and validation with appropriate domain professionals using authorized data.
+Release gates remain: choose submission quotas, verify a clean real-inference installation/restart/export, resolve judge access, inspect publication contents and rehearse. No live deployment or additional model call was made to prepare this card. The promo/demo video is completed and owner-approved; publication and judge access remain separate gates. [Submission index](SUBMISSION.md).
