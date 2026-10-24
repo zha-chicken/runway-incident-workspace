@@ -1,0 +1,70 @@
+{
+  "edition": "2026-10-24-input-context-visibility",
+  "applicationSourceSha256": "cbd8ed60a9989acc7c2d8256ef1220af26424adb5339fabe26b55d9aadfb0e5d",
+  "testedAppTestFiles": {
+    "src/ai/service.ts": "0b8e93cbdf6cc0b06b7b2271ab135f8217d8ba4517ea5b1f4b85786692f9d397",
+    "src/app/api/[...path]/route.ts": "408b0411fc89fce93e3c6d18e5758361734eaadcdc1c219103723ae87be86174",
+    "src/app/globals.css": "0b88759366e9ebf59e2c083db89b1cb23890ded0af390fe13c0b031a33dc01ca",
+    "src/components/client.ts": "27a39cdffd20398bad9fd9d9bbc5532b5382a9fac4894d5577f93a4500e8ad54",
+    "src/components/context-notice.tsx": "960679af6986ee1d2e3fdfb9842b9418314e113c1382f6f3b47a1f6dafb41193",
+    "src/components/discussion.tsx": "3ca78d22ce9ab197e58ca9c5ef62769b54439fbdcb4197c712efcb124a520602",
+    "src/components/editor.tsx": "e6b365cdaa9cd6405cb6af85e9c4234e2521449209dbb45927bd1bde565a62c8",
+    "src/components/messages.ts": "a649ba03d50ee009d31469ce8fb3be9bab87c31dfc3fbc0601d63381f2aff948",
+    "src/components/workspace.tsx": "30f758d69eb3c1d67b208c264a67212eac22c3702ea76868a83c4727bf00cc06",
+    "src/domain/context-limits.ts": "450ad9944533b904940db502d806186e8a547853a718783bd48cfa83628a041f",
+    "src/domain/input-limits.ts": "a239de676716b7e7cc9254c80e6315ee7c988991fb7780744db1cd9304aef688",
+    "src/domain/types.ts": "4614d5c29abfd855054679b1f41d47d0a51762f4a19d74cecc762d3daf3acf64",
+    "src/server/reassessment-feedback.ts": "b81ca80f2632b8eccf9a160fe013d0892699e91ca5f2c81c72782d292e09472c",
+    "tests/final-verification-regressions.test.ts": "0dff8e4650e7f0bebac69a9448f7241830098bf73fc89f6c32854a4219470414",
+    "tests/input-context-limits.test.ts": "8ccb5048b60a4f3b2d3e0d82436e3fe5ec773de9006bf8422db43f2f201e3980"
+  },
+  "source": "Recorded isolated verification for the identical application/test files; packaging introduces no further application changes.",
+  "tests": {
+    "passed": 379,
+    "files": 19,
+    "newTests": 28
+  },
+  "typecheck": "passed",
+  "webpackBuild": "passed",
+  "defaultBuild": "blocked_by_worker_port_environment_restriction_including_elevated_retry",
+  "schemaAndRequestCompatibility": {
+    "schemasByteEquivalent": 5,
+    "modelRequestsEquivalent": 40,
+    "modelCalls": 0
+  },
+  "browser": [
+    {
+      "locale": "en",
+      "width": 1365,
+      "fieldOverflowRetained": true,
+      "aggregateOverflowBlocked": true,
+      "reportLimit": 24,
+      "failedSaveRetainsInput": true,
+      "correctedSavePassed": true,
+      "feedbackPreviewAndRecordedCounts": true,
+      "chatContextVisible": true,
+      "horizontalOverflow": false,
+      "pageErrors": [],
+      "modelRequests": 0
+    },
+    {
+      "locale": "zh",
+      "width": 390,
+      "fieldOverflowRetained": true,
+      "aggregateOverflowBlocked": true,
+      "reportLimit": 24,
+      "failedSaveRetainsInput": true,
+      "correctedSavePassed": true,
+      "feedbackPreviewAndRecordedCounts": true,
+      "chatContextVisible": true,
+      "horizontalOverflow": false,
+      "pageErrors": [],
+      "modelRequests": 0
+    }
+  ],
+  "isolatedDatabases": true,
+  "existingIncidentChatWrites": false,
+  "realProviderCalls": 0,
+  "newModelQualityClaim": false,
+  "limitsPromptsPolicyContextSelectionUnchanged": true
+}

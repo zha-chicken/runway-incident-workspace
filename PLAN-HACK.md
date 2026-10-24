@@ -1,12 +1,12 @@
 # AeroContext — current Track 3 plan and release status
 
-Updated 24 October 2026 (GMT+8), application commit `8ad14e3`. This replaces the October 20 implementation targets with current decisions, recorded outcomes and remaining release work. The original plan remains in Git history; dated verification records are preserved.
+Updated 24 October 2026 (GMT+8), input/context visibility edition built on `27f5ec9`. This replaces the October 20 implementation targets with current decisions, recorded outcomes and remaining release work. The original plan remains in Git history; dated verification records are preserved.
 
 ## Goal and boundaries
 
 Provide a bilingual incident-review workspace for a fictional Chinese domestic airline. The coordinator can enter an incident, inspect source evidence and historical context, review a risk assessment and three audience-specific drafts, record decisions/outcomes, reassess and export the history. The interface labels simulation and draft content. It neither operates aircraft nor sends messages.
 
-Use the organizer's simulation workbook only. Live aviation/weather integrations, model training, autonomous operational tools and production deployment to a real airline are outside this prototype. Hosting was a project choice; the supplied eight-item checklist does not itself require a hosted URL. Judge access still needs to be resolved.
+Use the organizer's simulation workbook only. Live aviation/weather integrations, model training, autonomous operational tools and production deployment to a real airline are outside this prototype. Hosting was a project choice; the supplied eight-item checklist does not itself require a hosted URL. Submission uses the public GitHub repository and documented local setup; complete artifact-access and judge-machine checks remain separate.
 
 ## Implemented workflow
 
@@ -47,18 +47,18 @@ See [data, rules and architecture](docs/DATA-AND-RULES.md) for calculation defin
 | Practical-value measurement | Manual-versus-app timing and basic-prompt comparison intentionally skipped. No measured time savings or basic-prompt superiority claim. |
 | Thinking-effort comparison | High/max intentionally skipped; no conclusion about max being better, worse or unnecessary. Keep high. |
 | Standalone B787 package | Intentionally skipped. Original development incident/evaluation retained; not an untouched final holdout. |
-| Automated and browser checks | 345 tests, TypeScript and recorded default build passed; clean packaging repeated tests and passed Webpack. A later default-build attempt hit a worker-port environment restriction. Bilingual/narrow/keyboard/export browser exercises completed with two accepted focus/print limitations. |
+| Automated and browser checks | Current input/context update: 379 tests, TypeScript, Webpack and bilingual/narrow browser checks passed. Default Turbopack hit the worker-port restriction. Earlier default-build and full-workflow checks remain dated evidence, including two accepted focus/print limitations. |
 
 [Evaluation results](docs/EVALUATION.md) give exact denominators, failures, repairs, advisories, latency, cost and provenance. Application acceptance is not equivalent to factual correctness. Reviews are project evaluation records, not an independent human panel. Extra bilingual/unseen counts were project commitments, not separate organizer-mandated counts.
 
 ## Eight required materials
 
-All eight items from workbook sheet `12_提交材料检查表` are assembled **locally for review**. This does not mean they have been published or submitted.
+All eight items from workbook sheet `12_提交材料检查表` are available in the public repository and release assets. This does not establish portal submission.
 
 | ID | Material | Current artifact |
 |---|---|---|
-| D01 | Client presentation | Nine-slide editable deck, PDF and speaker script. |
-| D02 | Assistant prototype | Tested `8ad14e3` source, local launch instructions and recorded UNSEEN02 real-model walkthrough. |
+| D01 | Client presentation | Owner-approved ten-slide editable deck, matching PDF and speaker script. |
+| D02 | Assistant prototype | Current source with input/context visibility, local launch instructions and the earlier recorded UNSEEN02 real-model walkthrough. |
 | D03 | Event test report | Supplied original/rerun and unseen matrices, replies, failed candidates, changes and limitations. |
 | D04 | Data and rules | Provenance, calculations, current-window/reliability policy, rules and architecture. |
 | D05 | Feedback records | Fresh synthetic records in Markdown/CSV/JSON, including the failed reassessment. |
@@ -66,16 +66,16 @@ All eight items from workbook sheet `12_提交材料检查表` are assembled **l
 | D07 | Implementation roadmap | Demonstrated prototype separated from future shadow pilots, validation and authorized integrations. |
 | D08 | Reproducibility | Exact source, lockfile, migrations, workbook, environment template, tests, evidence and SHA-256 manifest. |
 
-A twelve-page technical report consolidates D02/D03/D04/D06/D07. See [the artifact index](docs/SUBMISSION.md) for filenames and current local locations.
+A thirteen-page technical report consolidates D02/D03/D04/D06/D07. See [the artifact index](docs/SUBMISSION.md) for filenames and current local locations.
 
 The promo/demo video was completed by Claude and watched/approved by the owner on October 24. Its README describes real app captures, a later live assessment and separate-copy demonstration entries. That recording is not part of the frozen evaluation totals and does not replace fresh-install verification.
 
 ## Remaining release work
 
-1. **Owner makes the repository public.** Source, D01–D08 material links, acknowledgements and release assets are prepared. Check them from a signed-out browser after the visibility change.
+1. **Verify submission access.** The owner has made the repository public. Check the repository, D01–D08 and video downloads from a signed-out browser.
 2. **Complete the event portal submission and retain confirmation.** Use the repository URL, project description, poster, test evidence and AI-use statement; rehearse the demonstration.
 3. **Record verification limits accurately.** Fresh judge-machine real inference/restart/export, uncached installation and Docker execution remain unverified. Existing model evidence is dated, not a guarantee of a future run. No hosted service is claimed.
-4. **Defer unrelated changes.** Input/context/deployment proposals require a separate decision. The approved quota removal and six-request limit are already in `27f5ec9`.
+4. **Keep the approved scope.** Input-limit consistency and context visibility are implemented; the documented local setup is retained. The quota removal and six-request limit remain as in `27f5ec9`. Additional app changes or paid reruns require a separate decision.
 
 See [submission materials](submission/README.md) and [publication verification](submission/PUBLICATION-VERIFICATION.md).
 

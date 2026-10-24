@@ -1,10 +1,30 @@
 {
-  "applicationCodeCommit": "27f5ec9278a5ac4eb1700fc9843f9ff883b19808",
-  "documentationBaseCommit": "c9cd2e4702ddc9859e4a7f992dd7314171928124",
-  "publicationEdition": "24 October 2026 owner-approved final ten-slide presentation",
-  "releaseAssetVerification": "Download the matching ZIP and checksum together; verify the archive checksum and extracted MANIFEST.sha256. Release notes identify the materials commit and archive hash.",
-  "sourceTrackedFiles": 97,
-  "unchangedOriginalFiles": 90,
+  "applicationBaseCommit": "27f5ec9278a5ac4eb1700fc9843f9ff883b19808",
+  "precedingRepositoryCommit": "5672e7b9514f28e375fdc5a6f58a6d78050268b5",
+  "applicationEdition": "2026-10-24-input-context-visibility",
+  "applicationSourceSha256": "cbd8ed60a9989acc7c2d8256ef1220af26424adb5339fabe26b55d9aadfb0e5d",
+  "applicationSourceManifest": "provenance/input-context-source.json",
+  "baselineTrackedFiles": 97,
+  "unchangedBaselineFiles": 79,
+  "modifiedApplicationFiles": [
+    "src/ai/service.ts",
+    "src/app/api/[...path]/route.ts",
+    "src/app/globals.css",
+    "src/components/client.ts",
+    "src/components/discussion.tsx",
+    "src/components/editor.tsx",
+    "src/components/messages.ts",
+    "src/components/workspace.tsx",
+    "src/domain/types.ts",
+    "src/server/reassessment-feedback.ts",
+    "tests/final-verification-regressions.test.ts"
+  ],
+  "addedApplicationFiles": [
+    "src/components/context-notice.tsx",
+    "src/domain/context-limits.ts",
+    "src/domain/input-limits.ts",
+    "tests/input-context-limits.test.ts"
+  ],
   "documentationOverlays": [
     "PLAN-HACK.md",
     "README.md",
@@ -14,14 +34,21 @@
     "docs/RISK-CARD.md",
     "docs/SUBMISSION.md"
   ],
-  "appCodeTestsConfigDataUnchanged": true,
-  "priorPublishedFilesBackedUp": 713,
-  "previousD08Sha256": "28f59a4cc4a06972211be4d3c510a8f5057ebb2e8e9979cf3dadb15e68618ccc",
+  "appCodeTestsConfigDataUnchanged": false,
+  "dataConfigLockfileMigrationsUnchanged": true,
+  "limitsPromptsRiskReliabilitySafetyContextSelectionUnchanged": true,
+  "priorWorkingFilesBackedUp": 717,
+  "previousD08Sha256": "7b7c676ab12310ac5737fdd3168d8cbe5919b81870b4b99e3b1a352fb0ae9e34",
   "evidenceManifestEntries": 578,
+  "preservedEvidenceAndApprovedArtifacts": 600,
   "allPriorPublishedEvidenceBytesUnchanged": true,
   "syntheticFeedbackCsvJsonByteIdentical": true,
-  "speakerScriptByteIdentical": false,
-  "speakerScriptChanges": "Renumbered original notes; added owner slide 3 text; timing requires rehearsal.",
+  "approvedPresentationAndSpeakerScriptByteIdentical": true,
+  "technicalReportByteIdentical": true,
+  "presentationSlides": 10,
+  "presentationPdfPages": 10,
+  "technicalReportPages": 13,
+  "presentationChecks": "Approved binary hashes match the prior publication; earlier layout/export checks are preserved, not rerun or relabeled.",
   "evaluationSourceProvenance": {
     "originalSupplied": "7bde4c8",
     "rerunAndUnseen": "Working-tree bytes later committed as 8ad14e3",
@@ -31,36 +58,34 @@
       95
     ]
   },
-  "technicalReportPages": 13,
-  "technicalReportByteIdenticalToPriorPublication": true,
-  "presentationSlides": 10,
-  "presentationPdfPages": 10,
-  "presentationAllPagesVisuallyReviewed": true,
-  "presentationSourceFilesByteIdentical": true,
-  "presentationChecks": "Package, layout, native table and Artifact Tool import passed; no findings or layout warnings.",
-  "powerPointAnimationPlaybackVerified": false,
-  "runtimeDataWrites": false,
   "applicationChecks": {
-    "source": "Prior recorded verification on matching app bytes; not rerun for document adoption.",
-    "tests": 351,
+    "source": "Recorded verification on matching app/test bytes.",
+    "tests": 379,
+    "testFiles": 19,
     "typecheck": "passed",
     "webpackBuild": "passed",
-    "defaultBuild": "environment worker-port restriction"
+    "defaultBuild": "environment worker-port restriction",
+    "browser": "English 1365px/light and Chinese 390px/dark passed",
+    "schemasEquivalent": 5,
+    "constructedRequestsEquivalent": 40
   },
   "newModelCalls": 0,
+  "runtimeDataWrites": false,
   "historyRewritten": false,
-  "visibilityChanged": false,
+  "repositoryVisibility": "public",
+  "visibilityChangedByAgent": false,
   "remainingOwnerActions": [
-    "Make repository public and verify signed-out access",
+    "Verify every submission artifact signed out",
     "Rehearse ten-slide presentation",
     "Submit repository URL and retain confirmation"
   ],
   "runtimeLimitations": [
     "Fresh judge-machine real inference/restart/export unverified",
     "Uncached installation and Docker unverified",
+    "Native PowerPoint playback unverified",
     "No hosted service claimed"
   ],
-  "localMarkdownFileLinksChecked": 412,
+  "localMarkdownFileLinksChecked": 427,
   "missingLocalMarkdownFileLinks": 0,
   "credentialPatternCandidates": 0
 }

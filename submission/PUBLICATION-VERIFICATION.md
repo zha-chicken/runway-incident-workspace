@@ -1,28 +1,26 @@
 # Publication verification — 24 October 2026
 
-Application code remains **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**. This final-presentation edition adopts the owner's ten-slide D01 and matching PDF, updates the speaker script and credits, and rebuilds D08 from documentation base `c9cd2e4`. [Machine-readable verification](publication-verification.json).
+**Edition: input limits and model-context visibility.** The current application builds on `27f5ec9278a5ac4eb1700fc9843f9ff883b19808` with the approved app/test changes. The preceding publication is `5672e7b9514f28e375fdc5a6f58a6d78050268b5`. This edition is identified by the exact [application source manifest](provenance/input-context-source.json), fingerprint `cbd8ed60a9989acc7c2d8256ef1220af26424adb5339fabe26b55d9aadfb0e5d`, and the final Git commit linked in the Release notes. [Machine-readable verification](publication-verification.json).
 
-**Release edition:** owner-approved final ten-slide presentation, 24 October 2026. Download the matching D08 ZIP and checksum together, verify the archive checksum, then verify `MANIFEST.sha256` after extraction. The release notes identify the corresponding materials commit and archive hash. Earlier editions and their provenance remain preserved.
+Download the matching D08 ZIP/checksum together and verify the sidecar, then the extracted `MANIFEST.sha256`. Older packages and Git history remain preserved. GitHub's automatic source archive still follows the historical release tag; the attached D08 contains this refreshed edition.
 
 ## Source, evidence and preservation
 
-- All 97 application-baseline files are accounted for: 90 are byte-identical to `27f5ec9`, and seven are existing Markdown documentation overlays. App code, tests, data, migrations, configuration and lockfile are unchanged.
-- All 713 prior tracked files are backed up and preserved in Git at `c9cd2e4`. The previous D08 ZIP/checksum and the original authoring folders are preserved separately. No database was written to or restored for this adoption; runtime files are not part of the distribution or its hash claims.
-- All 578 distributed evidence entries verify against their existing manifest. Every prior published evidence file is byte-identical. D05 CSV/JSON, the technical-report Markdown/PDF, and video provenance files remain unchanged. The speaker script is intentionally renumbered and extended for the added slide.
-- [Evaluation source checks](EVALUATION-PROVENANCE.md) retain the original 93-file source at `7bde4c8`, the rerun's five saved patch files at `8ad14e3`, and the unseen 95-file source at `8ad14e3`. These receipts and frozen evidence are unchanged.
-- Credential-pattern and archive-exclusion checks cover the rebuilt package. Only the empty `.env.example` is distributed; no Git metadata, credentials, runtime databases, provider deliberation, installed dependencies or build output are added.
+- All 97 original application-baseline files are accounted for: 79 unchanged, 11 app/test changes and 7 Markdown documentation overlays. Four new app/test files are included. D08 `SOURCE.json` records original and distributed hashes, keeping application changes distinct from documentation.
+- All 717 pre-publication working files and the previous ZIP/checksum were backed up before editing; prior committed files remain in Git at `5672e7b`. No history rewrite, runtime database edit or restore was performed.
+- The 578-entry frozen evidence manifest verifies. All 600 protected evidence, provenance and approved material files remain byte-identical, including D01 PPTX/PDF/script, the technical-report Markdown/PDF, D03, D05 records and video provenance. The current [update record](INPUT-CONTEXT-UPDATE.md) supplements those earlier materials without relabeling them as a new model evaluation.
+- Original evaluation source receipts still match their 93-file, five-file and 95-file Git checkpoints. Recorded failures, denominators and costs remain unchanged.
+- No credentials, runtime databases, session/transport state, provider deliberation, installed dependencies or build outputs are distributed. Only the empty `.env.example` is included.
 
-## Presentation and archive
+## Application and package checks
 
-- The final PPTX is byte-identical to the owner's approved source. Ten slides passed package integrity, layout checks and Artifact Tool import. The native metrics table on slide 7 has corrected 8-point cell margins; no layout warning remains.
-- The matching PDF has ten pages and selectable text. All pages were visually inspected and all checked source text is present. Nine pages use Keynote's export; slide 3 uses LibreOffice's export to preserve its headline. The PDF was assembled with pypdf. [Adoption record](PRESENTATION-REDESIGN.md).
-- The original nine embedded note bodies retain their wording. Slide 3 has no embedded note. The separate script now follows all ten slides; its timing has not been rehearsed. Native PowerPoint layout and animation playback remain unverified.
-- The previously published 13-page technical report, owner-approved video and poster are preserved. Current presentation credits and export provenance are described in the acknowledgements and adoption record.
-- D08 contains a complete SHA-256 manifest, original-source hashes, documented overlays and the refreshed presentation receipts. The separate archive checksum is excluded from the ZIP to avoid a self-reference.
-- Application checks remain the prior 351 tests, TypeScript and Webpack build on byte-matched source. They were not rerun for this documentation-only adoption. The default-build environment restriction remains documented. No model quality or runtime verification claim is added.
+- The exact app/test files passed 379 tests in 19 files, TypeScript, Webpack and isolated English/Chinese browser checks. Five schemas and 40 constructed requests matched the previous source. [Details](INPUT-CONTEXT-UPDATE.md) and [verification receipt](provenance/input-context-verification.json).
+- The default Turbopack build hit the existing worker-port environment restriction, including its elevated retry. No build configuration changed. No real provider calls were made for this interface update or publication.
+- The ten-slide PPTX, ten-page PDF and thirteen-page technical report retain their previous verified bytes. The original presentation checks remain historical receipts; native PowerPoint playback and timing rehearsal remain unverified.
+- D08 has a complete SHA-256 manifest, source fingerprint, original baseline hashes and explicit overlays. The external archive checksum is excluded from the ZIP to avoid a self-reference. Package extraction, file hashes, local Markdown links, source equivalence and evidence preservation are checked before publication.
 
-## Remaining boundaries
+## Access and remaining limits
 
-Rehearse the ten-slide presentation and verify the repository and download links signed out after the owner makes the repository public. Retain the portal submission confirmation. Packaging checks do not establish public access.
+The repository is public; no visibility change was made by the agent. The documented local setup is the judge installation path. Complete signed-out artifact checks, rehearse, submit the repository URL and retain confirmation. Packaging itself does not prove access to every external link.
 
-Fresh judge-machine inference/restart/export, uncached installation and Docker remain unverified. No hosted deployment is claimed. Existing failed replies and synthetic-feedback limitations remain recorded.
+Fresh judge-machine real inference/restart/export, uncached installation and Docker remain unverified. No hosted deployment or improved live-model quality is claimed. The owner-approved video retains its earlier source provenance.

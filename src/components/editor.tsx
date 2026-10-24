@@ -1,48 +1,62 @@
 'use client';
 
+import {useId} from 'react';
+import {INCIDENT_TEXT_LIMITS,REPORT_TEXT_LIMITS,MAX_REPORTS,MAX_REQUEST_BYTES,incidentInputOverLimit,incidentSaveBody,jsonBytes} from '../domain/input-limits';
 import {Check, Lock, Plus, Trash2} from 'lucide-react';
 import type {Dataset, IncidentInput, Locale, Report, ReviewInput} from '../domain/types';
 import type {T} from './client';
 import {Field} from './ui';
 import {hasCurrentOfficialStatusSource, isOfficialStatusSource} from '../domain/official-status';
 
-export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave}:{input:IncidentInput;setInput:(i:IncidentInput)=>void;airports:Dataset['airports'];locale:Locale;t:T;busy:boolean;onSave:()=>void}) {
+function LimitedField({label,value,limit,onChange,t,multiline=false,required=false,hint}:{label:string;value:string;limit:number;onChange:(value:string)=>void;t:T;multiline?:boolean;required?:boolean;hint?:string}) {
+  const countId=useId(),over=value.length>limit;
+  const props={value,required,'aria-describedby':countId,'aria-invalid':over,onChange:(event:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>)=>onChange(event.target.value)};
+  // Keep oversized pasted text intact so it can be corrected, rather than silently cutting it.
+  return <Field label={label} hint={hint}>{multiline?<textarea {...props} rows={3}/>:<input {...props}/>}
+    <span id={countId} className={`input-count ${over?'over-limit':''}`}>{t('inputCharacters',{count:value.length,limit})}</span>
+  </Field>;
+}
+
+export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave,expectedVersion}:{input:IncidentInput;setInput:(i:IncidentInput)=>void;airports:Dataset['airports'];locale:Locale;t:T;busy:boolean;onSave:()=>void;expectedVersion?:number}) {
+  const requestBytes=jsonBytes(incidentSaveBody(input,expectedVersion)),tooLarge=requestBytes>MAX_REQUEST_BYTES;
+  const fieldsOverLimit=incidentInputOverLimit(input),limitsBlocked=tooLarge||fieldsOverLimit;
   const officialSourceValid=input.officialStatus==='unconfirmed'||hasCurrentOfficialStatusSource(input);
   const patch=(value:Partial<IncidentInput>)=>setInput({...input,...value});
   const reportPatch=(index:number,value:Partial<Report>)=>patch({reports:input.reports.map((r,i)=>i===index?{...r,...value}:r)});
-  return <form className="form-stack editor" onSubmit={e=>{e.preventDefault();if(officialSourceValid)onSave();}}>
+  return <form className="form-stack editor" onSubmit={e=>{e.preventDefault();if(!busy&&officialSourceValid&&!limitsBlocked)onSave();}}>
     <fieldset className="form-section"><legend>{t('sectionScenario')}</legend>
-      <Field label={t('title')}><input value={input.title} required maxLength={140} onChange={e=>patch({title:e.target.value,sourceEventId:null})}/></Field>
+      <LimitedField label={t('title')} value={input.title} required limit={INCIDENT_TEXT_LIMITS.title} t={t} onChange={title=>patch({title,sourceEventId:null})}/>
       <div className="form-grid">
         <Field label={t('airport')} hint={t('airportChangeHint')}><select value={input.airportId} onChange={e=>patch({airportId:e.target.value,sourceEventId:null,reports:[],officialStatus:'unconfirmed',officialStatusSourceId:null})}>{airports.map(a=><option key={a.id} value={a.id}>{a.id} · {a.name[locale]}</option>)}</select></Field>
-        <Field label={t('period')}><input value={input.scenarioPeriod} required onChange={e=>patch({scenarioPeriod:e.target.value})}/></Field>
+        <LimitedField label={t('period')} value={input.scenarioPeriod} required limit={INCIDENT_TEXT_LIMITS.scenarioPeriod} t={t} onChange={scenarioPeriod=>patch({scenarioPeriod})}/>
         <Field label={t('importance')}><select value={input.businessImportance} onChange={e=>patch({businessImportance:e.target.value as IncidentInput['businessImportance']})}>{['low','medium','high'].map(v=><option key={v} value={v}>{t(v)}</option>)}</select></Field>
         <Field label={t('historicalThrough')} hint={t('historicalHelp')}><input type="month" min="2024-01" max="2025-12" value={input.historicalThrough||''} onChange={e=>patch({historicalThrough:e.target.value||null})}/></Field>
       </div>
     </fieldset>
     <fieldset className="form-section"><legend>{t('sectionSituation')}</legend>
-      <Field label={t('known')}><textarea rows={3} maxLength={6000} value={input.knownInformation} onChange={e=>patch({knownInformation:e.target.value})}/></Field>
-      <Field label={t('unknowns')}><textarea rows={3} maxLength={6000} value={input.unknowns} onChange={e=>patch({unknowns:e.target.value})}/></Field>
+      <LimitedField label={t('known')} value={input.knownInformation} multiline limit={INCIDENT_TEXT_LIMITS.knownInformation} t={t} onChange={knownInformation=>patch({knownInformation})}/>
+      <LimitedField label={t('unknowns')} value={input.unknowns} multiline limit={INCIDENT_TEXT_LIMITS.unknowns} t={t} onChange={unknowns=>patch({unknowns})}/>
     </fieldset>
     <fieldset className="form-section"><legend>{t('reports')}</legend>
       <p className="field-hint">{t('reportsEditorHint')}</p>
+      <p className={`input-count ${input.reports.length>MAX_REPORTS?'over-limit':''}`}>{t('inputReportCount',{count:input.reports.length,limit:MAX_REPORTS})}</p>
       {input.reports.map((r,index)=>r.provenanceKind==='competition'?<div className="edit-report locked" key={r.id}>
         <div className="edit-report-head"><strong>{r.sourceLabel}</strong><span className="tag outline"><Lock size={11} aria-hidden/>{t('competitionReport')}</span></div>
         <p>{r.text}</p><p className="field-hint">{t('immutableHint')}</p>
       </div>:<div className="edit-report" key={r.id} role="group" aria-label={`${t('source')} ${index+1}`}>
         <div className="edit-report-head"><strong>{t('source')} {index+1}</strong><span className="code muted">{r.id.slice(0,8)}</span><button type="button" className="text-button danger" onClick={()=>patch({reports:input.reports.filter((_,i)=>i!==index)})}><Trash2 size={13} aria-hidden/>{t('remove')}</button></div>
-        <Field label={t('reportText')}><textarea required rows={3} value={r.text} onChange={e=>reportPatch(index,{text:e.target.value})}/></Field>
+        <LimitedField label={t('reportText')} value={r.text} required multiline limit={REPORT_TEXT_LIMITS.text} t={t} onChange={text=>reportPatch(index,{text})}/>
         <div className="form-grid">
-          {(['sourceLabel','applicablePeriod','reportedAt','originReportId','independenceGroup','verificationBasis'] as const).map(key=><Field key={key} label={t(({sourceLabel:'sourceLabel',applicablePeriod:'reportScope',reportedAt:'reportedAt',originReportId:'originId',independenceGroup:'independence',verificationBasis:'verification'})[key])}><input required={['sourceLabel','applicablePeriod'].includes(key)} value={r[key]||''} onChange={e=>reportPatch(index,{[key]:e.target.value||(['sourceLabel','applicablePeriod'].includes(key)?'':null)})}/></Field>)}
+          {(['sourceLabel','applicablePeriod','reportedAt','originReportId','independenceGroup','verificationBasis'] as const).map(key=><LimitedField key={key} label={t(({sourceLabel:'sourceLabel',applicablePeriod:'reportScope',reportedAt:'reportedAt',originReportId:'originId',independenceGroup:'independence',verificationBasis:'verification'})[key])} t={t} limit={REPORT_TEXT_LIMITS[key]} required={['sourceLabel','applicablePeriod'].includes(key)} value={r[key]||''} onChange={value=>reportPatch(index,{[key]:value||(['sourceLabel','applicablePeriod'].includes(key)?'':null)})}/>)}
           <Field label={t('reliability')}><select value={r.reliability} onChange={e=>reportPatch(index,{reliability:e.target.value as Report['reliability']})}>{['unverified','human_verified','conflicted','unusable'].map(v=><option key={v} value={v}>{t(v)}</option>)}</select></Field>
           <Field label={t('signal')}><select value={r.signal} onChange={e=>reportPatch(index,{signal:e.target.value as Report['signal']})}>{['context','stable','weather','operations','capacity','conflict'].map(v=><option key={v} value={v}>{t(`signal_${v}`)}</option>)}</select></Field>
         </div>
         <label className="checkbox"><input type="checkbox" checked={r.expandingImpact} onChange={e=>reportPatch(index,{expandingImpact:e.target.checked})}/>{t('expanding')}</label>
       </div>)}
-      <button type="button" className="secondary add-report" onClick={()=>patch({reports:[...input.reports,{id:crypto.randomUUID(),text:'',sourceLabel:'Team simulated report',originReportId:null,reportedAt:null,applicablePeriod:input.scenarioPeriod,reliability:'unverified',independenceGroup:null,verificationBasis:null,signal:'context',expandingImpact:false,provenanceKind:'team_simulation',sourceEvidenceId:null}]})}><Plus size={15} aria-hidden/>{t('addReport')}</button>
+      <button type="button" className="secondary add-report" disabled={busy||input.reports.length>=MAX_REPORTS} onClick={()=>{if(input.reports.length<MAX_REPORTS)patch({reports:[...input.reports,{id:crypto.randomUUID(),text:'',sourceLabel:'Team simulated report',originReportId:null,reportedAt:null,applicablePeriod:input.scenarioPeriod,reliability:'unverified',independenceGroup:null,verificationBasis:null,signal:'context',expandingImpact:false,provenanceKind:'team_simulation',sourceEvidenceId:null}]});}}><Plus size={15} aria-hidden/>{t('addReport')}</button>
     </fieldset>
     <fieldset className="form-section"><legend>{t('sectionDecision')}</legend>
-      <Field label={t('decisionRequest')} hint={t('decisionRequestHint')}><input value={input.decisionRequest} maxLength={2000} onChange={e=>patch({decisionRequest:e.target.value})}/></Field>
+      <LimitedField label={t('decisionRequest')} hint={t('decisionRequestHint')} value={input.decisionRequest} limit={INCIDENT_TEXT_LIMITS.decisionRequest} t={t} onChange={decisionRequest=>patch({decisionRequest})}/>
       <label className="checkbox"><input type="checkbox" checked={input.safetyIssue} onChange={e=>patch({safetyIssue:e.target.checked})}/>{t('safetyIssue')}</label>
       <label className="checkbox"><input type="checkbox" checked={input.sourceReliabilityUnknown} onChange={e=>patch({sourceReliabilityUnknown:e.target.checked})}/>{t('sourceUnknown')}</label>
       <div className="form-grid">
@@ -50,8 +64,13 @@ export function IncidentEditor({input,setInput,airports,locale,t,busy,onSave}:{i
         {input.officialStatus!=='unconfirmed'&&<Field label={t('officialSource')}><select required value={officialSourceValid?input.officialStatusSourceId||'':''} onChange={e=>patch({officialStatusSourceId:e.target.value||null})}><option value="">{t('notApplicable')}</option>{input.reports.filter(r=>isOfficialStatusSource(r,input.scenarioPeriod)).map(r=><option key={r.id} value={r.id}>{r.sourceLabel}</option>)}</select></Field>}
       </div>
     </fieldset>
+    <div className="input-size" aria-live="polite">
+      <p className={`input-count ${tooLarge?'over-limit':''}`}>{t('inputRequestSize',{count:requestBytes,limit:MAX_REQUEST_BYTES})}</p>
+      <p className="field-hint">{t('inputSizeHint')}</p>
+      {limitsBlocked&&<p className="notice error" role="alert">{t(tooLarge?'inputRequestTooLarge':'inputFieldsTooLong')}</p>}
+    </div>
     {!officialSourceValid&&<p className="notice error" role="alert">{t('officialSourceInvalid')}</p>}
-    <div className="modal-actions sticky"><span className="help">{t('versionNote')}</span><button className="primary" disabled={busy||!officialSourceValid}>{busy?t('saving'):t('save')}<Check size={15} aria-hidden/></button></div>
+    <div className="modal-actions sticky"><span className="help">{t('versionNote')}</span><button className="primary" disabled={busy||!officialSourceValid||limitsBlocked}>{busy?t('saving'):t('save')}<Check size={15} aria-hidden/></button></div>
   </form>;
 }
 

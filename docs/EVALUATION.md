@@ -2,7 +2,7 @@
 
 Updated 24 October 2026. This repository summary corresponds to submission D03. Artifact paths such as `evidence/unseen/...` below are relative to the [submission directory](../submission/README.md); the curated files are included in this repository. The later promo-video recording is separate from these benchmark totals. No model call or application test was run during this documentation update.
 
-**Scope:** original supplied tests used `7bde4c8`; the supplied rerun and unseen tests used working-tree code later committed as `8ad14e3`. [Source hashes and timing](../submission/EVALUATION-PROVENANCE.md) establish this distinction. These are recorded evaluations from 23–24 October 2026, not a new model evaluation of application `27f5ec9`. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
+**Scope:** original supplied tests used `7bde4c8`; the supplied rerun and unseen tests used working-tree code later committed as `8ad14e3`. [Source hashes and timing](../submission/EVALUATION-PROVENANCE.md) establish this distinction. These are recorded evaluations from 23–24 October 2026, not a new model evaluation of the `27f5ec9` baseline or the later input/context visibility edition. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
 
 ## Design and definitions
 
@@ -61,6 +61,10 @@ Recorded `8ad14e3` checkpoint checks: **345 tests in 18 files**, TypeScript and 
 
 The application offers traceable evidence and structured review, with transparent failures. Human time savings and superiority over a basic model prompt were **not measured**: both practical-value experiments were intentionally skipped. The high-versus-max experiment and standalone B787 package were also intentionally skipped. Historical B787 development evidence is not an untouched final test set.
 
+## Input/context visibility checks — 24 October 2026
+
+The current interface update passed 379 tests in 19 files, TypeScript, Webpack and isolated English/Chinese browser checks (1365-pixel light and 390-pixel dark layouts). The default Turbopack attempt hit the existing worker-port restriction. Five schemas and 40 constructed model requests matched the preceding source. All published app/test changes match the tested files. These checks cover counters, preserved input, request boundaries and actual context counts, not new model reasoning or a fresh judge-machine install. No provider calls were made. [Scope and receipts](../submission/INPUT-CONTEXT-UPDATE.md).
+
 ## Evidence index
 
 - `evidence/supplied-original/`: baseline summary, 30-row matrix, original expectations, complete replies and attempted reply texts.
@@ -71,10 +75,10 @@ The application offers traceable evidence and structured review, with transparen
 - `evidence/MANIFEST.json`: original provenance, hashes and any distribution transformations.
 
 
-## Latest package checks and release boundary
+## Historical package checks and release boundary
 
 The clean package copy installed dependencies with `npm ci --offline --no-audit --no-fund` from the local npm cache on Node 24.15.0. Data import, TypeScript and all 345 tests passed. Its default Turbopack build was blocked while binding a worker port, including the elevated retry; `npm run build -- --webpack` passed without application edits. Earlier current-source default-build success remains in `evidence/supplied-current/verification.json`. These are separate observations, not contradictory pass/fail labels for one run.
 
-The archive's 95 source files matched `8ad14e3` byte for byte; ZIP/manifest, required-file, known-runtime-secret and exclusion checks passed. All nine slides and twelve technical-report pages were visually reviewed. The source archive, original test matrices, review records and PDFs are not rewritten by this documentation synchronization.
+The archive's 95 source files matched `8ad14e3` byte for byte; ZIP/manifest, required-file, known-runtime-secret and exclusion checks passed. All nine slides and twelve technical-report pages were visually reviewed. Those historical checks remain attributed to that package. Original test matrices and review records remain unchanged; the current D08 and presentation editions are documented in [publication verification](../submission/PUBLICATION-VERIFICATION.md).
 
 A fresh-install real-inference/restart/export workflow in the intended judge environment, external access and Docker execution remain unverified. The approved video does not by itself close those installation gates. Full screen-reader and independent usability/operational studies have not been performed. See [remaining release work](../PLAN-HACK.md#remaining-release-work).

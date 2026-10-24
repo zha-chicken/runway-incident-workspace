@@ -48,7 +48,7 @@ describe('failure and print rendering',()=>{
  it.each(['en','zh'] as const)('renders a localized inline failure with restored question and retry in %s',locale=>{
   const detail={discussions:[],history:[],runs:[]} as unknown as Detail,question='Keep this exact question';
   const html=renderToStaticMarkup(React.createElement(DiscussionView,{detail,locale,t:tFor(locale),question,setQuestion:()=>{},onSend:()=>{},onApply:()=>{},asking:null,aiBlocked:false,busy:false,error:errors.PROVIDER_RATE_LIMIT[locale]}));
-  expect(html).toContain('id="discussion-error"');expect(html).toContain('role="alert"');expect(html).toContain('aria-describedby="discussion-error"');expect(html).toContain(question);expect(html).toContain(messages[locale].questionRestored);expect(html).toContain(errors.PROVIDER_RATE_LIMIT[locale]);expect(html).toContain(messages[locale].retry);
+  expect(html).toContain('id="discussion-error"');expect(html).toContain('role="alert"');expect(html).toMatch(/aria-describedby="[^"]*\bdiscussion-error\b[^"]*"/);expect(html).toContain(question);expect(html).toContain(messages[locale].questionRestored);expect(html).toContain(errors.PROVIDER_RATE_LIMIT[locale]);expect(html).toContain(messages[locale].retry);
   expect(html.indexOf('discussion-error')).toBeGreaterThan(html.indexOf('composer card'));
  });
  it('does not show a chat error or retry when no failure exists',()=>{

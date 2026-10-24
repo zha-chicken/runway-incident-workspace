@@ -4,7 +4,7 @@ A bilingual incident-review prototype for HackSHSID Track 3. It uses the supplie
 
 **Submission entry point:** [D01–D08 materials](submission/README.md) · [Technical report](submission/TECHNICAL-REPORT.pdf) · [Presentation](submission/D01-client-presentation.pdf) · [Demo video](submission/video/README.md) · [Reproducibility ZIP](https://github.com/zha-chicken/runway-incident-workspace/releases/download/submission-2026-10-24/D08-reproducibility.zip)
 
-Application code is pinned to `27f5ec9`. Read [acknowledgements and the AI-use statement](ACKNOWLEDGEMENTS.md), [evaluation results](docs/EVALUATION.md) and [publication verification](submission/PUBLICATION-VERIFICATION.md). The owner will make this repository public for submission; the links remain private until then.
+This public repository contains the 24 October 2026 input/context visibility edition: the `27f5ec9` application baseline plus the approved input-limit and context-disclosure update. D08 contains the same application files, identified by its source manifest. Read [the update and checks](submission/INPUT-CONTEXT-UPDATE.md), [acknowledgements and the AI-use statement](ACKNOWLEDGEMENTS.md), [evaluation results](docs/EVALUATION.md) and [publication verification](submission/PUBLICATION-VERIFICATION.md).
 
 ## Run locally
 
@@ -58,6 +58,10 @@ Revised recommendation wording is stored separately from the final action taken.
 
 Report applicability uses an inclusive ±30-minute window around the scenario time. Supported times include 24-hour and AM/PM clocks, Chinese/English simulation days, and calendar dates (with optional explicit UTC offsets). A report with only a clock time uses the scenario's day and timezone; give an explicit day/date for reports across midnight. Explicit days/dates must be compatible, and dated times must either both specify UTC offsets or both omit them. Ambiguous periods and ranges retain the existing exact-text match. Reliability, verification, source independence, and safety rules are unchanged.
 
+The incident editor shows field/report counters and the exact UTF-8 JSON submission size, including the update envelope when editing. Existing limits remain 24 reports, 6,000 characters per report and 200,000 bytes per request. Oversized pasted text is retained for correction; saving is blocked until the limits are met. The client checks the final request size again after privacy handling, and the server retains its independent checks.
+
+Ask AeroContext explains that each question includes only the latest six exchanges from the current incident version, alongside the current incident and evidence. Older chat remains saved. Before assessment, the interface shows feedback inclusion and omission counts from the same server selection used by the model request. A completed assessment with omitted feedback also shows its recorded counts. Whole omitted reviews remain available in Record & export; context bounds do not delete or truncate saved records.
+
 The interface follows the device's light or dark setting; the switch in the sidebar can pin either one.
 
 No messages are sent, and no operational flight decisions are executed.
@@ -75,7 +79,7 @@ npm run build
 
 The data importer verifies the source workbook hash, 192 monthly operation rows, twelve historical anomalies, four flagged weather rows, historical means, and peer-group calculations. Do not edit the source workbook to fix application behavior.
 
-Recorded current-source checks passed **345 tests in 18 files**, TypeScript and the default build. Packaging repeated the clean cached installation, data import, TypeScript and all 345 tests; its Webpack build passed, while its default-build attempt hit the worker-port restriction described above. These are recorded results, not checks rerun by this documentation update.
+The current input/context visibility edition passed **379 tests in 19 files**, TypeScript, a Webpack production build and isolated English/Chinese browser checks, including a 390-pixel layout. Five schemas and 40 constructed model requests remained equivalent to the preceding application. Its default Turbopack build hit the worker-port environment restriction described above. The historical `8ad14e3` package passed a cached installation, data import and 345 tests; these are earlier checks, not a fresh-install verification of this edition. See [update verification](submission/INPUT-CONTEXT-UPDATE.md). No new real model calls were made for this interface update.
 
 The supplied-test rerun accepted 32/32 model-backed steps but had three qualitative failures. Unseen testing produced 19/20 usable final replies, with three quality failures and one validator-blocked reply. The synthetic feedback example preserved its records but failed reassessment after one repair. See [the full results and denominators](docs/EVALUATION.md). Passing structural checks does not establish that every claim is supported.
 
@@ -115,7 +119,7 @@ Docker is provided for reproducibility; its runtime and external hosting still r
 - `PLAN-HACK.md`: accepted scope and release criteria.
 - `docs/IMPLEMENTATION.md`: verified milestones and remaining work.
 
-The supplied and unseen evaluations and eight submission materials are complete as local artifacts, with accepted limitations. The promo/demo video is complete and owner-approved; it is linked in [SUBMISSION.md](docs/SUBMISSION.md). The owner-controlled visibility change, portal submission and fresh judge-machine real inference/persistence/export remain open. The standalone B787 package was intentionally skipped. Dated reports such as [LOCAL-VERIFICATION.md](docs/LOCAL-VERIFICATION.md) and [design-qa.md](design-qa.md) preserve their original checkpoints rather than claiming to be current release evidence.
+The supplied and unseen evaluations and eight submission materials are complete as local artifacts, with accepted limitations. The promo/demo video is complete and owner-approved; it is linked in [SUBMISSION.md](docs/SUBMISSION.md). The repository is public; complete signed-out artifact access checks, portal submission and fresh judge-machine real inference/persistence/export remain open. The standalone B787 package was intentionally skipped. Dated reports such as [LOCAL-VERIFICATION.md](docs/LOCAL-VERIFICATION.md) and [design-qa.md](design-qa.md) preserve their original checkpoints rather than claiming to be current release evidence.
 
 
 ### Validation and recovery

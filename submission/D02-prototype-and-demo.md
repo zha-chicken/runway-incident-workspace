@@ -1,6 +1,6 @@
 # D02 — AeroContext prototype and recorded demonstration
 
-**Application code:** `27f5ec9278a5ac4eb1700fc9843f9ff883b19808`, repository `zha-chicken/runway-incident-workspace`, prepared 24 October 2026. Run from the repository root, or the extracted D08 root. App code, tests, configuration and data match this commit; publication documentation is refreshed and listed separately in the package provenance. Recorded model examples remain tied to their original checkpoints.
+**Application edition:** 24 October 2026 input/context visibility update, built on `27f5ec9`, repository `zha-chicken/runway-incident-workspace`. Run from the repository root or the extracted D08 root. [The update](INPUT-CONTEXT-UPDATE.md) and D08 source manifest identify the exact app/test files; configuration, data and dependencies are unchanged. Recorded model examples retain their original checkpoints.
 
 AeroContext is a bilingual incident-review prototype for a fictional airline. It connects incident information, historical evidence, rule-based risk, generated explanations and communication drafts, reviewer decisions, later outcomes and version history. It does not dispatch aircraft, contact passengers or emergency services, or publish messages.
 
@@ -43,6 +43,6 @@ The separate D05 example demonstrates saved feedback/revisions, but its reassess
 
 ## Access and verification limits
 
-The `27f5ec9` checks passed 351 automated tests, TypeScript and a Webpack production build. Earlier `8ad14e3` checks passed 345 tests and the default build; the latest default-build attempt hit an environment worker-port restriction. Use `npm run build -- --webpack` if that restriction occurs. A fresh judge-machine real-inference/restart/export workflow and Docker remain unverified. The owner-approved video is linked in the submission index; source and material access become public when the owner changes repository visibility.
+The current edition passed 379 automated tests, TypeScript, a Webpack production build and isolated English/Chinese browser checks. The default-build attempt hit an environment worker-port restriction; use `npm run build -- --webpack` if that restriction occurs. Earlier `8ad14e3` and `27f5ec9` results retain their original test counts and build outcomes. Fresh judge-machine real-inference/restart/export and Docker remain unverified. The repository is public and the owner-approved video is linked in the submission index; complete signed-out artifact checks remain separate.
 
 There are no application daily workspace/IP quotas or spending caps. Up to six model requests may run concurrently across the database; provider limits still apply. Accounting, token ceilings, timeouts and the single repair remain. Browsing recorded outputs does not require a provider key; generating a fresh reply does. Never use a live incident database for a test installation.

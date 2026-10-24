@@ -8,7 +8,7 @@ OpenAI **Codex** and Anthropic **Claude** assisted with implementation, debuggin
 
 The application's recorded AI responses use **DeepSeek Flash**, with the `high` setting and Responses format. Application policy and validation constrain structured outputs, but they do not establish that every statement is correct. Evaluation reports retain failed replies and unsupported claims. AI-assisted evaluation is not an independent human study. The D05 reviewer decisions and exercise outcomes are explicitly **synthetic demonstrations**, not observations collected from real participants. High/max and practical-value comparisons were intentionally skipped.
 
-This section can be used as the submission portal's AI-use statement. No per-screen label or application behavior was changed for publication.
+This section can be used as the submission portal's AI-use statement. This disclosure does not add per-screen labels. The separately approved input/context interface update is described below.
 
 ## Data and problem sources
 
@@ -22,4 +22,4 @@ OpenAI document/presentation tooling and ReportLab were used to prepare the orig
 
 ## Verification and provenance
 
-Application code is unchanged from **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**; subsequent commits update documentation and submission materials. Submission documents are refreshed for that version; recorded model evaluations and video remain attributed to their original earlier checkpoints. No new model calls were made for this publication refresh. See [submission materials](submission/README.md), [publication verification](submission/PUBLICATION-VERIFICATION.md) and [video provenance](submission/video/README.md).
+The current application builds on **27f5ec9278a5ac4eb1700fc9843f9ff883b19808** with the approved 24 October input/context visibility update: visible input bounds, retained oversized input and chat/feedback context disclosures. Existing limits, model prompts, risk/reliability/safety rules and context selection are unchanged. The [update record](submission/INPUT-CONTEXT-UPDATE.md) and D08 source manifest identify the exact application files. The approved presentation, technical report, recorded model evaluations and video retain their original checkpoint attribution; their bytes were preserved for this refresh. No new model calls were made. See [submission materials](submission/README.md), [publication verification](submission/PUBLICATION-VERIFICATION.md) and [video provenance](submission/video/README.md).

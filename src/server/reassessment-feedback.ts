@@ -1,8 +1,11 @@
 import {actionSchema, reviewSchema, type Assessment, type ReviewInput, type Snapshot} from '../domain/types';
 import {database, ownIncident} from './db';
 
+import {FEEDBACK_CONTEXT_LIMITS,type FeedbackContextSummary} from '../domain/context-limits';
+
 // Context bounds, not usage quotas. Keep whole records; never truncate a reason or its negation.
-export const FEEDBACK_CONTEXT_LIMITS = {reviews: 24, bytes: 48_000} as const;
+export {FEEDBACK_CONTEXT_LIMITS};
+export const summarizeFeedback = (feedback:ReassessmentFeedback):FeedbackContextSummary => ({included:feedback.reviews.length,total:feedback.latestReviewCount,omitted:feedback.omittedReviewCount});
 type ReviewContent = Pick<ReviewInput, 'disposition'|'reason'|'revisedRecommendation'|'finalAction'|'outcome'|'outcomeStatus'|'nextImprovement'>;
 export type ReassessmentFeedbackEntry = {
   reviewId: string; reviewedAt: string; assessmentId: string; assessmentGeneratedAt: string;

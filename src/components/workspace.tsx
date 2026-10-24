@@ -1,5 +1,7 @@
 'use client';
 
+import {FeedbackContextNotice,recordedFeedbackSummary} from './context-notice';
+import {incidentSaveBody} from '../domain/input-limits';
 import {ValidationNotice} from './validation-notice';
 
 import {useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode} from 'react';
@@ -76,6 +78,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   const work=async(fn:()=>Promise<void>)=>{setBusy(true);setError('');try{await fn();}catch(e){if(!(e instanceof PrivacyReviewCancelled))setError((e as Error).message);}finally{setBusy(false);}};
   const current=detail?currentAssessment(detail):undefined;
   const displayed=current || detail?.assessments[0];
+  const usedFeedback=recordedFeedbackSummary(detail?.runs.find(run=>run.id===current?.runId));
   const airport=boot?.airports.find(a=>a.id===detail?.snapshot.airportId);
   const eventTitle=(sourceEventId:string|null,fallback:string)=>sourceEventId?boot?.events.find(e=>e.id===sourceEventId)?.title[locale]||fallback:fallback;
   const title=detail?eventTitle(detail.snapshot.sourceEventId,detail.snapshot.title):'';
@@ -189,6 +192,8 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
         !detail?<div className="loading"><LoaderCircle className="spin" size={22}/>{t('loading')}</div>:<>
           {(stage!=='ready'||!tab)&&<AirportHeader detail={detail} airportName={airport?.name[locale]||''} title={title} stage={stage} decided={decided} total={actions.length} t={t} onHome={goHome}/>}
           {stage==='ready'&&current&&<ValidationNotice validation={current.validation} locale={locale}/>}
+          {(stage==='preflight'||showReanalysis||tab==='overview')&&<FeedbackContextNotice summary={detail.feedbackContext} t={t}/>}
+          {stage==='ready'&&!!usedFeedback?.omitted&&<FeedbackContextNotice summary={usedFeedback} t={t} used/>}
           {showReanalysis&&<ReanalysisBanner t={t} blocked={aiBlocked||busy} onConfirm={()=>void generate()} onModify={()=>openView('assessment')} onOutcomes={()=>openView('history')}/>}
           {stage==='analyzing'?<AnalysisProgress detail={detail} since={running?.created_at||localRequest!.since} t={t} onCancel={cancelRun} busy={busy}/>:
           stage==='preflight'?<Preflight detail={detail} locale={locale} t={t} blocked={aiBlocked} apiConfigured={boot.apiConfigured} onStart={()=>void generate()} onEdit={editIncident}/>:
@@ -208,7 +213,7 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
       </main>
     </div>
     <Modal open={navOpen} onClose={()=>setNavOpen(false)} title={t('incidents')} t={t} drawer>{rail}</Modal>
-    <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await privacy.submit<{id:string},IncidentInput>('incidents',editor,setEditor);await refreshBoot();choose(created.id);}else if(detail){await privacy.submit(`incidents/${selected}`,{expectedVersion:detail.snapshot.version,input:editor},value=>setEditor(value.input));await refresh();}setEditor(null);})}/>}</Modal>
+    <Modal open={!!editor} onClose={()=>setEditor(null)} title={isNew?t('newIncident'):t('editIncident')} description={isNew?t('newIncidentHint'):t('editHint')} t={t} wide>{editor&&<IncidentEditor expectedVersion={isNew?undefined:detail?.snapshot.version} input={editor} setInput={setEditor} airports={boot.airports} locale={locale} t={t} busy={busy} onSave={()=>void work(async()=>{if(isNew){const created=await privacy.submit<{id:string},IncidentInput>('incidents',editor,setEditor);await refreshBoot();choose(created.id);}else if(detail){await privacy.submit(`incidents/${selected}`,incidentSaveBody(editor,detail.snapshot.version),value=>setEditor('input' in value?value.input:value));await refresh();}setEditor(null);})}/>}</Modal>
     <Modal open={!!source} onClose={()=>setSource(null)} title={t('original')} description={t('originalHint')} t={t} sheet>{source&&detail&&<SourceView id={source.id} evidence={source.bundle} locale={locale} t={t}/>}</Modal>
     <Modal open={!!review} onClose={()=>{if(!busy)setReview(null);}} title={t(review?.mode==='outcome'?'recordOutcome':'decisionTitle')} description={t('reviewHint')} t={t}>{review&&<ReviewForm review={review.input} mode={review.mode} recommendation={review.text} setReview={input=>setReview({...review,input})} t={t} busy={busy} onSave={()=>void work(async()=>{await recordReview(review.input,review.mode==='decision');setReview(null);})}/>}</Modal>
     <Modal open={!!draftEdit} onClose={()=>setDraftEdit(null)} title={draftEdit?`${t(draftEdit.audience)} · ${draftEdit.locale==='zh'?'中文':'English'}`:t('drafts')} description={t('draftHint')} t={t} wide>{draftEdit&&<form className="form-stack" onSubmit={e=>{e.preventDefault();void work(async()=>{await privacy.submit(`incidents/${selected}/drafts`,{assessmentId:draftEdit.assessmentId,audience:draftEdit.audience,locale:draftEdit.locale,text:draftEdit.text,expectedRevision:draftEdit.revision},value=>setDraftEdit({...draftEdit,text:value.text}));setDraftEdit(null);await refresh();});}}>

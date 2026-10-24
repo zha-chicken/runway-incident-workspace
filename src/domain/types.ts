@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {INCIDENT_TEXT_LIMITS,REPORT_TEXT_LIMITS,MAX_REPORTS} from './input-limits';
 import type {OutputValidation} from './validation-notes';
 
 export const bilingual = z.object({en: z.string().min(1), zh: z.string().min(1)});
@@ -11,14 +12,14 @@ export const reliabilitySchema = z.enum(['scenario_given', 'human_verified', 'un
 export const signalSchema = z.enum(['stable', 'weather', 'operations', 'capacity', 'conflict', 'context']);
 export const reportSchema = z.object({
   id: z.string().min(1).max(120),
-  text: z.string().min(1).max(6000),
-  sourceLabel: z.string().min(1).max(200),
-  originReportId: z.string().max(120).nullable(),
-  reportedAt: z.string().max(100).nullable(),
-  applicablePeriod: z.string().min(1).max(200),
+  text: z.string().min(1).max(REPORT_TEXT_LIMITS.text),
+  sourceLabel: z.string().min(1).max(REPORT_TEXT_LIMITS.sourceLabel),
+  originReportId: z.string().max(REPORT_TEXT_LIMITS.originReportId).nullable(),
+  reportedAt: z.string().max(REPORT_TEXT_LIMITS.reportedAt).nullable(),
+  applicablePeriod: z.string().min(1).max(REPORT_TEXT_LIMITS.applicablePeriod),
   reliability: reliabilitySchema,
-  independenceGroup: z.string().max(120).nullable(),
-  verificationBasis: z.string().max(1000).nullable(),
+  independenceGroup: z.string().max(REPORT_TEXT_LIMITS.independenceGroup).nullable(),
+  verificationBasis: z.string().max(REPORT_TEXT_LIMITS.verificationBasis).nullable(),
   signal: signalSchema,
   expandingImpact: z.boolean(),
   provenanceKind: z.enum(['competition', 'team_simulation']),
@@ -26,19 +27,19 @@ export const reportSchema = z.object({
 });
 export type Report = z.infer<typeof reportSchema>;
 export const incidentInputSchema = z.object({
-  title: z.string().min(1).max(140),
+  title: z.string().min(1).max(INCIDENT_TEXT_LIMITS.title),
   airportId: z.string().min(1).max(80),
-  scenarioPeriod: z.string().min(1).max(200),
+  scenarioPeriod: z.string().min(1).max(INCIDENT_TEXT_LIMITS.scenarioPeriod),
   historicalThrough: z.string().regex(/^\d{4}-\d{2}$/).nullable(),
   businessImportance: z.enum(['low', 'medium', 'high']),
-  knownInformation: z.string().max(6000),
-  unknowns: z.string().max(6000),
+  knownInformation: z.string().max(INCIDENT_TEXT_LIMITS.knownInformation),
+  unknowns: z.string().max(INCIDENT_TEXT_LIMITS.unknowns),
   safetyIssue: z.boolean(),
   sourceReliabilityUnknown: z.boolean(),
-  decisionRequest: z.string().max(2000),
+  decisionRequest: z.string().max(INCIDENT_TEXT_LIMITS.decisionRequest),
   officialStatus: z.enum(['unconfirmed', 'normal', 'delayed', 'cancelled']),
   officialStatusSourceId: z.string().nullable(),
-  reports: z.array(reportSchema).max(24),
+  reports: z.array(reportSchema).max(MAX_REPORTS),
   sourceEventId: z.string().nullable()
 });
 export type IncidentInput = z.infer<typeof incidentInputSchema>;

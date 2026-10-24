@@ -996,3 +996,15 @@ table.runs td:nth-child(3), table.runs td:nth-child(4) { white-space: nowrap; }
 .privacy-masked { padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); max-height: 260px; overflow: auto; }
 .privacy-options { flex-wrap: wrap; }
 .privacy-review .notice p { margin: 4px 0 0; }
+
+/* Visible input/context bounds; stored text is never shortened for display. */
+.input-count { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.input-count.over-limit { color: var(--danger); font-weight: 600; }
+.editor [aria-invalid="true"] { border-color: var(--danger); }
+.input-size { display: grid; gap: 6px; }
+.input-size p { margin: 0; }
+.context-notice { margin: 16px 0; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink-2); font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.context-notice strong { color: var(--ink); }
+.context-notice p { margin: 6px 0 0; }
+.context-notice.has-omissions { border-color: var(--caution-line); background: var(--caution-soft); }
+@media print { .context-notice { display: none; } }

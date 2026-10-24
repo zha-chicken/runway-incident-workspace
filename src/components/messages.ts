@@ -1,4 +1,18 @@
 const en={
+  inputCharacters:"Characters: {count} / {limit}",
+  inputReportCount:"Reports: {count} / {limit}",
+  inputRequestSize:"Submission size: {count} / {limit} bytes",
+  inputSizeHint:"The total includes all fields and report details. Chinese characters and some symbols use more than one byte.",
+  inputRequestTooLarge:"This submission is too large. Shorten some text or remove a report before saving. Your entered text remains in this form.",
+  inputFieldsTooLong:"A field or the report count exceeds its limit. Check the highlighted counters before saving. Your entered text has not been shortened.",
+  discussionContext:"Each question uses the current incident and its evidence, plus up to the latest {limit} question–answer exchanges from this incident version. Older exchanges stay in history but are not sent. Saved human feedback is used for reassessment, not automatically included here.",
+  feedbackContextTitle:"Feedback for the next assessment",
+  feedbackContextUsed:"Feedback used in this assessment",
+  feedbackContextLimits:"Uses the latest review for each recommendation, prioritizing this incident version. Up to {reviews} complete records within {bytes} bytes are included; older-version reviews are labeled as historical context.",
+  feedbackContextIncluded:"Currently selected: {included} of {total} latest review records.",
+  feedbackContextIncludedPast:"Included: {included} of {total} latest review records available at the time.",
+  feedbackContextOmitted:"{count} record(s) are excluded from this model context. All saved reviews remain in Record & export; no review text is cut to fit.",
+
   privacyTitle:"Review potential personal information",
   privacyDescription:"Choose how to handle the detected input before continuing.",
   privacyFound:"{count} possible personal-data item(s)",
@@ -178,6 +192,20 @@ const en={
   reportsEditorHint:'Supplied reports stay unchanged. Add team reports for new or corrected information.',officialHint:'Requires a human-verified report with a timestamp and verification basis, applicable within ±30 minutes of the scenario time (or an exact match for a named period).',officialSourceInvalid:'Select a current verified source for the official status, or change the status to Unconfirmed.',questionRestored:'Your question is back in the box below. You can edit it and retry.',snapshotUnavailable:'Assessment snapshot unavailable',versionNote:'Saves as a new version'
 };
 const zh:Record<keyof typeof en,string>={
+  inputCharacters:"字符数：{count} / {limit}",
+  inputReportCount:"报告数：{count} / {limit}",
+  inputRequestSize:"提交大小：{count} / {limit} 字节",
+  inputSizeHint:"总大小包括所有字段和报告详情。中文和部分符号会占用多个字节。",
+  inputRequestTooLarge:"提交内容超过总大小限制。请缩短部分文本或移除报告后再保存。已输入的内容仍保留在表单中。",
+  inputFieldsTooLong:"某个字段或报告数量超过限制。请检查标出的计数后再保存。已输入的内容未被截短。",
+  discussionContext:"每次提问使用当前事件及其证据，以及该事件版本最近最多 {limit} 轮问答。更早的问答保留在历史中，但不会发送给模型。已保存的人工反馈用于重新评估，不会自动包含在此处。",
+  feedbackContextTitle:"下次评估使用的反馈",
+  feedbackContextUsed:"本次评估使用的反馈",
+  feedbackContextLimits:"使用每条建议的最新复核记录，优先选择当前事件版本。最多纳入 {reviews} 条完整记录，总计不超过 {bytes} 字节；旧版本复核会标记为历史背景。",
+  feedbackContextIncluded:"当前选入：{total} 条最新复核记录中的 {included} 条。",
+  feedbackContextIncludedPast:"已纳入：当时 {total} 条最新复核记录中的 {included} 条。",
+  feedbackContextOmitted:"有 {count} 条记录未纳入此次模型上下文。所有已保存的复核仍保留在“记录与导出”中；不会为满足限制而截断复核文本。",
+
   privacyTitle:"复核可能的个人信息",
   privacyDescription:"请选择如何处理检测到的输入，再继续提交。",
   privacyFound:"发现 {count} 项可能的个人信息",
@@ -359,6 +387,8 @@ const zh:Record<keyof typeof en,string>={
 
 export const messages={en,zh};
 export const errors:Record<string,{en:string;zh:string}>={
+  REQUEST_TOO_LARGE:{"en": "This submission exceeds the 200,000-byte limit. Shorten the text or remove a report and try again. Your input remains available to edit.", "zh": "提交内容超过 200,000 字节限制。请缩短文本或移除报告后重试。输入内容仍可继续编辑。"},
+  INVALID_INPUT:{"en": "Some input is missing or exceeds a field/report limit. Check the form and try again. Your entered text remains available.", "zh": "部分输入缺失或超过字段/报告限制。请检查表单后重试。已输入的文本仍保留。"},
   PRIVACY_REVIEW_REQUIRED:{en:'Potential personal information needs review before submission. Reopen the input and choose approval, false positive, or masking.',zh:'提交前须复核可能的个人信息。请重新打开输入，选择人工批准、误报或脱敏。'},
   PRIVACY_REVIEW_INVALID:{en:'The privacy decision no longer matches this input, or its review details are incomplete. Review the current text again.',zh:'隐私处理决定与当前输入不匹配，或复核信息不完整。请重新复核当前文本。'},
   OFFICIAL_STATUS_NEEDS_VERIFIED_SOURCE:{en:'The official status needs a current human-verified source with a timestamp and verification basis. Edit the incident to select a source within ±30 minutes of its scenario time (or an exact named-period match), or mark the status Unconfirmed.',zh:'正式状态需要当前有效、有时间和核实依据的人工核实来源。请编辑事件，选择场景时间前后30分钟内的来源（命名时段须完全匹配），或将状态改为未确认。'},

@@ -1,6 +1,6 @@
 # Submission materials and approved video
 
-Application code: **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**. Publication documents and curated evidence are now included in this repository.
+Application edition: **24 October 2026 input/context visibility update**, built on `27f5ec9`. Publication documents and curated evidence are included in this public repository. [Changes and verification](../submission/INPUT-CONTEXT-UPDATE.md).
 
 - [D01–D08 index](../submission/README.md)
 - [Technical report](../submission/TECHNICAL-REPORT.pdf)
@@ -10,6 +10,6 @@ Application code: **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**. Publication docu
 - [Publication verification](../submission/PUBLICATION-VERIFICATION.md)
 - [Acknowledgements / AI-use statement](../ACKNOWLEDGEMENTS.md)
 
-D08 pins code, tests, configuration and data to `27f5ec9`, with an explicit documentation overlay. Evaluations and the video retain their earlier checkpoint attribution. No original replies, verdicts, synthetic review records or Git history were rewritten. Private runtime data and credentials are excluded.
+D08 contains the same current application and tests, with exact hashes in its source manifest and the approved overlay from `27f5ec9` recorded in `SOURCE.json`. Configuration, data, dependencies and migrations remain unchanged. Evaluations, presentation, technical report and video retain their earlier checkpoint attribution. No original replies, verdicts, synthetic review records or Git history were rewritten. Private runtime data and credentials are excluded.
 
-The source and materials are prepared for a GitHub-repository-link submission. The owner controls the final visibility change; until the repository is public, access is restricted to collaborators. Fresh judge-machine inference/restart/export, Docker and any external hosting remain unverified and are not implied by the files' availability.
+The repository is public and is the final submission link. Verify every material/download link while signed out and retain the portal submission confirmation. The documented local setup remains the judge installation path. Fresh judge-machine inference/restart/export and Docker remain unverified; no external hosting is claimed.

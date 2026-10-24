@@ -1,4 +1,6 @@
 import {NextRequest, NextResponse} from 'next/server';
+import {MAX_REQUEST_BYTES} from '../../../domain/input-limits';
+import {feedbackForReassessment,summarizeFeedback} from '../../../server/reassessment-feedback';
 import {createHmac} from 'node:crypto';
 import {z} from 'zod';
 import {workspaceFor, listIncidents, createIncident, updateIncident, incidentDetail, snapshotFor, saveReview, saveDraft, resetWorkspace, database, newId, ownIncident} from '../../../server/db';
@@ -48,7 +50,7 @@ async function handle(req: NextRequest, ctx: Context) {
           return response;
         }
         const detail = incidentDetail(workspace.id, id), evidence = evidenceFor(detail.snapshot);
-        result = {...detail, evidence, policy: evaluatePolicy(detail.snapshot)};
+        result = {...detail, evidence, policy: evaluatePolicy(detail.snapshot), feedbackContext:summarizeFeedback(feedbackForReassessment(workspace.id,detail.snapshot))};
         if (command === 'export') {
           const response = new NextResponse(JSON.stringify({simulation:true,exportedAt:new Date().toISOString(),...result as object},null,2), {
             headers:{'Content-Type':'application/json','Content-Disposition':`attachment; filename="aerocontext-${id}.json"`,'Cache-Control':'no-store'}
@@ -59,7 +61,7 @@ async function handle(req: NextRequest, ctx: Context) {
       } else throw new AppError('NOT_FOUND',404);
     } else {
       const text = await req.text();
-      if (Buffer.byteLength(text)>200000) throw new AppError('REQUEST_TOO_LARGE',413);
+      if (Buffer.byteLength(text)>MAX_REQUEST_BYTES) throw new AppError('REQUEST_TOO_LARGE',413);
       const body = JSON.parse(text);
       const privacyScope=path.join('/'),privacyHeader=req.headers.get('x-input-privacy-review');
       const reviewedWrite=(action:string,write:()=>{id:string}|{id:string;version:number})=>{

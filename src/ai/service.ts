@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {DISCUSSION_HISTORY_LIMIT} from '../domain/context-limits';
 import {createHash} from 'node:crypto';
 import {assessmentSchema, discussionSchema, type Snapshot} from '../domain/types';
 import {evidenceFor} from '../domain/evidence';
@@ -100,7 +101,7 @@ export async function generate(args: {workspaceId: string; incidentId: string; e
     (args.action==='discussion' && !args.question?.trim())) throw new AppError('INVALID_REQUEST');
   const snapshot = snapshotFor(args.workspaceId, args.incidentId);
   if (snapshot.version !== args.expectedVersion) throw new AppError('VERSION_CONFLICT', 409);
-  const rows = args.action === 'discussion' ? database().native.prepare('SELECT question,response FROM discussions WHERE incident_id=? AND snapshot_id=? ORDER BY created_at DESC LIMIT 6').all(args.incidentId, snapshot.id) as {question: string; response: string}[] : [];
+  const rows = args.action === 'discussion' ? database().native.prepare('SELECT question,response FROM discussions WHERE incident_id=? AND snapshot_id=? ORDER BY created_at DESC LIMIT ?').all(args.incidentId, snapshot.id, DISCUSSION_HISTORY_LIMIT) as {question: string; response: string}[] : [];
   const history = rows.reverse().map(r => ({question: r.question, response: JSON.parse(r.response)}));
   const feedback = args.action === 'assessment' ? feedbackForReassessment(args.workspaceId, snapshot) : undefined;
   const feedbackHash = feedback ? createHash('sha256').update(JSON.stringify(feedback)).digest('hex') : undefined;

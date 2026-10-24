@@ -1,5 +1,6 @@
 'use client';
 
+import {DISCUSSION_HISTORY_LIMIT} from '../domain/context-limits';
 import {ValidationNotice} from './validation-notice';
 
 import {useEffect, useRef} from 'react';
@@ -70,9 +71,10 @@ export function DiscussionView({detail,locale,t,question,setQuestion,onSend,onAp
     <form className={`composer card ${asking?'is-waiting':''}`} onSubmit={e=>{e.preventDefault();onSend();}}>
       {error&&<div ref={failure} id="discussion-error" className="notice error discussion-error" role="alert" tabIndex={-1}><div><p>{error}</p><p>{t('questionRestored')}</p></div></div>}
       <label className="composer-label" htmlFor="question">{t('ask')}</label>
+      <p className="field-hint" id="discussion-context">{t('discussionContext',{limit:DISCUSSION_HISTORY_LIMIT})}</p>
       {entries.length===0&&!asking&&<p className="section-sub">{t('noDiscussion')}</p>}
       <div className="suggestions">{suggestions.map(s=><button type="button" key={s} className="chip" disabled={!!asking} onClick={()=>setQuestion(s)}>{s}</button>)}</div>
-      <textarea id="question" aria-describedby={error?"discussion-error":undefined} value={question} maxLength={6000} disabled={!!asking} onChange={e=>setQuestion(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)&&question.trim()&&!aiBlocked){e.preventDefault();onSend();}}} placeholder={asking?t('waitingAnswer'):t('askPlaceholder')} rows={3} required/>
+      <textarea id="question" aria-describedby={error?'discussion-context discussion-error':'discussion-context'} value={question} maxLength={6000} disabled={!!asking} onChange={e=>setQuestion(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)&&question.trim()&&!aiBlocked){e.preventDefault();onSend();}}} placeholder={asking?t('waitingAnswer'):t('askPlaceholder')} rows={3} required/>
       <div className="composer-foot">
         <span className={`section-sub ${aiBlocked&&!asking?'busy-note':''}`}>{asking?t('thinkingHint'):aiBlocked&&detail.runs.some(r=>r.status==='running')?t('composerBusy'):t('discussionNote')}</span>
         <button className="primary" disabled={aiBlocked||!question.trim()}>{asking?<><LoaderCircle size={15} className="spin" aria-hidden/>{t('waitingAnswer')}</>:<>{t(error?'retry':'send')}<ArrowRight size={15} aria-hidden/></>}</button>
