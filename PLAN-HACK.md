@@ -72,7 +72,7 @@ The promo/demo video was completed by Claude and watched/approved by the owner o
 
 ## Remaining release work
 
-1. **Choose submission quota settings.** Current defaults still apply in hosted mode: 20 AI actions per workspace and 60 per IP over a rolling 24 hours; three concurrent runs; development/hosted pool caps of 40/60 app-accounted CNY units. Preserve incidents, chats, reviews and the AI-run ledger. Review quotas separately from provider limits, token ceilings, timeouts, repair bounds and safety constraints. Investigate other testing-only settings and get the owner's permission before removing them.
+1. **Review other testing-only settings.** The owner-approved local update removes daily workspace/IP quotas and application spending caps, and permits six concurrent requests across the database. Accounting/history remain; provider limits, token ceilings, timeouts, repair bounds and safety constraints are unchanged. Other proposed input/context/deployment changes require a separate decision.
 2. **Complete fresh-install runtime verification.** Cached clean installation, data import, TypeScript, 345 tests and Webpack build are recorded. Verify real inference, saved history, restart persistence and export in the intended judge environment. Recheck the default-build environment restriction there.
 3. **Resolve judge access.** Confirm the chosen local/hosted demonstration path. If hosting is retained, verify external browser/device access and persistent storage. Docker requires execution testing before being advertised as a verified launch path.
 4. **Review publication contents.** Exclude credentials, personal/runtime databases, session/transport state and unrelated artifacts. Select portable material/video locations and acknowledgements; local paths in the current index are not judge-accessible links.
@@ -89,7 +89,7 @@ A supervised shadow pilot would need authenticated data sources, explicit access
 ## Source and evidence record
 
 - Organizer [Track 3 problem statement](HackSHSID%202026/Track%203%20Problem%20Statement.pdf) and [workbook](HackSHSID%202026/Track%203%20Data.xlsx), especially the rules, test questions and submission checklist.
-- Application contracts/policy/validation in `src/domain`, request context/provider handling in `src/ai`, persistence/privacy/quotas in `src/server` and regressions in `tests`.
+- Application contracts/policy/validation in `src/domain`, request context/provider handling in `src/ai`, persistence/privacy/usage accounting in `src/server` and regressions in `tests`.
 - Current [evaluation](docs/EVALUATION.md), [implementation evidence](docs/IMPLEMENTATION.md), [risk card](docs/RISK-CARD.md) and [submission index](docs/SUBMISSION.md).
 - [October 20 local verification](docs/LOCAL-VERIFICATION.md) and [dated design QA](design-qa.md) retained as checkpoint evidence. Their counts and pending milestones are not current-release status.
 

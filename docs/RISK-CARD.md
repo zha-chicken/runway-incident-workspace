@@ -14,7 +14,7 @@
 | Feedback misunderstood | Original recommendation/reason and revisions retained; pending and omitted context explicit | D05 reassessment failed twice; context is bounded. Rejection is not proof a replacement was executed. Human confirms a new accepted assessment. |
 | Prompt injection or malicious text | Reports treated as evidence, immutable organizer provenance, scoped schema/policy validation | Defense is incomplete; successful synthetic tests do not prove robust isolation against all attacks. No external tools execute model proposals. |
 | Lost access or unintended retention | SQLite persistence, workspace ownership, export, same-origin checks | Cookie loss can lose workspace access; no automatic retention purge. Owner manages backups, stable secret and database location. |
-| Cost, delay and availability | Pool/daily/concurrency limits, token caps, timeouts, single repair | Unseen median 69.273 s; quota settings can block judges. Cost is app-estimated, not a bill. Release settings and provider access need verification. |
+| Cost, delay and availability | Usage accounting, six concurrent requests, token caps, timeouts, single repair | Daily workspace/IP quotas and application spending caps removed by owner decision. Provider limits still apply. Unseen median 69.273 s; cost is app-estimated, not a bill. Owner monitors provider usage. |
 | Accessibility/printing | Recorded bilingual desktop/narrow/keyboard/print exercises | Two accepted issues: dialog Escape focus to body, print skip-link overlap. Review the exported file and use navigation controls explicitly. |
 
 ## Human responsibilities and escalation
@@ -23,8 +23,10 @@ Treat every generated message as a draft. Verify report provenance, applicabilit
 
 ## Evidence and release posture
 
+The quota/concurrency row reflects the later owner-approved local update; recorded evaluation results below remain tied to `8ad14e3` and were not rerun with real model calls.
+
 See [EVALUATION.md](EVALUATION.md) for denominators, source locations and the distinction between earlier successful default-build verification and the later packaging worker-port restriction. The packaging Webpack build passed.
 
-345 automated tests, TypeScript and default production build are recorded as passing on the current source. The latest supplied run accepted all 32 model steps but had three qualitative failures; unseen testing accepted 21/22 steps and 19/20 final replies, with three quality failures among accepted replies. These are bounded demonstrations, not safety certification, measured business benefit or independent real-user validation.
+At the earlier `8ad14e3` checkpoint, 345 automated tests, TypeScript and the default production build were recorded as passing. The quota/concurrency update passed 351 tests, TypeScript and the Webpack production build; its default Turbopack build remained blocked by the worker-port environment restriction, including an elevated retry. The latest supplied run accepted all 32 model steps but had three qualitative failures; unseen testing accepted 21/22 steps and 19/20 final replies, with three quality failures among accepted replies. These are bounded demonstrations, not safety certification, measured business benefit or independent real-user validation.
 
-Release gates remain: choose submission quotas, verify a clean real-inference installation/restart/export, resolve judge access, inspect publication contents and rehearse. No live deployment or additional model call was made to prepare this card. The promo/demo video is completed and owner-approved; publication and judge access remain separate gates. [Submission index](SUBMISSION.md).
+Release gates remain: verify a clean real-inference installation/restart/export, resolve judge access, inspect publication contents and rehearse. No live deployment or additional model call was made to prepare this card. The promo/demo video is completed and owner-approved; publication and judge access remain separate gates. [Submission index](SUBMISSION.md).

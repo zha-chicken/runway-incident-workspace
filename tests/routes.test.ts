@@ -19,6 +19,7 @@ async function request(path:string,cookie='',body?:unknown,origin='http://127.0.
 describe('HTTP route contracts',()=>{
   it('accepts the browser host after Next normalizes its internal URL and persists edits',async()=>{
     const a=await request('workspace');
+    expect(a.body.budget).toMatchObject({limit:null,remaining:null,used:0});
     const created=await request('incidents',a.cookie,{...dataset.events[0].input,title:'Route test'});
     expect(created.response.status).toBe(200);
     const detail=await request(`incidents/${created.body.id}`,a.cookie);

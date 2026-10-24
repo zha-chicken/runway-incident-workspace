@@ -153,7 +153,7 @@ const en={
   snapshotHistory:'Incident versions',snapshotSub:'Every save creates an immutable version. Expand one to see its assessments.',currentVersion:'Current',snapshotJson:'Snapshot JSON',
   runLog:'Generation records',runLogSub:'Model requests with status and accounted cost. Reasoning text is not stored.',action:'Action',time:'Time',details:'Details',metadata:'Metadata',
   run_running:'Running',run_completed:'Completed',run_failed:'Failed',run_cancelled:'Cancelled',run_interrupted:'Interrupted',
-  export:'Export JSON',print:'Print report',reset:'Reset workspace',resetConfirm:'Reset this workspace’s incidents and history? API usage and quotas will remain.',
+  export:'Export JSON',print:'Print report',reset:'Reset workspace',resetConfirm:'Reset this workspace’s incidents and history? API usage records will remain.',
   title:'Incident title',historicalThrough:'Historical cutoff (optional)',historicalHelp:'Leave blank for retrospective context. A dated replay excludes later records.',allHistory:'All history',
   safetyIssue:'Safety-related issue requires human review',sourceUnknown:'Material source reliability cannot be established',decisionRequest:'Requested professional decision (optional)',decisionRequestHint:'Requests about cancellation, release, dispatch, maintenance, or compensation are routed to professionals.',
   reportText:'Report content',sourceLabel:'Source label',reportedAt:'Report timestamp (if known)',originId:'Underlying report ID',independence:'Independent source group',verification:'Verification basis',reliability:'Reliability',signal:'Signal',expanding:'Impact may expand',
@@ -332,7 +332,7 @@ const zh:Record<keyof typeof en,string>={
   snapshotHistory:'事件版本',snapshotSub:'每次保存都会创建不可变版本。展开即可查看对应评估。',currentVersion:'当前',snapshotJson:'版本 JSON',
   runLog:'生成记录',runLogSub:'模型请求的状态与计入费用。不保存推理文本。',action:'操作',time:'时间',details:'详情',metadata:'元数据',
   run_running:'运行中',run_completed:'已完成',run_failed:'失败',run_cancelled:'已取消',run_interrupted:'已中断',
-  export:'导出 JSON',print:'打印报告',reset:'重置工作区',resetConfirm:'重置此工作区的事件和历史？API 使用量和配额不会重置。',
+  export:'导出 JSON',print:'打印报告',reset:'重置工作区',resetConfirm:'重置此工作区的事件和历史？API 使用记录将保留。',
   title:'事件标题',historicalThrough:'历史截止月份（可选）',historicalHelp:'留空表示回顾性背景；指定日期的回放会排除之后的记录。',allHistory:'全部历史',
   safetyIssue:'出现安全相关问题，需要人工复核',sourceUnknown:'无法判断关键来源可靠性',decisionRequest:'请求专业人员作出的决定（可选）',decisionRequestHint:'涉及取消、放行、调度、维修或赔付的请求会转交专业人员。',
   reportText:'报告内容',sourceLabel:'来源名称',reportedAt:'报告时间（如已知）',originId:'原始报告编号',independence:'独立来源组',verification:'核实依据',reliability:'可靠性',signal:'信号类型',expanding:'影响范围可能扩大',
@@ -371,9 +371,10 @@ export const errors:Record<string,{en:string;zh:string}>={
   MODEL_TIMEOUT:{en:'The model request timed out. Your incident and prior assessment are preserved.',zh:'模型请求超时。事件及之前的评估均已保留。'},
   PROVIDER_AUTH:{en:'The provider rejected the API credential. Check local configuration.',zh:'服务商拒绝了 API 凭据，请检查本地配置。'},
   PROVIDER_UNAVAILABLE:{en:'The provider could not be reached. Try again after checking the connection.',zh:'暂时无法连接模型服务，请检查网络后重试。'},
+  // Retained for historical run errors; new requests no longer enforce these caps.
   BUDGET_EXHAUSTED:{en:'The remaining budget cannot cover this request and its possible repair. Browsing and exports remain available.',zh:'剩余预算不足以覆盖此次请求及可能的修复。仍可查看和导出。'},
   DAILY_LIMIT:{en:'The daily AI action limit has been reached. You can still review and export.',zh:'已达到每日 AI 请求上限。仍可复核和导出。'},
-  BUSY:{en:'Three model requests are already running. Try again shortly.',zh:'已有三个模型请求正在运行，请稍后重试。'},
+  BUSY:{en:'Six model requests are already running. Try again shortly.',zh:'已有六个模型请求正在运行，请稍后重试。'},
   SOURCE_REPORT_IMMUTABLE:{en:'Keep the original competition report intact; add a new report to correct it.',zh:'请保留原始赛事报告，添加新报告以更正信息。'},
   CANCELLED:{en:'Request cancelled. Previously saved information remains available.',zh:'请求已取消，之前保存的信息仍可使用。'}
 };

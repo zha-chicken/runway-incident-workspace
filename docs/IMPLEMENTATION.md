@@ -18,7 +18,8 @@ Updated 24 October 2026 for application commit `8ad14e3`. Current behavior and r
 - [x] Promo/demo video completed by Claude and watched/approved by the owner; see [SUBMISSION.md](SUBMISSION.md).
 - [x] Clean cached installation, data import, TypeScript, 345 tests and Webpack production build during packaging. Earlier default-build success and later worker-port restriction are separately recorded.
 - [ ] Fresh-install real inference, saved history, restart persistence and export in the intended judge environment.
-- [ ] Submission quota decision, other testing-only settings review, external judge access and Docker verification if offered.
+- [x] Owner-approved quota change implemented locally: no daily workspace/IP quotas or application spending cap; six concurrent requests; usage/history retained. Isolated verification passed 351 tests, TypeScript and the Webpack production build; the default Turbopack build hit the existing worker-port restriction, including its elevated retry.
+- [ ] Other testing-only settings decisions, external judge access and Docker verification if offered.
 - [ ] Final publication review, approved release commit/package refresh, portal fields, rehearsal and submission confirmation.
 
 ## Current evidence and limitations

@@ -167,7 +167,7 @@ export function resetWorkspace(workspaceId: string) {
   db.transaction(() => {
     if (db.prepare("SELECT 1 FROM ai_runs WHERE workspace_id=? AND status='running'").get(workspaceId)) throw new AppError('RUN_ACTIVE', 409);
     db.prepare('DELETE FROM incidents WHERE workspace_id=?').run(workspaceId);
-    // Keep the workspace and ledger so reset cannot replenish quotas or money.
+    // Keep the workspace and usage ledger when resetting incident data.
     for (const event of dataset.events) createIncident(workspaceId, event.input);
   })();
 }

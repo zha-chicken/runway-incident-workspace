@@ -4,7 +4,7 @@ import type {OutputValidation} from '../domain/validation-notes';
 import {sourceStopRequest} from '../domain/policy';
 
 export type IncidentSummary = {id:string;version:number;title:string;sourceEventId:string|null;airportId:string;scenarioPeriod:string;riskLevel:Assessment['riskLevel']|null};
-export type Bootstrap = {incidents:IncidentSummary[];airports:Dataset['airports'];events:Dataset['events'];apiConfigured:boolean;apiFormat:string;effort:string;budget:{used:number;remaining:number};dataset:{version:string;sha256:string}};
+export type Bootstrap = {incidents:IncidentSummary[];airports:Dataset['airports'];events:Dataset['events'];apiConfigured:boolean;apiFormat:string;effort:string;budget:{used:number;limit:number|null;remaining:number|null};dataset:{version:string;sha256:string}};
 export type DraftRow = {id:string;assessment_id:string;audience:Audience;locale:Locale;text:string;revision:number;created_at:string};
 export type DiscussionRow = {validation?:OutputValidation;id:string;question:string;response:Discussion;snapshot_id:string;applied_snapshot_id:string|null;created_at:string};
 export type Run = {id:string;status:string;action:string;error_code:string|null;cost_micro:number|null;reserved_micro:number;created_at:string;metadata:Record<string,unknown>};

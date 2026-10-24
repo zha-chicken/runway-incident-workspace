@@ -85,11 +85,12 @@ The supplied-test rerun accepted 32/32 model-backed steps but had three qualitat
 - Maximum generated tokens: 65,536 for assessment and 32,768 for discussion.
 - Deadlines: 300 and 180 seconds respectively; at most one validation repair.
 - The application keeps final answers and usage metadata. It discards reasoning content.
-- App-accounted pool caps: 40 development / 60 hosted CNY-denominated units. A request reserves enough for its output ceiling and one repair. Unknown interrupted usage retains the reservation.
-- Defaults: 20 AI actions per workspace and 60 per IP over a rolling 24 hours (`VISITOR_DAILY_LIMIT`, `IP_DAILY_LIMIT`); at most three concurrent runs across the application database. These limits still apply in hosted mode.
-- Resetting incidents preserves the spend ledger and request quotas.
+- No application daily workspace/IP quotas or spending cap. Legacy `VISITOR_DAILY_LIMIT` and `IP_DAILY_LIMIT` settings are ignored. Provider-side limits still apply.
+- At most **six concurrent model requests** across the application database, including all workspaces, actions and accounting pools. A seventh request receives `BUSY`; an existing request with the same idempotency key does not consume another slot.
+- Usage accounting remains. `BUDGET_POOL=development` or `hosted` labels the ledger; it does not impose a cap. Request estimates include a possible repair, and unknown interrupted usage retains that estimate. The budget response uses `limit: null` and `remaining: null` to indicate uncapped usage.
+- Resetting incidents preserves the usage ledger.
 
-This ledger covers requests in this application database, not unrelated provider-account spending or a centrally enforced total across independent copies. Cost figures are app estimates, not verified provider invoices or current pricing quotations. Submission quota settings still need review. The high-versus-max experiment was **intentionally skipped**; `high` remains the tested default. Manual timing and basic-prompt comparisons were also intentionally skipped, so no measured time-saving or superiority claim is made.
+This ledger covers requests in this application database, not unrelated provider-account spending or a centrally enforced total across independent copies. Cost figures are app estimates, not verified provider invoices or current pricing quotations. The high-versus-max experiment was **intentionally skipped**; `high` remains the tested default. Manual timing and basic-prompt comparisons were also intentionally skipped, so no measured time-saving or superiority claim is made.
 
 ## Production packaging
 
