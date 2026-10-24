@@ -1,24 +1,27 @@
 # Publication verification — 24 October 2026
 
-Application code: **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**. This refresh changes distribution documents and adds submission materials; it does not change app behavior or run new model calls. [Machine-readable verification](publication-verification.json).
+Application code remains **27f5ec9278a5ac4eb1700fc9843f9ff883b19808**. This presentation refresh adopts Claude's redesigned D01, corrects evaluation provenance, updates acknowledgements and rebuilds D08 from documentation base `920ee97`. [Machine-readable verification](publication-verification.json).
 
-## Source, evidence and exclusions
+**Edition:** 24 October 2026 presentation redesign and provenance correction. D08 distributes these materials as a matching ZIP/checksum pair through the submission release. Verify the downloaded archive against its sidecar, then verify the extracted manifest. Do not mix files from different archive editions. Repository visibility remains an owner-controlled setting.
 
-- All 97 original tracked files are accounted for; 90 are byte-identical. The 7 changed files are Markdown documentation overlays, explicitly listed in the verification JSON and D08 `SOURCE.json`. App code, tests, data, migrations, configuration and lockfile are unchanged.
-- All 1175 fingerprinted original local package/evaluation/runtime files remain unchanged. Git history is retained; the publication commit is additive. Earlier author attribution remains visible in Git history.
-- The 578-entry evidence manifest verifies each distributed file: 575 entries are unchanged; three Markdown reports have only portable-link/exclusion-label/local-path presentation adjustments. Original hashes are recorded alongside new distribution hashes. Model replies, fixtures, verdicts and D05 CSV/JSON are not rewritten.
-- Twenty-eight broken relative links in supporting reports were repaired or explicitly labeled as references to excluded local artifacts. Runtime databases, full workspace exports, session/transport state and provider deliberation were not added to repair links. [Distribution notes](evidence/PUBLICATION-NOTES.md).
-- Source and curated material credential-pattern scans found no likely provider secrets. Only the empty `.env.example` is included. No `.git`, `.env.local`, runtime database, installed dependency tree, build directory or unrelated personal document is distributed.
+## Source, evidence and preservation
 
-## Documents, downloads and checks
+- All 97 application-baseline files are accounted for: 90 are byte-identical to `27f5ec9`, and seven are Markdown documentation overlays. App code, tests, data, migrations, configuration and lockfile are unchanged. D08 `SOURCE.json` and this verification JSON list the overlays.
+- All 705 prior published tracked files are preserved in a separate backup and at Git commit `920ee97`. Existing commit history is retained. The old D08 ZIP/checksum and original Claude authoring folder are preserved separately. 1189 files match the reused earlier publication/Claude fingerprints. Two live SQLite bookkeeping files (WAL and shared memory) differ from that older fingerprint and are excluded from the byte-identical claim. This documentation task does not write to or restore any database.
+- All 578 distributed evidence entries verify against their existing manifest. Every prior published evidence file is byte-identical. The earlier distribution's 575 unchanged files and three portable-link/report copies retain their original provenance; no new evidence transformation was made. D05 CSV/JSON and the speaker script are also byte-identical.
+- [Evaluation source checks](EVALUATION-PROVENANCE.md) verify the original 93-file source against `7bde4c8`, the rerun's five saved patch files against `8ad14e3`, and the unseen 95-file source against `8ad14e3`. The latter commit was created after the run. Frozen plans, source states, replies, verdicts and timestamps are unchanged.
+- Credential-pattern and archive-exclusion checks passed. Only the empty `.env.example` is distributed. No Git metadata, runtime databases, session/transport state, provider deliberation, credentials, dependencies or build outputs were added.
 
-- Nine-slide editable deck passed package/layout/font/native-table checks and re-import. Changed slides were visually reviewed; the six unchanged slides rendered pixel-identically. Its PDF is a fixed export of the checked slides.
-- The refreshed technical report has 13 pages. All pages were visually inspected. Acknowledgements cover development/model assistance, organizer data and libraries; the original approved video and poster bytes are retained.
-- The package has a complete SHA-256 manifest, original-source hashes and explicit overlays. GitHub Release assets provide the ZIP, checksum and video; the repository contains the readable D01–D08 materials and evidence.
-- App verification remains the previously completed 351 tests, TypeScript and Webpack build on byte-matched source. The default Turbopack build hit an environment worker-port restriction. Earlier default-build success belongs to the `8ad14e3` checkpoint. No new test/model-performance claim is made by regenerating documents.
+## Presentation, report and archive
 
-## Owner-controlled submission and remaining limits
+- Nine editable slides passed package integrity, layout/font checks and first-party re-import. The metrics table is native. The validator retained one table-height heuristic warning; the full table and footnotes are visible in the Keynote PDF. Native PowerPoint rendering and animation playback remain unverified.
+- All nine PDF pages were visually reviewed. Eight are pixel-identical to Claude's export; page 6 changes only the evaluation footnote. Text is selectable, and all numeric tokens remain present. The speaker-note wording and all animation/transition XML are preserved. [Adoption record](PRESENTATION-REDESIGN.md).
+- The synchronized technical report remains 13 pages, all visually reviewed. Its design/fonts are unchanged; source-version wording and acknowledgements are aligned with the deck. The owner-approved video and poster remain unchanged.
+- D08 contains a complete SHA-256 manifest, original-source hashes, explicit documentation overlays and the new provenance receipts. The separate sidecar verifies the archive; it is excluded from the ZIP to avoid a self-referential checksum.
+- App verification remains the prior 351 tests, TypeScript and Webpack build on byte-matched app source. These were not rerun for document-only changes. The default Turbopack build hit the recorded worker-port restriction; earlier default-build success belongs to the `8ad14e3` checkpoint. No new test-performance or model-quality claim accompanies this refresh.
 
-The owner will make the repository public and submit its URL. Until that change, links require private-repository access. Signed-out access cannot be confirmed while the repository is private. After the change, verify the repository, report, deck, ZIP and video links before submitting and retain the portal confirmation.
+## Remaining boundaries
 
-Fresh judge-machine real inference/restart/export, uncached installation and Docker remain unverified. No hosted deployment is claimed. Historical packaging verification and model outputs retain their original versions and outcomes; known failures were not changed to passes.
+The owner controls the public-visibility change and final portal submission. Verify repository and download links signed out after making the repository public, and retain the portal confirmation. Packaging checks do not establish public access.
+
+Fresh judge-machine real inference/restart/export, uncached installation and Docker remain unverified. No hosted deployment is claimed. Known model/validator failures and synthetic feedback limitations remain documented without changing any failure to a pass.

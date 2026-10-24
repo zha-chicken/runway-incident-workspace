@@ -15,7 +15,9 @@ Start with the [technical report](TECHNICAL-REPORT.pdf), [presentation](D01-clie
 | D07 Roadmap | [Delivered behavior and future work](D07-implementation-roadmap.md) |
 | D08 Reproducibility | [ZIP](https://github.com/zha-chicken/runway-incident-workspace/releases/download/submission-2026-10-24/D08-reproducibility.zip), [guide](D08-reproducibility.md), [checksum](https://github.com/zha-chicken/runway-incident-workspace/releases/download/submission-2026-10-24/D08-reproducibility.sha256) |
 
-Supporting: [technical report source](TECHNICAL-REPORT.md), [publication verification](PUBLICATION-VERIFICATION.md), [evidence provenance](evidence/MANIFEST.json), [acknowledgements and AI-use statement](../ACKNOWLEDGEMENTS.md), [release downloads](https://github.com/zha-chicken/runway-incident-workspace/releases/tag/submission-2026-10-24). The organizer's eight-item checklist is preserved in [submission-requirements.json](submission-requirements.json); its original status cells are source data, not this project's current completion status.
+**24 October presentation refresh:** this edition includes Claude's redesigned presentation, corrected evaluation provenance, updated acknowledgements and a synchronized D08 package. Download the ZIP and checksum together from the release links above and follow the [D08 verification guide](D08-reproducibility.md).
+
+Supporting: [presentation redesign and checks](PRESENTATION-REDESIGN.md), [evaluation source provenance](EVALUATION-PROVENANCE.md), [technical report source](TECHNICAL-REPORT.md), [publication verification](PUBLICATION-VERIFICATION.md), [evidence provenance](evidence/MANIFEST.json), [acknowledgements and AI-use statement](../ACKNOWLEDGEMENTS.md), [release downloads](https://github.com/zha-chicken/runway-incident-workspace/releases/tag/submission-2026-10-24). The organizer's eight-item checklist is preserved in [submission-requirements.json](submission-requirements.json); its original status cells are source data, not this project's current completion status.
 
 ## Evidence and limitations
 

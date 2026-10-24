@@ -1,8 +1,8 @@
 # D03 — Event test report
 
-Release context: app code is now `27f5ec9`; this report preserves the evaluations through `8ad14e3`. The later quota change was tested separately (351 automated tests), with no new model evaluation claimed.
+Release context: app code is now `27f5ec9`. Original supplied tests used `7bde4c8`; the supplied rerun and unseen tests used working-tree code later committed as `8ad14e3`. The later quota change was tested separately (351 automated tests), with no new model evaluation. [Verified source provenance](EVALUATION-PROVENANCE.md).
 
-**Scope:** recorded evaluation of AeroContext through application commit `8ad14e3`, 24 October 2026. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
+**Scope:** the original supplied run, its rerun and unseen evaluation, completed by 24 October 2026 at the distinct source checkpoints above. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
 
 ## Design and definitions
 

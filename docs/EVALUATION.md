@@ -1,8 +1,8 @@
 # Evaluation results and verification
 
-Updated 24 October 2026. This repository summary corresponds to submission D03. Artifact paths such as `evidence/unseen/...` below are relative to the local submission-materials directory identified in [SUBMISSION.md](SUBMISSION.md); those files are not yet published in this repository. The later promo-video recording is separate from these benchmark totals. No model call or application test was run during this documentation update.
+Updated 24 October 2026. This repository summary corresponds to submission D03. Artifact paths such as `evidence/unseen/...` below are relative to the [submission directory](../submission/README.md); the curated files are included in this repository. The later promo-video recording is separate from these benchmark totals. No model call or application test was run during this documentation update.
 
-**Scope:** recorded evaluation of AeroContext through application commit `8ad14e3`, 24 October 2026. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
+**Scope:** original supplied tests used `7bde4c8`; the supplied rerun and unseen tests used working-tree code later committed as `8ad14e3`. [Source hashes and timing](../submission/EVALUATION-PROVENANCE.md) establish this distinction. These are recorded evaluations from 23–24 October 2026, not a new model evaluation of application `27f5ec9`. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
 
 ## Design and definitions
 

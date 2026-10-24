@@ -23,7 +23,7 @@ Treat every generated message as a draft. Verify report provenance, applicabilit
 
 ## Evidence and release posture
 
-The quota/concurrency row reflects the later owner-approved quota update in `27f5ec9`; recorded evaluation results below remain tied to `8ad14e3` and were not rerun with real model calls.
+The quota/concurrency row reflects `27f5ec9`. Original supplied results used `7bde4c8`; the supplied rerun and unseen results used code later committed as `8ad14e3`. No model reevaluation was performed for `27f5ec9`. [Source provenance](EVALUATION-PROVENANCE.md).
 
 See [the event test report](D03-event-test-report.md) for denominators, source locations and the distinction between earlier successful default-build verification and the later packaging worker-port restriction. The packaging Webpack build passed.
 

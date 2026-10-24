@@ -58,9 +58,9 @@ There are no application daily workspace/IP quotas or spending caps. Up to six m
 
 # D03 — Event test report
 
-Release context: app code is now `27f5ec9`; this report preserves the evaluations through `8ad14e3`. The later quota change was tested separately (351 automated tests), with no new model evaluation claimed.
+Release context: app code is now `27f5ec9`. Original supplied tests used `7bde4c8`; the supplied rerun and unseen tests used working-tree code later committed as `8ad14e3`. The later quota change was tested separately (351 automated tests), with no new model evaluation. [Verified source provenance](EVALUATION-PROVENANCE.md).
 
-**Scope:** recorded evaluation of AeroContext through application commit `8ad14e3`, 24 October 2026. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
+**Scope:** the original supplied run, its rerun and unseen evaluation, completed by 24 October 2026 at the distinct source checkpoints above. All test incidents were fictional and all model runs used isolated databases. Live incidents/chats and the original evaluation files were preserved. The archive includes full final replies, both failed reply attempts when available, exact fixtures, expectations, matrices and usage summaries. Provider deliberation and transport credentials are excluded from the distribution.
 
 ## Design and definitions
 
@@ -220,7 +220,7 @@ Treat every generated message as a draft. Verify report provenance, applicabilit
 
 ## Evidence and release posture
 
-The quota/concurrency row reflects the later owner-approved quota update in `27f5ec9`; recorded evaluation results below remain tied to `8ad14e3` and were not rerun with real model calls.
+The quota/concurrency row reflects `27f5ec9`. Original supplied results used `7bde4c8`; the supplied rerun and unseen results used code later committed as `8ad14e3`. No model reevaluation was performed for `27f5ec9`. [Source provenance](EVALUATION-PROVENANCE.md).
 
 See [the event test report](D03-event-test-report.md) for denominators, source locations and the distinction between earlier successful default-build verification and the later packaging worker-port restriction. The packaging Webpack build passed.
 
@@ -256,10 +256,10 @@ The remaining supplied/unseen quality failures and D05 blocked reassessment were
 
 ## Acknowledgements and AI use
 
-The project owner, zha-chicken, selected the scope and reviewed the application behavior, submission materials and approved video. OpenAI Codex and Anthropic Claude assisted with implementation, debugging, tests and documentation. Claude created the promo/demo video. Codex assisted with output review, evaluation records and publication preparation. Existing Git author attribution is preserved.
+The project owner, Benjamin Jin, class 9(4) (GitHub: zha-chicken), selected the scope and reviewed the application behavior, submission materials and approved video. OpenAI Codex and Anthropic Claude assisted with implementation, debugging, tests and documentation. Claude created the promo/demo video. Codex assisted with output review, evaluation records and publication preparation. Existing Git author attribution is preserved.
 
 The application uses DeepSeek Flash with the high setting. Its policy and validation checks do not prove that every generated claim is correct. D05 decisions and outcomes are synthetic demonstrations, not independent participant observations. Recorded failed replies and known limitations remain in the evaluation evidence. No new model calls were made for publication.
 
 HackSHSID supplied the Track 3 workbook and problem statement; the problem setters are Accenture. The data describes a fictional airline simulation. Public aviation sources in the brief are background references, not live integrations in this prototype.
 
-The software stack includes Next.js, React, TypeScript, Tailwind CSS, Radix UI, next-intl, Lucide, better-sqlite3, Drizzle, ExcelJS, Zod and the unified/remark Markdown ecosystem; Vitest supports checks. OpenAI presentation tooling and ReportLab were used for the documents. The video creator reports synthesized music and interface sounds, with no third-party audio. See ACKNOWLEDGEMENTS.md and THIRD-PARTY-NOTICES.md at the repository or ZIP root for attribution and copied dependency notices.
+The software stack includes Next.js, React, TypeScript, Tailwind CSS, Radix UI, next-intl, Lucide, better-sqlite3, Drizzle, ExcelJS, Zod and the unified/remark Markdown ecosystem; Vitest supports checks. OpenAI presentation tooling and ReportLab prepared the original documents. Claude redesigned D01 with PptxGenJS and Keynote PDF export; Codex corrected its provenance footnote and synchronized this report. PowerPoint animation playback remains unverified. The video creator reports synthesized music and interface sounds, with no third-party audio. See ACKNOWLEDGEMENTS.md and THIRD-PARTY-NOTICES.md at the repository or ZIP root for attribution and copied dependency notices.

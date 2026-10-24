@@ -1,0 +1,74 @@
+{
+  "sourcePptxSha256": "cf3a4198015d8d43e81492863b992b138b2cb541100dcfe5beb7ee6191691eb6",
+  "sourcePdfSha256": "8b41f6ce4579dd89214d243b1007542f7cb7f75fe4cdf59372938c22fbfadabb",
+  "finalPptxSha256": "78908ddfd5ba07a216217ca4baebd301402ac562d3e54c8d3df78889eb3adc3d",
+  "finalPdfSha256": "0bc43e6f6261faac330c80d38a6a99303288e70eed63f0de07344f01bb0cf6d3",
+  "slideCount": 9,
+  "editedParts": [
+    "[Content_Types].xml",
+    "ppt/slides/slide6.xml"
+  ],
+  "originalSpeakerNoteBodiesPreserved": 9,
+  "allOtherPptxPartsByteIdenticalToClaude": true,
+  "allTransitionAndAnimationXmlPreserved": true,
+  "pdfSelectableTextMatchesSourceExceptProvenanceFootnote": true,
+  "pdfNumericTokensPreserved": true,
+  "pixelComparisonDpi": 95,
+  "pixelComparison": [
+    {
+      "slide": 1,
+      "identical": true,
+      "differenceBoundsPx": null
+    },
+    {
+      "slide": 2,
+      "identical": true,
+      "differenceBoundsPx": null
+    },
+    {
+      "slide": 3,
+      "identical": true,
+      "differenceBoundsPx": null
+    },
+    {
+      "slide": 4,
+      "identical": true,
+      "differenceBoundsPx": null
+    },
+    {
+      "slide": 5,
+      "identical": true,
+      "differenceBoundsPx": null
+    },
+    {
+      "slide": 6,
+      "identical": false,
+      "differenceBoundsPx": [
+        57,
+        573,
+        807,
+        586
+      ]
+    },
+    {
+      "slide": 7,
+      "identical": true,
+      "differenceBoundsPx": null
+    },
+    {
+      "slide": 8,
+      "identical": true,
+      "differenceBoundsPx": null
+    },
+    {
+      "slide": 9,
+      "identical": true,
+      "differenceBoundsPx": null
+    }
+  ],
+  "allFinalSlidesVisuallyReviewed": true,
+  "layoutWarning": "Native-table height heuristic flagged slide 6; all seven rows and footnotes are fully visible in the Keynote PDF. Native PowerPoint rendering remains unverified.",
+  "powerPointAnimationPlaybackVerified": false,
+  "originalArtifactsPreserved": true,
+  "newModelCalls": 0
+}

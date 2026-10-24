@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "manifest": "supplied-original-source.json",
+      "sourceArtifact": "2026-10-23-supplied-tests/source-manifest.json",
+      "manifestSha256": "c926654184292e77f0db35a5093673a534d198643bb383496445ba457cc7f999",
+      "comparisonCommit": "7bde4c8964f7c8663bf95e5e0143fe2e014f7dd5",
+      "fileCount": 93,
+      "mismatches": []
+    },
+    {
+      "manifest": "supplied-rerun-patch.json",
+      "sourceArtifact": "2026-10-24-supplied-test-fixes/tested-source.json",
+      "manifestSha256": "f17d96f3d640852a5fd2da855c41c29ab552e3effb0fd94efdd95518789fcc8d",
+      "comparisonCommit": "8ad14e3ca10538f4a4fcf2ba5ce39f52c72e99b9",
+      "fileCount": 5,
+      "mismatches": []
+    },
+    {
+      "manifest": "unseen-source.json",
+      "sourceArtifact": "2026-10-24-unseen-scenarios/source-manifest.json",
+      "manifestSha256": "aa649e3a7e0e47dabb3bfe3b535cf84634fa925be28f9b9cc3287011a430594c",
+      "comparisonCommit": "8ad14e3ca10538f4a4fcf2ba5ce39f52c72e99b9",
+      "fileCount": 95,
+      "mismatches": []
+    }
+  ],
+  "method": "SHA-256 of saved source entries compared with git blobs. Original 93-file and unseen 95-file manifests cover their entire comparison commit; rerun manifest covers the five changed files.",
+  "historyRewritten": false,
+  "newModelCalls": 0
+}

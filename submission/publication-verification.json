@@ -1,5 +1,7 @@
 {
   "applicationCodeCommit": "27f5ec9278a5ac4eb1700fc9843f9ff883b19808",
+  "documentationBaseCommit": "920ee9791a35658d21b91590ff9c38973c8d88a7",
+  "publicationEdition": "24 October 2026 presentation redesign and provenance correction",
   "sourceTrackedFiles": 97,
   "unchangedOriginalFiles": 90,
   "documentationOverlays": [
@@ -12,16 +14,36 @@
     "docs/EVALUATION.md"
   ],
   "appCodeTestsConfigDataUnchanged": true,
-  "originalFilesPreserved": 1175,
+  "priorPublishedFilesBackedUp": 705,
+  "originalFilesMatchingEarlierFingerprints": 1189,
+  "runtimeFingerprintExceptions": [
+    "runway.sqlite-wal",
+    "runway.sqlite-shm"
+  ],
+  "runtimeExceptionExplanation": "Live SQLite WAL/shared-memory files differ from the reused earlier publication fingerprint. They are excluded from the byte-identical claim; no database write or restore is performed by this documentation task.",
+  "originalD08Sha256": "5f64ccdd46122a4cf63f6fb60c06138e1d273766e4446c40e50e2f788cf477ec",
   "evidenceManifestEntries": 578,
-  "unchangedEvidenceFiles": 575,
-  "linkOnlyEvidenceCopies": 3,
+  "allPriorPublishedEvidenceBytesUnchanged": true,
   "syntheticFeedbackCsvJsonByteIdentical": true,
+  "speakerScriptByteIdentical": true,
+  "evaluationSourceProvenance": {
+    "originalSupplied": "7bde4c8",
+    "rerunAndUnseen": "Working-tree bytes later committed as 8ad14e3",
+    "checkedFiles": [
+      93,
+      5,
+      95
+    ]
+  },
   "technicalReportPages": 13,
+  "technicalReportAllPagesVisuallyReviewed": true,
   "presentationSlides": 9,
-  "presentationChecks": "integrity, layout, fonts, native table, re-import passed; changed slides visually checked and unchanged slides pixel-identical",
+  "presentationAllPagesVisuallyReviewed": true,
+  "presentationPixelComparison": "Eight PDF pages identical to Claude export; page 6 differs only at the corrected footnote.",
+  "presentationChecks": "Package integrity, layout/font checks and first-party re-import passed. Table-height heuristic warning retained; complete table visible in Keynote PDF.",
+  "powerPointAnimationPlaybackVerified": false,
   "applicationChecks": {
-    "source": "previous isolated verification; tested bytes match",
+    "source": "Previously recorded verification; tested app bytes match. Not rerun for this document-only refresh.",
     "tests": 351,
     "typecheck": "passed",
     "webpackBuild": "passed",
@@ -30,17 +52,17 @@
   "newModelCalls": 0,
   "historyRewritten": false,
   "visibilityChanged": false,
+  "releaseAssetVerification": "Download the matching D08 ZIP and sidecar, verify the archive checksum, then verify its extracted MANIFEST.sha256.",
   "remainingOwnerActions": [
-    "make repository public",
-    "check repository and release assets signed out",
-    "submit repository URL and retain portal confirmation"
+    "Make repository public and check signed-out access",
+    "Submit repository URL and retain portal confirmation"
   ],
   "runtimeLimitations": [
-    "fresh judge-machine real inference/restart/export not verified",
-    "uncached installation and Docker not verified",
-    "no hosted service claimed"
+    "Fresh judge-machine real inference/restart/export unverified",
+    "Uncached installation and Docker unverified",
+    "No hosted service claimed"
   ],
-  "localMarkdownFileLinksChecked": 390,
+  "localMarkdownFileLinksChecked": 412,
   "missingLocalMarkdownFileLinks": 0,
   "credentialPatternCandidates": 0
 }

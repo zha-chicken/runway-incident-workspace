@@ -1,0 +1,7 @@
+{
+  "src/domain/report-period.ts": "87d782bccafd198839747c56ea1220bd299b3b5c72756db27cb541ae675bcd44",
+  "src/ai/interpretation-context.ts": "1b45ed389f09d88e2af59e4355ae0b6f6736da4c10df12d2bc581653c9ae0f40",
+  "src/ai/service.ts": "f97bfbaf7423d4a060ff0c2d294becbc034ebd6af580081caa15bc794ce98397",
+  "tests/interpretation-context.test.ts": "45c6dd1e0f368342c1d441ba01a3b8b08c03d88e149d5842ca329e2fe0ba2c6c",
+  "tests/reassessment-feedback.test.ts": "e924cf5f16cc4c91f76aea86acad7dd92e99ee3bfd463f981a11e4a9c985ab16"
+}

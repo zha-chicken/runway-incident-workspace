@@ -18,7 +18,7 @@ The HackSHSID organizers supplied **Track 3 Problem Statement** (problem setters
 
 The application uses Next.js, React, TypeScript, Tailwind CSS, Radix UI, next-intl, Lucide, better-sqlite3, Drizzle, ExcelJS, Zod, react-markdown and the unified/remark ecosystem. Vitest and tsx support development and checks. Versions and dependency integrity are pinned in [package-lock.json](package-lock.json). [Third-party notices](THIRD-PARTY-NOTICES.md) list installed direct dependencies and their license notices; upstream terms remain applicable. This document does not assign a new license to organizer materials or other contributors' work.
 
-OpenAI document/presentation tooling and ReportLab were used to prepare the editable deck and PDFs. The presentation and report retain their existing design and fonts. The promo README attributes its generated music and interface sounds to the project's `music.py`; it reports no third-party audio. The video and poster are used unchanged from the owner-approved copies.
+OpenAI document/presentation tooling and ReportLab were used to prepare the original presentation and technical report. Claude redesigned the current presentation using PptxGenJS, with its PDF exported through Keynote. Codex corrected the evaluation-provenance footnote and refreshed the submission package. The technical report retains its design and fonts, with provenance and attribution wording synchronized. PowerPoint animation playback has not been verified. The promo README attributes its generated music and interface sounds to the project's `music.py`; it reports no third-party audio. The video and poster are used unchanged from the owner-approved copies.
 
 ## Verification and provenance
 
