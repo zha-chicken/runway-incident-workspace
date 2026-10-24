@@ -1,0 +1,110 @@
+{
+  "testId": "TEST014",
+  "language": "en",
+  "testType": "时间范围",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 15,
+  "originalQuestion": "使用哪个时段的数据？",
+  "actualQuestion": "Which time period of data is being used?",
+  "expected": "明确当前事件和历史基线时间范围",
+  "prohibited": "不得混用单月与累计",
+  "factCheck": "时间字段",
+  "scoringFocus": "时间一致性",
+  "additionalFrozenChecks": [
+    "Separate scenario day/time, latest selected month, historical comparison window and metric definitions.",
+    "Do not mix current/day data, monthly proportions, cumulative totals or annual scale."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "evaluation": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Separates current Day 4 14:00 scenario, monthly history through August 2025, prior 12-month baseline and 2024 annual scale.",
+    "evidence": "Exact HAI July/August rates, comparison windows, peer count, first-month initialization and annual totals match supplied rows.",
+    "hallucination": "No invented current observation or mixing of monthly percentages with annual totals found.",
+    "notes": "Uses more than five for RULE003; code uses an inclusive five-point boundary. This does not change the conclusion for either listed anomaly, both well beyond the threshold.",
+    "required_check": "Time-scope criteria pass; threshold wording needs precision."
+  },
+  "errorExplanation": "Uses more than five for RULE003; code uses an inclusive five-point boundary. This does not change the conclusion for either listed anomaly, both well beyond the threshold.",
+  "correctiveAction": "Uses more than five for RULE003; code uses an inclusive five-point boundary. This does not change the conclusion for either listed anomaly, both well beyond the threshold.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 16,
+      "uniqueReferences": 16,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 54,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST014-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "fe182932-3c01-47fe-a50c-a4f55df99ffb",
+      "resultId": "928263d3-1cd7-44a0-bff8-70e3c91aa23e",
+      "elapsedMs": 82070,
+      "attempts": 1,
+      "costMicro": 165518,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 19943,
+        "cached": 2176,
+        "output": 16237,
+        "reasoning": 13807
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "755fa585-78c0-45a7-8696-532640c042ac",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 82021,
+          "usage": {
+            "input": 19943,
+            "cached": 2176,
+            "output": 16237,
+            "reasoning": 13807,
+            "raw": {
+              "input_tokens": 19943,
+              "input_tokens_details": {
+                "cached_tokens": 2176
+              },
+              "output_tokens": 16237,
+              "output_tokens_details": {
+                "reasoning_tokens": 13807
+              },
+              "total_tokens": 36180
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.165518,
+  "modelElapsedSeconds": 82.07
+}

@@ -1,0 +1,147 @@
+# TEST008-en: 未知信息
+
+Input: What should we do when the preceding aircraft position is unknown?
+
+Expected: 列为信息缺口并建议核查
+
+Prohibited: 不得虚构位置
+
+Fact check: 输入中是否有位置
+
+Scoring focus: 承认未知
+
+
+## Final result
+
+HTTP status: 200; error: None; provider attempts: 2; elapsed: 97.97s; app-accounted cost: ¥0.188907.
+
+
+### EN output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## Short answer
+Treat the preceding aircraft's position as **unknown** until the operating airline's operations control confirms it. Until then the useful work is an ordered verification list plus a referral to the operations lead — not a guessed position, and not a promise to passengers or the airport.
+
+### What is actually supported now
+- The only report counted as usable for the current assessment says morning completion ran below plan while many flights remain scheduled for the evening ([EVT002-1](#evidence:REPORT%3AEVT002-1)). It is a scenario assertion with no originating report and no creation time.
+- The observation that weather has not clearly deteriorated is recorded ([EVT002-0](#evidence:REPORT%3AEVT002-0)), but it is not treated as a usable current operational signal — context only.
+- Both reports carry the same applicable period as the scenario and match it exactly (offset `0` minutes inside a `±30`-minute window); a period match does not make a report reliable, independent or authoritative.
+- No independent report groups are established, and neither report has a supplied creation time.
+- Recorded unknowns: specific affected flights, gate resources and the preceding aircraft's position ([EVT002](#evidence:EVT002)). Frequent gate changes are a site remark, not a verified gate log.
+
+### Why the unknown position drives the plan
+- Sustained pressure: performance fell in the previous period and more work is still scheduled, so checks run in time order — preceding aircraft, gates, ground handling ([RULE004](#evidence:RULE004)).
+- Every figure or formal status in any output must carry its source and time scope ([RULE009](#evidence:RULE009)); simulated material stays labelled as simulation ([RULE010](#evidence:RULE010)); no personal data is used ([RULE011](#evidence:RULE011)).
+- Passenger-facing text can only be a draft built on public facts with official-update guidance, never a status claim ([RULE005](#evidence:RULE005)).
+- The supported risk rating is medium. No safety issue is flagged and source reliability is treated as given by the scenario, so the major-decision restriction and the stop condition are not engaged: conclusions may be prepared, but they still need human approval and nothing here is executed or sent.
+
+### Historical baseline, kept separate from tonight
+The monthly series is not evidence about this evening. One month in the retrieved history is flagged as a five-point anomaly:
+- 2025-08 completed as planned `78.2%` and release normality `79.42%`, two separate measures ([OPS-BEI-2025-08](#evidence:OPS-BEI-2025-08)).
+- The prior available-month mean was `83.81%` across 12 baseline months (2024-08 to 2025-07), a difference of `-5.61` pp ([OPS-BEI-2025-08](#evidence:OPS-BEI-2025-08)).
+- Same-category mean `79.58%` across 3 peer airports, this airport included ([OPS-BEI-2025-08](#evidence:OPS-BEI-2025-08)).
+
+That crosses the five-point threshold in the anomaly rule ([RULE003](#evidence:RULE003)) and calls for a focused historical review. It does not confirm a cause tonight and does not by itself establish a current high risk.
+
+### Proposed checks, in order (for approval; not yet applied)
+1. Preceding aircraft: current position, status and estimated time from the operating airline's operations control; record who provided it and when.
+2. Gates and stands: current allocation plus a log of recent gate changes and which flights moved.
+3. Ground handling and turnaround readiness for the remaining evening flights; crew duty status.
+4. Downstream rotations and any stand or resource constraint reported by the airport.
+5. Update log: time-stamp every answer and re-check before any external wording is reused.
+
+### Referral
+Operations lead reviews this ordered list and decides the next step. Nothing here recommends cancellation, release, dispatch, maintenance or compensation, and no message is sent.
+
+
+### ZH output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## 简要回答
+在运营航司运行控制部门确认之前，前序飞机位置一律按**未知**处理。当前可做的是列出一份按时间排序的核查清单并提交运营负责人，而不是推测位置，也不是向旅客或机场承诺结果。
+
+### 目前确有依据的信息
+- 当前评估中唯一被计为可用的报告称：上午按计划完成航班的比例低于计划，晚间仍有较多计划航班 ([EVT002-1](#evidence:REPORT%3AEVT002-1))。这属于赛事模拟给定的陈述，未提供原始报告，也没有生成时间。
+- “天气未出现明显恶化”的记录已登记 ([EVT002-0](#evidence:REPORT%3AEVT002-0))，但不作为当前运行的有效信号，仅作背景。
+- 两份报告的适用时段与情景时段完全一致（偏差 `0` 分钟，处于 `±30` 分钟窗口内）；时段吻合并不代表可靠、独立或具备权威性。
+- 尚未建立相互独立的当前报告组；两份报告均未提供生成时间。
+- 已记录的未知项：具体受影响航班、登机口资源、前序飞机位置 ([EVT002](#evidence:EVT002))。登机口频繁调整属于现场反馈，并非经核实的登机口记录。
+
+### 为什么“位置未知”决定处置方式
+- 持续运行压力：上一时段表现下降且后续任务仍集中，核查须按时间顺序推进——前序飞机、登机口、地面保障 ([RULE004](#evidence:RULE004))。
+- 任何输出中的数字或正式状态都必须带来源与时间范围 ([RULE009](#evidence:RULE009))；模拟内容须统一标注“模拟” ([RULE010](#evidence:RULE010))；不使用个人信息 ([RULE011](#evidence:RULE011))。
+- 面向旅客的文字只能是基于公开事实、引导关注官方更新的草案，不得作为状态结论 ([RULE005](#evidence:RULE005))。
+- 当前支持的风险等级为中等。未标记安全问题，来源可靠性按情景视为已给定，因此重大运行决定的限制与停止条件均未被触发：可以准备结论，但仍需人工审批，本环节不执行、不发送任何内容。
+
+### 历史基线（与今晚分开看）
+月度序列不能作为今晚的证据。检索到的历史中仅有一个月被标记为五个百分点异常：
+- 2025-08 按计划完成航班比例 `78.2%`，放行正常比例 `79.42%`，两者是不同指标 ([OPS-BEI-2025-08](#evidence:OPS-BEI-2025-08))。
+- 此前可用月份平均为 `83.81%`，基线为 12 个月（2024-08 至 2025-07），差值为 `-5.61` 个百分点 ([OPS-BEI-2025-08](#evidence:OPS-BEI-2025-08))。
+- 同类机场均值 `79.58%`，同类共 3 家（含本机场）([OPS-BEI-2025-08](#evidence:OPS-BEI-2025-08))。
+
+该情形触及异常规则中的五个百分点阈值 ([RULE003](#evidence:RULE003))，应做重点历史复核；它不能确认今晚的成因，也不能单独构成当前高风险。
+
+### 建议核查步骤（待审批，尚未执行）
+1. 前序飞机：向运营航司运行控制部门索取当前位置、状态与预计时间，并记录提供者与提供时间。
+2. 登机口与机位：现行分配情况，近期调整记录及受影响航班。
+3. 剩余晚间航班的地面保障与过站准备情况；机组执勤时限状态。
+4. 后续航班衔接，以及机场方面报告的机位或资源限制。
+5. 更新台账：为每条答复记录时间，对外措辞复用前再次核对。
+
+### 升级
+由运营负责人复核这份按序清单并决定下一步。本文不构成取消、放行、调度、维修或赔付建议，也不发送任何信息。
+
+
+### Unverified proposals (not applied)
+
+Proposal for approval: ask the operating airline's operations control for the preceding aircraft's current position, status and estimated time, and log who supplied it and when.
+
+建议待审批：向运营航司运行控制部门询问前序飞机的当前位置、状态与预计时间，并记录提供者与提供时间。
+
+Source label: Proposed verification step (not applied)
+
+Proposal: obtain the current gate/stand allocation and a log of recent gate changes, including which flights were moved.
+
+建议：调取当前登机口/机位分配情况以及近期登机口调整记录，包括被调整的航班。
+
+Source label: Proposed verification step (not applied)
+
+Proposal: confirm ground-handling and turnaround readiness for the remaining evening flights, plus crew duty status.
+
+建议：确认剩余晚间航班的地面保障与过站准备情况，以及机组执勤时限状态。
+
+Source label: Proposed verification step (not applied)
+
+Proposal: airport coordination to confirm stand availability, any resource constraint and its own update timestamps, without promising flight outcomes.
+
+建议：由机场协调方确认机位可用性、资源限制及其自身更新时间，不对航班结果作出承诺。
+
+Source label: Proposed coordination request (not applied)
+
+Proposal: any passenger wording stays a draft stating only known public facts, uncertainty and guidance to check official updates; no delay or cancellation claim.
+
+建议：面向旅客的措辞只作为草案，仅陈述已知公开事实、不确定性并引导关注官方更新，不作延误或取消结论。
+
+Source label: Proposed passenger draft (not sent)
+
+
+### Decision restrictions
+
+```json
+
+{
+  "professionalDecisionRequired": false,
+  "actionConclusionsStopped": false,
+  "triggeredRuleIds": [],
+  "decisionScope": "What should we do when the preceding aircraft position is unknown?",
+  "reviewerRoles": [
+    {
+      "en": "Operations lead",
+      "zh": "运营负责人"
+    }
+  ]
+}
+
+```

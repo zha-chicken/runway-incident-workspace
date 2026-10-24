@@ -1,0 +1,124 @@
+{
+  "testId": "TEST006",
+  "language": "zh",
+  "type": "沟通对象",
+  "originalQuestion": "分别写给运营人员和旅客",
+  "actualQuestion": "分别写给运营人员和旅客",
+  "expected": "生成重点不同的两类文字",
+  "prohibited": "不得使用完全相同文本",
+  "factCheck": "对象需求",
+  "scoringFocus": "对象化表达",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Different audience drafts, prioritized checks, explicit review/sending restrictions and unconfirmed status.",
+    "evidence": "Current NAN forecast and unknowns match; no false current decline asserted under RULE004.",
+    "unsupportedClaims": "Passenger guidance asks readers to check official channels; no promised notification or display-update service.",
+    "proposedFacts": "Three human-review proposals; no application or completion claimed.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.204567,
+  "elapsedSeconds": 108.467,
+  "phases": [
+    {
+      "key": "TEST006-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "03cce487-a7a3-4d2f-925a-374e7d46271c",
+      "resultId": "a82f6028-b90a-477b-86fe-b1fb6f6eb344",
+      "elapsedMs": 108467,
+      "attempts": 2,
+      "costMicro": 204567,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 49858,
+        "cached": 26240,
+        "output": 19535,
+        "reasoning": 14749
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "4d783714-e69c-4389-9273-4a35a62e0ead",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 41041,
+          "usage": {
+            "input": 24909,
+            "cached": 1536,
+            "output": 7718,
+            "reasoning": 4718,
+            "raw": {
+              "input_tokens": 24909,
+              "input_tokens_details": {
+                "cached_tokens": 1536
+              },
+              "output_tokens": 7718,
+              "output_tokens_details": {
+                "reasoning_tokens": 4718
+              },
+              "total_tokens": 32627
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "上述数字来自  2025-07  与  2025-08  的月度运行记录；基线的月份数均为 12 个此前月份，不含该行所在月份。已检索数据中最大差值为 2025-08 的  -4.00 个百分点 ，仍在五个百分点区间内。按计划完成比例与放行正常比例是两个独立指标，已分别列示。这些历史偏低值得对往年同月做历史复核，但不能据此认定今晚预报的成因，也不单独构成当前高风险。月度天气记录同样显示部分月份明显不利天气天数最多达 5 天（例如 2025-09： 5  天、 188 毫米 ），属过去波动，不是预报（ WX-NAN-2025-09 ）。"
+            }
+          ],
+          "validationIssues": [
+            "answer.zh: 5pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "b600c23e-6e95-4697-8e4d-fd80ab3f1d4d",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 67378,
+          "usage": {
+            "input": 24949,
+            "cached": 24704,
+            "output": 11817,
+            "reasoning": 10031,
+            "raw": {
+              "input_tokens": 24949,
+              "input_tokens_details": {
+                "cached_tokens": 24704
+              },
+              "output_tokens": 11817,
+              "output_tokens_details": {
+                "reasoning_tokens": 10031
+              },
+              "total_tokens": 36766
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST006-zh"
+}

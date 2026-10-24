@@ -1,0 +1,121 @@
+{
+  "testId": "TEST014",
+  "language": "zh",
+  "testType": "时间范围",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 15,
+  "originalQuestion": "使用哪个时段的数据？",
+  "actualQuestion": "使用哪个时段的数据？",
+  "expected": "明确当前事件和历史基线时间范围",
+  "prohibited": "不得混用单月与累计",
+  "factCheck": "时间字段",
+  "scoringFocus": "时间一致性",
+  "additionalFrozenChecks": [
+    "Separate scenario day/time, latest selected month, historical comparison window and metric definitions.",
+    "Do not mix current/day data, monthly proportions, cumulative totals or annual scale."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "FAIL_QUALITY",
+  "evaluation": {
+    "verdict": "FAIL_QUALITY",
+    "coreCriteria": "PASS",
+    "logic": "Correctly separates scenario, monthly and annual scopes, but invents a limitation of the report-period parser.",
+    "evidence": "Historical values/windows and cutoff match source rows. Production report-period.ts parses the Chinese relative-day clock format and applies the inclusive 30-minute window.",
+    "hallucination": "Incorrectly says this time format is not parseable and the time window cannot be applied; incorrectly implies a report-send timestamp is required for applicability matching.",
+    "notes": "The current fixture matches exactly, so inclusion is correct. A direct offline production-function check accepted 13:30 and 14:30 around Chinese Day 4 14:00, and rejected 14:31.",
+    "required_check": "Core current/history separation passes; implementation explanation fails factual review.",
+    "errors": [
+      {
+        "quote": "The paragraph under the first why-this-window heading says the relative-day format cannot be parsed and the time window cannot be applied without a sent timestamp (see original Chinese output).",
+        "correction": "The parser supports this Chinese simulation-day clock format. Currentness compares applicablePeriod to scenarioPeriod with an inclusive 30-minute window on either side; an exact match also succeeds. reportedAt is distinct and is not required by this period-comparison function.",
+        "sources": [
+          "src/domain/report-period.ts",
+          "time-window-explanation-check.json"
+        ]
+      }
+    ]
+  },
+  "errorExplanation": "Incorrectly says this time format is not parseable and the time window cannot be applied; incorrectly implies a report-send timestamp is required for applicability matching.",
+  "correctiveAction": "The parser supports this Chinese simulation-day clock format. Currentness compares applicablePeriod to scenarioPeriod with an inclusive 30-minute window on either side; an exact match also succeeds. reportedAt is distinct and is not required by this period-comparison function.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 14,
+      "uniqueReferences": 14,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 28,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST014-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "38447056-e6bd-4feb-bf69-4e49d83781f4",
+      "resultId": "7f591b3b-56a2-4e61-b42d-b7dd979036ec",
+      "elapsedMs": 33324,
+      "attempts": 1,
+      "costMicro": 83402,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 19933,
+        "cached": 2176,
+        "output": 5975,
+        "reasoning": 3519
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "b0a1104a-697c-4fd8-bc04-db5001a65f01",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 33294,
+          "usage": {
+            "input": 19933,
+            "cached": 2176,
+            "output": 5975,
+            "reasoning": 3519,
+            "raw": {
+              "input_tokens": 19933,
+              "input_tokens_details": {
+                "cached_tokens": 2176
+              },
+              "output_tokens": 5975,
+              "output_tokens_details": {
+                "reasoning_tokens": 3519
+              },
+              "total_tokens": 25908
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.083402,
+  "modelElapsedSeconds": 33.324
+}

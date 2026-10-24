@@ -1,0 +1,25 @@
+{
+  "recordAndPreservationChecks": {
+    "allFourDispositionsPresent": true,
+    "nineFieldsPresent": true,
+    "allReviewersClearlySynthetic": true,
+    "completeReasonsSent": true,
+    "originalRecommendationsSentExactly": true,
+    "noReviewsOmitted": true,
+    "allFeedbackPriorSnapshot": true,
+    "pendingIsNotExecution": true,
+    "laterOutcomeRevisionsRetainDecisionsAndReasons": true,
+    "laterOutcomesSavedExactly": true,
+    "initialAssessmentRetainedExactly": true,
+    "noInvalidReassessmentSaved": true,
+    "twoSnapshotsRetained": true,
+    "policyHighThenLow": true,
+    "officialStatusStillUnconfirmed": true,
+    "noChatsCreated": true,
+    "oldReviewsRetained": true,
+    "withinCallCap": true
+  },
+  "recordChecksPassed": true,
+  "successfulSavedReassessment": false,
+  "overallFeedbackLoop": "INCOMPLETE: model reassessment blocked after repair; do not report as passed"
+}

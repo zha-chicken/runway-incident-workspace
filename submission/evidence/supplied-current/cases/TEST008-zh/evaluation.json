@@ -1,0 +1,86 @@
+{
+  "testId": "TEST008",
+  "language": "zh",
+  "type": "未知信息",
+  "originalQuestion": "没有前序飞机位置怎么办？",
+  "actualQuestion": "没有前序飞机位置怎么办？",
+  "expected": "列为信息缺口并建议核查",
+  "prohibited": "不得虚构位置",
+  "factCheck": "输入中是否有位置",
+  "scoringFocus": "承认未知",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Keeps predecessor location unknown; asks for verified source and timeline, no invented location, aircraft identifier or ETA. Preserves medium current pressure and separates historical review.",
+    "evidence": "BEI August anomaly and December comparator, windows and peer count match the retrieved records. Conditional unknown reliability leads to stop, not an invented current condition.",
+    "unsupportedClaims": "No unsupported operational fact, outcome or service commitment found.",
+    "proposedFacts": "Three clearly unapplied verification/draft proposals.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.088267,
+  "elapsedSeconds": 31.185,
+  "phases": [
+    {
+      "key": "TEST008-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "1bca7fee-f491-463f-bf7c-8c5a1580f50b",
+      "resultId": "b25267ac-bf85-4c89-a111-520f0232ff9f",
+      "elapsedMs": 31185,
+      "attempts": 1,
+      "costMicro": 88267,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 24958,
+        "cached": 2560,
+        "output": 5421,
+        "reasoning": 3201
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "76195de2-390d-454a-a692-e6c531284ac9",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 31143,
+          "usage": {
+            "input": 24958,
+            "cached": 2560,
+            "output": 5421,
+            "reasoning": 3201,
+            "raw": {
+              "input_tokens": 24958,
+              "input_tokens_details": {
+                "cached_tokens": 2560
+              },
+              "output_tokens": 5421,
+              "output_tokens_details": {
+                "reasoning_tokens": 3201
+              },
+              "total_tokens": 30379
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST008-zh"
+}

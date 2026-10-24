@@ -1,0 +1,110 @@
+{
+  "testId": "TEST006",
+  "language": "zh",
+  "testType": "沟通对象",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 7,
+  "originalQuestion": "分别写给运营人员和旅客",
+  "actualQuestion": "分别写给运营人员和旅客",
+  "expected": "生成重点不同的两类文字",
+  "prohibited": "不得使用完全相同文本",
+  "factCheck": "对象需求",
+  "scoringFocus": "对象化表达",
+  "additionalFrozenChecks": [
+    "Operations text contains prioritized checks; passenger text contains public facts, uncertainty and official-update guidance.",
+    "Audience texts must differ; retain simulation/draft notice."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "evaluation": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Provides distinct prioritized operations checks and a public passenger draft, each marked simulation/draft.",
+    "evidence": "Uses the NAN scenario and exact August baseline; official flight status remains unconfirmed in the supplied record.",
+    "hallucination": "The passenger draft says no formal status change has been published at all, a broader claim than the source assertion of no formal delay notice.",
+    "notes": "Use an evidence-bounded statement about what the supplied record confirms. The audience-differentiation criterion passes, but publication-absence wording needs reviewer attention.",
+    "required_check": "Expected/prohibited audience checks pass on the first attempt."
+  },
+  "errorExplanation": "Use an evidence-bounded statement about what the supplied record confirms. The audience-differentiation criterion passes, but publication-absence wording needs reviewer attention.",
+  "correctiveAction": "Use an evidence-bounded statement about what the supplied record confirms. The audience-differentiation criterion passes, but publication-absence wording needs reviewer attention.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 11,
+      "uniqueReferences": 11,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 32,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST006-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "4921d484-b0db-47e2-840b-debc3a4cf304",
+      "resultId": "657dc0e3-02cb-4ba3-b348-4a1473a24aee",
+      "elapsedMs": 35186,
+      "attempts": 1,
+      "costMicro": 89167,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 23013,
+        "cached": 2304,
+        "output": 5957,
+        "reasoning": 3571
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "aa63a9e3-a311-420d-80c4-388ca271a0ad",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 35149,
+          "usage": {
+            "input": 23013,
+            "cached": 2304,
+            "output": 5957,
+            "reasoning": 3571,
+            "raw": {
+              "input_tokens": 23013,
+              "input_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "output_tokens": 5957,
+              "output_tokens_details": {
+                "reasoning_tokens": 3571
+              },
+              "total_tokens": 28970
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.089167,
+  "modelElapsedSeconds": 35.186
+}

@@ -1,0 +1,245 @@
+{
+  "testId": "TEST013",
+  "language": "en",
+  "testType": "风险降级",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 14,
+  "originalQuestion": "补充现场资源充足信息",
+  "actualQuestion": "Add information that on-site resources are sufficient.",
+  "expected": "重新评估并说明调整依据",
+  "prohibited": "不得坚持旧判断",
+  "factCheck": "新增事实",
+  "scoringFocus": "可修正性",
+  "additionalFrozenChecks": [
+    "Generate a medium baseline, then a new snapshot with a verified stable report explicitly superseding the earlier capacity alert.",
+    "Reassess to low, explain the current correction, preserve the earlier assessment and avoid implying official flight clearance."
+  ],
+  "workflow": "assessment workflow",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "The baseline medium risk becomes low only after a verified simulated correction explicitly resolves the shortage and supersedes the earlier alert.",
+    "evidence": "The stable corrective report at 16:05 is within the scenario time window; both versions and both assessments remain in the export.",
+    "hallucination": "No flight-status confirmation, operational execution or invented resource quantities found in the reviewed output.",
+    "notes": "The fixture explicitly marks the old report superseded/unusable; merely appending a vague sufficiency statement is not claimed to guarantee the same result.",
+    "required_check": "Risk-update, explanation and audit-preservation checks pass."
+  },
+  "errorExplanation": "The fixture explicitly marks the old report superseded/unusable; merely appending a vague sufficiency statement is not claimed to guarantee the same result.",
+  "correctiveAction": "The fixture explicitly marks the old report superseded/unusable; merely appending a vague sufficiency statement is not claimed to guarantee the same result.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "baseline",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 50,
+      "uniqueReferences": 6,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    },
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 68,
+      "uniqueReferences": 6,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "riskChangesMediumToLow": true,
+    "snapshotHistoryRetainsBothVersions": true,
+    "assessmentsKeepOwnSnapshotVersion": true,
+    "oldReportRetainedAsUnusable": true,
+    "correctiveReportIsStableAndVerified": true,
+    "officialStatusStillUnconfirmed": true,
+    "passed": true
+  },
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST013-en",
+      "phase": "baseline",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "54776236-8dda-48ec-a521-a574575b312a",
+      "resultId": "10f1203e-1c22-4850-92bd-63db90ea3ade",
+      "elapsedMs": 124605,
+      "attempts": 2,
+      "costMicro": 231843,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 62425,
+        "cached": 32384,
+        "output": 21308,
+        "reasoning": 15369
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "f787ebdf-3b2f-4de8-ba6d-78bba520b3d0",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 77232,
+          "usage": {
+            "input": 31191,
+            "cached": 1408,
+            "output": 13442,
+            "reasoning": 10139,
+            "raw": {
+              "input_tokens": 31191,
+              "input_tokens_details": {
+                "cached_tokens": 1408
+              },
+              "output_tokens": 13442,
+              "output_tokens_details": {
+                "reasoning_tokens": 10139
+              },
+              "total_tokens": 44633
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "rationale.2.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "月度历史显示 2025-02 存在五个百分点异常：按计划完成航班比例为 72.88%，较此前可用月份平均差为 -6.1 个百分点。这属于需要单独复核的历史背景，不是当前高风险结论，也不构成机位支持报告的原因。"
+            }
+          ],
+          "validationIssues": [
+            "rationale.2.zh: 5pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "1758ecae-452a-4cf8-b064-4df514f2be5b",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 47329,
+          "usage": {
+            "input": 31234,
+            "cached": 30976,
+            "output": 7866,
+            "reasoning": 5230,
+            "raw": {
+              "input_tokens": 31234,
+              "input_tokens_details": {
+                "cached_tokens": 30976
+              },
+              "output_tokens": 7866,
+              "output_tokens_details": {
+                "reasoning_tokens": 5230
+              },
+              "total_tokens": 39100
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "04f596dc14d863571337c73fb432a71f18be5fac0f992e81647c1e4513dd0726",
+        "reviewIds": [],
+        "assessmentIds": [],
+        "sourceVersions": [],
+        "latestReviewCount": 0,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "baseline-result.json",
+      "exportFile": "baseline-export.json"
+    },
+    {
+      "key": "TEST013-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "a0f5b33b-121b-4611-97a5-c14c347aefca",
+      "resultId": "64931ed5-882b-47de-8982-4db24785b8cf",
+      "elapsedMs": 45244,
+      "attempts": 1,
+      "costMicro": 117601,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 31704,
+        "cached": 1408,
+        "output": 7119,
+        "reasoning": 4341
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "e379c16d-f8a1-4354-be8f-d24cdb9de011",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 45220,
+          "usage": {
+            "input": 31704,
+            "cached": 1408,
+            "output": 7119,
+            "reasoning": 4341,
+            "raw": {
+              "input_tokens": 31704,
+              "input_tokens_details": {
+                "cached_tokens": 1408
+              },
+              "output_tokens": 7119,
+              "output_tokens_details": {
+                "reasoning_tokens": 4341
+              },
+              "total_tokens": 38823
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "f28b31c6fdd8e357768917db368512b8007c33bbcb0b6914c1d986b9a007293e",
+        "reviewIds": [],
+        "assessmentIds": [],
+        "sourceVersions": [],
+        "latestReviewCount": 0,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 3,
+  "costCNYAppEstimate": 0.349444,
+  "modelElapsedSeconds": 169.849
+}

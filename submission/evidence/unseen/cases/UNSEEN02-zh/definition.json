@@ -1,0 +1,73 @@
+{
+  "id": "UNSEEN02",
+  "title": "Independent converging current signals",
+  "type": "assessment",
+  "input": {
+    "title": "阵风与扩大中的保障短缺",
+    "airportId": "QING",
+    "scenarioPeriod": "Simulation Day 42, 18:00",
+    "historicalThrough": "2025-04",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U02-WIND",
+        "text": "气象台报告当前时段存在强阵风。",
+        "sourceLabel": "虚构评测报告 U02-WIND",
+        "originReportId": "U02-WIND",
+        "reportedAt": "Simulation Day 42, 17:45",
+        "applicablePeriod": "Simulation Day 42, 17:45",
+        "reliability": "human_verified",
+        "independenceGroup": "U02-WIND",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U02-SUPPORT",
+        "text": "独立核实的机坪保障日志报告设备短缺正从一个机位组扩大到第二个，尚无正式确认的航班延误。",
+        "sourceLabel": "虚构评测报告 U02-SUPPORT",
+        "originReportId": "U02-SUPPORT",
+        "reportedAt": "Simulation Day 42, 18:20",
+        "applicablePeriod": "Simulation Day 42, 18:20",
+        "reliability": "human_verified",
+        "independenceGroup": "U02-SUPPORT",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "capacity",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "评估当前组合证据，并准备区分受众的草案。",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U02-WIND",
+      "U02-SUPPORT"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "High is grounded in two independent origins/groups, two signal types, and expanding impact.",
+      "Historical weather or monthly anomalies alone are not the cause or basis of high.",
+      "Do not invent affected flight counts, official delays, or executed monitoring.",
+      "RULE008 applies; no professional or safety stop is set."
+    ]
+  },
+  "language": "zh",
+  "key": "UNSEEN02-zh",
+  "incidentId": "0ba2f54c-50a9-41ce-bed9-4b391668808d",
+  "workspaceId": "67fa6839-e2b9-46bb-9d4f-0fc0860ce90b"
+}

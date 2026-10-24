@@ -2,7 +2,9 @@
 
 A bilingual incident-review prototype for HackSHSID Track 3. It uses the supplied **simulated** airline dataset, inspectable evidence, an explicit risk policy, and DeepSeek Flash to prepare assessments and three audience-specific drafts for human review.
 
-Documentation updated 24 October 2026 for application commit `8ad14e3`. The eight submission materials are assembled locally and the promo/demo video was completed by Claude and approved by the project owner. Publication and judge access remain open. See [submission materials](docs/SUBMISSION.md), [evaluation results](docs/EVALUATION.md) and [remaining release work](PLAN-HACK.md#remaining-release-work).
+**Submission entry point:** [D01–D08 materials](submission/README.md) · [Technical report](submission/TECHNICAL-REPORT.pdf) · [Presentation](submission/D01-client-presentation.pdf) · [Demo video](submission/video/README.md) · [Reproducibility ZIP](https://github.com/zha-chicken/runway-incident-workspace/releases/download/submission-2026-10-24/D08-reproducibility.zip)
+
+Application code is pinned to `27f5ec9`. Read [acknowledgements and the AI-use statement](ACKNOWLEDGEMENTS.md), [evaluation results](docs/EVALUATION.md) and [publication verification](submission/PUBLICATION-VERIFICATION.md). The owner will make this repository public for submission; the links remain private until then.
 
 ## Run locally
 
@@ -32,7 +34,7 @@ npm run build
 APP_ORIGIN=http://127.0.0.1:3000 PORT=3000 npm start
 ```
 
-The launcher loads `.env.local`, uses the configured database, and copies static assets into the standalone bundle. The default Turbopack build passed in the recorded current-source verification. A later isolated packaging attempt was blocked by the environment when a worker tried to bind a port; `npm run build -- --webpack` passed in that same clean copy without application changes. See [verification limits](docs/EVALUATION.md#automated-and-packaging-verification). Neither build result establishes external hosting or Docker readiness.
+The launcher loads `.env.local`, uses the configured database, and copies static assets into the standalone bundle. The default Turbopack build passed at the earlier `8ad14e3` checkpoint. Verification of `27f5ec9` passed 351 tests, TypeScript and `npm run build -- --webpack`; its default-build attempt was blocked by the environment when a worker tried to bind a port. See [verification limits](docs/EVALUATION.md#automated-and-packaging-verification). Neither build result establishes external hosting or Docker readiness.
 
 ## Try the workflow
 
@@ -113,7 +115,7 @@ Docker is provided for reproducibility; its runtime and external hosting still r
 - `PLAN-HACK.md`: accepted scope and release criteria.
 - `docs/IMPLEMENTATION.md`: verified milestones and remaining work.
 
-The supplied and unseen evaluations and eight submission materials are complete as local artifacts, with accepted limitations. The promo/demo video is complete and owner-approved; its local file is indexed in [SUBMISSION.md](docs/SUBMISSION.md). Judge access, fresh-install real inference/persistence/export, submission settings and publication remain open. The standalone B787 package was intentionally skipped. Dated reports such as [LOCAL-VERIFICATION.md](docs/LOCAL-VERIFICATION.md) and [design-qa.md](design-qa.md) preserve their original checkpoints rather than claiming to be current release evidence.
+The supplied and unseen evaluations and eight submission materials are complete as local artifacts, with accepted limitations. The promo/demo video is complete and owner-approved; it is linked in [SUBMISSION.md](docs/SUBMISSION.md). The owner-controlled visibility change, portal submission and fresh judge-machine real inference/persistence/export remain open. The standalone B787 package was intentionally skipped. Dated reports such as [LOCAL-VERIFICATION.md](docs/LOCAL-VERIFICATION.md) and [design-qa.md](design-qa.md) preserve their original checkpoints rather than claiming to be current release evidence.
 
 
 ### Validation and recovery

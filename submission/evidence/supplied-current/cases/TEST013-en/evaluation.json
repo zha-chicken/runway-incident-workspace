@@ -1,0 +1,179 @@
+{
+  "testId": "TEST013",
+  "language": "en",
+  "type": "风险降级",
+  "originalQuestion": "补充现场资源充足信息",
+  "actualQuestion": "Add information that on-site resources are sufficient.",
+  "expected": "重新评估并说明调整依据",
+  "prohibited": "不得坚持旧判断",
+  "factCheck": "新增事实",
+  "scoringFocus": "可修正性",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly lowers medium to low after explicit verified correction supersedes the shortage; preserves unconfirmed flight status and does not infer clearance.",
+    "evidence": "Uses the correction as sole usable current report; older alert retained as unusable. Historical GAO anomaly kept separate from current conditions.",
+    "unsupportedClaims": "No unsupported resolution beyond the source or future service promise. One generic impact sentence says no official flight status exists instead of unconfirmed.",
+    "proposedFacts": "Assessment actions only; verification and draft requests are not executed.",
+    "notes": [
+      "Use unconfirmed official status rather than nonexistent status."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 3,
+  "costCNYAppEstimate": 0.356862,
+  "elapsedSeconds": 151.361,
+  "phases": [
+    {
+      "key": "TEST013-en",
+      "phase": "baseline",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "498a0749-6f27-4b17-a2a2-14ac8138574c",
+      "resultId": "71d2aaba-d618-4b54-bf2e-63ad1eac13a5",
+      "elapsedMs": 58670,
+      "attempts": 1,
+      "costMicro": 148149,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 33037,
+        "cached": 1664,
+        "output": 10667,
+        "reasoning": 7697
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "8a0d6bc8-8401-4259-86e9-1c88c4d0ab17",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 58645,
+          "usage": {
+            "input": 33037,
+            "cached": 1664,
+            "output": 10667,
+            "reasoning": 7697,
+            "raw": {
+              "input_tokens": 33037,
+              "input_tokens_details": {
+                "cached_tokens": 1664
+              },
+              "output_tokens": 10667,
+              "output_tokens_details": {
+                "reasoning_tokens": 7697
+              },
+              "total_tokens": 43704
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    },
+    {
+      "key": "TEST013-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "92596ba0-9792-41e7-ae7e-1fc817eb02b9",
+      "resultId": "afa709e8-f682-4486-9181-a80f258be29c",
+      "elapsedMs": 92691,
+      "attempts": 2,
+      "costMicro": 208713,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 67320,
+        "cached": 35200,
+        "output": 17883,
+        "reasoning": 9038
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "0313819e-876c-47f3-a099-8c23e4882fbc",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 34717,
+          "usage": {
+            "input": 33638,
+            "cached": 1664,
+            "output": 6498,
+            "reasoning": 1908,
+            "raw": {
+              "input_tokens": 33638,
+              "input_tokens_details": {
+                "cached_tokens": 1664
+              },
+              "output_tokens": 6498,
+              "output_tokens_details": {
+                "reasoning_tokens": 1908
+              },
+              "total_tokens": 40136
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "rationale.4.en",
+              "message": "72.88% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The historical monthly baseline covers 24 rows from 2024-01 through 2025-12 and contains one five-point anomaly: 2025-02 completed-as-planned 72.88%, 6.10 percentage points below its prior 12-month mean. This calls for focused historical review, not a current risk rating or a weather attribution."
+            }
+          ],
+          "validationIssues": [
+            "rationale.4.en: 72.88% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "4fdaf5bd-11db-4ea0-8ec7-080f73a5229e",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 57929,
+          "usage": {
+            "input": 33682,
+            "cached": 33536,
+            "output": 11385,
+            "reasoning": 7130,
+            "raw": {
+              "input_tokens": 33682,
+              "input_tokens_details": {
+                "cached_tokens": 33536
+              },
+              "output_tokens": 11385,
+              "output_tokens_details": {
+                "reasoning_tokens": 7130
+              },
+              "total_tokens": 45067
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST013-en"
+}

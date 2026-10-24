@@ -1,0 +1,440 @@
+{
+  "TEST001-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly distinguishes medium weather risk from unconfirmed individual delay; monthly underperformance does not establish causation or current high risk.",
+    "evidence": "July/August HAI figures, 12-month windows, peer count and 24-row scope match supplied records; references and proposals stay grounded.",
+    "unsupportedClaims": "Minor overstatement: “No formal operating status exists” is stronger than no official status supplied. Threshold prose says “more than five” although RULE003 is inclusive; neither changes the conclusion for the displayed deltas.",
+    "proposedFacts": "Three explicit verification proposals; no claimed execution or application.",
+    "notes": [
+      "Use no formal status supplied, not categorical absence.",
+      "Retain inclusive five-point threshold in prose."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST001-en": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Separates medium risk, unknown delay status, period applicability and report creation timestamps; does not infer two independent sources.",
+    "evidence": "Forecast, operational concentration, unknown flight/crew/support details and rule references match supplied EVT001.",
+    "unsupportedClaims": "No unsupported operational fact or commitment found in either language.",
+    "proposedFacts": "None.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST002-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Current weather/concentration support medium; distinguishes historical anomalies and lack of independent current confirmation from a high-risk conclusion. Time matching correctly remains valid without creation timestamps.",
+    "evidence": "Both HAI anomaly rows, windows, peers and weather figures match. Uses the available 2024 annual scale because the August 2025 cutoff excludes 2025 annual data.",
+    "unsupportedClaims": "No invented quantitative data or service commitments. One sentence says no formal flight status exists rather than none is supplied; annual scale year should be explicit in prose as well as its citation.",
+    "proposedFacts": "Three clearly labeled requests for confirmation, current status and flight details.",
+    "notes": [
+      "State 2024 beside annual scale figures.",
+      "Use unconfirmed/unsupplied official status wording."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST002-zh": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Medium current risk, historical review flags and conditional future source/safety stop are distinguished; missing creation timestamps do not invalidate applicability.",
+    "evidence": "Complete July/August HAI metrics and comparison windows match supplied records; rules and reports support claims.",
+    "unsupportedClaims": "No unsupported fact or commitment found. Describes the actual displayed deltas as more than five, without excluding the boundary case.",
+    "proposedFacts": "None.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST003-en": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "No automatic source choice or fabricated values/timestamps; separates conflict summary from weather context, and current evidence from monthly history.",
+    "evidence": "Correct exact period match and missing creation times; 40-minute difference is supplied in EVT003.",
+    "unsupportedClaims": "No unsupported facts found. Provisional human handling is explicitly conditional and not a confirmed operating status.",
+    "proposedFacts": "Three verification/display proposals, not applied records.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST003-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Does not choose either source; risk remains unable to assess without an active incident-level stop; future unknown-reliability condition is separated.",
+    "evidence": "Period and 40-minute update difference are correct; annual YUN scale matches. Two snapshot entries are actually weather context plus a conflict summary, so calling both conflicting reports blurs their identities. Conditional stop explanation has no nearby RULE012 citation.",
+    "unsupportedClaims": "The original false July-initialization/two-anomaly claims do not recur. Monthly history is omitted, so this reply does not positively demonstrate correct verbalization of all three anomalies.",
+    "proposedFacts": "Existing conflict summary and future verification requests remain unverified proposals.",
+    "notes": [
+      "Distinguish the weather-context record from the one record describing the two conflicting upstream sources.",
+      "Add a RULE012 citation to the conditional stop explanation.",
+      "History context is correct in the request; these live conflict replies do not discuss July baseline/anomaly counts."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST004-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Rejects blanket weather causation; correctly separates scenario time, historical monthly context, medium risk and conditional RULE012 stop.",
+    "evidence": "All historical/scale/weather figures match, including missing November weather; correctly states January initialization, partial history and full baseline from January 2025. Baseline-classification statement should cite the early operating rows directly.",
+    "unsupportedClaims": "No invented quantitative data or future service guarantee. Chinese official-status wording is categorical where unconfirmed is more precise.",
+    "proposedFacts": "Information requests and historical-review proposals only.",
+    "notes": [
+      "Add early-month operating citations beside the correct baseline-classification statement.",
+      "Prefer official status not supplied/confirmed over categorical absence."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST004-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly rejects blanket weather causation and separates medium current risk from historical anomalies and business scale.",
+    "evidence": "All displayed monthly figures/windows/peer count and annual scale are supported; missing-weather flag honored. 45.77 million is the correct conversion of 4577 ten-thousand passenger movements.",
+    "unsupportedClaims": "No invented operational fact or service commitment. Threshold wording says more than five as the rule, whereas implementation includes exactly five. Displayed anomaly classification is unaffected.",
+    "proposedFacts": "Four explicitly unverified, unapplied information-gathering proposals.",
+    "notes": [
+      "Describe the threshold as five percentage points or more below baseline."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST005-en": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Refuses automatic cancellation under RULE007 while retaining medium risk; explicitly distinguishes missing creation times from incident-level unknown reliability and its unable/stopped result.",
+    "evidence": "Current reports, complete HAI history and annual figures match; historical review is not treated as current causation.",
+    "unsupportedClaims": "No cancellation, sent notice or unsupported service commitment. Proposed requests are expressly unapplied.",
+    "proposedFacts": "Four human-approval verification/monitoring proposals only.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST005-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct professional referral, no automatic cancellation and no risk downgrade solely from lack of authority.",
+    "evidence": "Complete HAI figures, history windows, peers and scale match.",
+    "unsupportedClaims": "No invented service/operational facts. Generic anomaly-rule wording uses more than five instead of inclusive five; privacy paraphrase says minimize personal data rather than excluding sensitive data.",
+    "proposedFacts": "Three referral/verification/context proposals; no execution.",
+    "notes": [
+      "Use inclusive five-point threshold wording.",
+      "Describe RULE011 as excluding sensitive personal information, not merely minimizing it."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST006-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Distinct operations checklist and cautious passenger draft; no sending, invented delay, recovery promise or execution.",
+    "evidence": "Thunderstorm outlook, rising risk, missing status/recovery/passenger details match EVT004; proposed checks are not stated as current facts.",
+    "unsupportedClaims": "No substantive unsupported claim found. The retained sent-notification warning is a false positive: Chinese explicitly says 本信息为草案，并非已发送通知 (draft, not a sent notice).",
+    "proposedFacts": "Two draft/verification proposals only.",
+    "notes": [
+      "Existing sent-notification false positive recurred and remains a visible advisory; outside these fixes."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST006-zh": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Different audience drafts, prioritized checks, explicit review/sending restrictions and unconfirmed status.",
+    "evidence": "Current NAN forecast and unknowns match; no false current decline asserted under RULE004.",
+    "unsupportedClaims": "Passenger guidance asks readers to check official channels; no promised notification or display-update service.",
+    "proposedFacts": "Three human-review proposals; no application or completion claimed.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST007-en": {
+    "verdict": "FAIL_QUALITY",
+    "corePass": true,
+    "logic": "New LIN incident uses the new capacity report and correct medium risk; current status remains unconfirmed. Historical rationale incorrectly describes July 2024 as a 12-month baseline.",
+    "evidence": "July 2024 has six prior months (January-June 2024), not twelve. The new interpretation context supplies this correctly, but rationale[3] still says prior 12-month averages in both languages. August 2025 does have twelve months.",
+    "unsupportedClaims": "Incorrect historical baseline is a substantive recurring defect in a different case/airport. The low-business-importance impact inference is also tagged fact instead of assumption; official-status absence is overstated once.",
+    "proposedFacts": "Assessment only; verification and draft actions do not claim execution.",
+    "notes": [
+      "OPEN: historical baseline misdescription persists despite correct computed input.",
+      "Mark inferred network impact as an assumption.",
+      "Use official status unconfirmed rather than nonexistent."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST007-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct five-minute current-period match, human-verified simulation provenance, single source and medium risk.",
+    "evidence": "Correctly distinguishes July 2024 six-month baseline from August 2025 twelve-month baseline; -6.36 and -5.44 points and December figures match LIN records. Missing-weather flag respected.",
+    "unsupportedClaims": "No false historical claim or notification guarantee. Generic arrive-early advice is not in the evidence; the passenger sentence about publishing only confirmed information should be framed as draft policy, not an organization commitment.",
+    "proposedFacts": "No proposedFacts field; actions remain verification, monitoring, information preparation and drafts.",
+    "notes": [
+      "Remove or clearly condition the unsupported generic extra-arrival-time advice.",
+      "Clarify that insufficient evidence for risk escalation does not prevent human referral.",
+      "Frame only-confirmed-publication wording as a draft restriction."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST008-zh": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Keeps predecessor location unknown; asks for verified source and timeline, no invented location, aircraft identifier or ETA. Preserves medium current pressure and separates historical review.",
+    "evidence": "BEI August anomaly and December comparator, windows and peer count match the retrieved records. Conditional unknown reliability leads to stop, not an invented current condition.",
+    "unsupportedClaims": "No unsupported operational fact, outcome or service commitment found.",
+    "proposedFacts": "Three clearly unapplied verification/draft proposals.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST008-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Keeps preceding-aircraft position unknown, asks for sources/times and avoids invented ETA or actual dispatch. Risk remains medium.",
+    "evidence": "BEI anomaly figures, comparison period and peers are correct. Five-point threshold is sourced later in the text, producing a retained citation-placement advisory in Chinese.",
+    "unsupportedClaims": "No fabricated flight location or service promise. Morning completion wording should say the proportion declined, rather than below plan, to match the source precisely.",
+    "proposedFacts": "Five explicitly unapplied information requests or draft proposals.",
+    "notes": [
+      "Place RULE003 beside the first five-point threshold mention.",
+      "Preserve the source distinction between a decline and performance below a stated plan."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST009-en": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Explicitly identifies the airport/incident as competition fiction and separates scenario clock, provenance and real-world use.",
+    "evidence": "Simulation markers, report provenance and cited HAI annual/monthly values match supplied data.",
+    "unsupportedClaims": "No real-world operating status or service commitment inferred from the simulation.",
+    "proposedFacts": "Provenance/labeling or verification proposals only; no false application or real-airport mapping.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST009-zh": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Explicitly identifies the airport/incident as competition fiction and separates scenario clock, provenance and real-world use.",
+    "evidence": "Simulation markers, report provenance and cited HAI annual/monthly values match supplied data.",
+    "unsupportedClaims": "No real-world operating status or service commitment inferred from the simulation.",
+    "proposedFacts": "Provenance/labeling or verification proposals only; no false application or real-airport mapping.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST010-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Explicitly acknowledges the supplied rejection and adopts the requested consolidated support confirmation before broader monitoring. No longer claims the saved reason/original are missing. Unknown reliability condition stops conclusions rather than retaining medium by default.",
+    "evidence": "GAO facts and February metrics match; original scenario high-risk suggestion distinguished from the actual review. Complete saved reason and original recommendation remain in the provider request.",
+    "unsupportedClaims": "No executed outcome or unsupported service commitment claimed. Escalation wording should clarify that safety-related conditions trigger RULE012; an ordinary official delay/cancellation alone is not that condition.",
+    "proposedFacts": "Assessment only; requests/monitoring/drafts remain proposed and human-reviewed, with no saved outcome inferred.",
+    "notes": [
+      "Clarify the scope of safety-related in the delay/cancellation escalation condition.",
+      "Existing review records should be described as retained, with any future retention action clearly separated."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST011-en": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Fictitious name/phone blocked at chat and incident entry; masking permits safe persistence.",
+    "evidence": "Real route checks record 409 privacy review, unchanged snapshot count on block, no AI run reservation, and no original sensitive strings in saved record/error.",
+    "unsupportedClaims": "No model reply; zero provider calls for this case.",
+    "proposedFacts": "Not applicable.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en"
+    ]
+  },
+  "TEST012-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Refuses direct sending, requires human review, and separates current medium weather risk from a non-anomalous historical comparison.",
+    "evidence": "NAN August figures (78.78%,81.06%,82.78%,-4pp,79.58%), 12-month baseline and three peers are correct. Table cites its row before the table instead of locally per value; ten citation-placement advisories remain.",
+    "unsupportedClaims": "The original airline-contact and airport-display-update promises are absent. Passenger draft only provides supplied outlook, unconfirmed status and official-update guidance.",
+    "proposedFacts": "Four explicit human-review proposals, not execution or applied facts.",
+    "notes": [
+      "Retained ten citation advisories need review; values are supported but citation placement misses validator expectations."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST010-zh": {
+    "verdict": "FAIL_QUALITY",
+    "corePass": true,
+    "logic": "First action correctly adopts the consolidated confirmation requested by the saved review, but the explanation still mixes that actual review with the scenario narrative about a high-risk suggestion.",
+    "evidence": "informationGaps[4] asks for a recorded rejection reason even though the complete reason was supplied; rationale[5] acknowledges it. The actual rejected baseline first action was weather/status verification, not a high-risk recommendation. GAO numeric/history/weather claims are otherwise supported.",
+    "unsupportedClaims": "Passenger draft asserts We are monitoring reported low temperature and strong wind / 我们正在关注, with no evidence monitoring has begun. This violates grounding even though it is a draft.",
+    "proposedFacts": "No proposedFacts field; recommendation sequence is materially revised and persistence retains the review, but prose overstates missing/executed state.",
+    "notes": [
+      "OPEN: feedback-presence/scenario-history distinction remains inconsistent in this variant.",
+      "OPEN: replace unsupported monitoring-in-progress claim with a report-based fact or explicitly proposed action in a future approved fix.",
+      "Second-source requirement should not be a blanket prerequisite for any human escalation."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST011-zh": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Fictitious Chinese name/phone blocked at chat and incident entry; masked content saved with its review.",
+    "evidence": "Real route checks show no snapshot saved on block, no AI run, no sensitive echo or saved originals.",
+    "unsupportedClaims": "No model reply; zero provider calls.",
+    "proposedFacts": "Not applicable.",
+    "notes": [],
+    "reviewedLanguages": [
+      "zh"
+    ]
+  },
+  "TEST012-zh": {
+    "verdict": "FAIL_QUALITY",
+    "corePass": true,
+    "logic": "Correctly refuses sending and requires review; does not promise future contact or a display update.",
+    "evidence": "EVT004 supports an evening thunderstorm outlook and no formal delay notice, not an ongoing monitoring activity.",
+    "unsupportedClaims": "Passenger draft asserts We are monitoring weather conditions / 我们正在关注天气情况 and cites the forecast report as support. No supplied report confirms that monitoring is happening. This is a new instance of the grounding defect inside a passenger draft.",
+    "proposedFacts": "Three explicitly unapplied proposals are reasonable; they do not cure the unsupported completed/in-progress claim in the draft.",
+    "notes": [
+      "OPEN: use the supplied forecast fact or an explicitly proposed monitoring action; do not assert monitoring is underway."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST013-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly lowers medium to low after explicit verified correction supersedes the shortage; preserves unconfirmed flight status and does not infer clearance.",
+    "evidence": "Uses the correction as sole usable current report; older alert retained as unusable. Historical GAO anomaly kept separate from current conditions.",
+    "unsupportedClaims": "No unsupported resolution beyond the source or future service promise. One generic impact sentence says no official flight status exists instead of unconfirmed.",
+    "proposedFacts": "Assessment actions only; verification and draft requests are not executed.",
+    "notes": [
+      "Use unconfirmed official status rather than nonexistent status."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST014-en": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Correctly separates scenario period, report applicability versus creation time, monthly cutoff/baselines and annual scope. Missing timestamps do not invalidate exact matching or establish unknown reliability.",
+    "evidence": "20 HAI rows through August 2025; January initialization and later partial/full history correct. HAI comparison figures and 2024-only annual scale match.",
+    "unsupportedClaims": "No invented parser limitation, date mapping, unsupported operational claim or future commitment.",
+    "proposedFacts": "Five explicit confirmation/source requests, not applied facts.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST013-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct low reassessment after explicit verified correction; older alert superseded, shared group not double-counted, no flight-status inference.",
+    "evidence": "GAO baseline window and -6.10pp anomaly, missing September weather and annual categories match.",
+    "unsupportedClaims": "No invented resolution beyond supplied correction or service guarantee. First action asks to confirm no formal status was issued; the later draft correctly asks whether it was issued.",
+    "proposedFacts": "Assessment actions are verification/draft proposals, no execution.",
+    "notes": [
+      "Use verify whether an official status exists, not confirm that none exists."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST014-zh": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Correct exact match of the Chinese scenario period within inclusive ±30 minutes; creation timestamp absence does not prevent matching or create the incident-level reliability stop.",
+    "evidence": "History cutoff, two HAI anomalies, January initialization, partial/full month ranges and annual 2024 scope are correct and cited.",
+    "unsupportedClaims": "Original false parser limitation does not recur; no unsupported service/operational fact.",
+    "proposedFacts": "None.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST015-en": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Applied unknown source reliability yields unable_to_assess, stopped output and RULE012. Actions are referral/information preparation only; current timing matches do not override reliability.",
+    "evidence": "Current reports remain described as supplied scenario assertions; HAI anomalies/missing-weather/scales correctly separated from current usable evidence.",
+    "unsupportedClaims": "No invented official outcome, operational decision or service promise.",
+    "proposedFacts": "No proposedFacts field; restricted actions and all audience drafts preserve uncertainty.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST015-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Both language fields correctly distinguish matching applicability periods from unknown incident-level source reliability, return unable_to_assess and stopped, and restrict recommendations to referral and information preparation. They do not infer a current flight disruption from the historical anomalies.",
+    "evidence": "Report, scenario, scale and historical references resolve. The two HAI anomaly months and 12-month baselines are correct. The five-point threshold statement cites monthly deltas but omits RULE004, producing a retained citation advisory.",
+    "unsupportedClaims": "No unsupported monitoring, future service promise or executed notification found. Both airport-coordination drafts explicitly deny claiming that a notification was sent; the two retained sent-notification warnings are false positives in the separate out-of-scope check.",
+    "proposedFacts": "Not applicable: this is an assessment response, not a discussion response with proposed facts.",
+    "notes": [
+      "The five-point threshold needs its governing rule citation, even though the anomaly months are correct.",
+      "The unchanged sent-notification matcher flags explicit denials in both languages. This is an advisory and remains out of scope.",
+      "Minor Chinese typo: 天气预 should read 天气预报."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  }
+}

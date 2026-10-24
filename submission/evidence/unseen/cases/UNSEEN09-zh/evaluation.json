@@ -1,0 +1,96 @@
+{
+  "scenario": "UNSEEN09",
+  "language": "zh",
+  "title": "Prior-version feedback after deterioration",
+  "type": "reassessment",
+  "question": "重新评估变化后的情况，并解释较早的反馈如何适用。",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U09-WIND",
+      "U09-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Version 1 is low; version 2 is high from new independent weather/capacity signals and expansion.",
+      "Saved modification reason and original recommendation are present, marked prior_snapshot.",
+      "Do not carry over the earlier stable assumption or describe the recorded reason as missing.",
+      "Pending outcome and blank actual action are not execution or success.",
+      "Preserve both snapshots, both assessments, and the entire review."
+    ]
+  },
+  "qualityVerdict": "FAIL_QUALITY",
+  "corePass": true,
+  "review": {
+    "verdict": "FAIL_QUALITY",
+    "corePass": true,
+    "logic": "Correct low-to-high reassessment, -60-minute old-report exclusion, independent new signals and prior-version feedback interpretation. Full recorded reason is used and pending outcome is not execution. However, it infers that the current concern is tactical rather than large network exposure from annual throughput and low business importance, which do not establish current network impact.",
+    "evidence": "GAO historical values and annual figures match supplied records. SCALE-GAO-2025 supports annual size/importance, not the asserted current-impact conclusion; this inference is mislabeled fact.",
+    "unsupportedClaims": "Unsupported current-scope conclusion: The current concern is therefore tactical and operational rather than a large network exposure / 当前关注点属战术运行层面，而非大规模网络影响. Flight-level effects and schedules are explicitly unknown elsewhere.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "Passenger allow-extra-time wording is generic proposed advice, not a confirmed service commitment.",
+      "The coordination draft requests a named contact; a role or duty desk would better respect aggregate-only privacy intent. No personal information was actually supplied or stored."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.246594,
+  "elapsedSeconds": 112.658,
+  "phases": [
+    {
+      "key": "UNSEEN09-zh",
+      "phase": "baseline",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "c18aba3f-7256-461f-a8cd-5ebf2368b397",
+      "resultId": "d9b926fe-79b2-476e-9f42-f5fb0f652008",
+      "elapsedMs": 62543,
+      "attempts": 1,
+      "costMicro": 131989,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 32958,
+        "cached": 11008,
+        "output": 10956,
+        "reasoning": 7349
+      }
+    },
+    {
+      "key": "UNSEEN09-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "9abf2baf-ccd1-4739-9aea-1a57adba057a",
+      "resultId": "4b01c50b-5090-4f97-97d7-3da6b904d676",
+      "elapsedMs": 50115,
+      "attempts": 1,
+      "costMicro": 114605,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 34760,
+        "cached": 11520,
+        "output": 8458,
+        "reasoning": 3415
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN09-zh"
+}

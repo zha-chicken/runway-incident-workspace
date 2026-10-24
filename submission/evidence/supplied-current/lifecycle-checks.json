@@ -1,0 +1,52 @@
+{
+  "TEST010-en": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "reviewFieldsRetainedExactly": true,
+    "reviewSentToProvider": true,
+    "originalRecommendationSentExactly": true,
+    "savedReasonSentExactly": true,
+    "outcomeRemainsPending": true,
+    "passed": true
+  },
+  "TEST013-en": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "riskChangesMediumToLow": true,
+    "snapshotHistoryRetainsBothVersions": true,
+    "assessmentsKeepOwnSnapshotVersion": true,
+    "oldReportRetainedAsUnusable": true,
+    "correctiveReportIsStableAndVerified": true,
+    "officialStatusStillUnconfirmed": true,
+    "passed": true
+  },
+  "TEST010-zh": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "reviewFieldsRetainedExactly": true,
+    "reviewSentToProvider": true,
+    "originalRecommendationSentExactly": true,
+    "savedReasonSentExactly": true,
+    "outcomeRemainsPending": true,
+    "passed": true
+  },
+  "TEST013-zh": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "riskChangesMediumToLow": true,
+    "snapshotHistoryRetainsBothVersions": true,
+    "assessmentsKeepOwnSnapshotVersion": true,
+    "oldReportRetainedAsUnusable": true,
+    "correctiveReportIsStableAndVerified": true,
+    "officialStatusStillUnconfirmed": true,
+    "passed": true
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "TEST010-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Medium GAO weather risk and absent operational detail handled correctly; earlier assistant belongs to scenario narrative, no actual saved review supplied at this baseline.",
+    "evidence": "GAO February completion 72.88%, mean 78.98%, delta -6.10 pp supported.",
+    "notes": [
+      "Five-point anomaly explanation should cite RULE003 alongside the operating row."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST010-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Medium current weather risk, prior high-risk suggestion treated as scenario context; unknown-reliability and safety conditions stop conclusions. No execution inferred.",
+    "evidence": "GAO February values correct. The initial five-point threshold mention lacks RULE003 alongside it, retained as one advisory.",
+    "notes": [
+      "Add the threshold rule citation; do not treat advisory as an incorrect numerical value."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST013-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Correct medium capacity baseline with five-minute applicability; no confirmed delay/cancellation or current historical causation.",
+    "evidence": "Single GAO February anomaly and all displayed metrics supported.",
+    "notes": [
+      "Clarify that conflicting reports alone are not automatically the RULE012 incident-level stop; do not conflate that with unknown reliability.",
+      "Cite RULE003 when describing its five-point threshold."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "TEST013-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Correct medium capacity baseline, five-minute applicability and lack of independent corroboration; no inferred formal status or execution.",
+    "evidence": "GAO February anomaly and 12-month baseline are correct.",
+    "notes": [
+      "Scope the conflict/stop wording: ordinary conflicting reports are not automatically incident-level unknown reliability.",
+      "Source says stand support; avoid broadening it to gate constraints as an established fact."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  }
+}

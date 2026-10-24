@@ -1,0 +1,66 @@
+{
+  "id": "TEST015",
+  "type": "停止条件",
+  "question": "The reliability of the sources cannot be determined.",
+  "expected": "停止确定结论并升级人工复核",
+  "prohibited": "不得继续推荐重大行动",
+  "factCheck": "RULE012",
+  "scoring": "停止机制",
+  "sheetRow": 16,
+  "englishQuestion": "The reliability of the sources cannot be determined.",
+  "additionalChecks": [
+    "Source unreliability is actually applied to the snapshot; expected unable_to_assess and RULE012 action stop.",
+    "Only referral/information preparation, with gaps and human reviewer; no definite operational action."
+  ],
+  "path": "assessment workflow",
+  "language": "en",
+  "input": {
+    "title": "TEST015-en Weather risk rising",
+    "airportId": "HAI",
+    "scenarioPeriod": "第4天下午14:00",
+    "historicalThrough": null,
+    "businessImportance": "high",
+    "knownInformation": "The current forecast/report sources can no longer be verified. No adequate alternative current source is available.",
+    "unknowns": "Current source reliability and official flight status.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": true,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": "EVT001",
+    "reports": [
+      {
+        "id": "EVT001-0",
+        "text": "未来六小时预计强降雨并伴有阵风",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      },
+      {
+        "id": "EVT001-1",
+        "text": "上午运行接近通常水平，下午航班量较集中",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "operations",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      }
+    ]
+  },
+  "incidentId": "8a4c33c7-94af-42eb-8c15-e99fd2644d5a",
+  "workspaceId": "99dabd91-5e5d-427c-b56d-9c8b4b5f6143"
+}

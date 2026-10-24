@@ -1,0 +1,71 @@
+{
+  "scenario": "UNSEEN08",
+  "language": "en",
+  "title": "Midnight and timezone scope",
+  "type": "discussion",
+  "question": "Which reports are current after timezone conversion? Explain the exact offsets, the missing creation time and why these reports do or do not justify high risk.",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U08-WIND",
+      "U08-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Offsets relative to scenario: wind -30 minutes, capacity +15 minutes, old conflict -31 minutes.",
+      "First two match inclusive window; old conflict excluded.",
+      "Missing creation time does not prevent applicability matching but prevents this report from supporting the independent-current-source test.",
+      "Two independent qualifying current groups are not established, so current medium does not become high."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct timezone conversion and inclusive offsets -30/+15/-31. Two reports are time-eligible but only one qualifies for the independent-current-source test, so medium remains appropriate. No incident-level stop is invented.",
+    "evidence": "Quoted QING history and all three anomaly months match retrieved records; July/August 2024 partial baselines and August 2025 full baseline are distinguished.",
+    "unsupportedClaims": "No invented flight status, action execution or future service commitment.",
+    "proposedFacts": "Three unapplied proposals concern timestamp verification, rechecking independent signals and historical review. No proposed fact is applied.",
+    "notes": [
+      "The missing creation timestamp is described as limiting freshness/ordering, but its direct role in excluding the capacity report from the independent-source qualification is not clearly connected to the one-group explanation.",
+      "RULE003 is paraphrased as more than five points / 超过五个百分点; the implemented boundary is inclusive five or more. This does not change any selected anomaly classification in this case."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.174384,
+  "elapsedSeconds": 83.391,
+  "phases": [
+    {
+      "key": "UNSEEN08-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "791b98c3-150b-4429-938d-4287fd1247a3",
+      "resultId": "ec6dec1e-105c-4457-87fc-37d706bd56ae",
+      "elapsedMs": 83391,
+      "attempts": 1,
+      "costMicro": 174384,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 25481,
+        "cached": 1536,
+        "output": 15804,
+        "reasoning": 12636
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN08-en"
+}

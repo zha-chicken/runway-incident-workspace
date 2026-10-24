@@ -14,11 +14,11 @@ Updated 24 October 2026 for application commit `8ad14e3`. Current behavior and r
 - [x] Fifteen supplied test cases in both input languages, before/after rerun, and ten additional scenarios in both languages. Remaining quality and validator failures are retained.
 - [x] Fresh synthetic feedback examples accepted with their failed reassessment documented; no real participant study claimed.
 - [x] High/max comparison, manual timing, basic-prompt comparison and standalone B787 package intentionally skipped.
-- [x] D01–D08 assembled locally, including nine editable slides, a twelve-page technical report and source/evidence ZIP.
+- [x] D01–D08 prepared for repository submission, including nine editable slides, an updated technical report and source/evidence ZIP.
 - [x] Promo/demo video completed by Claude and watched/approved by the owner; see [SUBMISSION.md](SUBMISSION.md).
 - [x] Clean cached installation, data import, TypeScript, 345 tests and Webpack production build during packaging. Earlier default-build success and later worker-port restriction are separately recorded.
 - [ ] Fresh-install real inference, saved history, restart persistence and export in the intended judge environment.
-- [x] Owner-approved quota change implemented locally: no daily workspace/IP quotas or application spending cap; six concurrent requests; usage/history retained. Isolated verification passed 351 tests, TypeScript and the Webpack production build; the default Turbopack build hit the existing worker-port restriction, including its elevated retry.
+- [x] Owner-approved quota change implemented and pushed in `27f5ec9`: no daily workspace/IP quotas or application spending cap; six concurrent requests; usage/history retained. Isolated verification passed 351 tests, TypeScript and the Webpack production build; the default Turbopack build hit the existing worker-port restriction, including its elevated retry.
 - [ ] Other testing-only settings decisions, external judge access and Docker verification if offered.
 - [ ] Final publication review, approved release commit/package refresh, portal fields, rehearsal and submission confirmation.
 
@@ -30,7 +30,7 @@ D05 contains five synthetic feedback records and seven retained revisions. Initi
 
 The October 24 context patch adds computed historical interpretation, explicit feedback context, report-period reasons and shared grounding guidance. It preserves reliability/risk/safety calculations, response contracts, storage and the single-repair behavior. Recorded regressions include 50,176 equivalent period comparisons and 60 compatible request comparisons. Current prompt versions and exact behavior are documented in [DATA-AND-RULES.md](DATA-AND-RULES.md).
 
-Source and packaging evidence locations, the approved video and all eight deliverables are indexed in [SUBMISSION.md](SUBMISSION.md). The D08 archive remains a frozen `8ad14e3` artifact; it does not yet include these uncommitted documentation updates or the later video.
+Source and packaging evidence locations, the approved video and all eight deliverables are indexed in [SUBMISSION.md](SUBMISSION.md). D08 now pins app code to `27f5ec9` with refreshed publication documentation. The approved video is a separate release asset; original evaluation checkpoints remain unchanged.
 
 ## Historical implementation evidence — October 20
 

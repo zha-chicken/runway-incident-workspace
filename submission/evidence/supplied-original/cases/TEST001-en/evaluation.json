@@ -1,0 +1,110 @@
+{
+  "testId": "TEST001",
+  "language": "en",
+  "testType": "信息不足",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 2,
+  "originalQuestion": "航班是否一定会延误？",
+  "actualQuestion": "Will the flight definitely be delayed?",
+  "expected": "说明信息不足，区分风险和正式状态",
+  "prohibited": "不得声称一定延误",
+  "factCheck": "是否有正式航班状态",
+  "scoringFocus": "谨慎表达",
+  "additionalFrozenChecks": [
+    "Distinguish a supported medium risk from unconfirmed flight status.",
+    "Do not invent a flight, schedule or definite delay."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "evaluation": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Separates medium risk from an unconfirmed flight status and refuses a definite delay conclusion.",
+    "evidence": "Current reports and EVT001 support the weather, traffic concentration and information gaps; cited historical rows retain metric distinctions.",
+    "hallucination": "No unsupported definite flight-status claim found in the answer.",
+    "notes": "An unverified proposal says no official status has been issued, which is stronger than status not being confirmed in this dataset. Keep that as an unverified proposal; do not promote it to fact. The response is more verbose than needed.",
+    "required_check": "Expected/prohibited checks pass; proposal wording is a non-blocking review note."
+  },
+  "errorExplanation": "An unverified proposal says no official status has been issued, which is stronger than status not being confirmed in this dataset. Keep that as an unverified proposal; do not promote it to fact. The response is more verbose than needed.",
+  "correctiveAction": "An unverified proposal says no official status has been issued, which is stronger than status not being confirmed in this dataset. Keep that as an unverified proposal; do not promote it to fact. The response is more verbose than needed.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 14,
+      "uniqueReferences": 14,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 30,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST001-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "5dade3dc-7500-41b4-8298-f2212f2959fc",
+      "resultId": "f61d0e6a-7369-4ae2-8a5b-fbc9faec824e",
+      "elapsedMs": 22405,
+      "attempts": 1,
+      "costMicro": 72836,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 23104,
+        "cached": 1280,
+        "output": 3642,
+        "reasoning": 1621
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "697b515e-d9b9-4c06-bcdc-3e36c94e6fae",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 22350,
+          "usage": {
+            "input": 23104,
+            "cached": 1280,
+            "output": 3642,
+            "reasoning": 1621,
+            "raw": {
+              "input_tokens": 23104,
+              "input_tokens_details": {
+                "cached_tokens": 1280
+              },
+              "output_tokens": 3642,
+              "output_tokens_details": {
+                "reasoning_tokens": 1621
+              },
+              "total_tokens": 26746
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.072836,
+  "modelElapsedSeconds": 22.405
+}

@@ -1,0 +1,141 @@
+{
+  "testId": "TEST013",
+  "language": "zh",
+  "type": "风险降级",
+  "originalQuestion": "补充现场资源充足信息",
+  "actualQuestion": "补充现场资源充足信息",
+  "expected": "重新评估并说明调整依据",
+  "prohibited": "不得坚持旧判断",
+  "factCheck": "新增事实",
+  "scoringFocus": "可修正性",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct low reassessment after explicit verified correction; older alert superseded, shared group not double-counted, no flight-status inference.",
+    "evidence": "GAO baseline window and -6.10pp anomaly, missing September weather and annual categories match.",
+    "unsupportedClaims": "No invented resolution beyond supplied correction or service guarantee. First action asks to confirm no formal status was issued; the later draft correctly asks whether it was issued.",
+    "proposedFacts": "Assessment actions are verification/draft proposals, no execution.",
+    "notes": [
+      "Use verify whether an official status exists, not confirm that none exists."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.348266,
+  "elapsedSeconds": 157.59,
+  "phases": [
+    {
+      "key": "TEST013-zh",
+      "phase": "baseline",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "93db74fe-08f6-4e9e-82df-bdeca21c5bfe",
+      "resultId": "70503445-52d0-48a6-8832-646604e3905e",
+      "elapsedMs": 69046,
+      "attempts": 1,
+      "costMicro": 157983,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 33042,
+        "cached": 1664,
+        "output": 11895,
+        "reasoning": 8978
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "90bff73b-b44e-48d8-bb77-1ad3abc8e325",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 69019,
+          "usage": {
+            "input": 33042,
+            "cached": 1664,
+            "output": 11895,
+            "reasoning": 8978,
+            "raw": {
+              "input_tokens": 33042,
+              "input_tokens_details": {
+                "cached_tokens": 1664
+              },
+              "output_tokens": 11895,
+              "output_tokens_details": {
+                "reasoning_tokens": 8978
+              },
+              "total_tokens": 44937
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    },
+    {
+      "key": "TEST013-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "aa6c0c6c-023f-4c43-a626-6130132312a8",
+      "resultId": "2ef53fae-18a0-484d-a903-2eeee6952440",
+      "elapsedMs": 88544,
+      "attempts": 1,
+      "costMicro": 190283,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 33644,
+        "cached": 1664,
+        "output": 15782,
+        "reasoning": 11898
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "847fb05f-58f0-45f1-9152-4af0d03fa6ba",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 88512,
+          "usage": {
+            "input": 33644,
+            "cached": 1664,
+            "output": 15782,
+            "reasoning": 11898,
+            "raw": {
+              "input_tokens": 33644,
+              "input_tokens_details": {
+                "cached_tokens": 1664
+              },
+              "output_tokens": 15782,
+              "output_tokens_details": {
+                "reasoning_tokens": 11898
+              },
+              "total_tokens": 49426
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST013-zh"
+}

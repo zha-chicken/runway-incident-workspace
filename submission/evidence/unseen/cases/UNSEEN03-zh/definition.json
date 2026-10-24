@@ -1,0 +1,72 @@
+{
+  "id": "UNSEEN03",
+  "title": "Duplicated source is not corroboration",
+  "type": "assessment",
+  "input": {
+    "title": "转发的保障通报",
+    "airportId": "BEI",
+    "scenarioPeriod": "Simulation Day 43, 12:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U03-QUEUE",
+        "text": "调配台通报称共享保障车辆出现排队。",
+        "sourceLabel": "虚构评测报告 U03-QUEUE",
+        "originReportId": "U03-SINGLE-BULLETIN",
+        "reportedAt": "Simulation Day 43, 11:50",
+        "applicablePeriod": "Simulation Day 43, 11:50",
+        "reliability": "human_verified",
+        "independenceGroup": "U03-SAME-DESK",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "capacity",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U03-REPOST",
+        "text": "同一通报的转发描述周转压力正在扩大，并非新的观察。",
+        "sourceLabel": "虚构评测报告 U03-REPOST",
+        "originReportId": "U03-SINGLE-BULLETIN",
+        "reportedAt": "Simulation Day 43, 12:05",
+        "applicablePeriod": "Simulation Day 43, 12:05",
+        "reliability": "human_verified",
+        "independenceGroup": "U03-SAME-DESK",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "operations",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "评估这两条报告是否足以升级风险，并说明理由。",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U03-QUEUE",
+      "U03-REPOST"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Two reports share one origin and group; not two independent sources.",
+      "Expansion and differing tags alone do not establish high.",
+      "Preserve the possible impact as unconfirmed rather than inventing flight outcomes."
+    ]
+  },
+  "language": "zh",
+  "key": "UNSEEN03-zh",
+  "incidentId": "79eed156-3ac1-4902-9e9d-aeb530e7f11d",
+  "workspaceId": "67fa6839-e2b9-46bb-9d4f-0fc0860ce90b"
+}

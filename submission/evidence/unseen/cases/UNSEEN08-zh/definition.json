@@ -1,0 +1,88 @@
+{
+  "id": "UNSEEN08",
+  "title": "Midnight and timezone scope",
+  "type": "discussion",
+  "input": {
+    "title": "跨午夜保障简报",
+    "airportId": "QING",
+    "scenarioPeriod": "2026-11-04T00:15:00+08:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U08-WIND",
+        "text": "已核实的气象日志在注明的适用时间报告阵风。",
+        "sourceLabel": "虚构评测报告 U08-WIND",
+        "originReportId": "U08-WIND",
+        "reportedAt": "2026-11-03T23:45:00+08:00",
+        "applicablePeriod": "2026-11-03T23:45:00+08:00",
+        "reliability": "human_verified",
+        "independenceGroup": "U08-WIND",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U08-CAPACITY",
+        "text": "保障台报告设备短缺正扩大到相邻服务区。适用时间已知，但未记录报告创建时间。",
+        "sourceLabel": "虚构评测报告 U08-CAPACITY",
+        "originReportId": "U08-CAPACITY",
+        "reportedAt": null,
+        "applicablePeriod": "2026-11-03T16:30:00Z",
+        "reliability": "human_verified",
+        "independenceGroup": "U08-CAPACITY",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "capacity",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U08-OLD",
+        "text": "较早的一条设备可用性矛盾报告仅适用于其注明时间。",
+        "sourceLabel": "虚构评测报告 U08-OLD",
+        "originReportId": "U08-OLD",
+        "reportedAt": "2026-11-03T15:44:00Z",
+        "applicablePeriod": "2026-11-03T15:44:00Z",
+        "reliability": "conflicted",
+        "independenceGroup": "U08-OLD",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "conflict",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "换算时区后哪些报告属于当前？解释准确的时间偏移、缺失的创建时间，以及这些报告为什么足以或不足以支持高风险。",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U08-WIND",
+      "U08-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Offsets relative to scenario: wind -30 minutes, capacity +15 minutes, old conflict -31 minutes.",
+      "First two match inclusive window; old conflict excluded.",
+      "Missing creation time does not prevent applicability matching but prevents this report from supporting the independent-current-source test.",
+      "Two independent qualifying current groups are not established, so current medium does not become high."
+    ]
+  },
+  "language": "zh",
+  "key": "UNSEEN08-zh",
+  "incidentId": "40b8ce26-d204-4834-baa1-3bcc30c3a985",
+  "workspaceId": "67fa6839-e2b9-46bb-9d4f-0fc0860ce90b"
+}

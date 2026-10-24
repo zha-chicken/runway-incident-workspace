@@ -1,0 +1,46 @@
+{
+  "applicationCodeCommit": "27f5ec9278a5ac4eb1700fc9843f9ff883b19808",
+  "sourceTrackedFiles": 97,
+  "unchangedOriginalFiles": 90,
+  "documentationOverlays": [
+    "PLAN-HACK.md",
+    "README.md",
+    "design-qa.md",
+    "docs/IMPLEMENTATION.md",
+    "docs/RISK-CARD.md",
+    "docs/SUBMISSION.md",
+    "docs/EVALUATION.md"
+  ],
+  "appCodeTestsConfigDataUnchanged": true,
+  "originalFilesPreserved": 1175,
+  "evidenceManifestEntries": 578,
+  "unchangedEvidenceFiles": 575,
+  "linkOnlyEvidenceCopies": 3,
+  "syntheticFeedbackCsvJsonByteIdentical": true,
+  "technicalReportPages": 13,
+  "presentationSlides": 9,
+  "presentationChecks": "integrity, layout, fonts, native table, re-import passed; changed slides visually checked and unchanged slides pixel-identical",
+  "applicationChecks": {
+    "source": "previous isolated verification; tested bytes match",
+    "tests": 351,
+    "typecheck": "passed",
+    "webpackBuild": "passed",
+    "defaultBuild": "environment worker-port restriction"
+  },
+  "newModelCalls": 0,
+  "historyRewritten": false,
+  "visibilityChanged": false,
+  "remainingOwnerActions": [
+    "make repository public",
+    "check repository and release assets signed out",
+    "submit repository URL and retain portal confirmation"
+  ],
+  "runtimeLimitations": [
+    "fresh judge-machine real inference/restart/export not verified",
+    "uncached installation and Docker not verified",
+    "no hosted service claimed"
+  ],
+  "localMarkdownFileLinksChecked": 390,
+  "missingLocalMarkdownFileLinks": 0,
+  "credentialPatternCandidates": 0
+}

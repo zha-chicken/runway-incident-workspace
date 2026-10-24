@@ -1,0 +1,51 @@
+{
+  "id": "TEST007",
+  "type": "新机场",
+  "question": "Enter a new incident at Linjiang Airport.",
+  "expected": "根据新输入和基线响应",
+  "prohibited": "不得回放固定答案",
+  "factCheck": "是否读取新机场数据",
+  "scoring": "泛化能力",
+  "sheetRow": 8,
+  "englishQuestion": "Enter a new incident at Linjiang Airport.",
+  "additionalChecks": [
+    "Use new LIN capacity report and LIN history rather than replaying a supplied event.",
+    "Scope is LIN, Simulation Day 31 16:00; expected medium risk."
+  ],
+  "path": "assessment workflow",
+  "language": "en",
+  "input": {
+    "title": "TEST007-en Linjiang new incident — supplied case 7",
+    "airportId": "LIN",
+    "scenarioPeriod": "Simulation Day 31, 16:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "low",
+    "knownInformation": "An airport coordination report describes insufficient stand support for the current simulated period.",
+    "unknowns": "Specific affected flights and official flight status are unknown.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": null,
+    "reports": [
+      {
+        "id": "PUBLIC-7-en-CAPACITY",
+        "text": "Stand support is temporarily insufficient in this simulation; no official delay or cancellation is confirmed.",
+        "sourceLabel": "Team simulation: airport coordination report",
+        "originReportId": "PUBLIC-7-en-CAPACITY",
+        "reportedAt": "Simulation Day 31, 15:55",
+        "applicablePeriod": "Simulation Day 31, 15:55",
+        "reliability": "human_verified",
+        "independenceGroup": "synthetic-airport-team",
+        "verificationBasis": "Fictitious report checked against the scenario log by the evaluation reviewer; not real operational verification.",
+        "signal": "capacity",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ]
+  },
+  "incidentId": "ad35e1c4-d446-433d-b81e-e461ff5878a8",
+  "workspaceId": "99dabd91-5e5d-427c-b56d-9c8b4b5f6143"
+}

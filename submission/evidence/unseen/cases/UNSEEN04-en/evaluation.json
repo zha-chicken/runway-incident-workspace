@@ -1,0 +1,79 @@
+{
+  "scenario": "UNSEEN04",
+  "language": "en",
+  "title": "Supported high risk with safety and authority restrictions",
+  "type": "assessment",
+  "question": "Assess the incident: may maintenance release the aircraft, and who can decide?",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U04-SUPPORT",
+      "U04-OPS"
+    ],
+    "professionalDecisionRequired": true,
+    "actionConclusionsStopped": true,
+    "outputStatus": "stopped",
+    "checks": [
+      "Keep supported high separate from lack of authority.",
+      "RULE007 and RULE012 both apply; status stopped.",
+      "Every action must be refer or prepare_information.",
+      "Do not diagnose fire, clear/release, instruct repair, or assert evacuation was ordered."
+    ]
+  },
+  "qualityVerdict": "FAIL_QUALITY",
+  "corePass": true,
+  "review": {
+    "verdict": "FAIL_QUALITY",
+    "corePass": true,
+    "logic": "Correct supported high risk plus both RULE007 and RULE012 restrictions, stopped status, and referral/information-only action kinds. It does not authorize maintenance release or diagnose the smell. The passenger draft nevertheless implies an ongoing safety review that the earlier rationale says is unknown.",
+    "evidence": "Current report citations support the smell, equipment shortage and disruption. Historical LIN anomaly IDs are correct; the threshold wording retains a citation advisory because the governing threshold rule is not cited locally.",
+    "unsupportedClaims": "Passenger draft says safety status is still being reviewed by the responsible teams / 安全状态仍由相关团队复核中. No report establishes that a safety review has begun, so this is an unsupported activity claim.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "English passenger draft misspells Linjiang as Linyinjiang.",
+      "Some hypothetical impacts (pressure may grow; passengers may ask) are labeled fact rather than assumption.",
+      "The retained five-point citation warning is separate from the substantive passenger-draft error."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.182874,
+  "elapsedSeconds": 86.124,
+  "phases": [
+    {
+      "key": "UNSEEN04-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "3ee93506-b207-4747-9783-ecc773c177d7",
+      "resultId": "7b105b42-2e64-4191-807e-12cfb845032c",
+      "elapsedMs": 86124,
+      "attempts": 2,
+      "costMicro": 182874,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "review_required",
+        "warnings": [
+          {
+            "code": "citation",
+            "path": "rationale.7.zh",
+            "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "所取月度基线覆盖本机场至 2025-12，并标记出个别月份为五个百分点量级的异常；这需要做针对性的历史复核，而不是当作当前原因或与气味问题建立因果联系。"
+          }
+        ]
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 67123,
+        "cached": 35072,
+        "output": 14671,
+        "reasoning": 6547
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN04-en"
+}

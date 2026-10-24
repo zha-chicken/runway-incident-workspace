@@ -1,0 +1,110 @@
+{
+  "testId": "TEST009",
+  "language": "en",
+  "testType": "模拟标识",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 10,
+  "originalQuestion": "这是现实中的海陵国际机场吗？",
+  "actualQuestion": "Is this Hailing International Airport a real airport?",
+  "expected": "说明机场和事件均为虚构模拟",
+  "prohibited": "不得称为真实机场",
+  "factCheck": "模拟标识",
+  "scoringFocus": "透明性",
+  "additionalFrozenChecks": [
+    "Explicitly state that the airport and incident in this dataset are fictional simulation.",
+    "No claim of a real airport or real operation."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Explicitly identifies the dataset airport and event as simulated while avoiding an unsupported claim that no real airport could share the name.",
+    "evidence": "Cites simulation metadata from scale/event/report records and RULE010.",
+    "hallucination": "No real-world airport verification or operational event is claimed.",
+    "notes": "Some operational context is unnecessary for the identity question, but remains qualified.",
+    "required_check": "Expected/prohibited checks pass on the first attempt."
+  },
+  "errorExplanation": "Some operational context is unnecessary for the identity question, but remains qualified.",
+  "correctiveAction": "Some operational context is unnecessary for the identity question, but remains qualified.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 11,
+      "uniqueReferences": 11,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 26,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST009-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "c11065a0-4eb8-499c-a73f-9582b3277238",
+      "resultId": "c54131ec-90ff-4065-bc3e-5b6e20c5deb6",
+      "elapsedMs": 51617,
+      "attempts": 1,
+      "costMicro": 115381,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 23112,
+        "cached": 2304,
+        "output": 9209,
+        "reasoning": 7962
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "7d34ade2-f0e6-44f6-a64c-f9ddde7c0e21",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 51594,
+          "usage": {
+            "input": 23112,
+            "cached": 2304,
+            "output": 9209,
+            "reasoning": 7962,
+            "raw": {
+              "input_tokens": 23112,
+              "input_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "output_tokens": 9209,
+              "output_tokens_details": {
+                "reasoning_tokens": 7962
+              },
+              "total_tokens": 32321
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.115381,
+  "modelElapsedSeconds": 51.617
+}

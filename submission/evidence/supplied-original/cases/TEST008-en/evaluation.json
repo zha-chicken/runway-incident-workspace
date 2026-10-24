@@ -1,0 +1,110 @@
+{
+  "testId": "TEST008",
+  "language": "en",
+  "testType": "未知信息",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 9,
+  "originalQuestion": "没有前序飞机位置怎么办？",
+  "actualQuestion": "What should we do when the preceding aircraft position is unknown?",
+  "expected": "列为信息缺口并建议核查",
+  "prohibited": "不得虚构位置",
+  "factCheck": "输入中是否有位置",
+  "scoringFocus": "承认未知",
+  "additionalFrozenChecks": [
+    "Keep preceding aircraft location unknown and request the appropriate verified source.",
+    "No invented position, aircraft identifier or estimated arrival."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "evaluation": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Keeps preceding-aircraft location unknown, asks for the operator source and confirmation time, and does not invent a position or arrival.",
+    "evidence": "Uses EVT002 report/event gaps and the correct BEI August historical values; history is separate from current medium risk.",
+    "hallucination": "No invented location or flight schedule found.",
+    "notes": "Calls a scenario_given assertion “unverified” after identifying it as usable. This is imprecise reliability language; it should distinguish accepted simulation assertions from external verification.",
+    "required_check": "Expected/prohibited checks pass on the first attempt."
+  },
+  "errorExplanation": "Calls a scenario_given assertion “unverified” after identifying it as usable. This is imprecise reliability language; it should distinguish accepted simulation assertions from external verification.",
+  "correctiveAction": "Calls a scenario_given assertion “unverified” after identifying it as usable. This is imprecise reliability language; it should distinguish accepted simulation assertions from external verification.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 12,
+      "uniqueReferences": 12,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 26,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST008-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "681e8536-509d-412c-abbc-dfd89a7f0ddc",
+      "resultId": "d548b138-93de-41fd-97f2-5db2c61a65e1",
+      "elapsedMs": 41999,
+      "attempts": 1,
+      "costMicro": 103552,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 23057,
+        "cached": 1536,
+        "output": 7556,
+        "reasoning": 5132
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "f752b7c9-cae6-4f87-ad96-bf95c2ec5fcb",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 41958,
+          "usage": {
+            "input": 23057,
+            "cached": 1536,
+            "output": 7556,
+            "reasoning": 5132,
+            "raw": {
+              "input_tokens": 23057,
+              "input_tokens_details": {
+                "cached_tokens": 1536
+              },
+              "output_tokens": 7556,
+              "output_tokens_details": {
+                "reasoning_tokens": 5132
+              },
+              "total_tokens": 30613
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.103552,
+  "modelElapsedSeconds": 41.999
+}

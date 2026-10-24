@@ -1,0 +1,204 @@
+{
+  "testId": "TEST008",
+  "language": "en",
+  "type": "未知信息",
+  "originalQuestion": "没有前序飞机位置怎么办？",
+  "actualQuestion": "What should we do when the preceding aircraft position is unknown?",
+  "expected": "列为信息缺口并建议核查",
+  "prohibited": "不得虚构位置",
+  "factCheck": "输入中是否有位置",
+  "scoringFocus": "承认未知",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Keeps preceding-aircraft position unknown, asks for sources/times and avoids invented ETA or actual dispatch. Risk remains medium.",
+    "evidence": "BEI anomaly figures, comparison period and peers are correct. Five-point threshold is sourced later in the text, producing a retained citation-placement advisory in Chinese.",
+    "unsupportedClaims": "No fabricated flight location or service promise. Morning completion wording should say the proportion declined, rather than below plan, to match the source precisely.",
+    "proposedFacts": "Five explicitly unapplied information requests or draft proposals.",
+    "notes": [
+      "Place RULE003 beside the first five-point threshold mention.",
+      "Preserve the source distinction between a decline and performance below a stated plan."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.188907,
+  "elapsedSeconds": 97.975,
+  "phases": [
+    {
+      "key": "TEST008-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "d28bc945-5920-40a1-8e2a-d5ccc7e49411",
+      "resultId": "3f2b1964-07aa-4ef4-96b6-ea0c5acc4825",
+      "elapsedMs": 97975,
+      "attempts": 2,
+      "costMicro": 188907,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "review_required",
+        "warnings": [
+          {
+            "code": "citation",
+            "path": "answer.zh",
+            "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "月度序列不能作为今晚的证据。检索到的历史中仅有一个月被标记为五个百分点异常："
+          }
+        ]
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 50215,
+        "cached": 26496,
+        "output": 17551,
+        "reasoning": 12922
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "9022f773-a96d-4d7e-816f-1944296f41e5",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 36081,
+          "usage": {
+            "input": 24972,
+            "cached": 1536,
+            "output": 6534,
+            "reasoning": 4257,
+            "raw": {
+              "input_tokens": 24972,
+              "input_tokens_details": {
+                "cached_tokens": 1536
+              },
+              "output_tokens": 6534,
+              "output_tokens_details": {
+                "reasoning_tokens": 4257
+              },
+              "total_tokens": 31506
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "78.2% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Completed as planned 2025-08: 78.2%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "79.42% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Release normality 2025-08: 79.42%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "83.81% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Prior available-month mean 2025-08: 83.81%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "-5.61pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Difference from that mean 2025-08: -5.61 pp"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "79.58% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Same-category mean (3 peers, this airport included) 2025-08: 79.58%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "78.2% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "按计划完成航班比例 2025-08: 78.2%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "79.42% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "机场放行正常比例 2025-08: 79.42%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "83.81% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "此前可用月份平均 2025-08: 83.81%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "-5.61pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "与该平均的差 2025-08: -5.61 pp"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "79.58% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "同类均值（3 个同类机场，含本机场） 2025-08: 79.58%"
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 78.2% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 79.42% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 83.81% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: -5.61pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 79.58% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 78.2% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 79.42% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 83.81% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: -5.61pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 79.58% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "4d46b590-74c0-4db7-ac2a-ad456d81db7c",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 61838,
+          "usage": {
+            "input": 25243,
+            "cached": 24960,
+            "output": 11017,
+            "reasoning": 8665,
+            "raw": {
+              "input_tokens": 25243,
+              "input_tokens_details": {
+                "cached_tokens": 24960
+              },
+              "output_tokens": 11017,
+              "output_tokens_details": {
+                "reasoning_tokens": 8665
+              },
+              "total_tokens": 36260
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "月度序列不能作为今晚的证据。检索到的历史中仅有一个月被标记为五个百分点异常："
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST008-en"
+}

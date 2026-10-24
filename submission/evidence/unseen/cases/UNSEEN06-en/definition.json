@@ -1,0 +1,58 @@
+{
+  "id": "UNSEEN06",
+  "title": "Early historical cutoff and peer interpretation",
+  "type": "discussion",
+  "input": {
+    "title": "Early-history briefing",
+    "airportId": "NAN",
+    "scenarioPeriod": "Simulation Day 46, 13:25",
+    "historicalThrough": "2024-04",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U06-STABLE",
+        "text": "The current gate-information desk reports routine staffing with no observed queue.",
+        "sourceLabel": "Synthetic evaluation report U06-STABLE",
+        "originReportId": "U06-STABLE",
+        "reportedAt": "Simulation Day 46, 13:20",
+        "applicablePeriod": "Simulation Day 46, 13:20",
+        "reliability": "human_verified",
+        "independenceGroup": "U06-STABLE",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Explain the April 2024 completion rate, its historical comparison and same-category comparison. Is January a real historical average? Can you infer any later-month performance or a current delay?",
+  "expected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U06-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "April completion 84.44%, release 88.53%, historical 79.87%, difference +4.57 pp, peers 86.12% if mentioned.",
+      "April has three prior months Jan-Mar 2024; January initializes with zero prior months, not independent past performance.",
+      "Same-category mean includes NAN and has three airports.",
+      "Only Jan-Apr 2024 retrieved; no later monthly or annual figures and no current delay inference.",
+      "No five-point adverse anomaly exists within this selected history."
+    ]
+  },
+  "language": "en",
+  "key": "UNSEEN06-en",
+  "incidentId": "1915f55c-0bc2-460b-bed3-1a0b19c4784e",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

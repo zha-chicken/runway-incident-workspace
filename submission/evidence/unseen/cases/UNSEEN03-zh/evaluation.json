@@ -1,0 +1,70 @@
+{
+  "scenario": "UNSEEN03",
+  "language": "zh",
+  "title": "Duplicated source is not corroboration",
+  "type": "assessment",
+  "question": "评估这两条报告是否足以升级风险，并说明理由。",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U03-QUEUE",
+      "U03-REPOST"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Two reports share one origin and group; not two independent sources.",
+      "Expansion and differing tags alone do not establish high.",
+      "Preserve the possible impact as unconfirmed rather than inventing flight outcomes."
+    ]
+  },
+  "qualityVerdict": "FAIL_QUALITY",
+  "corePass": true,
+  "review": {
+    "verdict": "FAIL_QUALITY",
+    "corePass": true,
+    "logic": "The shared-origin analysis and medium risk are correct. However, the passenger draft presents review/verification as already underway despite the action list only proposing verification.",
+    "evidence": "The BEI August 2025 completion 78.20%, historical 83.81%, delta -5.61 pp and 12-month baseline are correct; one historical anomaly is supported. Current-source citations do not establish that further verification has begun.",
+    "unsupportedClaims": "Passenger draft: Reports ... are being reviewed / 报告正在核实 is an unsupported ongoing-activity claim. This repeats the broader passenger-grounding limitation in a new scenario.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "Several sentences also treat report conflict alone as automatically requiring RULE012 stop, broader than the actual policy.",
+      "The risk and current structured restrictions remain correct."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.172207,
+  "elapsedSeconds": 75.236,
+  "phases": [
+    {
+      "key": "UNSEEN03-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "dddf256f-03ad-4546-8d6a-facc11e7f990",
+      "resultId": "6ac2f59e-6280-4538-924c-52255bf8aced",
+      "elapsedMs": 75236,
+      "attempts": 1,
+      "costMicro": 172207,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 33511,
+        "cached": 1024,
+        "output": 13399,
+        "reasoning": 9415
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN03-zh"
+}

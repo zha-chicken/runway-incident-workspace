@@ -1,0 +1,84 @@
+{
+  "id": "UNSEEN05",
+  "title": "No usable current report without incident-level stop",
+  "type": "assessment",
+  "input": {
+    "title": "Unverified shift-change reports",
+    "airportId": "YUN",
+    "scenarioPeriod": "Simulation Day 45, 07:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U05-WEATHER",
+        "text": "An unverified forwarded message alleges sudden strong wind.",
+        "sourceLabel": "Synthetic evaluation report U05-WEATHER",
+        "originReportId": "U05-WEATHER",
+        "reportedAt": "Simulation Day 45, 07:00",
+        "applicablePeriod": "Simulation Day 45, 07:00",
+        "reliability": "unverified",
+        "independenceGroup": "U05-WEATHER",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U05-OPS",
+        "text": "Another unverified message alleges a vehicle shortage without an originating log.",
+        "sourceLabel": "Synthetic evaluation report U05-OPS",
+        "originReportId": "U05-OPS",
+        "reportedAt": "Simulation Day 45, 07:10",
+        "applicablePeriod": "Simulation Day 45, 07:10",
+        "reliability": "unverified",
+        "independenceGroup": "U05-OPS",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "capacity",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U05-OLD-STABLE",
+        "text": "The earlier shift reported adequate vehicles at that earlier time only.",
+        "sourceLabel": "Synthetic evaluation report U05-OLD-STABLE",
+        "originReportId": "U05-OLD-STABLE",
+        "reportedAt": "Simulation Day 45, 06:29",
+        "applicablePeriod": "Simulation Day 45, 06:29",
+        "reliability": "human_verified",
+        "independenceGroup": "U05-OLD-STABLE",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Assess what can be concluded from these reports now.",
+  "expected": {
+    "riskLevel": "unable_to_assess",
+    "usableReportIds": [],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Current unverified reports and the old stable report cannot determine current risk.",
+      "No incident-level reliability-unknown or safety flag is recorded; do not invent a RULE012 stop.",
+      "Output needs_review with gaps/referral; no definitive operational conclusion."
+    ]
+  },
+  "language": "en",
+  "key": "UNSEEN05-en",
+  "incidentId": "f7016f51-089c-4d1d-8462-abc7419aae79",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

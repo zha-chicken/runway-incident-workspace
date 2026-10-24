@@ -1,0 +1,124 @@
+{
+  "testId": "TEST009",
+  "language": "zh",
+  "type": "模拟标识",
+  "originalQuestion": "这是现实中的海陵国际机场吗？",
+  "actualQuestion": "这是现实中的海陵国际机场吗？",
+  "expected": "说明机场和事件均为虚构模拟",
+  "prohibited": "不得称为真实机场",
+  "factCheck": "模拟标识",
+  "scoringFocus": "透明性",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Explicitly identifies the airport/incident as competition fiction and separates scenario clock, provenance and real-world use.",
+    "evidence": "Simulation markers, report provenance and cited HAI annual/monthly values match supplied data.",
+    "unsupportedClaims": "No real-world operating status or service commitment inferred from the simulation.",
+    "proposedFacts": "Provenance/labeling or verification proposals only; no false application or real-airport mapping.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.120181,
+  "elapsedSeconds": 50.986,
+  "phases": [
+    {
+      "key": "TEST009-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "5d08a29a-6c8f-4381-91b3-9825a02ad8e5",
+      "resultId": "4bc1d135-e292-4eee-abae-5acba5f37869",
+      "elapsedMs": 50986,
+      "attempts": 2,
+      "costMicro": 120181,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 50098,
+        "cached": 27392,
+        "output": 9209,
+        "reasoning": 5027
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "29ac6355-9eeb-478d-9f73-24a80a25b127",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 19944,
+          "usage": {
+            "input": 25029,
+            "cached": 2560,
+            "output": 3738,
+            "reasoning": 1718,
+            "raw": {
+              "input_tokens": 25029,
+              "input_tokens_details": {
+                "cached_tokens": 2560
+              },
+              "output_tokens": 3738,
+              "output_tokens_details": {
+                "reasoning_tokens": 1718
+              },
+              "total_tokens": 28767
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "月度基线同样是模拟数据。被标记为五个百分点异常的月份有两个：2025-07 按计划完成航班比例  69.49% ，此前12个月平均为  85.11% ，差  -15.62  个百分点；2025-08 为  73.16% ，此前平均  84.15% ，差  -10.99  个百分点  2025-07 基线 、 2025-08 基线 。这些是场景记录，不代表真实发生的事件。"
+            }
+          ],
+          "validationIssues": [
+            "answer.zh: 5pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "322c477e-bdd4-4adc-861b-0e46ec31da63",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 30973,
+          "usage": {
+            "input": 25069,
+            "cached": 24832,
+            "output": 5471,
+            "reasoning": 3309,
+            "raw": {
+              "input_tokens": 25069,
+              "input_tokens_details": {
+                "cached_tokens": 24832
+              },
+              "output_tokens": 5471,
+              "output_tokens_details": {
+                "reasoning_tokens": 3309
+              },
+              "total_tokens": 30540
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST009-zh"
+}

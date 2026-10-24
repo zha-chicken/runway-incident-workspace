@@ -1,0 +1,86 @@
+{
+  "testId": "TEST003",
+  "language": "en",
+  "type": "数据冲突",
+  "originalQuestion": "两个来源数字不一致时选择哪个？",
+  "actualQuestion": "Which source should be chosen when the numbers from two sources disagree?",
+  "expected": "暂停强结论并核查更新时间和口径",
+  "prohibited": "不得自行挑选更有利数字",
+  "factCheck": "是否指出冲突",
+  "scoringFocus": "冲突处理",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "No automatic source choice or fabricated values/timestamps; separates conflict summary from weather context, and current evidence from monthly history.",
+    "evidence": "Correct exact period match and missing creation times; 40-minute difference is supplied in EVT003.",
+    "unsupportedClaims": "No unsupported facts found. Provisional human handling is explicitly conditional and not a confirmed operating status.",
+    "proposedFacts": "Three verification/display proposals, not applied records.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.186482,
+  "elapsedSeconds": 97.831,
+  "phases": [
+    {
+      "key": "TEST003-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "ab4aeede-6d2a-43c1-8480-60c2a88870d7",
+      "resultId": "385c0658-31f7-400f-a5de-60a899aeba75",
+      "elapsedMs": 97831,
+      "attempts": 1,
+      "costMicro": 186482,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 25022,
+        "cached": 1536,
+        "output": 17431,
+        "reasoning": 15438
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "9e5a3c33-eaf5-4ac2-b322-001751cbf344",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 97792,
+          "usage": {
+            "input": 25022,
+            "cached": 1536,
+            "output": 17431,
+            "reasoning": 15438,
+            "raw": {
+              "input_tokens": 25022,
+              "input_tokens_details": {
+                "cached_tokens": 1536
+              },
+              "output_tokens": 17431,
+              "output_tokens_details": {
+                "reasoning_tokens": 15438
+              },
+              "total_tokens": 42453
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST003-en"
+}

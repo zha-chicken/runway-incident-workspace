@@ -1,0 +1,231 @@
+{
+  "testId": "TEST010",
+  "language": "en",
+  "testType": "人工否决",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 11,
+  "originalQuestion": "专业人员拒绝建议后怎么办？",
+  "actualQuestion": "What should happen after a professional rejects a recommendation?",
+  "expected": "记录原因、保留原建议并调整",
+  "prohibited": "不得覆盖人工意见",
+  "factCheck": "反馈记录",
+  "scoringFocus": "反馈闭环",
+  "additionalFrozenChecks": [
+    "Persist rejection reason and original recommendation, then include the latest review in reassessment.",
+    "Explain a material response to the review; do not treat feedback as verified evidence or execution."
+  ],
+  "workflow": "assessment workflow",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "FAIL_QUALITY",
+  "evaluation": {
+    "verdict": "FAIL_QUALITY",
+    "coreCriteria": "PASS",
+    "logic": "Reorders the first action to incorporate the saved rejection and keeps medium risk; does not turn pending feedback into completed action.",
+    "evidence": "The actual provider request includes the original recommendation and full rejection reason; both remain in the saved export.",
+    "hallucination": "The information-gap list incorrectly says the full rejection reason and original recommendation retention status were not supplied, despite receiving them.",
+    "notes": "Feedback persistence and material reassessment work. A separate escalation clause also says to keep medium risk if reliability cannot be established, which conflicts with the stated RULE012 stop boundary if it describes the incident-level condition.",
+    "required_check": "Core record/preserve/adjust checks pass; factual consistency and hypothetical stop guidance require correction.",
+    "errors": [
+      {
+        "quote": "The full rejection reason record and original recommendation retention status are not supplied.",
+        "correction": "Both are supplied in humanFeedback.reviews and retained in the exported baseline assessment/review. Distinguish missing operational-resource evidence from present review records.",
+        "sources": [
+          "final-attempt-1-request.json:humanFeedback",
+          "final-export.json:reviews",
+          "final-export.json:assessments"
+        ]
+      },
+      {
+        "quote": "If source update time or reliability cannot be established, keep the supported risk at medium and route for data verification.",
+        "correction": "Distinguish a missing timestamp from incident-level inability to establish source reliability; the latter requires the RULE012 stop condition rather than an unconditional medium-risk instruction.",
+        "sources": [
+          "RULE012"
+        ]
+      }
+    ]
+  },
+  "errorExplanation": "The information-gap list incorrectly says the full rejection reason and original recommendation retention status were not supplied, despite receiving them.",
+  "correctiveAction": "Both are supplied in humanFeedback.reviews and retained in the exported baseline assessment/review. Distinguish missing operational-resource evidence from present review records.; Distinguish a missing timestamp from incident-level inability to establish source reliability; the latter requires the RULE012 stop condition rather than an unconditional medium-risk instruction.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "baseline",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 65,
+      "uniqueReferences": 9,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    },
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 91,
+      "uniqueReferences": 12,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "reviewFieldsRetainedExactly": true,
+    "reviewSentToProvider": true,
+    "originalRecommendationSentExactly": true,
+    "savedReasonSentExactly": true,
+    "outcomeRemainsPending": true,
+    "passed": true
+  },
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST010-en",
+      "phase": "baseline",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "732736c4-6185-4bb8-8ff7-3303386dc7e2",
+      "resultId": "e2e623cc-10fc-4d7f-8885-ebbadba82be2",
+      "elapsedMs": 91839,
+      "attempts": 1,
+      "costMicro": 183054,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 31601,
+        "cached": 10880,
+        "output": 17647,
+        "reasoning": 13733
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "0e9ab509-e7af-43de-af64-4b76698dcbec",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 91807,
+          "usage": {
+            "input": 31601,
+            "cached": 10880,
+            "output": 17647,
+            "reasoning": 13733,
+            "raw": {
+              "input_tokens": 31601,
+              "input_tokens_details": {
+                "cached_tokens": 10880
+              },
+              "output_tokens": 17647,
+              "output_tokens_details": {
+                "reasoning_tokens": 13733
+              },
+              "total_tokens": 49248
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "1055015d134402dd05c72f488c7ec7d8457f1cb6d46d0f40ba96eabc6ba119f1",
+        "reviewIds": [],
+        "assessmentIds": [],
+        "sourceVersions": [],
+        "latestReviewCount": 0,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "baseline-result.json",
+      "exportFile": "baseline-export.json"
+    },
+    {
+      "key": "TEST010-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "c6648ae8-85e1-4e9a-9f5c-4a2708435582",
+      "resultId": "d447565e-8328-4f77-b639-4228de78094c",
+      "elapsedMs": 119484,
+      "attempts": 1,
+      "costMicro": 226318,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 32332,
+        "cached": 11136,
+        "output": 22935,
+        "reasoning": 18116
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "8f92005f-d1a8-4a89-9a0b-f92e83fba29e",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 119454,
+          "usage": {
+            "input": 32332,
+            "cached": 11136,
+            "output": 22935,
+            "reasoning": 18116,
+            "raw": {
+              "input_tokens": 32332,
+              "input_tokens_details": {
+                "cached_tokens": 11136
+              },
+              "output_tokens": 22935,
+              "output_tokens_details": {
+                "reasoning_tokens": 18116
+              },
+              "total_tokens": 55267
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "5e3a189ce82d7b856e157313d9c2fbc4d1f95e5577349468ecaf9e6b69ec15de",
+        "reviewIds": [
+          "fa4b1757-fec6-46c7-9894-314b82ab8f82"
+        ],
+        "assessmentIds": [
+          "e2e623cc-10fc-4d7f-8885-ebbadba82be2"
+        ],
+        "sourceVersions": [
+          1
+        ],
+        "latestReviewCount": 1,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.409372,
+  "modelElapsedSeconds": 211.323
+}

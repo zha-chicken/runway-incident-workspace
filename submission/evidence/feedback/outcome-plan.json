@@ -1,0 +1,24 @@
+[
+  {
+    "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+    "finalAction": "SYNTHETIC EXERCISE FOLLOW-UP: the simulated reviewer compared D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR, recorded their applicable times and scope, and retained the earlier reports as unusable history. No real airport was contacted or operation performed.",
+    "outcome": "SIMULATED OBSERVATION: the authored exercise reports describe adequate carts in both previously affected zones and stable weather at 17:00. Official flight status remains unconfirmed. This is a fictional exercise outcome, not measured field performance.",
+    "outcomeStatus": "simulated_observed",
+    "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+    "recommendationId": "first",
+    "disposition": "accepted",
+    "reason": "SYNTHETIC REVIEW: Accept the source-and-time verification objective. New 16:55/17:00 exercise handover reports are available; checking their scope and provenance is appropriate. Acceptance is not confirmation of execution or permission for flight operations.",
+    "nextImprovement": "SYNTHETIC REVIEW: Separate applicability, verification basis and official-status uncertainty. Record any later action explicitly."
+  },
+  {
+    "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+    "finalAction": "SYNTHETIC REVIEW DECISION: retain the original recommendation and rejection reason, and request a new assessment using the version-2 report set. No message or operational instruction was sent.",
+    "outcome": "SIMULATION APPLICATION OBSERVATION: the real reassessment request failed validation after the single repair because it cited nonexistent REPORT:D05-SUPPORT-HEAD. No new assessment was saved. The original version-1 high-risk assessment and all reviews remain intact. The version-2 policy computes low risk from the newer exercise reports, but this is not a successfully saved model reassessment. No real-world aviation outcome was measured.",
+    "outcomeStatus": "simulated_observed",
+    "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+    "recommendationId": "follow-3",
+    "disposition": "rejected",
+    "reason": "SYNTHETIC REVIEW: Reject carrying this 16:00 high-risk escalation forward unchanged into 17:00. It was justified for the earlier wind and expanding-shortage reports. Those reports are now out of window and retained as unusable history. D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR are new verified simulation reports describing recovery. Reassess the current report set. This rejection alone does not authorize lowering risk, cancel human oversight, prove safe aircraft release, or confirm normal flight status.",
+    "nextImprovement": "SYNTHETIC REVIEW: Bind recommendations to snapshot and time window. Explain changed conclusions from new evidence and preserve the original decision history."
+  }
+]

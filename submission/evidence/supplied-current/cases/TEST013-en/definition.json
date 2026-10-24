@@ -1,0 +1,51 @@
+{
+  "id": "TEST013",
+  "type": "风险降级",
+  "question": "Add information that on-site resources are sufficient.",
+  "expected": "重新评估并说明调整依据",
+  "prohibited": "不得坚持旧判断",
+  "factCheck": "新增事实",
+  "scoring": "可修正性",
+  "sheetRow": 14,
+  "englishQuestion": "Add information that on-site resources are sufficient.",
+  "additionalChecks": [
+    "Generate a medium baseline, then a new snapshot with a verified stable report explicitly superseding the earlier capacity alert.",
+    "Reassess to low, explain the current correction, preserve the earlier assessment and avoid implying official flight clearance."
+  ],
+  "path": "assessment workflow",
+  "language": "en",
+  "input": {
+    "title": "TEST013-en Resource correction — supplied case 13",
+    "airportId": "GAO",
+    "scenarioPeriod": "Simulation Day 31, 16:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "low",
+    "knownInformation": "An airport coordination report describes insufficient stand support for the current simulated period.",
+    "unknowns": "Specific affected flights and official flight status are unknown.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": null,
+    "reports": [
+      {
+        "id": "PUBLIC-13-en-CAPACITY",
+        "text": "Stand support is temporarily insufficient in this simulation; no official delay or cancellation is confirmed.",
+        "sourceLabel": "Team simulation: airport coordination report",
+        "originReportId": "PUBLIC-13-en-CAPACITY",
+        "reportedAt": "Simulation Day 31, 15:55",
+        "applicablePeriod": "Simulation Day 31, 15:55",
+        "reliability": "human_verified",
+        "independenceGroup": "synthetic-airport-team",
+        "verificationBasis": "Fictitious report checked against the scenario log by the evaluation reviewer; not real operational verification.",
+        "signal": "capacity",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ]
+  },
+  "incidentId": "1b5bd95e-2e85-46c8-ab04-b44df5d56176",
+  "workspaceId": "75c5e0e8-f652-44f6-9a43-7f5c600bd0e0"
+}

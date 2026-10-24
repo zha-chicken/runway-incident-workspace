@@ -1,0 +1,13 @@
+{
+  "englishPages": 3,
+  "chinesePages": 3,
+  "historicalVersion3": true,
+  "historicalTime2110": true,
+  "latestTime2210Absent": true,
+  "latestTitleAbsent": true,
+  "staleNotice": true,
+  "visualFindings": [
+    "Skip-to-content link appears in both PDFs and overlaps report text near the bottom of page 1; it also appears on page 2."
+  ],
+  "rightMarginConcernConfirmed": false
+}

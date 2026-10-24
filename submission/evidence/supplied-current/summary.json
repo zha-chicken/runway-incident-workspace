@@ -1,0 +1,38 @@
+{
+  "organizerTestCases": 15,
+  "languageVariants": 30,
+  "finalModelResponses": 28,
+  "privacyCases": 2,
+  "modelBackedPhases": 32,
+  "completedModelPhases": 32,
+  "providerCalls": 50,
+  "singleAttemptPhases": 14,
+  "repairedPhases": 18,
+  "validationStatuses": {
+    "passed": 27,
+    "review_required": 5
+  },
+  "retainedValidationWarnings": 16,
+  "qualityVerdicts": {
+    "PASS": 13,
+    "PASS_WITH_NOTES": 14,
+    "FAIL_QUALITY": 3
+  },
+  "coreCriteriaPass": 30,
+  "costCNYAppEstimate": 5.553762,
+  "tokens": {
+    "input": 1397553,
+    "cached": 591744,
+    "output": 489806,
+    "reasoning": 348396
+  },
+  "latencySeconds": {
+    "minimum": 15.199,
+    "median": 81.907,
+    "mean": 83.51103125,
+    "p95NearestRank": 134.866,
+    "maximum": 192.362
+  },
+  "startedAt": "2026-10-24T00:50:15.054Z",
+  "completedAt": "2026-10-24T01:13:39.415Z"
+}

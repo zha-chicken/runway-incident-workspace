@@ -1,0 +1,169 @@
+{
+  "testId": "TEST002",
+  "language": "zh",
+  "testType": "事实引用",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 3,
+  "originalQuestion": "为什么判断海陵国际机场风险上升？",
+  "actualQuestion": "为什么判断海陵国际机场风险上升？",
+  "expected": "引用模拟天气、历史基线和机场重要程度",
+  "prohibited": "不得无来源添加事实",
+  "factCheck": "来源编号是否完整",
+  "scoringFocus": "引用正确",
+  "additionalFrozenChecks": [
+    "Ground current forecast/operations in EVT001 reports; ground monthly and scale facts in the corresponding HAI rows.",
+    "Historical anomalies do not alone justify current high risk or causation."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Supports medium risk from current scenario weather/operations and unresolved capacity, without claiming independent high-risk confirmation.",
+    "evidence": "Cites current reports, event importance, 2024 scale, exact July/August HAI rates and correct 12-month comparison windows.",
+    "hallucination": "No unsupported current fact found in the reviewed Chinese answer.",
+    "notes": "Explicitly notes that morning operations were near normal, so RULE004 is a verification item rather than proof of a previous decline.",
+    "required_check": "Expected/prohibited checks pass after one repair."
+  },
+  "errorExplanation": "Explicitly notes that morning operations were near normal, so RULE004 is a verification item rather than proof of a previous decline.",
+  "correctiveAction": "Explicitly notes that morning operations were near normal, so RULE004 is a verification item rather than proof of a previous decline.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 13,
+      "uniqueReferences": 13,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 42,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST002-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "e133b6da-9695-45f1-b29d-61ca335e23a9",
+      "resultId": "0836c8c0-cd67-4561-8704-4b209574370b",
+      "elapsedMs": 157208,
+      "attempts": 2,
+      "costMicro": 272278,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 40006,
+        "cached": 22016,
+        "output": 29427,
+        "reasoning": 24672
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "e4ac826b-6fd4-429b-8b46-76e855175dfb",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 79613,
+          "usage": {
+            "input": 19944,
+            "cached": 2176,
+            "output": 14633,
+            "reasoning": 12194,
+            "raw": {
+              "input_tokens": 19944,
+              "input_tokens_details": {
+                "cached_tokens": 2176
+              },
+              "output_tokens": 14633,
+              "output_tokens_details": {
+                "reasoning_tokens": 12194
+              },
+              "total_tokens": 34577
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The anomaly rule treats more than a five-percentage-point drop below the prior 12-month mean as a trigger for focused historical review, not automatic weather attribution or a current high-risk finding.  RULE003  Both historical rows exceed that threshold; the same-category means are also lower than the prior means in those months ( 74.95%  and  76.82% ), so peer context matters."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The anomaly rule treats more than a five-percentage-point drop below the prior 12-month mean as a trigger for focused historical review, not automatic weather attribution or a current high-risk finding.  RULE003  Both historical rows exceed that threshold; the same-category means are also lower than the prior means in those months ( 74.95%  and  76.82% ), so peer context matters."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "异常规则将低于此前12个月平均五个百分点以上作为重点历史复核触发条件，而不是自动归因于天气或直接判定当前高风险。 RULE003  这两个历史月份都超过该阈值；同类均值在这两个月份也低于各自的历史平均（ 74.95%  和  76.82% ），因此需要结合同类机场背景。"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "异常规则将低于此前12个月平均五个百分点以上作为重点历史复核触发条件，而不是自动归因于天气或直接判定当前高风险。 RULE003  这两个历史月份都超过该阈值；同类均值在这两个月份也低于各自的历史平均（ 74.95%  和  76.82% ），因此需要结合同类机场背景。"
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 76.82% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 76.82% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "cf1b699a-250a-47ba-8e94-df3c61721776",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 77524,
+          "usage": {
+            "input": 20062,
+            "cached": 19840,
+            "output": 14794,
+            "reasoning": 12478,
+            "raw": {
+              "input_tokens": 20062,
+              "input_tokens_details": {
+                "cached_tokens": 19840
+              },
+              "output_tokens": 14794,
+              "output_tokens_details": {
+                "reasoning_tokens": 12478
+              },
+              "total_tokens": 34856
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.272278,
+  "modelElapsedSeconds": 157.208
+}

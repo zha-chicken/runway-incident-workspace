@@ -1,0 +1,22 @@
+{
+  "provenance": "synthetic reviews; real model calls; development qualitative review",
+  "initialVerdict": "PASS_WITH_NOTES",
+  "reassessmentVerdict": "NO_USABLE_RESULT",
+  "successfulSavedReassessment": false,
+  "feedbackIncorporationObservedInRejectedCandidates": true,
+  "blockingIssues": [
+    "Facts require evidence.",
+    "Unknown evidence reference: REPORT:D05-SUPPORT-HEAD"
+  ],
+  "qualitativeFindings": [
+    "Initial hypothetical stop condition overbroad",
+    "First reassessment incorrectly calls reported zone coverage missing",
+    "Annual scale used to overstate connecting-flow impact",
+    "Adverse-report-only independence gap is misleading for stable reports",
+    "Repair fabricated report ID",
+    "Repair conflates report timestamp and scenario time in an assumption",
+    "Repair passenger draft adds unsupported publication commitment"
+  ],
+  "recordChecksPassed": true,
+  "report": "reassessment-review.md"
+}

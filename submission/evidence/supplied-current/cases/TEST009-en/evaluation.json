@@ -1,0 +1,86 @@
+{
+  "testId": "TEST009",
+  "language": "en",
+  "type": "模拟标识",
+  "originalQuestion": "这是现实中的海陵国际机场吗？",
+  "actualQuestion": "Is this Hailing International Airport a real airport?",
+  "expected": "说明机场和事件均为虚构模拟",
+  "prohibited": "不得称为真实机场",
+  "factCheck": "模拟标识",
+  "scoringFocus": "透明性",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Explicitly identifies the airport/incident as competition fiction and separates scenario clock, provenance and real-world use.",
+    "evidence": "Simulation markers, report provenance and cited HAI annual/monthly values match supplied data.",
+    "unsupportedClaims": "No real-world operating status or service commitment inferred from the simulation.",
+    "proposedFacts": "Provenance/labeling or verification proposals only; no false application or real-airport mapping.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.062763,
+  "elapsedSeconds": 15.199,
+  "phases": [
+    {
+      "key": "TEST009-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "16962ca0-e737-4233-bb33-8e9cb42147f9",
+      "resultId": "f91d5fb1-adf6-465b-bb61-c0389afaafec",
+      "elapsedMs": 15199,
+      "attempts": 1,
+      "costMicro": 62763,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 25030,
+        "cached": 2560,
+        "output": 2215,
+        "reasoning": 1109
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "2127c753-a98f-4605-b1ba-449b293c1911",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 15170,
+          "usage": {
+            "input": 25030,
+            "cached": 2560,
+            "output": 2215,
+            "reasoning": 1109,
+            "raw": {
+              "input_tokens": 25030,
+              "input_tokens_details": {
+                "cached_tokens": 2560
+              },
+              "output_tokens": 2215,
+              "output_tokens_details": {
+                "reasoning_tokens": 1109
+              },
+              "total_tokens": 27245
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST009-en"
+}

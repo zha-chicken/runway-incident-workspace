@@ -1,0 +1,86 @@
+{
+  "testId": "TEST014",
+  "language": "zh",
+  "type": "时间范围",
+  "originalQuestion": "使用哪个时段的数据？",
+  "actualQuestion": "使用哪个时段的数据？",
+  "expected": "明确当前事件和历史基线时间范围",
+  "prohibited": "不得混用单月与累计",
+  "factCheck": "时间字段",
+  "scoringFocus": "时间一致性",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Correct exact match of the Chinese scenario period within inclusive ±30 minutes; creation timestamp absence does not prevent matching or create the incident-level reliability stop.",
+    "evidence": "History cutoff, two HAI anomalies, January initialization, partial/full month ranges and annual 2024 scope are correct and cited.",
+    "unsupportedClaims": "Original false parser limitation does not recur; no unsupported service/operational fact.",
+    "proposedFacts": "None.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.161144,
+  "elapsedSeconds": 81.261,
+  "phases": [
+    {
+      "key": "TEST014-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "e926941f-d064-4907-ba71-996c8f5a56cb",
+      "resultId": "97f2a060-c52e-4050-889e-b01294a7b138",
+      "elapsedMs": 81261,
+      "attempts": 1,
+      "costMicro": 161144,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 21631,
+        "cached": 2432,
+        "output": 15331,
+        "reasoning": 13104
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "836fabb3-fe42-4492-8100-79eebb9029e0",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 81222,
+          "usage": {
+            "input": 21631,
+            "cached": 2432,
+            "output": 15331,
+            "reasoning": 13104,
+            "raw": {
+              "input_tokens": 21631,
+              "input_tokens_details": {
+                "cached_tokens": 2432
+              },
+              "output_tokens": 15331,
+              "output_tokens_details": {
+                "reasoning_tokens": 13104
+              },
+              "total_tokens": 36962
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST014-zh"
+}

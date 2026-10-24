@@ -1,0 +1,69 @@
+{
+  "scenario": "UNSEEN07",
+  "language": "en",
+  "title": "Narrow official flight-status scope",
+  "type": "assessment",
+  "question": "Assess the situation and prepare a passenger draft limited to the confirmed information.",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U07-OFFICIAL"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "A current verified source supports delayed status for fictional SIM-271 only.",
+      "Passenger text can say that flight is delayed, but not all flights/airport delayed.",
+      "Revised time, cause, compensation, rebooking and transport are unknown; do not promise them.",
+      "Retain simulation/draft notice; no claim of actual sending."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct medium risk and narrow official status: only SIM-271 is delayed; revised time, other flights and service arrangements stay unknown.",
+    "evidence": "Flight/status claims cite U07-OFFICIAL; historical context is not used to explain the live delay. Drafts preserve confirmed status boundaries.",
+    "unsupportedClaims": "No invented time, compensation, rebooking, transport or action completion.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "Escalation wording again broadens source conflict alone into a stop condition; the actual current constraint flags remain correct."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.144023,
+  "elapsedSeconds": 58.496,
+  "phases": [
+    {
+      "key": "UNSEEN07-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "ebaf2b48-36bf-440c-92ef-611eb82a6347",
+      "resultId": "cb836211-82f4-4736-8bc9-e45458a41a0f",
+      "elapsedMs": 58496,
+      "attempts": 1,
+      "costMicro": 144023,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 33070,
+        "cached": 1664,
+        "output": 10143,
+        "reasoning": 6635
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN07-en"
+}

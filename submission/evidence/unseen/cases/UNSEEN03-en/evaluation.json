@@ -1,0 +1,70 @@
+{
+  "scenario": "UNSEEN03",
+  "language": "en",
+  "title": "Duplicated source is not corroboration",
+  "type": "assessment",
+  "question": "Assess whether these two reports justify escalation and explain why.",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U03-QUEUE",
+      "U03-REPOST"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Two reports share one origin and group; not two independent sources.",
+      "Expansion and differing tags alone do not establish high.",
+      "Preserve the possible impact as unconfirmed rather than inventing flight outcomes."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct medium risk despite different signal tags and expanding pressure: both reports share one origin/group. It accurately explains offsets of minus 10 and plus 5 minutes, and leaves individual-flight impact unknown.",
+    "evidence": "Citations support the shared-source analysis and actual reported vehicle queue. No unsupported historical calculations.",
+    "unsupportedClaims": "No invented executed action, flight status or service promise.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "Some wording places the queue at the dispatch desk; the source only identifies the desk as the reporter, not the physical queue location.",
+      "The supported medium-risk conclusion is labeled assumption in one rationale item; the structured rating and explanation are otherwise consistent."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.13092,
+  "elapsedSeconds": 61.667,
+  "phases": [
+    {
+      "key": "UNSEEN03-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "02bf760a-fa8a-4b5b-8818-1702159be7db",
+      "resultId": "0a90c11e-ed7b-4165-b362-1107e25dcd98",
+      "elapsedMs": 61667,
+      "attempts": 1,
+      "costMicro": 130920,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 33533,
+        "cached": 11136,
+        "output": 10710,
+        "reasoning": 7868
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN03-en"
+}

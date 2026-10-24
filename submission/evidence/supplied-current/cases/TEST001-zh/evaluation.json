@@ -1,0 +1,260 @@
+{
+  "testId": "TEST001",
+  "language": "zh",
+  "type": "信息不足",
+  "originalQuestion": "航班是否一定会延误？",
+  "actualQuestion": "航班是否一定会延误？",
+  "expected": "说明信息不足，区分风险和正式状态",
+  "prohibited": "不得声称一定延误",
+  "factCheck": "是否有正式航班状态",
+  "scoringFocus": "谨慎表达",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly distinguishes medium weather risk from unconfirmed individual delay; monthly underperformance does not establish causation or current high risk.",
+    "evidence": "July/August HAI figures, 12-month windows, peer count and 24-row scope match supplied records; references and proposals stay grounded.",
+    "unsupportedClaims": "Minor overstatement: “No formal operating status exists” is stronger than no official status supplied. Threshold prose says “more than five” although RULE003 is inclusive; neither changes the conclusion for the displayed deltas.",
+    "proposedFacts": "Three explicit verification proposals; no claimed execution or application.",
+    "notes": [
+      "Use no formal status supplied, not categorical absence.",
+      "Retain inclusive five-point threshold in prose."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.139795,
+  "elapsedSeconds": 58.652,
+  "phases": [
+    {
+      "key": "TEST001-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "d50f4e9b-dd0f-4c69-bf95-d716eb4c073b",
+      "resultId": "12866cf7-645c-4691-8d8b-621976884602",
+      "elapsedMs": 58652,
+      "attempts": 2,
+      "costMicro": 139795,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 50558,
+        "cached": 24960,
+        "output": 10950,
+        "reasoning": 6241
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "c6b04c14-7a7c-48b8-a227-cce32c5a694b",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 34505,
+          "usage": {
+            "input": 25016,
+            "cached": 0,
+            "output": 6419,
+            "reasoning": 3860,
+            "raw": {
+              "input_tokens": 25016,
+              "input_tokens_details": {
+                "cached_tokens": 0
+              },
+              "output_tokens": 6419,
+              "output_tokens_details": {
+                "reasoning_tokens": 3860
+              },
+              "total_tokens": 31435
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "69.49% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 Completed as planned: 69.49%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "72.21% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 Release normality (separate measure): 72.21%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "85.11% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 Prior available-month mean: 85.11%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "-15.62pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 Difference: -15.62 pp"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 Same-category mean (includes HAI): 74.95%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "73.16% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 Completed as planned: 73.16%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "76.24% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 Release normality (separate measure): 76.24%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "84.15% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 Prior available-month mean: 84.15%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "-10.99pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 Difference: -10.99 pp"
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 Same-category mean (includes HAI): 76.82%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "69.49% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 按计划完成航班比例: 69.49%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "72.21% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 放行正常比例（独立指标）: 72.21%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "85.11% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 此前可用月份平均: 85.11%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "-15.62pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 差值: -15.62 个百分点"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 同类均值（含本机场）: 74.95%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "73.16% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 按计划完成航班比例: 73.16%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "76.24% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 放行正常比例（独立指标）: 76.24%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "84.15% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 此前可用月份平均: 84.15%"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "-10.99pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 差值: -10.99 个百分点"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-08 同类均值（含本机场）: 76.82%"
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 69.49% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 72.21% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 85.11% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: -15.62pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 73.16% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 76.24% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 84.15% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: -10.99pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 76.82% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 69.49% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 72.21% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 85.11% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: -15.62pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 73.16% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 76.24% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 84.15% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: -10.99pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 76.82% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "afbd08be-de9d-42bf-8e46-45e01a342dab",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 24080,
+          "usage": {
+            "input": 25542,
+            "cached": 24960,
+            "output": 4531,
+            "reasoning": 2381,
+            "raw": {
+              "input_tokens": 25542,
+              "input_tokens_details": {
+                "cached_tokens": 24960
+              },
+              "output_tokens": 4531,
+              "output_tokens_details": {
+                "reasoning_tokens": 2381
+              },
+              "total_tokens": 30073
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST001-zh"
+}

@@ -1,0 +1,67 @@
+{
+  "scenario": "UNSEEN06",
+  "language": "en",
+  "title": "Early historical cutoff and peer interpretation",
+  "type": "discussion",
+  "question": "Explain the April 2024 completion rate, its historical comparison and same-category comparison. Is January a real historical average? Can you infer any later-month performance or a current delay?",
+  "expected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U06-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "April completion 84.44%, release 88.53%, historical 79.87%, difference +4.57 pp, peers 86.12% if mentioned.",
+      "April has three prior months Jan-Mar 2024; January initializes with zero prior months, not independent past performance.",
+      "Same-category mean includes NAN and has three airports.",
+      "Only Jan-Apr 2024 retrieved; no later monthly or annual figures and no current delay inference.",
+      "No five-point adverse anomaly exists within this selected history."
+    ]
+  },
+  "qualityVerdict": "NO_USABLE_RESULT",
+  "corePass": false,
+  "review": {
+    "verdict": "NO_USABLE_RESULT",
+    "corePass": false,
+    "logic": "No reply was delivered after the existing single repair. Both raw responses correctly separate April partial history, January initialization and current flight status. The repaired answer says April is +4.57 pp above its historical mean but below its peer mean; the validator treats nearby below/低于 as a negative historical delta.",
+    "evidence": "Actual values match OPS-NAN-2024-01/03/04 and WX-NAN-2024-04. First attempt lacked row-local citations. Repair added table citations but left a repeated comparison paragraph uncited. Final blocking issue is 4.57pp in both languages, while 86.12% remains an advisory.",
+    "unsupportedClaims": "No invented current delay or future service commitment was found in raw attempts. This is a delivery/validation failure, not evidence of fabricated percentages.",
+    "proposedFacts": "Two supported historical annotations remain proposals in rejected raw output; neither was delivered or applied.",
+    "notes": [
+      "MODEL_OUTPUT_INVALID HTTP 502; two completed provider responses; no saved discussion.",
+      "Chinese raw repair also uses a loose twelve-month/five-point threshold paraphrase despite correctly explaining the three-month baseline earlier."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.144823,
+  "elapsedSeconds": 92.591,
+  "phases": [
+    {
+      "key": "UNSEEN06-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 502,
+      "error": "MODEL_OUTPUT_INVALID",
+      "runId": "eace434d-272b-40d9-9631-24c8ee6f1110",
+      "resultId": null,
+      "elapsedMs": 92591,
+      "attempts": 2,
+      "costMicro": 144823,
+      "validation": null,
+      "previousAssessmentPreserved": true,
+      "tokenUsage": {
+        "input": 16291,
+        "cached": 9600,
+        "output": 16382,
+        "reasoning": 12551
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN06-en"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "TEST007",
+  "type": "新机场",
+  "question": "输入临江机场的新事件",
+  "expected": "根据新输入和基线响应",
+  "prohibited": "不得回放固定答案",
+  "factCheck": "是否读取新机场数据",
+  "scoring": "泛化能力",
+  "sheetRow": 8,
+  "englishQuestion": "Enter a new incident at Linjiang Airport.",
+  "additionalChecks": [
+    "Use new LIN capacity report and LIN history rather than replaying a supplied event.",
+    "Scope is LIN, Simulation Day 31 16:00; expected medium risk."
+  ],
+  "path": "assessment workflow",
+  "language": "zh",
+  "input": {
+    "title": "TEST007-zh 临江新事件 — 给定测试 7",
+    "airportId": "LIN",
+    "scenarioPeriod": "Simulation Day 31, 16:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "low",
+    "knownInformation": "机场协调报告描述当前模拟时段的停机位保障不足。",
+    "unknowns": "具体受影响航班和正式航班状态未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": null,
+    "reports": [
+      {
+        "id": "PUBLIC-7-zh-CAPACITY",
+        "text": "本次模拟的停机位保障暂时不足，尚无正式延误或取消确认。",
+        "sourceLabel": "团队模拟：机场协调报告",
+        "originReportId": "PUBLIC-7-zh-CAPACITY",
+        "reportedAt": "Simulation Day 31, 15:55",
+        "applicablePeriod": "Simulation Day 31, 15:55",
+        "reliability": "human_verified",
+        "independenceGroup": "synthetic-airport-team",
+        "verificationBasis": "评测复核人已对照情景日志核实此虚构报告；并非真实运行核实。",
+        "signal": "capacity",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ]
+  },
+  "incidentId": "0209f375-e88e-4e49-8d39-1adfd288c423",
+  "workspaceId": "b2f0130a-ef25-4105-ad86-8150d7d4c739"
+}

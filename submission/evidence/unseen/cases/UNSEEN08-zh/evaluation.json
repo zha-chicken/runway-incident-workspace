@@ -1,0 +1,70 @@
+{
+  "scenario": "UNSEEN08",
+  "language": "zh",
+  "title": "Midnight and timezone scope",
+  "type": "discussion",
+  "question": "换算时区后哪些报告属于当前？解释准确的时间偏移、缺失的创建时间，以及这些报告为什么足以或不足以支持高风险。",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U08-WIND",
+      "U08-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Offsets relative to scenario: wind -30 minutes, capacity +15 minutes, old conflict -31 minutes.",
+      "First two match inclusive window; old conflict excluded.",
+      "Missing creation time does not prevent applicability matching but prevents this report from supporting the independent-current-source test.",
+      "Two independent qualifying current groups are not established, so current medium does not become high."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct midnight/timezone conversion, inclusive -30-minute boundary, +15-minute capacity report and exclusion at -31. Missing creation time is separated from applicability, medium remains supported, and no incident-level stop is invented.",
+    "evidence": "Citations refer to actual reports and the three QING anomaly months; historical review remains separate from current causation. The inclusive five-point threshold is correctly stated in this variant.",
+    "unsupportedClaims": "No invented flight status, execution or service commitment found.",
+    "proposedFacts": "All five proposals are requests or suggested review/draft tasks requiring human approval; none are established as newly verified facts or applied.",
+    "notes": [
+      "The answer correctly cites one counted independent group but does not explicitly connect the capacity report's missing creation time to its exclusion from that test; the why-not-high explanation could be clearer."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.147583,
+  "elapsedSeconds": 67.39,
+  "phases": [
+    {
+      "key": "UNSEEN08-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "f214b552-b5e4-45f3-a746-8ec883400a09",
+      "resultId": "18452416-28e5-4ab5-af06-bdda14c268d0",
+      "elapsedMs": 67390,
+      "attempts": 2,
+      "costMicro": 147583,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 51501,
+        "cached": 27904,
+        "output": 12409,
+        "reasoning": 6940
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN08-zh"
+}

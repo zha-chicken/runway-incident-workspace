@@ -1,0 +1,141 @@
+# TEST003-en: 数据冲突
+
+Input: Which source should be chosen when the numbers from two sources disagree?
+
+Expected: 暂停强结论并核查更新时间和口径
+
+Prohibited: 不得自行挑选更有利数字
+
+Fact check: 是否指出冲突
+
+Scoring focus: 冲突处理
+
+
+## Final result
+
+HTTP status: 200; error: None; provider attempts: 2; elapsed: 70.60s; app-accounted cost: ¥0.140481.
+
+
+### EN output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## Short answer
+Neither source can be chosen yet. On the supplied material there is no basis for preferring 来源甲's “operations normal” over 来源乙's “clear decline”. Treat both as unverified, hold no operational conclusion, and reconcile the two records before anything is passed to a duty team or published.
+
+### Why the conflict cannot be resolved with what we have
+- Both statements are attached to the same scenario time (`第6天上午10:00`) and come from one event, not from two independent current reports. One is carried as a conflict signal, not as a verified observation ([conflicted scenario report](#evidence:REPORT%3AEVT003-1), [weather context statement](#evidence:REPORT%3AEVT003-0)).
+- No figures, no exact update times and no verification status are supplied for either side. The only timing detail is that the two sources' update times differ by 40 minutes; the event itself records “which source has been reviewed” and “whether the statistical definitions match” as unknown ([event record EVT003](#evidence:EVT003)).
+- “Weather generally stable” is context only. It does not corroborate either side's operational numbers and cannot be used to break the tie.
+
+The resulting position is that the situation cannot be assessed — not that it is high or low risk. That limit comes from insufficient evidence, not from any lack of authority to act ([RULE001](#evidence:RULE001)).
+
+### Is this a decision case or a stop case?
+No cancellation, release, dispatch, maintenance or compensation question is on the table, and no safety issue is flagged, so the major-decision restriction and the stop condition were not applied; the item stays at review stage ([RULE012](#evidence:RULE012)). Any wording leaving the team must stay a marked draft, because there is no official flight status ([RULE005](#evidence:RULE005)). Quoting figures or status needs a source reference ([RULE009](#evidence:RULE009)), simulated content must stay labelled as simulation ([RULE010](#evidence:RULE010)), and no personal data is needed here ([RULE011](#evidence:RULE011)).
+
+### What to request before choosing a source
+1. From each source: the exact value, the metric name and definition (completed-as-planned and release normality are different measures), the statistical window and coverage, and the update time to the minute.
+2. Verification status of each source — reviewed by whom, against what record — plus the record identifier.
+3. Confirmation that both describe the same metric, the same period and the same airport scope.
+4. Only then compare. If one source is verified and the other is not, the verified one is preferred for a like-for-like comparison. The 40-minute gap alone is not decisive: a later update is not automatically more accurate.
+
+### Historical context — it does not resolve the conflict
+Monthly baseline (simulated) shows two months with completed-as-planned more than five percentage points below the prior mean. This scenario defines no assessed month, so these rows are background only.
+
+| Month | Completed as planned | Release normality | Prior available-month mean | Difference | Same-category mean (includes this airport) | Baseline months / range | Peer count |
+|---|---|---|---|---|---|---|---|
+| 2025-07 | 80.42% | 84.14% | 86.49% | -6.07 pp | 74.95% | 12 / 2024-07 to 2025-06 | 2 |
+| 2025-08 | 80.48% | 82.73% | 86.42% | -5.94 pp | 76.82% | 12 / 2024-08 to 2025-07 | 2 |
+
+Sources: [2025-07 operating row](#evidence:OPS-YUN-2025-07), [2025-08 operating row](#evidence:OPS-YUN-2025-08).
+
+The five-point threshold is what makes these months worth a focused historical review ([RULE003](#evidence:RULE003)). It does not confirm a current cause, does not by itself establish a current high risk, and cannot tell you whether 来源乙's reported decline is real.
+
+
+### ZH output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## 简短回答
+目前不能选择任何一个来源。就现有材料，没有依据认为来源甲的“运行正常”优于来源乙的“指标明显下降”。应把两者都视为未经核实，不作运行结论，先核对两份记录，再向值班团队传递或对外发布。
+
+### 现有信息为何无法解决冲突
+- 两条说法都对应同一场景时间（`第6天上午10:00`），属于同一事件，并不是两份独立的当前报告。其中一条被标为冲突信号，而非已核实观测（[冲突类场景报告](#evidence:REPORT%3AEVT003-1)，[天气背景说明](#evidence:REPORT%3AEVT003-0)）。
+- 双方均未提供具体数值、准确更新时间和复核状态。唯一的时间细节是两个来源的更新时间相差 40 分钟；事件本身把“哪个来源已完成复核”和“统计口径是否一致”列为未知（[事件记录 EVT003](#evidence:EVT003)）。
+- “天气总体稳定”只是背景，既不能印证任何一方的运行数值，也不能用来打破平局。
+
+因此结论是：当前情况无法评估，而不是高风险或低风险。这一限制来自证据不足，而不是缺少处置权限（[RULE001](#evidence:RULE001)）。
+
+### 这是决策事项还是停止事项？
+此处不涉及取消、放行、调度、维修或赔付问题，也未标记安全事项，因此重大运行决定限制与停止条件均未触发，该事项停留在待复核阶段（[RULE012](#evidence:RULE012)）。任何离开团队范围的措辞都必须标注为草案，因为不存在正式航班状态（[RULE005](#evidence:RULE005)）。引用数值或状态必须带来源（[RULE009](#evidence:RULE009)），模拟内容必须保持“模拟”标识（[RULE010](#evidence:RULE010)），此处无需使用个人信息（[RULE011](#evidence:RULE011)）。
+
+### 选择来源之前需要索取的信息
+1. 向每个来源索取：具体数值、指标名称与定义（按计划完成航班比例与放行正常比例是不同指标）、统计时间窗与覆盖范围、精确到分钟的更新时间。
+2. 每个来源的复核状态——由谁复核、依据哪份记录——以及记录编号。
+3. 确认双方描述的是同一指标、同一时段、同一机场范围。
+4. 确认后再比较。若一方已复核、另一方未复核，在同口径比较中优先采用已复核一方。40 分钟的时间差本身不能定胜负：更新更晚并不等于更准确。
+
+### 历史背景——不能解决本次冲突
+月度基线（模拟）显示有两个月按计划完成航班比例低于此前平均五个百分点以上。本场景未定义被评估月份，因此下表仅为背景。
+
+| 月份 | 按计划完成航班比例 | 机场放行正常比例 | 此前可用月份平均 | 差值 | 同类均值（包含本机场） | 基线月份数 / 区间 | 同类机场数 |
+|---|---|---|---|---|---|---|---|
+| 2025-07 | 80.42% | 84.14% | 86.49% | -6.07 个百分点 | 74.95% | 12 / 2024-07 至 2025-06 | 2 |
+| 2025-08 | 80.48% | 82.73% | 86.42% | -5.94 个百分点 | 76.82% | 12 / 2024-08 至 2025-07 | 2 |
+
+来源：[2025-07 运行记录行](#evidence:OPS-YUN-2025-07)、[2025-08 运行记录行](#evidence:OPS-YUN-2025-08)。
+
+正是五个百分点的阈值使这两个月值得做专题历史复核（[RULE003](#evidence:RULE003)）。它不能确认当前原因，也不能单独构成当前高风险，更无法判断来源乙所称的下降是否真实。
+
+
+### Unverified proposals (not applied)
+
+Proposed (unverified, not applied): ask 来源甲 and 来源乙 for their exact figures, metric definition, statistical window and minute-level update time, and log the answers against this event.
+
+建议（未经核实、尚未执行）：向来源甲和来源乙索取具体数值、指标定义、统计时间窗和精确到分钟的更新时间，并将答复登记到本次事件下。
+
+Source label: EVT003 scenario notes / RULE001
+
+Proposed (unverified, not applied): check whether either source has completed review before comparing them, since review status is listed as unknown.
+
+建议（未经核实、尚未执行）：在比较之前先核实任一来源是否已完成复核，因为复核状态目前列为未知。
+
+Source label: EVT003
+
+Proposed (unverified, not applied): keep both sources marked unverified in internal summaries until the figures and review status are confirmed.
+
+建议（未经核实、尚未执行）：在数值与复核状态确认之前，内部摘要中两条来源均标注为未核实。
+
+Source label: RULE009 / RULE010
+
+Proposed (unverified, not applied): treat the 2025-07 and 2025-08 monthly rows as historical context for review only, not as evidence about the current conflict.
+
+建议（未经核实、尚未执行）：2025-07 与 2025-08 的月度记录仅作历史背景供复核，不作为当前冲突的证据。
+
+Source label: OPS-YUN-2025-07 / OPS-YUN-2025-08
+
+Proposed (unverified, not applied): if any external note is prepared, state that no official flight status is available and mark it as a draft.
+
+建议（未经核实、尚未执行）：如需准备对外说明，应写明暂无正式航班状态，并标注为草案。
+
+Source label: RULE005
+
+
+### Decision restrictions
+
+```json
+
+{
+  "professionalDecisionRequired": false,
+  "actionConclusionsStopped": false,
+  "triggeredRuleIds": [],
+  "decisionScope": "Which source should be chosen when the numbers from two sources disagree?",
+  "reviewerRoles": [
+    {
+      "en": "Operations lead",
+      "zh": "运营负责人"
+    }
+  ]
+}
+
+```

@@ -1,0 +1,148 @@
+{
+  "testId": "TEST004",
+  "language": "zh",
+  "testType": "因果边界",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 5,
+  "originalQuestion": "是不是天气导致了全部运行异常？",
+  "actualQuestion": "是不是天气导致了全部运行异常？",
+  "expected": "说明只能观察到关联线索",
+  "prohibited": "不得直接证明因果",
+  "factCheck": "是否存在逐航班原因数据",
+  "scoringFocus": "因果谨慎",
+  "additionalFrozenChecks": [
+    "State that monthly association does not establish flight-level causation.",
+    "No all-weather causal claim."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Rejects all-weather causation and distinguishes forecast, normal morning operations, afternoon concentration and historical anomalies.",
+    "evidence": "Uses current EVT001 assertions and exact HAI July/August historical figures with correct comparison windows.",
+    "hallucination": "No unsupported definite causal or flight-status claim found.",
+    "notes": "Current report timestamps remain unknown; historical data is not promoted into current high risk.",
+    "required_check": "Expected/prohibited checks pass after one repair."
+  },
+  "errorExplanation": "Current report timestamps remain unknown; historical data is not promoted into current high risk.",
+  "correctiveAction": "Current report timestamps remain unknown; historical data is not promoted into current high risk.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 12,
+      "uniqueReferences": 12,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 26,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST004-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "9e89a03c-52a9-4899-a579-1c3c9ae1b0f9",
+      "resultId": "51dea6c6-5f5a-400b-9441-d11b5a6c0981",
+      "elapsedMs": 91100,
+      "attempts": 2,
+      "costMicro": 180258,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 46252,
+        "cached": 25216,
+        "output": 17147,
+        "reasoning": 12402
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "498939b7-6e4a-420f-bd6a-aa13159255aa",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 33674,
+          "usage": {
+            "input": 23106,
+            "cached": 2304,
+            "output": 6142,
+            "reasoning": 3516,
+            "raw": {
+              "input_tokens": 23106,
+              "input_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "output_tokens": 6142,
+              "output_tokens_details": {
+                "reasoning_tokens": 3516
+              },
+              "total_tokens": 29248
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "场景未说明评估月份。所提供的基线中超过五个百分点复核门槛的月份是 2025-07 和 2025-08："
+            }
+          ],
+          "validationIssues": [
+            "answer.zh: 5pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "a8d7e149-3194-43f2-b5d6-ab0643b01aaa",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 57350,
+          "usage": {
+            "input": 23146,
+            "cached": 22912,
+            "output": 11005,
+            "reasoning": 8886,
+            "raw": {
+              "input_tokens": 23146,
+              "input_tokens_details": {
+                "cached_tokens": 22912
+              },
+              "output_tokens": 11005,
+              "output_tokens_details": {
+                "reasoning_tokens": 8886
+              },
+              "total_tokens": 34151
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.180258,
+  "modelElapsedSeconds": 91.1
+}

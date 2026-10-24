@@ -23,7 +23,7 @@ Treat every generated message as a draft. Verify report provenance, applicabilit
 
 ## Evidence and release posture
 
-The quota/concurrency row reflects the later owner-approved local update; recorded evaluation results below remain tied to `8ad14e3` and were not rerun with real model calls.
+The quota/concurrency row reflects the quota update committed in `27f5ec9`; recorded evaluation results below remain tied to `8ad14e3` and were not rerun with real model calls.
 
 See [EVALUATION.md](EVALUATION.md) for denominators, source locations and the distinction between earlier successful default-build verification and the later packaging worker-port restriction. The packaging Webpack build passed.
 

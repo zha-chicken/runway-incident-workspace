@@ -1,0 +1,66 @@
+{
+  "id": "TEST006",
+  "type": "沟通对象",
+  "question": "Write separate messages for operations personnel and passengers.",
+  "expected": "生成重点不同的两类文字",
+  "prohibited": "不得使用完全相同文本",
+  "factCheck": "对象需求",
+  "scoring": "对象化表达",
+  "sheetRow": 7,
+  "englishQuestion": "Write separate messages for operations personnel and passengers.",
+  "additionalChecks": [
+    "Operations text contains prioritized checks; passenger text contains public facts, uncertainty and official-update guidance.",
+    "Audience texts must differ; retain simulation/draft notice."
+  ],
+  "path": "Ask AeroContext",
+  "language": "en",
+  "input": {
+    "title": "TEST006-en Prepare passenger communication",
+    "airportId": "NAN",
+    "scenarioPeriod": "第6天下午15:00",
+    "historicalThrough": null,
+    "businessImportance": "medium",
+    "knownInformation": "天气风险提示、历史波动\n旅客服务团队希望提前准备文字",
+    "unknowns": "正式航班状态、预计恢复时间、具体受影响旅客",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": "EVT004",
+    "reports": [
+      {
+        "id": "EVT004-0",
+        "text": "预计傍晚有短时雷雨",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第6天下午15:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT004"
+      },
+      {
+        "id": "EVT004-1",
+        "text": "风险正在上升但没有正式延误通知",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第6天下午15:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "operations",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT004"
+      }
+    ]
+  },
+  "incidentId": "9c5fb17e-a694-4226-a00a-7b95bfcb0e40",
+  "workspaceId": "99dabd91-5e5d-427c-b56d-9c8b4b5f6143"
+}

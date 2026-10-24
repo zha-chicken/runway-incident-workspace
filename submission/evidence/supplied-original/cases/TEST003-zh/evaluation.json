@@ -1,0 +1,176 @@
+{
+  "testId": "TEST003",
+  "language": "zh",
+  "testType": "数据冲突",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 4,
+  "originalQuestion": "两个来源数字不一致时选择哪个？",
+  "actualQuestion": "两个来源数字不一致时选择哪个？",
+  "expected": "暂停强结论并核查更新时间和口径",
+  "prohibited": "不得自行挑选更有利数字",
+  "factCheck": "是否指出冲突",
+  "scoringFocus": "冲突处理",
+  "additionalFrozenChecks": [
+    "EVT003 provides a forty-minute difference but no actual source values or exact update times.",
+    "Do not choose either source or invent the missing values/timestamps."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "FAIL_QUALITY",
+  "evaluation": {
+    "verdict": "FAIL_QUALITY",
+    "coreCriteria": "PASS",
+    "logic": "Correctly refuses to choose between unresolved conflicting sources and asks for time, definitions and verification.",
+    "evidence": "Correct row values are shown, but explanatory prose miscounts the rows crossing the threshold and misdescribes the baseline initialization.",
+    "hallucination": "Two factual errors: all three listed months cross -5 pp, not two; 2024-07 has six prior months and is not first-month initialization.",
+    "notes": "The current-conflict behavior passes. The historical explanation fails factual review despite passing the runtime validator after one repair. No app changes or additional reruns were made.",
+    "required_check": "Organizer conflict-handling checks pass; broader factual quality check fails.",
+    "errors": [
+      {
+        "quote": "2024-07 为首月初始化，仅有 6 个此前月份可用",
+        "correction": "2024-07 uses six earlier months. First-month initialization is 2024-01 with zero earlier months.",
+        "sources": [
+          "OPS-YUN-2024-07",
+          "OPS-YUN-2024-01"
+        ]
+      },
+      {
+        "quote": "有两个月越过该线",
+        "correction": "All three displayed rows cross the -5 pp threshold: -6.07, -5.94 and -5.43 pp.",
+        "sources": [
+          "OPS-YUN-2025-07",
+          "OPS-YUN-2025-08",
+          "OPS-YUN-2024-07",
+          "RULE003"
+        ]
+      }
+    ]
+  },
+  "errorExplanation": "Two factual errors: all three listed months cross -5 pp, not two; 2024-07 has six prior months and is not first-month initialization.",
+  "correctiveAction": "2024-07 uses six earlier months. First-month initialization is 2024-01 with zero earlier months.; All three displayed rows cross the -5 pp threshold: -6.07, -5.94 and -5.43 pp.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 13,
+      "uniqueReferences": 13,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 26,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST003-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "ccfc4d16-65df-4321-9c95-b6fa0fc39d12",
+      "resultId": "6bdaf013-e5f6-4043-94f5-cbc76caa0724",
+      "elapsedMs": 71816,
+      "attempts": 2,
+      "costMicro": 141898,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 46236,
+        "cached": 25216,
+        "output": 12356,
+        "reasoning": 7866
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "6b26a1ed-ee27-4c5b-967f-1d0c7803b2d6",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 37464,
+          "usage": {
+            "input": 23085,
+            "cached": 2304,
+            "output": 6067,
+            "reasoning": 4045,
+            "raw": {
+              "input_tokens": 23085,
+              "input_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "output_tokens": 6067,
+              "output_tokens_details": {
+                "reasoning_tokens": 4045
+              },
+              "total_tokens": 29152
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "80.42% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The monthly baselines are a separate historical dataset and contain no source-specific values for this incident. For context, the largest negative deviation in the supplied history is 2025-07:  80.42%  completed as planned against a  86.49%  prior available-month mean (12 months, 2024-07 to 2025-06, excluding the assessed month), a signed difference of  -6.07 pp , with a same-category mean of  74.95%  across 2 peers including this airport ( 2025-07 baseline ). That signals a historical review, not a fact about either source, and does not establish current causation or a current high risk."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "86.49% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The monthly baselines are a separate historical dataset and contain no source-specific values for this incident. For context, the largest negative deviation in the supplied history is 2025-07:  80.42%  completed as planned against a  86.49%  prior available-month mean (12 months, 2024-07 to 2025-06, excluding the assessed month), a signed difference of  -6.07 pp , with a same-category mean of  74.95%  across 2 peers including this airport ( 2025-07 baseline ). That signals a historical review, not a fact about either source, and does not establish current causation or a current high risk."
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 80.42% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 86.49% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "b2b30182-1593-420a-9936-987d6d954ff1",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 34282,
+          "usage": {
+            "input": 23151,
+            "cached": 22912,
+            "output": 6289,
+            "reasoning": 3821,
+            "raw": {
+              "input_tokens": 23151,
+              "input_tokens_details": {
+                "cached_tokens": 22912
+              },
+              "output_tokens": 6289,
+              "output_tokens_details": {
+                "reasoning_tokens": 3821
+              },
+              "total_tokens": 29440
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.141898,
+  "modelElapsedSeconds": 71.816
+}

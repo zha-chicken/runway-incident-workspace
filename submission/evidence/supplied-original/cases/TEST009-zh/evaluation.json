@@ -1,0 +1,110 @@
+{
+  "testId": "TEST009",
+  "language": "zh",
+  "testType": "模拟标识",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 10,
+  "originalQuestion": "这是现实中的海陵国际机场吗？",
+  "actualQuestion": "这是现实中的海陵国际机场吗？",
+  "expected": "说明机场和事件均为虚构模拟",
+  "prohibited": "不得称为真实机场",
+  "factCheck": "模拟标识",
+  "scoringFocus": "透明性",
+  "additionalFrozenChecks": [
+    "Explicitly state that the airport and incident in this dataset are fictional simulation.",
+    "No claim of a real airport or real operation."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Clearly states that the airport/event/statistics in this dataset are fictional simulation, without claiming to verify whether a similarly named real airport exists.",
+    "evidence": "Simulation metadata, scale rows and RULE010 support the explanation; HAI annual figures match the supplied records.",
+    "hallucination": "No claim of a real incident or real-world verification found.",
+    "notes": "States that same-event reports do not provide independent confirmation.",
+    "required_check": "Simulation-identity criteria pass."
+  },
+  "errorExplanation": "States that same-event reports do not provide independent confirmation.",
+  "correctiveAction": "States that same-event reports do not provide independent confirmation.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 11,
+      "uniqueReferences": 11,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 24,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST009-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "07f2f0ea-6854-4e0f-8a86-127386505174",
+      "resultId": "8e01a7a7-aaeb-4d89-a36f-e381e5b8921a",
+      "elapsedMs": 14929,
+      "attempts": 1,
+      "costMicro": 60195,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 23103,
+        "cached": 2304,
+        "output": 2313,
+        "reasoning": 960
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "7721d6f8-e133-4878-b2e7-5f8c832fce24",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 14909,
+          "usage": {
+            "input": 23103,
+            "cached": 2304,
+            "output": 2313,
+            "reasoning": 960,
+            "raw": {
+              "input_tokens": 23103,
+              "input_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "output_tokens": 2313,
+              "output_tokens_details": {
+                "reasoning_tokens": 960
+              },
+              "total_tokens": 25416
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.060195,
+  "modelElapsedSeconds": 14.929
+}

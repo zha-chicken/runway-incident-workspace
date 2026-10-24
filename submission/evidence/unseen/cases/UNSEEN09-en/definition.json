@@ -1,0 +1,143 @@
+{
+  "id": "UNSEEN09",
+  "title": "Prior-version feedback after deterioration",
+  "type": "reassessment",
+  "input": {
+    "title": "Later deterioration with earlier feedback",
+    "airportId": "GAO",
+    "scenarioPeriod": "Simulation Day 52, 14:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U09-STABLE",
+        "text": "The morning shift log records sufficient support resources and no current disruption.",
+        "sourceLabel": "Synthetic evaluation report U09-STABLE",
+        "originReportId": "U09-STABLE",
+        "reportedAt": "Simulation Day 52, 13:00",
+        "applicablePeriod": "Simulation Day 52, 13:00",
+        "reliability": "unusable",
+        "independenceGroup": "U09-STABLE",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U09-WIND",
+        "text": "A new meteorology bulletin reports strong winds in the new period.",
+        "sourceLabel": "Synthetic evaluation report U09-WIND",
+        "originReportId": "U09-WIND",
+        "reportedAt": "Simulation Day 52, 13:50",
+        "applicablePeriod": "Simulation Day 52, 13:50",
+        "reliability": "human_verified",
+        "independenceGroup": "U09-WIND",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U09-CAPACITY",
+        "text": "A new independent airport-support log reports a shortage now expanding across two support zones.",
+        "sourceLabel": "Synthetic evaluation report U09-CAPACITY",
+        "originReportId": "U09-CAPACITY",
+        "reportedAt": "Simulation Day 52, 14:10",
+        "applicablePeriod": "Simulation Day 52, 14:10",
+        "reliability": "human_verified",
+        "independenceGroup": "U09-CAPACITY",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "capacity",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Reassess the changed situation and explain how the earlier feedback applies.",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U09-WIND",
+      "U09-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Version 1 is low; version 2 is high from new independent weather/capacity signals and expansion.",
+      "Saved modification reason and original recommendation are present, marked prior_snapshot.",
+      "Do not carry over the earlier stable assumption or describe the recorded reason as missing.",
+      "Pending outcome and blank actual action are not execution or success.",
+      "Preserve both snapshots, both assessments, and the entire review."
+    ]
+  },
+  "baselineInput": {
+    "title": "Stable shift before later deterioration",
+    "airportId": "GAO",
+    "scenarioPeriod": "Simulation Day 52, 13:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U09-STABLE",
+        "text": "The morning shift log records sufficient support resources and no current disruption.",
+        "sourceLabel": "Synthetic evaluation report U09-STABLE",
+        "originReportId": "U09-STABLE",
+        "reportedAt": "Simulation Day 52, 13:00",
+        "applicablePeriod": "Simulation Day 52, 13:00",
+        "reliability": "human_verified",
+        "independenceGroup": "U09-STABLE",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "baselineExpected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U09-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Routine stable current conditions; no official flight status."
+    ]
+  },
+  "review": {
+    "disposition": "modified",
+    "reviewerLabel": "Synthetic evaluation reviewer",
+    "reason": "For the stable morning snapshot only, consolidate the first recommendation into one routine-check summary. This is a wording preference, not confirmation that checks were performed or an instruction to keep risk low after conditions change.",
+    "revisedRecommendation": "While verified conditions remain stable, prepare one concise routine-check summary.",
+    "finalAction": "",
+    "outcome": "",
+    "outcomeStatus": "pending",
+    "nextImprovement": "Recheck this preference against new reports before reusing it."
+  },
+  "language": "en",
+  "key": "UNSEEN09-en",
+  "incidentId": "24c7ef32-e55a-48e6-bd7e-2796f9c91278",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

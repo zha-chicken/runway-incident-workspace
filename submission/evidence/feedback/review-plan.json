@@ -1,0 +1,58 @@
+[
+  {
+    "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+    "finalAction": "",
+    "outcome": "",
+    "outcomeStatus": "pending",
+    "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+    "recommendationId": "first",
+    "disposition": "accepted",
+    "reason": "SYNTHETIC REVIEW: Accept the source-and-time verification objective. New 16:55/17:00 exercise handover reports are available; checking their scope and provenance is appropriate. Acceptance is not confirmation of execution or permission for flight operations.",
+    "nextImprovement": "SYNTHETIC REVIEW: Separate applicability, verification basis and official-status uncertainty. Record any later action explicitly."
+  },
+  {
+    "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+    "finalAction": "",
+    "outcome": "",
+    "outcomeStatus": "pending",
+    "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+    "recommendationId": "follow-1",
+    "disposition": "modified",
+    "reason": "SYNTHETIC REVIEW: Short intervals has no assigned owner or approved cadence. Replace it with an owner-and-trigger checklist rather than inventing a fixed interval. The replacement is proposed wording only.",
+    "revisedRecommendation": "SYNTHETIC REVIEW: Proposed replacement: ask the operations lead to assign a duty desk and approve a review cadence. Log new reports with their applicable times and sources. Request reassessment for renewed gust risk, verified cart shortfall or expansion, conflicting evidence, or safety issues. Keep official flight status unconfirmed until a current verified official report exists.",
+    "nextImprovement": "SYNTHETIC REVIEW: State the owner, update triggers and approval needed; do not imply monitoring has started."
+  },
+  {
+    "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+    "finalAction": "",
+    "outcome": "",
+    "outcomeStatus": "pending",
+    "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+    "recommendationId": "follow-2",
+    "disposition": "pending",
+    "reason": "SYNTHETIC REVIEW: Leave the draft decision pending while an authorized reviewer checks public facts and wording. No flight status, public-release approval or sending is established by the exercise records.",
+    "nextImprovement": "SYNTHETIC REVIEW: Separate draft preparation from approval to publish. An unresolved review remains pending."
+  },
+  {
+    "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+    "finalAction": "",
+    "outcome": "",
+    "outcomeStatus": "pending",
+    "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+    "recommendationId": "follow-3",
+    "disposition": "rejected",
+    "reason": "SYNTHETIC REVIEW: Reject carrying this 16:00 high-risk escalation forward unchanged into 17:00. It was justified for the earlier wind and expanding-shortage reports. Those reports are now out of window and retained as unusable history. D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR are new verified simulation reports describing recovery. Reassess the current report set. This rejection alone does not authorize lowering risk, cancel human oversight, prove safe aircraft release, or confirm normal flight status.",
+    "nextImprovement": "SYNTHETIC REVIEW: Bind recommendations to snapshot and time window. Explain changed conclusions from new evidence and preserve the original decision history."
+  },
+  {
+    "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+    "finalAction": "",
+    "outcome": "",
+    "outcomeStatus": "pending",
+    "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+    "recommendationId": "follow-4",
+    "disposition": "accepted",
+    "reason": "SYNTHETIC REVIEW: Accept a provenance log covering earlier and newer reports, preserving the original assessment and showing why older reports no longer apply. This approves a proposed documentation step, not its execution.",
+    "nextImprovement": "SYNTHETIC REVIEW: Keep the original recommendation and full review reason visible beside any replacement assessment."
+  }
+]

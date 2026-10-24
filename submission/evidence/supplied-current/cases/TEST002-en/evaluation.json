@@ -1,0 +1,89 @@
+{
+  "testId": "TEST002",
+  "language": "en",
+  "type": "事实引用",
+  "originalQuestion": "为什么判断海陵国际机场风险上升？",
+  "actualQuestion": "Why is the risk at Hailing International Airport rising?",
+  "expected": "引用模拟天气、历史基线和机场重要程度",
+  "prohibited": "不得无来源添加事实",
+  "factCheck": "来源编号是否完整",
+  "scoringFocus": "引用正确",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Current weather/concentration support medium; distinguishes historical anomalies and lack of independent current confirmation from a high-risk conclusion. Time matching correctly remains valid without creation timestamps.",
+    "evidence": "Both HAI anomaly rows, windows, peers and weather figures match. Uses the available 2024 annual scale because the August 2025 cutoff excludes 2025 annual data.",
+    "unsupportedClaims": "No invented quantitative data or service commitments. One sentence says no formal flight status exists rather than none is supplied; annual scale year should be explicit in prose as well as its citation.",
+    "proposedFacts": "Three clearly labeled requests for confirmation, current status and flight details.",
+    "notes": [
+      "State 2024 beside annual scale figures.",
+      "Use unconfirmed/unsupplied official status wording."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.164842,
+  "elapsedSeconds": 82.553,
+  "phases": [
+    {
+      "key": "TEST002-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "dec1858d-26ad-4edf-93c7-b9392d3c676e",
+      "resultId": "46bbe3f1-4c0a-440f-b97a-53c66fe78b0f",
+      "elapsedMs": 82553,
+      "attempts": 1,
+      "costMicro": 164842,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 21636,
+        "cached": 2432,
+        "output": 15792,
+        "reasoning": 13078
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "b97ee72d-e83a-488d-af1c-47e146028c56",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 82508,
+          "usage": {
+            "input": 21636,
+            "cached": 2432,
+            "output": 15792,
+            "reasoning": 13078,
+            "raw": {
+              "input_tokens": 21636,
+              "input_tokens_details": {
+                "cached_tokens": 2432
+              },
+              "output_tokens": 15792,
+              "output_tokens_details": {
+                "reasoning_tokens": 13078
+              },
+              "total_tokens": 37428
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST002-en"
+}

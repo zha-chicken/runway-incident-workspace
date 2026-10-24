@@ -1,0 +1,128 @@
+{
+  "testId": "TEST007",
+  "language": "zh",
+  "type": "新机场",
+  "originalQuestion": "输入临江机场的新事件",
+  "actualQuestion": "输入临江机场的新事件",
+  "expected": "根据新输入和基线响应",
+  "prohibited": "不得回放固定答案",
+  "factCheck": "是否读取新机场数据",
+  "scoringFocus": "泛化能力",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct five-minute current-period match, human-verified simulation provenance, single source and medium risk.",
+    "evidence": "Correctly distinguishes July 2024 six-month baseline from August 2025 twelve-month baseline; -6.36 and -5.44 points and December figures match LIN records. Missing-weather flag respected.",
+    "unsupportedClaims": "No false historical claim or notification guarantee. Generic arrive-early advice is not in the evidence; the passenger sentence about publishing only confirmed information should be framed as draft policy, not an organization commitment.",
+    "proposedFacts": "No proposedFacts field; actions remain verification, monitoring, information preparation and drafts.",
+    "notes": [
+      "Remove or clearly condition the unsupported generic extra-arrival-time advice.",
+      "Clarify that insufficient evidence for risk escalation does not prevent human referral.",
+      "Frame only-confirmed-publication wording as a draft restriction."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.223769,
+  "elapsedSeconds": 105.829,
+  "phases": [
+    {
+      "key": "TEST007-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "21b022f9-6d27-4ee3-9488-8774f970e671",
+      "resultId": "bedf999e-1320-40bd-a5b8-7a7b09ead22c",
+      "elapsedMs": 105829,
+      "attempts": 2,
+      "costMicro": 223769,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 66129,
+        "cached": 34560,
+        "output": 19906,
+        "reasoning": 12023
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "94e084be-3f22-4164-9640-16104e70582d",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 76219,
+          "usage": {
+            "input": 33043,
+            "cached": 1664,
+            "output": 14507,
+            "reasoning": 10293,
+            "raw": {
+              "input_tokens": 33043,
+              "input_tokens_details": {
+                "cached_tokens": 1664
+              },
+              "output_tokens": 14507,
+              "output_tokens_details": {
+                "reasoning_tokens": 10293
+              },
+              "total_tokens": 47550
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "rationale.4.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "有两个历史月份低于其此前基线至少五个百分点：2024-07 为 -6.36 个百分点，2025-08 为 -5.44 个百分点。这些是供重点复核的历史基线标记，不是当前原因或当前高风险结论。"
+            }
+          ],
+          "validationIssues": [
+            "rationale.4.zh: 5pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "8339dd62-0aa0-41f6-a6e2-d65b75b7d7d0",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 29572,
+          "usage": {
+            "input": 33086,
+            "cached": 32896,
+            "output": 5399,
+            "reasoning": 1730,
+            "raw": {
+              "input_tokens": 33086,
+              "input_tokens_details": {
+                "cached_tokens": 32896
+              },
+              "output_tokens": 5399,
+              "output_tokens_details": {
+                "reasoning_tokens": 1730
+              },
+              "total_tokens": 38485
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST007-zh"
+}

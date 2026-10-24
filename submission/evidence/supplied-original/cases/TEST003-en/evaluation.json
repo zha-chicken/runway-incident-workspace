@@ -1,0 +1,181 @@
+{
+  "testId": "TEST003",
+  "language": "en",
+  "testType": "数据冲突",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 4,
+  "originalQuestion": "两个来源数字不一致时选择哪个？",
+  "actualQuestion": "Which source should be chosen when the numbers from two sources disagree?",
+  "expected": "暂停强结论并核查更新时间和口径",
+  "prohibited": "不得自行挑选更有利数字",
+  "factCheck": "是否指出冲突",
+  "scoringFocus": "冲突处理",
+  "additionalFrozenChecks": [
+    "EVT003 provides a forty-minute difference but no actual source values or exact update times.",
+    "Do not choose either source or invent the missing values/timestamps."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Does not select a favorable source; requests exact values, timestamps, definitions and verification before comparison.",
+    "evidence": "Recognizes the supplied 40-minute difference without inventing either actual update time or conflicting numeric value.",
+    "hallucination": "No invented current values/timestamps found; monthly figures are explicitly historical and cannot resolve the present conflict.",
+    "notes": "One built-in repair was needed. Final output retains two citation advisories for the five-point threshold; the threshold is correct but lacks a local RULE003 citation. The displayed table selects two 2025 anomalies; a third anomaly exists in 2024.",
+    "required_check": "Expected/prohibited checks pass after one repair."
+  },
+  "errorExplanation": "One built-in repair was needed. Final output retains two citation advisories for the five-point threshold; the threshold is correct but lacks a local RULE003 citation. The displayed table selects two 2025 anomalies; a third anomaly exists in 2024.",
+  "correctiveAction": "One built-in repair was needed. Final output retains two citation advisories for the five-point threshold; the threshold is correct but lacks a local RULE003 citation. The displayed table selects two 2025 anomalies; a third anomaly exists in 2024.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 12,
+      "uniqueReferences": 12,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 24,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST003-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "d117245a-8216-49a3-80b4-bde207024d43",
+      "resultId": "27f71ebf-802b-4f83-924d-67393ed9a298",
+      "elapsedMs": 70601,
+      "attempts": 2,
+      "costMicro": 140481,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "review_required",
+        "warnings": [
+          {
+            "code": "citation",
+            "path": "answer.en",
+            "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "Monthly baseline (simulated) shows two months with completed-as-planned more than five percentage points below the prior mean. This scenario defines no assessed month, so these rows are background only."
+          },
+          {
+            "code": "citation",
+            "path": "answer.zh",
+            "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "月度基线（模拟）显示有两个月按计划完成航班比例低于此前平均五个百分点以上。本场景未定义被评估月份，因此下表仅为背景。"
+          }
+        ]
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 46236,
+        "cached": 24192,
+        "output": 11928,
+        "reasoning": 7503
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "2c4cb2c9-e85c-4a5b-bc68-d93afa09eef2",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 32995,
+          "usage": {
+            "input": 23085,
+            "cached": 1280,
+            "output": 5475,
+            "reasoning": 3471,
+            "raw": {
+              "input_tokens": 23085,
+              "input_tokens_details": {
+                "cached_tokens": 1280
+              },
+              "output_tokens": 5475,
+              "output_tokens_details": {
+                "reasoning_tokens": 3471
+              },
+              "total_tokens": 28560
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "88.3% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The two entries are one scenario package, not two independent current reports. Monthly baseline rows are aggregates — e.g. 2025-12 shows  88.3%  completed as planned and  92.07%  release normality for the whole month ( 2025-12 baseline ) — so they cannot arbitrate a same-morning conflict."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "92.07% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The two entries are one scenario package, not two independent current reports. Monthly baseline rows are aggregates — e.g. 2025-12 shows  88.3%  completed as planned and  92.07%  release normality for the whole month ( 2025-12 baseline ) — so they cannot arbitrate a same-morning conflict."
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 88.3% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 92.07% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "8f9a663b-3cc5-4978-8627-7e609849085c",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 37533,
+          "usage": {
+            "input": 23151,
+            "cached": 22912,
+            "output": 6453,
+            "reasoning": 4032,
+            "raw": {
+              "input_tokens": 23151,
+              "input_tokens_details": {
+                "cached_tokens": 22912
+              },
+              "output_tokens": 6453,
+              "output_tokens_details": {
+                "reasoning_tokens": 4032
+              },
+              "total_tokens": 29604
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Monthly baseline (simulated) shows two months with completed-as-planned more than five percentage points below the prior mean. This scenario defines no assessed month, so these rows are background only."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "月度基线（模拟）显示有两个月按计划完成航班比例低于此前平均五个百分点以上。本场景未定义被评估月份，因此下表仅为背景。"
+            }
+          ]
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.140481,
+  "modelElapsedSeconds": 70.601
+}

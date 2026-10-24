@@ -1,0 +1,84 @@
+{
+  "id": "UNSEEN05",
+  "title": "No usable current report without incident-level stop",
+  "type": "assessment",
+  "input": {
+    "title": "交班时的未核实报告",
+    "airportId": "YUN",
+    "scenarioPeriod": "Simulation Day 45, 07:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U05-WEATHER",
+        "text": "未核实的转发消息称突然出现大风。",
+        "sourceLabel": "虚构评测报告 U05-WEATHER",
+        "originReportId": "U05-WEATHER",
+        "reportedAt": "Simulation Day 45, 07:00",
+        "applicablePeriod": "Simulation Day 45, 07:00",
+        "reliability": "unverified",
+        "independenceGroup": "U05-WEATHER",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U05-OPS",
+        "text": "另一条未核实消息称车辆不足，但无原始日志。",
+        "sourceLabel": "虚构评测报告 U05-OPS",
+        "originReportId": "U05-OPS",
+        "reportedAt": "Simulation Day 45, 07:10",
+        "applicablePeriod": "Simulation Day 45, 07:10",
+        "reliability": "unverified",
+        "independenceGroup": "U05-OPS",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "capacity",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U05-OLD-STABLE",
+        "text": "较早班次仅报告当时车辆充足。",
+        "sourceLabel": "虚构评测报告 U05-OLD-STABLE",
+        "originReportId": "U05-OLD-STABLE",
+        "reportedAt": "Simulation Day 45, 06:29",
+        "applicablePeriod": "Simulation Day 45, 06:29",
+        "reliability": "human_verified",
+        "independenceGroup": "U05-OLD-STABLE",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "评估当前从这些报告可以得出什么结论。",
+  "expected": {
+    "riskLevel": "unable_to_assess",
+    "usableReportIds": [],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Current unverified reports and the old stable report cannot determine current risk.",
+      "No incident-level reliability-unknown or safety flag is recorded; do not invent a RULE012 stop.",
+      "Output needs_review with gaps/referral; no definitive operational conclusion."
+    ]
+  },
+  "language": "zh",
+  "key": "UNSEEN05-zh",
+  "incidentId": "b0dea353-c9b3-4cab-a179-9aaa8966197b",
+  "workspaceId": "67fa6839-e2b9-46bb-9d4f-0fc0860ce90b"
+}

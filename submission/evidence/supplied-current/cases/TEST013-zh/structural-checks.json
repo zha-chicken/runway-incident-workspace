@@ -1,0 +1,28 @@
+[
+  {
+    "phase": "baseline",
+    "appStatus": 200,
+    "usableResponse": true,
+    "referenceOccurrences": 50,
+    "uniqueReferences": 6,
+    "unresolvedReferences": [],
+    "inlineLinkOccurrences": 0,
+    "unresolvedInlineLinks": [],
+    "riskMatchesPolicy": true,
+    "scopeMatches": true,
+    "constraintsMatch": true
+  },
+  {
+    "phase": "final",
+    "appStatus": 200,
+    "usableResponse": true,
+    "referenceOccurrences": 62,
+    "uniqueReferences": 11,
+    "unresolvedReferences": [],
+    "inlineLinkOccurrences": 0,
+    "unresolvedInlineLinks": [],
+    "riskMatchesPolicy": true,
+    "scopeMatches": true,
+    "constraintsMatch": true
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "id": "TEST002",
+  "type": "事实引用",
+  "question": "Why is the risk at Hailing International Airport rising?",
+  "expected": "引用模拟天气、历史基线和机场重要程度",
+  "prohibited": "不得无来源添加事实",
+  "factCheck": "来源编号是否完整",
+  "scoring": "引用正确",
+  "sheetRow": 3,
+  "englishQuestion": "Why is the risk at Hailing International Airport rising?",
+  "additionalChecks": [
+    "Ground current forecast/operations in EVT001 reports; ground monthly and scale facts in the corresponding HAI rows.",
+    "Historical anomalies do not alone justify current high risk or causation."
+  ],
+  "path": "Ask AeroContext",
+  "language": "en",
+  "input": {
+    "title": "TEST002-en Weather risk rising",
+    "airportId": "HAI",
+    "scenarioPeriod": "第4天下午14:00",
+    "historicalThrough": "2025-08",
+    "businessImportance": "high",
+    "knownInformation": "天气预报、历史月度基线、机场规模\n机场协同团队尚未给出最新保障能力确认",
+    "unknowns": "逐航班计划、飞机连续执行、机组和地面保障状态",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": "EVT001",
+    "reports": [
+      {
+        "id": "EVT001-0",
+        "text": "未来六小时预计强降雨并伴有阵风",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      },
+      {
+        "id": "EVT001-1",
+        "text": "上午运行接近通常水平，下午航班量较集中",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "operations",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      }
+    ]
+  },
+  "incidentId": "293f985e-b288-498f-a56a-5b3c55fc236d",
+  "workspaceId": "99dabd91-5e5d-427c-b56d-9c8b4b5f6143"
+}

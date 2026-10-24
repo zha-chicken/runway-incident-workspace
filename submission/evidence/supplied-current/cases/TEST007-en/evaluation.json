@@ -1,0 +1,128 @@
+{
+  "testId": "TEST007",
+  "language": "en",
+  "type": "新机场",
+  "originalQuestion": "输入临江机场的新事件",
+  "actualQuestion": "Enter a new incident at Linjiang Airport.",
+  "expected": "根据新输入和基线响应",
+  "prohibited": "不得回放固定答案",
+  "factCheck": "是否读取新机场数据",
+  "scoringFocus": "泛化能力",
+  "corePass": true,
+  "qualityVerdict": "FAIL_QUALITY",
+  "review": {
+    "verdict": "FAIL_QUALITY",
+    "corePass": true,
+    "logic": "New LIN incident uses the new capacity report and correct medium risk; current status remains unconfirmed. Historical rationale incorrectly describes July 2024 as a 12-month baseline.",
+    "evidence": "July 2024 has six prior months (January-June 2024), not twelve. The new interpretation context supplies this correctly, but rationale[3] still says prior 12-month averages in both languages. August 2025 does have twelve months.",
+    "unsupportedClaims": "Incorrect historical baseline is a substantive recurring defect in a different case/airport. The low-business-importance impact inference is also tagged fact instead of assumption; official-status absence is overstated once.",
+    "proposedFacts": "Assessment only; verification and draft actions do not claim execution.",
+    "notes": [
+      "OPEN: historical baseline misdescription persists despite correct computed input.",
+      "Mark inferred network impact as an assumption.",
+      "Use official status unconfirmed rather than nonexistent."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.234583,
+  "elapsedSeconds": 111.887,
+  "phases": [
+    {
+      "key": "TEST007-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "b738cbfe-b419-45e5-ae2f-ab5f33710038",
+      "resultId": "0344fc37-f363-449e-bf89-1efb91de99d2",
+      "elapsedMs": 111887,
+      "attempts": 2,
+      "costMicro": 234583,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 66126,
+        "cached": 33664,
+        "output": 21039,
+        "reasoning": 14804
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "e01cf7ab-1a70-4bc0-b7b5-7b3b0fbac38c",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 63345,
+          "usage": {
+            "input": 33041,
+            "cached": 768,
+            "output": 11969,
+            "reasoning": 8565,
+            "raw": {
+              "input_tokens": 33041,
+              "input_tokens_details": {
+                "cached_tokens": 768
+              },
+              "output_tokens": 11969,
+              "output_tokens_details": {
+                "reasoning_tokens": 8565
+              },
+              "total_tokens": 45010
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "rationale.3.en",
+              "message": "86.23% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The latest available full-month operations row, 2025-12, shows 82.70% completion and 86.23% release normality, above the prior-12-month mean of 80.37% by 2.33 percentage points; the same-category mean was 81.60%. This is historical baseline context, not current incident evidence."
+            }
+          ],
+          "validationIssues": [
+            "rationale.3.en: 86.23% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "c3ddb1cf-9159-44ca-b033-d6eeca7f5e05",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 48481,
+          "usage": {
+            "input": 33085,
+            "cached": 32896,
+            "output": 9070,
+            "reasoning": 6239,
+            "raw": {
+              "input_tokens": 33085,
+              "input_tokens_details": {
+                "cached_tokens": 32896
+              },
+              "output_tokens": 9070,
+              "output_tokens_details": {
+                "reasoning_tokens": 6239
+              },
+              "total_tokens": 42155
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST007-en"
+}

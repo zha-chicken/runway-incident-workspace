@@ -1,0 +1,38 @@
+{
+  "UNSEEN09-en": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "reviewFieldsRetainedExactly": true,
+    "reviewSentToProvider": true,
+    "originalRecommendationSentExactly": true,
+    "savedReasonSentExactly": true,
+    "outcomeRemainsPending": true,
+    "feedbackIsPriorSnapshot": true,
+    "riskChangesLowToHigh": true,
+    "snapshotHistoryRetainsBothVersions": true,
+    "assessmentsKeepOwnSnapshotVersion": true,
+    "oldReportRetainedAsUnusable": true,
+    "officialStatusStillUnconfirmed": true,
+    "passed": true
+  },
+  "UNSEEN09-zh": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "reviewFieldsRetainedExactly": true,
+    "reviewSentToProvider": true,
+    "originalRecommendationSentExactly": true,
+    "savedReasonSentExactly": true,
+    "outcomeRemainsPending": true,
+    "feedbackIsPriorSnapshot": true,
+    "riskChangesLowToHigh": true,
+    "snapshotHistoryRetainsBothVersions": true,
+    "assessmentsKeepOwnSnapshotVersion": true,
+    "oldReportRetainedAsUnusable": true,
+    "officialStatusStillUnconfirmed": true,
+    "passed": true
+  }
+}

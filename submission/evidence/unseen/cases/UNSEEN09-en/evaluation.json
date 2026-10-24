@@ -1,0 +1,93 @@
+{
+  "scenario": "UNSEEN09",
+  "language": "en",
+  "title": "Prior-version feedback after deterioration",
+  "type": "reassessment",
+  "question": "Reassess the changed situation and explain how the earlier feedback applies.",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U09-WIND",
+      "U09-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Version 1 is low; version 2 is high from new independent weather/capacity signals and expansion.",
+      "Saved modification reason and original recommendation are present, marked prior_snapshot.",
+      "Do not carry over the earlier stable assumption or describe the recorded reason as missing.",
+      "Pending outcome and blank actual action are not execution or success.",
+      "Preserve both snapshots, both assessments, and the entire review."
+    ]
+  },
+  "qualityVerdict": "PASS",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Correctly changes low to high after new independent wind/capacity reports and expanding two-zone impact. Excludes the old report at -60 minutes. Uses the supplied modification reason as prior-snapshot feedback, not missing evidence or a reason to retain low risk; pending outcome remains unexecuted.",
+    "evidence": "Current facts cite U09-WIND/CAPACITY; old stable context cites U09-STABLE. GAO February -6.10 pp with twelve prior months is accurate and remains historical.",
+    "unsupportedClaims": "No unsupported completion, approval to execute, flight status or passenger service commitment found.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.296664,
+  "elapsedSeconds": 116.018,
+  "phases": [
+    {
+      "key": "UNSEEN09-en",
+      "phase": "baseline",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "b525f58b-eee9-4d63-ac3e-98dd252f0e4d",
+      "resultId": "ac3fbc91-806a-4e88-9a81-3127a1a9a7aa",
+      "elapsedMs": 44862,
+      "attempts": 1,
+      "costMicro": 128027,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 32956,
+        "cached": 1664,
+        "output": 8172,
+        "reasoning": 4541
+      }
+    },
+    {
+      "key": "UNSEEN09-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "0554e6ab-4dd7-49ce-8064-8079706f8688",
+      "resultId": "4f8eb633-708d-44f7-a184-4e9cc778bcfa",
+      "elapsedMs": 71156,
+      "attempts": 1,
+      "costMicro": 168637,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 34756,
+        "cached": 1920,
+        "output": 12861,
+        "reasoning": 9269
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN09-en"
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-24",
+  "applicationCommit": "8ad14e3ca10538f4a4fcf2ba5ce39f52c72e99b9",
+  "applicationFiles": 95,
+  "sourceMatchesCommit": true,
+  "activeAppWorkingTreeClean": true,
+  "originalFeedbackAndSummariesUnchanged": true,
+  "requirements": 8,
+  "evaluationMatrixRows": {
+    "supplied-original": 30,
+    "supplied-current": 30,
+    "unseen": 20
+  },
+  "evidenceEntries": 578,
+  "technicalReportPages": 12,
+  "presentationSlides": 9,
+  "localCacheCleanInstall": "passed",
+  "typecheck": "passed",
+  "tests": {
+    "files": 18,
+    "passed": 345
+  },
+  "dataImport": "passed",
+  "defaultBuild": "blocked_by_worker_port_environment_restriction",
+  "webpackBuild": "passed",
+  "newProviderCalls": 0,
+  "knownRuntimeSecretsFound": false,
+  "presentationIntegrityLayoutAndImport": "passed",
+  "visualReview": "all report pages and all slides inspected",
+  "pending": [
+    "fresh real-inference startup/restart/export",
+    "judge access",
+    "quotas",
+    "documentation synchronization to source repository",
+    "video",
+    "publication and portal submission"
+  ]
+}

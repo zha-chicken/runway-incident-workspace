@@ -1,0 +1,123 @@
+# TEST008-zh: 未知信息
+
+Input: 没有前序飞机位置怎么办？
+
+Expected: 列为信息缺口并建议核查
+
+Prohibited: 不得虚构位置
+
+Fact check: 输入中是否有位置
+
+Scoring focus: 承认未知
+
+
+## Final result
+
+HTTP status: 200; error: None; provider attempts: 1; elapsed: 31.18s; app-accounted cost: ¥0.088267.
+
+
+### EN output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## Direct answer
+A missing inbound-aircraft position is a **data gap, not a finding**. It cannot be used to infer delay, cancellation or knock-on impact. Record it as an open item with an owner for retrieval, and keep any downstream conclusion unstated until the position is actually provided.
+
+### What the current evidence supports
+- The only current report eligible for use says the morning share of flights completed as planned declined, while many flights are still planned for the evening. Reliability is scenario-given; the originating report is unspecified, no creation time is supplied, and independent source identity is not established ([current operations report](#evidence:REPORT%3AEVT002-1)).
+- The scenario record describes weather as not clearly deteriorating, lists affected flights, gate resources and inbound aircraft position as unknown, and notes frequent gate changes on site ([scenario record](#evidence:EVT002)).
+- The supported risk rating is **medium, not high**. It rests on continuing operational pressure and passenger-communication rules ([continuing pressure](#evidence:RULE004), [passenger communication](#evidence:RULE005)), with citation, simulation-labelling and privacy rules also in force ([citations](#evidence:RULE009), [simulation label](#evidence:RULE010), [privacy](#evidence:RULE011)).
+
+### Practical steps for the missing position
+1. **Prepare a data request for approval, not send it:** flight number, scheduled and estimated times, inbound leg status, stand/gate and turnaround milestones — scoped to the evening flight bank only.
+2. **Clarify the nature of the gap:** ask operations whether the position feed is unavailable, stale, or simply not yet queried. Treat all three as unverified until confirmed.
+3. **Do not substitute assumptions for data.** Under the continuing-pressure rule, checks run in order: inbound aircraft → gate/stand availability → ground handling → crew ([continuing pressure](#evidence:RULE004)).
+4. **Any future action** (gate plan change, towing, stand reassignment) stays a proposal for the operations lead; nothing is executed or promised to passengers.
+5. **If incident-level source reliability is recorded as unknown,** action conclusions must stop and the matter escalates to the operations lead ([stop condition](#evidence:RULE012)). That condition does not apply to the current record.
+
+### Historical context (does not explain the current evening)
+Only **one of 24** monthly rows from 2024-01 to 2025-12 crosses the five-percentage-point gap in the anomaly rule ([anomaly rule](#evidence:RULE003)):
+
+| Assessed month | Completed as planned | Release normality | Prior available-month mean | Difference | Same-category mean (includes this airport) |
+|---|---|---|---|---|---|
+| 2025-08 | `78.2%` | `79.42%` | `83.81%` | `-5.61 pp` | `79.58%` |
+| 2025-12 | `78.49%` | `80.54%` | `83.23%` | `-4.74 pp` | `82.35%` |
+
+The 2025-08 baseline uses 12 prior available months, 2024-08 to 2025-07; the 2025-12 baseline uses 12 prior months, 2024-12 to 2025-11. Peer count is 3 airports including this one. The 2025-12 gap stays below the threshold ([2025-08 baseline row](#evidence:OPS-BEI-2025-08), [2025-12 baseline row](#evidence:OPS-BEI-2025-12)). This historical underperformance warrants a focused historical review; it does not confirm current causation and does not by itself make the present situation high risk.
+
+### Decision status
+No cancellation, release, dispatch, maintenance or compensation decision is proposed or supported here, and action conclusions are not stopped at the current rating. Everything above is verification and drafting only — no message has been sent.
+
+
+### ZH output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## 直接回答
+缺少前序飞机位置是**信息缺口，不是结论**。不能用它推断延误、取消或连带影响。应把它记为待办事项，指定责任人去取数；在位置信息真正提供之前，不要对后续影响下结论。
+
+### 现有证据支持什么
+- 当前唯一可用于判断的报告称：上午按计划完成航班的比例下降，晚间仍有较多计划航班。其可靠性为赛事给定，原始报告来源未说明，未提供报告生成时间，也未确认独立来源身份（[当前运行报告](#evidence:REPORT%3AEVT002-1)）。
+- 事件记录描述天气未出现明显恶化，同时把具体受影响航班、登机口资源、前序飞机位置列为未知，并提到现场反馈登机口调整频繁（[事件记录](#evidence:EVT002)）。
+- 当前支持的风险评级为**中，不是高**，依据是持续运行压力与旅客沟通规则（[持续运行压力](#evidence:RULE004)、[旅客沟通](#evidence:RULE005)），同时适用引用、模拟标识与隐私规则（[引用要求](#evidence:RULE009)、[模拟标识](#evidence:RULE010)、[隐私保护](#evidence:RULE011)）。
+
+### 针对“没有前序飞机位置”的处理步骤
+1. **准备取数请求供审批，而不是直接发出：** 航班号、计划与预计时刻、前序航段状态、机位/登机口、保障节点时间——范围只限晚间航班波。
+2. **先弄清缺口性质：** 请运行人员确认是位置数据源不可用、数据过期，还是尚未查询。三种情况在确认前都按未核实处理。
+3. **不要用假设替代数据。** 按持续运行压力规则，核查顺序为：前序飞机 → 机位/登机口可用性 → 地面保障 → 机组（[持续运行压力](#evidence:RULE004)）。
+4. **任何后续动作**（登机口方案调整、拖曳、机位变更）都只是提交运营负责人的建议；不执行，也不向旅客承诺。
+5. **如果事件层面的来源可靠性被记录为未知，** 必须停止给出行动结论并升级至运营负责人（[停止条件](#evidence:RULE012)）。当前记录不满足该条件。
+
+### 历史背景（不能解释当前晚间情况）
+2024-01 至 2025-12 的 24 条月度记录中，只有 **1 条**超过异常规则所述的五个百分点差距（[异常波动规则](#evidence:RULE003)）：
+
+| 评估月份 | 按计划完成航班比例 | 机场放行正常比例 | 此前可用月份均值 | 与自身均值差 | 同类均值（含本机场） |
+|---|---|---|---|---|---|
+| 2025-08 | `78.2%` | `79.42%` | `83.81%` | `-5.61 pp` | `79.58%` |
+| 2025-12 | `78.49%` | `80.54%` | `83.23%` | `-4.74 pp` | `82.35%` |
+
+2025-08 的基线为 12 个此前可用月份，即 2024-08 至 2025-07；2025-12 的基线为 12 个此前月份，即 2024-12 至 2025-11。同类机场数为 3 个（含本机场）。2025-12 的差距低于阈值（[2025-08 基线行](#evidence:OPS-BEI-2025-08)、[2025-12 基线行](#evidence:OPS-BEI-2025-12)）。这类历史偏低值得做专项历史复核，但不确认当前因果关系，也不单独构成当前高风险。
+
+### 决策状态
+此处不提出、也不支持任何取消、放行、调度、维修或赔付决定；在当前评级下行动结论未被停止。以上全部是核查与起草工作——未发送任何消息。
+
+
+### Unverified proposals (not applied)
+
+Proposed (not submitted, not applied) scope for an inbound-aircraft status pull: flights in the evening bank on 第4天 at this airport, with flight number, inbound leg, stand/gate and turnaround milestone times.
+
+建议（未提交、未执行）的取数范围：本机场第4天晚间航班波，包含航班号、前序航段、机位/登机口及保障节点时间。
+
+Source label: Proposed verification request — not applied
+
+Proposed check (not performed): whether the position feed is unavailable, stale, or not yet queried; to be confirmed by operations rather than assumed.
+
+建议核查（尚未执行）：位置数据源是不可用、已过期，还是尚未查询；应由运行人员确认，不得假设。
+
+Source label: Proposed verification request — not applied
+
+Proposed passenger wording limited to public facts, stated uncertainty and official-update guidance; no delay or cancellation statement, to be approved before any use.
+
+建议的旅客表述仅限可公开事实、已说明的不确定性和以官方更新为准的指引；不含延误或取消表述，使用前须经审批。
+
+Source label: Proposed draft content — not approved
+
+
+### Decision restrictions
+
+```json
+
+{
+  "professionalDecisionRequired": false,
+  "actionConclusionsStopped": false,
+  "triggeredRuleIds": [],
+  "decisionScope": "没有前序飞机位置怎么办？",
+  "reviewerRoles": [
+    {
+      "en": "Operations lead",
+      "zh": "运营负责人"
+    }
+  ]
+}
+
+```

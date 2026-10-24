@@ -1,0 +1,87 @@
+{
+  "id": "UNSEEN01",
+  "title": "Stable desk with stale disagreement",
+  "type": "assessment",
+  "input": {
+    "title": "行李交接稳定",
+    "airportId": "XING",
+    "scenarioPeriod": "Simulation Day 41, 10:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U01-STABLE",
+        "text": "当前行李交接台已按计划配齐人员，队列没有外溢。此信息仅确认该交接台，不代表航班状态。",
+        "sourceLabel": "虚构评测报告 U01-STABLE",
+        "originReportId": "U01-STABLE",
+        "reportedAt": "Simulation Day 41, 09:30",
+        "applicablePeriod": "Simulation Day 41, 09:30",
+        "reliability": "human_verified",
+        "independenceGroup": "U01-STABLE",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U01-OLD",
+        "text": "较早的交接台报告对缺员情况存在分歧。",
+        "sourceLabel": "虚构评测报告 U01-OLD",
+        "originReportId": "U01-OLD",
+        "reportedAt": "Simulation Day 41, 09:29",
+        "applicablePeriod": "Simulation Day 41, 09:29",
+        "reliability": "conflicted",
+        "independenceGroup": "U01-OLD",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "conflict",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U01-RUMOUR",
+        "text": "一名未核实的来访者称其他地方可能排队，未提供地点或时间。",
+        "sourceLabel": "虚构评测报告 U01-RUMOUR",
+        "originReportId": "U01-RUMOUR",
+        "reportedAt": "Simulation Day 41, 10:00",
+        "applicablePeriod": "Simulation Day 41, 10:00",
+        "reliability": "unverified",
+        "independenceGroup": "U01-RUMOUR",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "context",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "评估当前交接台情况，并准备三类受众的草案。",
+  "expected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U01-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "The stable report is exactly minus 30 minutes and current.",
+      "The conflicting report is minus 31 minutes, context only, and does not block low risk.",
+      "The unverified rumour is not a verified current fact.",
+      "Do not infer that all flights are normal or messages have been sent."
+    ]
+  },
+  "language": "zh",
+  "key": "UNSEEN01-zh",
+  "incidentId": "d465835b-dd8b-4c4b-8421-24a603e07c26",
+  "workspaceId": "67fa6839-e2b9-46bb-9d4f-0fc0860ce90b"
+}

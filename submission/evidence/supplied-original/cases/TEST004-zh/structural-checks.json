@@ -1,0 +1,13 @@
+[
+  {
+    "phase": "final",
+    "appStatus": 200,
+    "usableResponse": true,
+    "referenceOccurrences": 12,
+    "uniqueReferences": 12,
+    "unresolvedReferences": [],
+    "inlineLinkOccurrences": 26,
+    "unresolvedInlineLinks": [],
+    "constraintsMatch": true
+  }
+]

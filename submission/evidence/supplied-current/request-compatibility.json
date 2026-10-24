@@ -1,0 +1,422 @@
+[
+  {
+    "key": "TEST001-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST001-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST001-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST001-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST002-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST002-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST002-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST002-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST003-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST003-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST003-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST003-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST004-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST004-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST004-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST004-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST005-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST005-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST005-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST005-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST006-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST006-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST006-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST006-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST007-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST007-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST007-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST007-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST008-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST008-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST008-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST008-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST009-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST009-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST009-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST009-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST010-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST010-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST010-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST010-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST011-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST011-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST011-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST011-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST012-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST012-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST012-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST012-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST013-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST013-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST013-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST013-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST014-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST014-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST014-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST014-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST015-en",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST015-en",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST015-zh",
+    "action": "discussion",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  },
+  {
+    "key": "TEST015-zh",
+    "action": "assessment",
+    "schemaIdentical": true,
+    "originalInputPreserved": true,
+    "settingsIdentical": true
+  }
+]

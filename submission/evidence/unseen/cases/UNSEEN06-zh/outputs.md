@@ -1,0 +1,152 @@
+# UNSEEN06-zh: Early historical cutoff and peer interpretation
+
+Input: 解释2024年4月的按计划完成率、历史比较及同类比较。1月是否是真正的历史平均？能否推断后续月份表现或当前延误？
+
+Frozen expected behavior:
+
+```json
+
+{
+  "riskLevel": "low",
+  "usableReportIds": [
+    "U06-STABLE"
+  ],
+  "professionalDecisionRequired": false,
+  "actionConclusionsStopped": false,
+  "outputStatus": "needs_review",
+  "checks": [
+    "April completion 84.44%, release 88.53%, historical 79.87%, difference +4.57 pp, peers 86.12% if mentioned.",
+    "April has three prior months Jan-Mar 2024; January initializes with zero prior months, not independent past performance.",
+    "Same-category mean includes NAN and has three airports.",
+    "Only Jan-Apr 2024 retrieved; no later monthly or annual figures and no current delay inference.",
+    "No five-point adverse anomaly exists within this selected history."
+  ]
+}
+
+```
+
+
+## Final result
+
+HTTP status: 200; error: None; provider attempts: 2; elapsed: 106.55s; app-accounted cost: ¥0.175263.
+
+
+### EN output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## April 2024: what the row says
+
+| Measure | April 2024 value |
+|---|---|
+| Completed as planned | `84.44%` [NAN April operations row](#evidence:OPS-NAN-2024-04) |
+| Release normality (a separate measure, not a substitute) | `88.53%` [NAN April operations row](#evidence:OPS-NAN-2024-04) |
+| Prior available-month mean | `79.87%` [NAN April operations row](#evidence:OPS-NAN-2024-04) |
+| Difference from that mean | `+4.57` pp [NAN April operations row](#evidence:OPS-NAN-2024-04) |
+| Same-category mean, 3 airports including NAN | `86.12%` [NAN April operations row](#evidence:OPS-NAN-2024-04) |
+
+The baseline behind `79.87%` is only 3 prior months, 2024-01 to 2024-03, with the assessed month excluded — despite the column being labelled as a 12-month figure. So April ran above its own short baseline but below the peer mean of `86.12%`. Peer count is 3 with NAN included.
+
+## Is January a real historical average?
+
+No. January is an **initialization** row: 0 prior months, no comparison window, and its "historical mean" is simply its own value of `79.38%`, which is why the difference shows `0` pp [NAN January operations row](#evidence:OPS-NAN-2024-01). It is a starting point, not an average of earlier months.
+
+## Can later months or current delays be inferred?
+
+No. Supplied history stops at 2024-04 — 4 rows covering 2024-01 to 2024-04 — and no later month is provided, so nothing about May onward can be concluded.
+
+There is also no five-point anomaly: anomaly count is 0 across the retrieved rows, so the "below the prior 12-month mean by five percentage points or more" review threshold is not met in any month here [anomaly rule](#evidence:RULE003). Even where historical underperformance existed, it would prompt historical review, not establish current causation or a current high risk.
+
+On the current scenario, only one report is available: the gate information desk reports normal staffing and no queues observed, recorded as human-verified in the simulation log, with a period 5 minutes before the scenario time and therefore inside the 30-minute window; the signal is stable with no expanding impact [simulated gate report](#evidence:REPORT%3AU06-STABLE). That is a staffing observation, not a flight-level status. Independent current sources are not established (a single report), and specific flight impacts remain unknown.
+
+April weather (precipitation `72.3` mm, `3` clearly adverse-weather days) comes from a different table and a different time scope, so it does not explain either the April result or anything in the current scenario [NAN April weather row](#evidence:WX-NAN-2024-04).
+
+## Rules in play here
+
+- Numbers and statuses must carry source and time scope — done above [citation rule](#evidence:RULE009).
+- All rows are simulation data and must be labelled as such, not as real events [simulation labelling rule](#evidence:RULE010).
+- Only aggregate figures are used; no personal data is included [privacy rule](#evidence:RULE011).
+- Because there is no confirmed flight status, any passenger-facing text can only be a marked draft, not a sent notice [passenger communication rule](#evidence:RULE005).
+
+**Bottom line:** low assessed risk, no professional-decision restriction and no stop condition triggered. The open item is verification of the scenario unknowns; nothing here supports a conclusion about delays, cancellations or dispatch.
+
+
+### ZH output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## 2024年4月：该行数据说明
+
+| 指标 | 2024年4月数值 |
+|---|---|
+| 按计划完成航班比例 | `84.44%` [南湾机场4月运行行](#evidence:OPS-NAN-2024-04) |
+| 机场放行正常比例（另一项独立指标，不可替代） | `88.53%` [南湾机场4月运行行](#evidence:OPS-NAN-2024-04) |
+| 此前可用月份平均 | `79.87%` [南湾机场4月运行行](#evidence:OPS-NAN-2024-04) |
+| 与该平均的差 | `+4.57` 百分点 [南湾机场4月运行行](#evidence:OPS-NAN-2024-04) |
+| 同类机场平均（含南湾，共3家） | `86.12%` [南湾机场4月运行行](#evidence:OPS-NAN-2024-04) |
+
+`79.87%` 的基线只有3个此前月份，即2024-01至2024-03，且已排除被评估月份——尽管该列标注为12个月口径。因此4月高于自身这段较短基线，但低于同类均值 `86.12%`。同类家数为3，包含南湾机场。
+
+## 1月是否是真正的历史平均？
+
+不是。1月是**初始化**行：此前月份为0，没有比较窗口，其“历史平均”就是它自身的 `79.38%`，因此差值显示为 `0` 百分点 [南湾机场1月运行行](#evidence:OPS-NAN-2024-01)。它只是起点，不是此前月份的平均。
+
+## 能否推断后续月份或当前延误？
+
+不能。所供历史截至2024-04，共4行，覆盖2024-01至2024-04，没有更晚月份，因此无法对5月及之后作出任何结论。
+
+同时也不存在五点异常：已检索各行异常计数为0，因此“低于此前12个月平均五个百分点及以上”的复核阈值在任何月份都未触发 [异常波动规则](#evidence:RULE003)。即便存在历史欠佳，那也只应触发历史复核，并不确认当前因果关系，也不能单独确立当前高风险。
+
+当前情景只有一份报告：登机口信息台报告人员配备正常、未观察到排队，在模拟日志中记为人工核实，其时段比情景时间早5分钟，落在30分钟窗口之内；信号为稳定，影响范围未扩大 [模拟登机口报告](#evidence:REPORT%3AU06-STABLE)。这属于人员配置观察，不是航班层面状态。当前独立来源尚未确立（仅一份报告），具体航班影响仍未知。
+
+4月天气（降水量 `72.3` 毫米、明显不利天气天数 `3` 天）来自另一张表、另一时间范围，既不能解释4月结果，也不能解释当前情景中的任何情况 [南湾机场4月天气行](#evidence:WX-NAN-2024-04)。
+
+## 本次涉及的规则
+
+- 数字与正式状态必须列明来源和时间范围——上文已列 [引用要求规则](#evidence:RULE009)。
+- 所有行均为模拟数据，必须标注为模拟，不得称为真实事件 [模拟标识规则](#evidence:RULE010)。
+- 仅使用汇总数字，不含任何个人信息 [隐私保护规则](#evidence:RULE011)。
+- 因没有已确认的航班状态，任何面向旅客的文本只能是标注清楚的草案，不能作为已发送通知 [旅客沟通规则](#evidence:RULE005)。
+
+**结论要点：** 评估风险为低，没有专业决定限制，也没有触发停止条件。待办事项是核查情景中的未知信息；此处没有任何内容支持关于延误、取消或放行的结论。
+
+
+### Unverified proposals (not applied)
+
+Proposal only, not applied: label January 2024 explicitly as an initialization row in future briefs so its 0 pp difference is not read as a comparison result.
+
+仅为提案，尚未实施：在今后的简报中把2024年1月明确标注为初始化行，避免其0百分点差值被误读为比较结果。
+
+Source label: 提案：历史基线口径说明
+
+Proposal only, not applied: request a second, independently sourced current observation to establish whether the stable gate picture holds across sources.
+
+仅为提案，尚未实施：请求第二份独立来源的当前观察，以确认登机口平稳情况是否在不同来源间保持一致。
+
+Source label: 提案：来源独立性核查
+
+Proposal only, not applied: any passenger-facing text stay a labelled draft pending human approval, since no flight status is confirmed.
+
+仅为提案，尚未实施：在航班状态未确认前，任何面向旅客的文本均保持为标注草案，等待人工审批。
+
+Source label: 提案：旅客文本待批
+
+
+### Decision restrictions
+
+```json
+
+{
+  "professionalDecisionRequired": false,
+  "actionConclusionsStopped": false,
+  "triggeredRuleIds": [],
+  "decisionScope": "解释2024年4月按计划完成率、历史比较与同类比较；说明1月为初始化而非历史平均；说明无法推断后续月份或当前延误。",
+  "reviewerRoles": [
+    {
+      "en": "Operations lead",
+      "zh": "运营负责人"
+    }
+  ]
+}
+
+```

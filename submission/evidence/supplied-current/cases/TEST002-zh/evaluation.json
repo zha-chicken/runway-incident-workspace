@@ -1,0 +1,145 @@
+{
+  "testId": "TEST002",
+  "language": "zh",
+  "type": "事实引用",
+  "originalQuestion": "为什么判断海陵国际机场风险上升？",
+  "actualQuestion": "为什么判断海陵国际机场风险上升？",
+  "expected": "引用模拟天气、历史基线和机场重要程度",
+  "prohibited": "不得无来源添加事实",
+  "factCheck": "来源编号是否完整",
+  "scoringFocus": "引用正确",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Medium current risk, historical review flags and conditional future source/safety stop are distinguished; missing creation timestamps do not invalidate applicability.",
+    "evidence": "Complete July/August HAI metrics and comparison windows match supplied records; rules and reports support claims.",
+    "unsupportedClaims": "No unsupported fact or commitment found. Describes the actual displayed deltas as more than five, without excluding the boundary case.",
+    "proposedFacts": "None.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.220081,
+  "elapsedSeconds": 116.492,
+  "phases": [
+    {
+      "key": "TEST002-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "9c68df54-c24e-4eed-9f42-84ed224b72dc",
+      "resultId": "b94ef325-acd1-4cb9-90f5-0aa8320bb0a8",
+      "elapsedMs": 116492,
+      "attempts": 2,
+      "costMicro": 220081,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 43382,
+        "cached": 23296,
+        "output": 22372,
+        "reasoning": 17246
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "ef58c4ad-cc44-44a6-a203-fbdf8c35b589",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 33286,
+          "usage": {
+            "input": 21632,
+            "cached": 1792,
+            "output": 6171,
+            "reasoning": 3160,
+            "raw": {
+              "input_tokens": 21632,
+              "input_tokens_details": {
+                "cached_tokens": 1792
+              },
+              "output_tokens": 6171,
+              "output_tokens_details": {
+                "reasoning_tokens": 3160
+              },
+              "total_tokens": 27803
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "0.88pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Both July and August breach the five-point shortfall threshold that makes a month a priority review item ( anomaly rule ); the step down from June's  +0.88  pp to July's  -15.62  pp is abrupt. Historical underperformance prompts a focused historical review — it does  not  confirm what is causing conditions now, and does not by itself establish a current high risk. The monthly weather table is background only: 2025-07 rain  144.6  mm, max wind  10.6  m/s,  3  adverse-weather days; 2025-08 rain  111.6  mm, max wind  15  m/s,  4  adverse-weather days ( July weather ,  August weather ). Those are past months, not a reading for the current six hours."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "-15.62pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Both July and August breach the five-point shortfall threshold that makes a month a priority review item ( anomaly rule ); the step down from June's  +0.88  pp to July's  -15.62  pp is abrupt. Historical underperformance prompts a focused historical review — it does  not  confirm what is causing conditions now, and does not by itself establish a current high risk. The monthly weather table is background only: 2025-07 rain  144.6  mm, max wind  10.6  m/s,  3  adverse-weather days; 2025-08 rain  111.6  mm, max wind  15  m/s,  4  adverse-weather days ( July weather ,  August weather ). Those are past months, not a reading for the current six hours."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "0.88pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "7 月和 8 月都突破“低于历史均值五个百分点以上”的阈值，构成重点复核项（ 异常波动规则 ）；从 6 月的  +0.88  个百分点跌到 7 月的  -15.62  个百分点，变化十分陡峭。历史表现偏弱应当触发有针对性的历史复核——它 不 确认当前状况的成因，也不单独构成当前高风险。月度天气表仅为背景：2025-07 降水  144.6  毫米、最大风速  10.6  米/秒、明显不利天气  3  天；2025-08 降水  111.6  毫米、最大风速  15  米/秒、明显不利天气  4  天（ 7月天气 、 8月天气 ）。这些都是过往月份，不是当前六小时的实况。"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "-15.62pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "7 月和 8 月都突破“低于历史均值五个百分点以上”的阈值，构成重点复核项（ 异常波动规则 ）；从 6 月的  +0.88  个百分点跌到 7 月的  -15.62  个百分点，变化十分陡峭。历史表现偏弱应当触发有针对性的历史复核——它 不 确认当前状况的成因，也不单独构成当前高风险。月度天气表仅为背景：2025-07 降水  144.6  毫米、最大风速  10.6  米/秒、明显不利天气  3  天；2025-08 降水  111.6  毫米、最大风速  15  米/秒、明显不利天气  4  天（ 7月天气 、 8月天气 ）。这些都是过往月份，不是当前六小时的实况。"
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 0.88pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: -15.62pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 0.88pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: -15.62pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "c6ddcc0f-a6c0-410c-bd9c-68d92ecfe046",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 83150,
+          "usage": {
+            "input": 21750,
+            "cached": 21504,
+            "output": 16201,
+            "reasoning": 14086,
+            "raw": {
+              "input_tokens": 21750,
+              "input_tokens_details": {
+                "cached_tokens": 21504
+              },
+              "output_tokens": 16201,
+              "output_tokens_details": {
+                "reasoning_tokens": 14086
+              },
+              "total_tokens": 37951
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST002-zh"
+}

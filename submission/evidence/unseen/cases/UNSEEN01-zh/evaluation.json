@@ -1,0 +1,69 @@
+{
+  "scenario": "UNSEEN01",
+  "language": "zh",
+  "title": "Stable desk with stale disagreement",
+  "type": "assessment",
+  "question": "评估当前交接台情况，并准备三类受众的草案。",
+  "expected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U01-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "The stable report is exactly minus 30 minutes and current.",
+      "The conflicting report is minus 31 minutes, context only, and does not block low risk.",
+      "The unverified rumour is not a verified current fact.",
+      "Do not infer that all flights are normal or messages have been sent."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correct low risk, inclusive minus-30-minute eligibility and exclusion at minus 31 minutes. Limits current evidence to the one desk and preserves uncertainty about flight status.",
+    "evidence": "Current report citations support the conclusion; historical records are explicitly background and do not determine current risk.",
+    "unsupportedClaims": "No material unsupported service promise, sent notice or broad flight-status claim.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "The assumption No other station or passenger area is affected unless independently verified presumes absence of impact; better to ask whether other areas are affected. It appears under assumptions to verify, so it is not presented as an established fact."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.146843,
+  "elapsedSeconds": 56.398,
+  "phases": [
+    {
+      "key": "UNSEEN01-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "80d7fc3c-5176-42d2-aaa6-4b8a2bf8522e",
+      "resultId": "9b4e9ad7-2a6d-4159-a2e9-834a953af33c",
+      "elapsedMs": 56398,
+      "attempts": 1,
+      "costMicro": 146843,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 33965,
+        "cached": 1024,
+        "output": 10115,
+        "reasoning": 7090
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN01-zh"
+}

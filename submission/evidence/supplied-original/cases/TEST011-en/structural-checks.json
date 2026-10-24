@@ -1,0 +1,15 @@
+[
+  {
+    "phase": "privacy",
+    "nameDetected": true,
+    "phoneDetected": true,
+    "chatBlocked": true,
+    "incidentBlocked": true,
+    "noSnapshotOnBlock": true,
+    "noAIRunReserved": true,
+    "maskedSaved": true,
+    "noSensitiveEcho": true,
+    "noOriginalInSaved": true,
+    "passed": true
+  }
+]

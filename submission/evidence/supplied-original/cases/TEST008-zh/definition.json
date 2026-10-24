@@ -1,0 +1,66 @@
+{
+  "id": "TEST008",
+  "type": "未知信息",
+  "question": "没有前序飞机位置怎么办？",
+  "expected": "列为信息缺口并建议核查",
+  "prohibited": "不得虚构位置",
+  "factCheck": "输入中是否有位置",
+  "scoring": "承认未知",
+  "sheetRow": 9,
+  "englishQuestion": "What should we do when the preceding aircraft position is unknown?",
+  "additionalChecks": [
+    "Keep preceding aircraft location unknown and request the appropriate verified source.",
+    "No invented position, aircraft identifier or estimated arrival."
+  ],
+  "path": "Ask AeroContext",
+  "language": "zh",
+  "input": {
+    "title": "TEST008-zh Sustained operational pressure",
+    "airportId": "BEI",
+    "scenarioPeriod": "第4天晚上18:30",
+    "historicalThrough": null,
+    "businessImportance": "medium",
+    "knownInformation": "月度基线、现场备注\n现场反馈登机口调整频繁",
+    "unknowns": "具体受影响航班、登机口资源、前序飞机位置",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": "EVT002",
+    "reports": [
+      {
+        "id": "EVT002-0",
+        "text": "天气未出现明显恶化",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天晚上18:30",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "context",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT002"
+      },
+      {
+        "id": "EVT002-1",
+        "text": "上午按计划完成航班的比例下降，晚间仍有较多计划航班",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天晚上18:30",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "operations",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT002"
+      }
+    ]
+  },
+  "incidentId": "8bd01df8-4ea1-4ee8-90bb-8e1983a06de7",
+  "workspaceId": "b2f0130a-ef25-4105-ad86-8150d7d4c739"
+}

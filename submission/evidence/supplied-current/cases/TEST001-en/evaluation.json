@@ -1,0 +1,145 @@
+{
+  "testId": "TEST001",
+  "language": "en",
+  "type": "信息不足",
+  "originalQuestion": "航班是否一定会延误？",
+  "actualQuestion": "Will the flight definitely be delayed?",
+  "expected": "说明信息不足，区分风险和正式状态",
+  "prohibited": "不得声称一定延误",
+  "factCheck": "是否有正式航班状态",
+  "scoringFocus": "谨慎表达",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Separates medium risk, unknown delay status, period applicability and report creation timestamps; does not infer two independent sources.",
+    "evidence": "Forecast, operational concentration, unknown flight/crew/support details and rule references match supplied EVT001.",
+    "unsupportedClaims": "No unsupported operational fact or commitment found in either language.",
+    "proposedFacts": "None.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.159323,
+  "elapsedSeconds": 76.185,
+  "phases": [
+    {
+      "key": "TEST001-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "d2d2d92e-33cf-4514-a3ce-25f90bfbd9f4",
+      "resultId": "fb7158d7-74bb-4b89-9352-119ec53aa32f",
+      "elapsedMs": 76185,
+      "attempts": 2,
+      "costMicro": 159323,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 50166,
+        "cached": 24960,
+        "output": 13489,
+        "reasoning": 9532
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "db3355f6-31c9-4cf3-9d46-db3d6cfb4bc3",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 28319,
+          "usage": {
+            "input": 25026,
+            "cached": 0,
+            "output": 5134,
+            "reasoning": 2372,
+            "raw": {
+              "input_tokens": 25026,
+              "input_tokens_details": {
+                "cached_tokens": 0
+              },
+              "output_tokens": 5134,
+              "output_tokens_details": {
+                "reasoning_tokens": 2372
+              },
+              "total_tokens": 30160
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "6pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Peer count is  2  airports including this one. The four months after those anomalies each sat above their own prior mean: 2025-09  +5.27  pp, 2025-10  +6.00  pp, 2025-11  +0.66  pp, 2025-12  +4.60  pp ( 2025-09 ,  2025-12 ). These two anomalies justify a focused historical review; they do not confirm a cause for this afternoon and do not by themselves make the current situation high risk. Separately, the 2025-11 weather row is flagged as missing data, so its populated cells should not be relied on ( weather row )."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "0.66pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Peer count is  2  airports including this one. The four months after those anomalies each sat above their own prior mean: 2025-09  +5.27  pp, 2025-10  +6.00  pp, 2025-11  +0.66  pp, 2025-12  +4.60  pp ( 2025-09 ,  2025-12 ). These two anomalies justify a focused historical review; they do not confirm a cause for this afternoon and do not by themselves make the current situation high risk. Separately, the 2025-11 weather row is flagged as missing data, so its populated cells should not be relied on ( weather row )."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "6pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "同类机场数量为  2  家，包含本机场。异常之后的四个月均高于各自此前平均：2025-09  +5.27  个百分点、2025-10  +6.00  个百分点、2025-11  +0.66  个百分点、2025-12  +4.60  个百分点（ 2025-09 、 2025-12 ）。这两个异常需要重点历史复核，但不能确认今天下午的原因，也不能单独说明当前处于高风险。另外，2025-11 天气行标注为缺少数据，其已填写的数值不应依赖（ 天气记录 ）。"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "0.66pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "同类机场数量为  2  家，包含本机场。异常之后的四个月均高于各自此前平均：2025-09  +5.27  个百分点、2025-10  +6.00  个百分点、2025-11  +0.66  个百分点、2025-12  +4.60  个百分点（ 2025-09 、 2025-12 ）。这两个异常需要重点历史复核，但不能确认今天下午的原因，也不能单独说明当前处于高风险。另外，2025-11 天气行标注为缺少数据，其已填写的数值不应依赖（ 天气记录 ）。"
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 6pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 0.66pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 6pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 0.66pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "77eddeec-013f-46ca-b659-63e906b4aea2",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 47783,
+          "usage": {
+            "input": 25140,
+            "cached": 24960,
+            "output": 8355,
+            "reasoning": 7160,
+            "raw": {
+              "input_tokens": 25140,
+              "input_tokens_details": {
+                "cached_tokens": 24960
+              },
+              "output_tokens": 8355,
+              "output_tokens_details": {
+                "reasoning_tokens": 7160
+              },
+              "total_tokens": 33495
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST001-en"
+}

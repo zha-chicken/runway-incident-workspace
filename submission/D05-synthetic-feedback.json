@@ -1,0 +1,345 @@
+{
+  "synthetic": true,
+  "provenance": "New fictional incident, real initial application/model assessment, synthetic reviewer decisions and simulated outcomes. Reassessment failed validation; no real human-feedback claim.",
+  "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+  "requiredFieldLabels": [
+    "事件编号",
+    "建议编号",
+    "人工处理结果",
+    "修改或拒绝原因",
+    "最终采取的行动",
+    "事后结果",
+    "下次改进建议",
+    "复核人",
+    "复核日期"
+  ],
+  "records": [
+    {
+      "id": "e89d7e3b-eae8-4207-90e5-5ea74b76c7d1",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "first",
+      "disposition": "accepted",
+      "reason": "SYNTHETIC REVIEW: Accept the source-and-time verification objective. New 16:55/17:00 exercise handover reports are available; checking their scope and provenance is appropriate. Acceptance is not confirmation of execution or permission for flight operations.",
+      "finalAction": "SYNTHETIC EXERCISE FOLLOW-UP: the simulated reviewer compared D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR, recorded their applicable times and scope, and retained the earlier reports as unusable history. No real airport was contacted or operation performed.",
+      "outcome": "SIMULATED OBSERVATION: the authored exercise reports describe adequate carts in both previously affected zones and stable weather at 17:00. Official flight status remains unconfirmed. This is a fictional exercise outcome, not measured field performance.",
+      "outcomeStatus": "simulated_observed",
+      "nextImprovement": "SYNTHETIC REVIEW: Separate applicability, verification basis and official-status uncertainty. Record any later action explicitly.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:59:38.646Z",
+      "synthetic": true,
+      "provenance": "Synthetic reviewer demonstration; not a real participant or aviation professional.",
+      "originalRecommendation": {
+        "id": "first",
+        "kind": "verify",
+        "text": {
+          "en": "Verify both current reports with support control and meteorology: confirm the two affected support zones, cart shortfall size, start time, recovery estimate, gust timing, and whether any official flight status or operational warning exists.",
+          "zh": "向保障控制和气象部门核实两份当前报告：确认受影响的两个保障区、拖斗缺口数量、开始时间、预计恢复时间、阵风时段，以及是否存在正式航班状态或运行警告。"
+        },
+        "evidenceIds": [
+          "REPORT:D05-WIND-INITIAL",
+          "REPORT:D05-SUPPORT-INITIAL"
+        ],
+        "ruleIds": [
+          "RULE002",
+          "RULE008"
+        ]
+      },
+      "originalAssessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "originalSnapshotVersion": 1,
+      "followupAssessmentId": null,
+      "followupSnapshotVersion": 2,
+      "followupStatus": "blocked_after_repair"
+    },
+    {
+      "id": "f426346a-828a-48ae-a5f1-831026d32d57",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-1",
+      "disposition": "modified",
+      "reason": "SYNTHETIC REVIEW: Short intervals has no assigned owner or approved cadence. Replace it with an owner-and-trigger checklist rather than inventing a fixed interval. The replacement is proposed wording only.",
+      "revisedRecommendation": "SYNTHETIC REVIEW: Proposed replacement: ask the operations lead to assign a duty desk and approve a review cadence. Log new reports with their applicable times and sources. Request reassessment for renewed gust risk, verified cart shortfall or expansion, conflicting evidence, or safety issues. Keep official flight status unconfirmed until a current verified official report exists.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: State the owner, update triggers and approval needed; do not imply monitoring has started.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.764Z",
+      "synthetic": true,
+      "provenance": "Synthetic reviewer demonstration; not a real participant or aviation professional.",
+      "originalRecommendation": {
+        "id": "follow-1",
+        "kind": "monitor",
+        "text": {
+          "en": "Monitor at short intervals for expansion beyond two support zones, changes in gust reports, and any official status change; log source and time for each update.",
+          "zh": "短间隔监测保障区是否扩大到两个以上、阵风报告是否变化，以及正式状态是否变化；记录每次更新的来源和时间。"
+        },
+        "evidenceIds": [
+          "REPORT:D05-WIND-INITIAL",
+          "REPORT:D05-SUPPORT-INITIAL"
+        ],
+        "ruleIds": [
+          "RULE008",
+          "RULE009"
+        ]
+      },
+      "originalAssessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "originalSnapshotVersion": 1,
+      "followupAssessmentId": null,
+      "followupSnapshotVersion": 2,
+      "followupStatus": "blocked_after_repair"
+    },
+    {
+      "id": "979f049a-60e2-49ec-af46-f6d1551d9a1e",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-2",
+      "disposition": "pending",
+      "reason": "SYNTHETIC REVIEW: Leave the draft decision pending while an authorized reviewer checks public facts and wording. No flight status, public-release approval or sending is established by the exercise records.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: Separate draft preparation from approval to publish. An unresolved review remains pending.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.764Z",
+      "synthetic": true,
+      "provenance": "Synthetic reviewer demonstration; not a real participant or aviation professional.",
+      "originalRecommendation": {
+        "id": "follow-2",
+        "kind": "prepare_draft",
+        "text": {
+          "en": "Prepare the three audience drafts marked simulation and draft; do not send them. Keep passenger text to public facts, uncertainty, and official-update guidance.",
+          "zh": "准备三类受众草案，并标注模拟和草案；不得发送。旅客文本应仅包含公开事实、不确定性和官方更新指引。"
+        },
+        "evidenceIds": [
+          "REPORT:D05-WIND-INITIAL",
+          "REPORT:D05-SUPPORT-INITIAL",
+          "RULE005",
+          "RULE010"
+        ],
+        "ruleIds": [
+          "RULE005",
+          "RULE010"
+        ]
+      },
+      "originalAssessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "originalSnapshotVersion": 1,
+      "followupAssessmentId": null,
+      "followupSnapshotVersion": 2,
+      "followupStatus": "blocked_after_repair"
+    },
+    {
+      "id": "0d5ef53c-2d68-4493-ba98-15e335280947",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-3",
+      "disposition": "rejected",
+      "reason": "SYNTHETIC REVIEW: Reject carrying this 16:00 high-risk escalation forward unchanged into 17:00. It was justified for the earlier wind and expanding-shortage reports. Those reports are now out of window and retained as unusable history. D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR are new verified simulation reports describing recovery. Reassess the current report set. This rejection alone does not authorize lowering risk, cancel human oversight, prove safe aircraft release, or confirm normal flight status.",
+      "finalAction": "SYNTHETIC REVIEW DECISION: retain the original recommendation and rejection reason, and request a new assessment using the version-2 report set. No message or operational instruction was sent.",
+      "outcome": "SIMULATION APPLICATION OBSERVATION: the real reassessment request failed validation after the single repair because it cited nonexistent REPORT:D05-SUPPORT-HEAD. No new assessment was saved. The original version-1 high-risk assessment and all reviews remain intact. The version-2 policy computes low risk from the newer exercise reports, but this is not a successfully saved model reassessment. No real-world aviation outcome was measured.",
+      "outcomeStatus": "simulated_observed",
+      "nextImprovement": "SYNTHETIC REVIEW: Bind recommendations to snapshot and time window. Explain changed conclusions from new evidence and preserve the original decision history.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:59:38.647Z",
+      "synthetic": true,
+      "provenance": "Synthetic reviewer demonstration; not a real participant or aviation professional.",
+      "originalRecommendation": {
+        "id": "follow-3",
+        "kind": "refer",
+        "text": {
+          "en": "Refer the high-risk escalation to the operations lead for human review because multiple current signals exist and the capacity impact is expanding; do not decide an operational response.",
+          "zh": "因存在多个当前信号且保障影响正在扩大，将高风险升级提交运营负责人人工复核；不得自行决定运行响应。"
+        },
+        "evidenceIds": [
+          "REPORT:D05-WIND-INITIAL",
+          "REPORT:D05-SUPPORT-INITIAL",
+          "RULE008"
+        ],
+        "ruleIds": [
+          "RULE008"
+        ]
+      },
+      "originalAssessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "originalSnapshotVersion": 1,
+      "followupAssessmentId": null,
+      "followupSnapshotVersion": 2,
+      "followupStatus": "blocked_after_repair"
+    },
+    {
+      "id": "1de1bf1e-b933-4e0d-b1b1-350e475574b6",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-4",
+      "disposition": "accepted",
+      "reason": "SYNTHETIC REVIEW: Accept a provenance log covering earlier and newer reports, preserving the original assessment and showing why older reports no longer apply. This approves a proposed documentation step, not its execution.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: Keep the original recommendation and full review reason visible beside any replacement assessment.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.765Z",
+      "synthetic": true,
+      "provenance": "Synthetic reviewer demonstration; not a real participant or aviation professional.",
+      "originalRecommendation": {
+        "id": "follow-4",
+        "kind": "prepare_information",
+        "text": {
+          "en": "Compile an information log for the reviewer: report IDs, applicable periods, verification basis, unknown flight impacts, and missing official status.",
+          "zh": "为复核人整理信息记录：报告编号、适用时段、核验依据、未知的航班影响和缺失的正式状态。"
+        },
+        "evidenceIds": [
+          "REPORT:D05-WIND-INITIAL",
+          "REPORT:D05-SUPPORT-INITIAL",
+          "RULE009"
+        ],
+        "ruleIds": [
+          "RULE009"
+        ]
+      },
+      "originalAssessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "originalSnapshotVersion": 1,
+      "followupAssessmentId": null,
+      "followupSnapshotVersion": 2,
+      "followupStatus": "blocked_after_repair"
+    }
+  ],
+  "reviewHistory": [
+    {
+      "id": "0d5ef53c-2d68-4493-ba98-15e335280947",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-3",
+      "disposition": "rejected",
+      "reason": "SYNTHETIC REVIEW: Reject carrying this 16:00 high-risk escalation forward unchanged into 17:00. It was justified for the earlier wind and expanding-shortage reports. Those reports are now out of window and retained as unusable history. D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR are new verified simulation reports describing recovery. Reassess the current report set. This rejection alone does not authorize lowering risk, cancel human oversight, prove safe aircraft release, or confirm normal flight status.",
+      "finalAction": "SYNTHETIC REVIEW DECISION: retain the original recommendation and rejection reason, and request a new assessment using the version-2 report set. No message or operational instruction was sent.",
+      "outcome": "SIMULATION APPLICATION OBSERVATION: the real reassessment request failed validation after the single repair because it cited nonexistent REPORT:D05-SUPPORT-HEAD. No new assessment was saved. The original version-1 high-risk assessment and all reviews remain intact. The version-2 policy computes low risk from the newer exercise reports, but this is not a successfully saved model reassessment. No real-world aviation outcome was measured.",
+      "outcomeStatus": "simulated_observed",
+      "nextImprovement": "SYNTHETIC REVIEW: Bind recommendations to snapshot and time window. Explain changed conclusions from new evidence and preserve the original decision history.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:59:38.647Z"
+    },
+    {
+      "id": "e89d7e3b-eae8-4207-90e5-5ea74b76c7d1",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "first",
+      "disposition": "accepted",
+      "reason": "SYNTHETIC REVIEW: Accept the source-and-time verification objective. New 16:55/17:00 exercise handover reports are available; checking their scope and provenance is appropriate. Acceptance is not confirmation of execution or permission for flight operations.",
+      "finalAction": "SYNTHETIC EXERCISE FOLLOW-UP: the simulated reviewer compared D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR, recorded their applicable times and scope, and retained the earlier reports as unusable history. No real airport was contacted or operation performed.",
+      "outcome": "SIMULATED OBSERVATION: the authored exercise reports describe adequate carts in both previously affected zones and stable weather at 17:00. Official flight status remains unconfirmed. This is a fictional exercise outcome, not measured field performance.",
+      "outcomeStatus": "simulated_observed",
+      "nextImprovement": "SYNTHETIC REVIEW: Separate applicability, verification basis and official-status uncertainty. Record any later action explicitly.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:59:38.646Z"
+    },
+    {
+      "id": "1de1bf1e-b933-4e0d-b1b1-350e475574b6",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-4",
+      "disposition": "accepted",
+      "reason": "SYNTHETIC REVIEW: Accept a provenance log covering earlier and newer reports, preserving the original assessment and showing why older reports no longer apply. This approves a proposed documentation step, not its execution.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: Keep the original recommendation and full review reason visible beside any replacement assessment.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.765Z"
+    },
+    {
+      "id": "36f56998-3e6e-49fa-9ee0-fad6b406f68d",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-3",
+      "disposition": "rejected",
+      "reason": "SYNTHETIC REVIEW: Reject carrying this 16:00 high-risk escalation forward unchanged into 17:00. It was justified for the earlier wind and expanding-shortage reports. Those reports are now out of window and retained as unusable history. D05-SUPPORT-CLEAR and D05-WEATHER-CLEAR are new verified simulation reports describing recovery. Reassess the current report set. This rejection alone does not authorize lowering risk, cancel human oversight, prove safe aircraft release, or confirm normal flight status.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: Bind recommendations to snapshot and time window. Explain changed conclusions from new evidence and preserve the original decision history.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.765Z"
+    },
+    {
+      "id": "979f049a-60e2-49ec-af46-f6d1551d9a1e",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-2",
+      "disposition": "pending",
+      "reason": "SYNTHETIC REVIEW: Leave the draft decision pending while an authorized reviewer checks public facts and wording. No flight status, public-release approval or sending is established by the exercise records.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: Separate draft preparation from approval to publish. An unresolved review remains pending.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.764Z"
+    },
+    {
+      "id": "f426346a-828a-48ae-a5f1-831026d32d57",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "follow-1",
+      "disposition": "modified",
+      "reason": "SYNTHETIC REVIEW: Short intervals has no assigned owner or approved cadence. Replace it with an owner-and-trigger checklist rather than inventing a fixed interval. The replacement is proposed wording only.",
+      "revisedRecommendation": "SYNTHETIC REVIEW: Proposed replacement: ask the operations lead to assign a duty desk and approve a review cadence. Log new reports with their applicable times and sources. Request reassessment for renewed gust risk, verified cart shortfall or expansion, conflicting evidence, or safety issues. Keep official flight status unconfirmed until a current verified official report exists.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: State the owner, update triggers and approval needed; do not imply monitoring has started.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.764Z"
+    },
+    {
+      "id": "c2262c86-fed3-4b78-91f7-3d1ec6735dea",
+      "assessmentId": "2b9a4eb6-dd62-4749-91ad-799e9b49fe86",
+      "recommendationId": "first",
+      "disposition": "accepted",
+      "reason": "SYNTHETIC REVIEW: Accept the source-and-time verification objective. New 16:55/17:00 exercise handover reports are available; checking their scope and provenance is appropriate. Acceptance is not confirmation of execution or permission for flight operations.",
+      "finalAction": "",
+      "outcome": "",
+      "outcomeStatus": "pending",
+      "nextImprovement": "SYNTHETIC REVIEW: Separate applicability, verification basis and official-status uncertainty. Record any later action explicitly.",
+      "reviewerLabel": "SYNTHETIC-D05 reviewer role",
+      "incidentId": "98c49269-fb85-482a-a8ee-54a31208a73d",
+      "reviewedAt": "2026-10-24T01:56:18.763Z"
+    }
+  ],
+  "assessmentIds": [
+    "2b9a4eb6-dd62-4749-91ad-799e9b49fe86"
+  ],
+  "reassessment": {
+    "status": "blocked_after_repair",
+    "assessmentId": null,
+    "error": "MODEL_OUTPUT_INVALID",
+    "expectedPolicyRisk": "low",
+    "lastSavedAssessmentRisk": "high",
+    "lastSavedAssessmentSnapshotVersion": 1
+  },
+  "providerCalls": 3,
+  "estimatedCostCNY": 0.433225,
+  "workflowChecks": {
+    "recordAndPreservationChecks": {
+      "allFourDispositionsPresent": true,
+      "nineFieldsPresent": true,
+      "allReviewersClearlySynthetic": true,
+      "completeReasonsSent": true,
+      "originalRecommendationsSentExactly": true,
+      "noReviewsOmitted": true,
+      "allFeedbackPriorSnapshot": true,
+      "pendingIsNotExecution": true,
+      "laterOutcomeRevisionsRetainDecisionsAndReasons": true,
+      "laterOutcomesSavedExactly": true,
+      "initialAssessmentRetainedExactly": true,
+      "noInvalidReassessmentSaved": true,
+      "twoSnapshotsRetained": true,
+      "policyHighThenLow": true,
+      "officialStatusStillUnconfirmed": true,
+      "noChatsCreated": true,
+      "oldReviewsRetained": true,
+      "withinCallCap": true
+    },
+    "recordChecksPassed": true,
+    "successfulSavedReassessment": false,
+    "overallFeedbackLoop": "INCOMPLETE: model reassessment blocked after repair; do not report as passed"
+  }
+}

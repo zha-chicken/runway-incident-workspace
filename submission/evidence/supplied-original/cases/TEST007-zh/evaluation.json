@@ -1,0 +1,119 @@
+{
+  "testId": "TEST007",
+  "language": "zh",
+  "testType": "新机场",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 8,
+  "originalQuestion": "输入临江机场的新事件",
+  "actualQuestion": "输入临江机场的新事件",
+  "expected": "根据新输入和基线响应",
+  "prohibited": "不得回放固定答案",
+  "factCheck": "是否读取新机场数据",
+  "scoringFocus": "泛化能力",
+  "additionalFrozenChecks": [
+    "Use new LIN capacity report and LIN history rather than replaying a supplied event.",
+    "Scope is LIN, Simulation Day 31 16:00; expected medium risk."
+  ],
+  "workflow": "assessment workflow",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Uses the new LIN report at 15:55 for the 16:00 scenario and supports medium risk from one current capacity signal.",
+    "evidence": "LIN report, LIN historical anomaly and scale records are used; missing November weather is excluded. Exact -5.44 pp historical delta is correct.",
+    "hallucination": "No invented flight status, stand count or recovery time found in the reviewed Chinese output.",
+    "notes": "Simulation verification is distinguished from real operational verification.",
+    "required_check": "New-airport and baseline criteria pass."
+  },
+  "errorExplanation": "Simulation verification is distinguished from real operational verification.",
+  "correctiveAction": "Simulation verification is distinguished from real operational verification.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 61,
+      "uniqueReferences": 8,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST007-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "c05afcac-b13f-4dac-85f3-bbf2049b9915",
+      "resultId": "4d67d642-afe8-4577-bb9d-2acd63f5b718",
+      "elapsedMs": 66710,
+      "attempts": 1,
+      "costMicro": 152879,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 31191,
+        "cached": 1408,
+        "output": 11657,
+        "reasoning": 8171
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "c8501432-1910-4b03-8f0a-4255251408a2",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 66683,
+          "usage": {
+            "input": 31191,
+            "cached": 1408,
+            "output": 11657,
+            "reasoning": 8171,
+            "raw": {
+              "input_tokens": 31191,
+              "input_tokens_details": {
+                "cached_tokens": 1408
+              },
+              "output_tokens": 11657,
+              "output_tokens_details": {
+                "reasoning_tokens": 8171
+              },
+              "total_tokens": 42848
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "17aab4c00c25bc65b8537a22dc20d9e882d03544aa2b41b7cb511aacd1895be8",
+        "reviewIds": [],
+        "assessmentIds": [],
+        "sourceVersions": [],
+        "latestReviewCount": 0,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.152879,
+  "modelElapsedSeconds": 66.71
+}

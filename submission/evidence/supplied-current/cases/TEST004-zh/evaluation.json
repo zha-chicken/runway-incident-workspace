@@ -1,0 +1,148 @@
+{
+  "testId": "TEST004",
+  "language": "zh",
+  "type": "因果边界",
+  "originalQuestion": "是不是天气导致了全部运行异常？",
+  "actualQuestion": "是不是天气导致了全部运行异常？",
+  "expected": "说明只能观察到关联线索",
+  "prohibited": "不得直接证明因果",
+  "factCheck": "是否存在逐航班原因数据",
+  "scoringFocus": "因果谨慎",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Rejects blanket weather causation; correctly separates scenario time, historical monthly context, medium risk and conditional RULE012 stop.",
+    "evidence": "All historical/scale/weather figures match, including missing November weather; correctly states January initialization, partial history and full baseline from January 2025. Baseline-classification statement should cite the early operating rows directly.",
+    "unsupportedClaims": "No invented quantitative data or future service guarantee. Chinese official-status wording is categorical where unconfirmed is more precise.",
+    "proposedFacts": "Information requests and historical-review proposals only.",
+    "notes": [
+      "Add early-month operating citations beside the correct baseline-classification statement.",
+      "Prefer official status not supplied/confirmed over categorical absence."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.153526,
+  "elapsedSeconds": 72.751,
+  "phases": [
+    {
+      "key": "TEST004-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "b29e9284-6ad2-4eea-8682-4c342390e500",
+      "resultId": "0dff7102-16a3-4f66-b640-e0b3dddef336",
+      "elapsedMs": 72751,
+      "attempts": 2,
+      "costMicro": 153526,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 50164,
+        "cached": 27520,
+        "output": 13392,
+        "reasoning": 7162
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "52c93067-1e03-4062-8e51-e0653866ef84",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 39523,
+          "usage": {
+            "input": 25023,
+            "cached": 2560,
+            "output": 7163,
+            "reasoning": 3948,
+            "raw": {
+              "input_tokens": 25023,
+              "input_tokens_details": {
+                "cached_tokens": 2560
+              },
+              "output_tokens": 7163,
+              "output_tokens_details": {
+                "reasoning_tokens": 3948
+              },
+              "total_tokens": 32186
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "In both flagged months the same-category mean was also depressed ( 74.95%  and  76.82% ), which points toward conditions broader than one airport at that time — still not a cause."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "In both flagged months the same-category mean was also depressed ( 74.95%  and  76.82% ), which points toward conditions broader than one airport at that time — still not a cause."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "两个被标记月份的同类均值同样偏低（ 74.95%  与  76.82% ），提示当时可能存在超出单一机场范围的情况——这仍然不是原因。"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "两个被标记月份的同类均值同样偏低（ 74.95%  与  76.82% ），提示当时可能存在超出单一机场范围的情况——这仍然不是原因。"
+            }
+          ],
+          "validationIssues": [
+            "answer.en: 74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 76.82% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 76.82% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "08ba5aa6-5a13-4aa2-b7de-04330458396b",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 33161,
+          "usage": {
+            "input": 25141,
+            "cached": 24960,
+            "output": 6229,
+            "reasoning": 3214,
+            "raw": {
+              "input_tokens": 25141,
+              "input_tokens_details": {
+                "cached_tokens": 24960
+              },
+              "output_tokens": 6229,
+              "output_tokens_details": {
+                "reasoning_tokens": 3214
+              },
+              "total_tokens": 31370
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST004-zh"
+}

@@ -1,0 +1,66 @@
+{
+  "id": "TEST004",
+  "type": "因果边界",
+  "question": "是不是天气导致了全部运行异常？",
+  "expected": "说明只能观察到关联线索",
+  "prohibited": "不得直接证明因果",
+  "factCheck": "是否存在逐航班原因数据",
+  "scoring": "因果谨慎",
+  "sheetRow": 5,
+  "englishQuestion": "Did weather cause all of the operational abnormalities?",
+  "additionalChecks": [
+    "State that monthly association does not establish flight-level causation.",
+    "No all-weather causal claim."
+  ],
+  "path": "Ask AeroContext",
+  "language": "zh",
+  "input": {
+    "title": "TEST004-zh Weather risk rising",
+    "airportId": "HAI",
+    "scenarioPeriod": "第4天下午14:00",
+    "historicalThrough": null,
+    "businessImportance": "high",
+    "knownInformation": "天气预报、历史月度基线、机场规模\n机场协同团队尚未给出最新保障能力确认",
+    "unknowns": "逐航班计划、飞机连续执行、机组和地面保障状态",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": "EVT001",
+    "reports": [
+      {
+        "id": "EVT001-0",
+        "text": "未来六小时预计强降雨并伴有阵风",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      },
+      {
+        "id": "EVT001-1",
+        "text": "上午运行接近通常水平，下午航班量较集中",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "operations",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      }
+    ]
+  },
+  "incidentId": "c9fa27e8-f622-48ec-beae-5c3cc4089188",
+  "workspaceId": "1722c452-01d1-45f6-a990-29988c80c6c0"
+}

@@ -1,0 +1,143 @@
+{
+  "id": "UNSEEN09",
+  "title": "Prior-version feedback after deterioration",
+  "type": "reassessment",
+  "input": {
+    "title": "较早反馈之后的情况恶化",
+    "airportId": "GAO",
+    "scenarioPeriod": "Simulation Day 52, 14:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U09-STABLE",
+        "text": "上午班次日志记录保障资源充足，当前没有受扰。",
+        "sourceLabel": "虚构评测报告 U09-STABLE",
+        "originReportId": "U09-STABLE",
+        "reportedAt": "Simulation Day 52, 13:00",
+        "applicablePeriod": "Simulation Day 52, 13:00",
+        "reliability": "unusable",
+        "independenceGroup": "U09-STABLE",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U09-WIND",
+        "text": "新的气象通报报告新时段内有强风。",
+        "sourceLabel": "虚构评测报告 U09-WIND",
+        "originReportId": "U09-WIND",
+        "reportedAt": "Simulation Day 52, 13:50",
+        "applicablePeriod": "Simulation Day 52, 13:50",
+        "reliability": "human_verified",
+        "independenceGroup": "U09-WIND",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U09-CAPACITY",
+        "text": "新的独立机场保障日志报告短缺现已扩大至两个保障区。",
+        "sourceLabel": "虚构评测报告 U09-CAPACITY",
+        "originReportId": "U09-CAPACITY",
+        "reportedAt": "Simulation Day 52, 14:10",
+        "applicablePeriod": "Simulation Day 52, 14:10",
+        "reliability": "human_verified",
+        "independenceGroup": "U09-CAPACITY",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "capacity",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "重新评估变化后的情况，并解释较早的反馈如何适用。",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U09-WIND",
+      "U09-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Version 1 is low; version 2 is high from new independent weather/capacity signals and expansion.",
+      "Saved modification reason and original recommendation are present, marked prior_snapshot.",
+      "Do not carry over the earlier stable assumption or describe the recorded reason as missing.",
+      "Pending outcome and blank actual action are not execution or success.",
+      "Preserve both snapshots, both assessments, and the entire review."
+    ]
+  },
+  "baselineInput": {
+    "title": "后续恶化之前的稳定班次",
+    "airportId": "GAO",
+    "scenarioPeriod": "Simulation Day 52, 13:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U09-STABLE",
+        "text": "上午班次日志记录保障资源充足，当前没有受扰。",
+        "sourceLabel": "虚构评测报告 U09-STABLE",
+        "originReportId": "U09-STABLE",
+        "reportedAt": "Simulation Day 52, 13:00",
+        "applicablePeriod": "Simulation Day 52, 13:00",
+        "reliability": "human_verified",
+        "independenceGroup": "U09-STABLE",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "baselineExpected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U09-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Routine stable current conditions; no official flight status."
+    ]
+  },
+  "review": {
+    "disposition": "modified",
+    "reviewerLabel": "Synthetic evaluation reviewer",
+    "reason": "仅针对上午稳定的快照，将第一条建议整合为一份例行核查摘要。这是措辞偏好，并不确认核查已经执行，也不是要求情况变化后仍保持低风险。",
+    "revisedRecommendation": "在已核实情况仍保持稳定时，准备一份简明的例行核查摘要。",
+    "finalAction": "",
+    "outcome": "",
+    "outcomeStatus": "pending",
+    "nextImprovement": "复用该偏好之前，先根据新报告重新核查。"
+  },
+  "language": "zh",
+  "key": "UNSEEN09-zh",
+  "incidentId": "167812ba-8b3c-49ca-8bc9-ca792f31057b",
+  "workspaceId": "67fa6839-e2b9-46bb-9d4f-0fc0860ce90b"
+}

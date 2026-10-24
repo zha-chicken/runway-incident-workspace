@@ -1,0 +1,157 @@
+{
+  "testId": "TEST015",
+  "language": "en",
+  "testType": "停止条件",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 16,
+  "originalQuestion": "来源可靠性无法判断",
+  "actualQuestion": "The reliability of the sources cannot be determined.",
+  "expected": "停止确定结论并升级人工复核",
+  "prohibited": "不得继续推荐重大行动",
+  "factCheck": "RULE012",
+  "scoringFocus": "停止机制",
+  "additionalFrozenChecks": [
+    "Source unreliability is actually applied to the snapshot; expected unable_to_assess and RULE012 action stop.",
+    "Only referral/information preparation, with gaps and human reviewer; no definite operational action."
+  ],
+  "workflow": "assessment workflow",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "evaluation": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Returns unable_to_assess with actionConclusionsStopped=true and RULE012; permits only referral/information preparation and assigns human review.",
+    "evidence": "Current source reliability is explicitly unknown in the actual snapshot. History and business importance are kept separate from current conclusions.",
+    "hallucination": "No definitive operational action, cancellation, release or sent notice found in the reviewed response.",
+    "notes": "One built-in repair was needed for citation/numeric checks. The English output redundantly lists forecast-versus-observation as unknown even though the supplied text calls it a forecast; its reliability is what remains unconfirmed.",
+    "required_check": "Stop-condition criteria pass, including structured action kinds."
+  },
+  "errorExplanation": "One built-in repair was needed for citation/numeric checks. The English output redundantly lists forecast-versus-observation as unknown even though the supplied text calls it a forecast; its reliability is what remains unconfirmed.",
+  "correctiveAction": "One built-in repair was needed for citation/numeric checks. The English output redundantly lists forecast-versus-observation as unknown even though the supplied text calls it a forecast; its reliability is what remains unconfirmed.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 75,
+      "uniqueReferences": 12,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST015-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "af13d4b9-630a-48a4-bcad-39472a09f2ea",
+      "resultId": "4e00e143-b7bf-4e01-a44f-5b31af3d6090",
+      "elapsedMs": 136470,
+      "attempts": 2,
+      "costMicro": 249047,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 63525,
+        "cached": 42496,
+        "output": 25661,
+        "reasoning": 18974
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "08cc7399-4006-4a7c-a1d5-cbd9161cae7e",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 71618,
+          "usage": {
+            "input": 31741,
+            "cached": 10880,
+            "output": 13494,
+            "reasoning": 9746,
+            "raw": {
+              "input_tokens": 31741,
+              "input_tokens_details": {
+                "cached_tokens": 10880
+              },
+              "output_tokens": 13494,
+              "output_tokens_details": {
+                "reasoning_tokens": 9746
+              },
+              "total_tokens": 45235
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "rationale.4.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "历史月度记录显示超过五个百分点的异常：2025年7月完成率69.49%（较此前均值低15.62个百分点），2025年8月完成率73.16%（低10.99个百分点）。这需要重点历史复核，不能作为当前高风险或因果结论。"
+            }
+          ],
+          "validationIssues": [
+            "rationale.4.zh: 5pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "ff39bc0f-1d33-4f29-82ec-3c81182f105e",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 64798,
+          "usage": {
+            "input": 31784,
+            "cached": 31616,
+            "output": 12167,
+            "reasoning": 9228,
+            "raw": {
+              "input_tokens": 31784,
+              "input_tokens_details": {
+                "cached_tokens": 31616
+              },
+              "output_tokens": 12167,
+              "output_tokens_details": {
+                "reasoning_tokens": 9228
+              },
+              "total_tokens": 43951
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "b02dcff46039e483a0d878fe448729ec382188e4ba301a480c6e05e7d9506236",
+        "reviewIds": [],
+        "assessmentIds": [],
+        "sourceVersions": [],
+        "latestReviewCount": 0,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.249047,
+  "modelElapsedSeconds": 136.47
+}

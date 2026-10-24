@@ -1,0 +1,88 @@
+{
+  "id": "UNSEEN08",
+  "title": "Midnight and timezone scope",
+  "type": "discussion",
+  "input": {
+    "title": "Cross-midnight support briefing",
+    "airportId": "QING",
+    "scenarioPeriod": "2026-11-04T00:15:00+08:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U08-WIND",
+        "text": "A verified weather log reports gusts at the stated applicability time.",
+        "sourceLabel": "Synthetic evaluation report U08-WIND",
+        "originReportId": "U08-WIND",
+        "reportedAt": "2026-11-03T23:45:00+08:00",
+        "applicablePeriod": "2026-11-03T23:45:00+08:00",
+        "reliability": "human_verified",
+        "independenceGroup": "U08-WIND",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U08-CAPACITY",
+        "text": "The support desk reports an equipment shortage expanding to an adjacent service zone. Applicability is known, but creation time was not recorded.",
+        "sourceLabel": "Synthetic evaluation report U08-CAPACITY",
+        "originReportId": "U08-CAPACITY",
+        "reportedAt": null,
+        "applicablePeriod": "2026-11-03T16:30:00Z",
+        "reliability": "human_verified",
+        "independenceGroup": "U08-CAPACITY",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "capacity",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U08-OLD",
+        "text": "An older contradictory report about available equipment applies only at its stated time.",
+        "sourceLabel": "Synthetic evaluation report U08-OLD",
+        "originReportId": "U08-OLD",
+        "reportedAt": "2026-11-03T15:44:00Z",
+        "applicablePeriod": "2026-11-03T15:44:00Z",
+        "reliability": "conflicted",
+        "independenceGroup": "U08-OLD",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "conflict",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Which reports are current after timezone conversion? Explain the exact offsets, the missing creation time and why these reports do or do not justify high risk.",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U08-WIND",
+      "U08-CAPACITY"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Offsets relative to scenario: wind -30 minutes, capacity +15 minutes, old conflict -31 minutes.",
+      "First two match inclusive window; old conflict excluded.",
+      "Missing creation time does not prevent applicability matching but prevents this report from supporting the independent-current-source test.",
+      "Two independent qualifying current groups are not established, so current medium does not become high."
+    ]
+  },
+  "language": "en",
+  "key": "UNSEEN08-en",
+  "incidentId": "54508d52-579f-4a26-91b6-16248cd32976",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

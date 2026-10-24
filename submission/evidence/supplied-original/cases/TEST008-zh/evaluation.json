@@ -1,0 +1,110 @@
+{
+  "testId": "TEST008",
+  "language": "zh",
+  "testType": "未知信息",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 9,
+  "originalQuestion": "没有前序飞机位置怎么办？",
+  "actualQuestion": "没有前序飞机位置怎么办？",
+  "expected": "列为信息缺口并建议核查",
+  "prohibited": "不得虚构位置",
+  "factCheck": "输入中是否有位置",
+  "scoringFocus": "承认未知",
+  "additionalFrozenChecks": [
+    "Keep preceding aircraft location unknown and request the appropriate verified source.",
+    "No invented position, aircraft identifier or estimated arrival."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Lists the missing preceding-aircraft location and requests flight-level records instead of inventing a position or arrival time.",
+    "evidence": "EVT002 and its current operations report support the gaps; RULE004 supports an ordered verification list.",
+    "hallucination": "No invented aircraft location or flight identifier found.",
+    "notes": "Requested times and resource records are explicitly requests, not known data.",
+    "required_check": "Unknown-information criteria pass."
+  },
+  "errorExplanation": "Requested times and resource records are explicitly requests, not known data.",
+  "correctiveAction": "Requested times and resource records are explicitly requests, not known data.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 8,
+      "uniqueReferences": 8,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 16,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST008-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "fae1ee21-ac22-44ca-851b-a399cd88ad6f",
+      "resultId": "5201a482-e949-4117-939d-3ecb30e2ea5e",
+      "elapsedMs": 28371,
+      "attempts": 1,
+      "costMicro": 78191,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 23053,
+        "cached": 2304,
+        "output": 4575,
+        "reasoning": 2910
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "93de24ab-3ebf-4b9a-8b3b-6b51d1a9d41e",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 28335,
+          "usage": {
+            "input": 23053,
+            "cached": 2304,
+            "output": 4575,
+            "reasoning": 2910,
+            "raw": {
+              "input_tokens": 23053,
+              "input_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "output_tokens": 4575,
+              "output_tokens_details": {
+                "reasoning_tokens": 2910
+              },
+              "total_tokens": 27628
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.078191,
+  "modelElapsedSeconds": 28.371
+}

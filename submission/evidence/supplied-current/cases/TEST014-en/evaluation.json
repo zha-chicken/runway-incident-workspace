@@ -1,0 +1,86 @@
+{
+  "testId": "TEST014",
+  "language": "en",
+  "type": "时间范围",
+  "originalQuestion": "使用哪个时段的数据？",
+  "actualQuestion": "Which time period of data is being used?",
+  "expected": "明确当前事件和历史基线时间范围",
+  "prohibited": "不得混用单月与累计",
+  "factCheck": "时间字段",
+  "scoringFocus": "时间一致性",
+  "corePass": true,
+  "qualityVerdict": "PASS",
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Correctly separates scenario period, report applicability versus creation time, monthly cutoff/baselines and annual scope. Missing timestamps do not invalidate exact matching or establish unknown reliability.",
+    "evidence": "20 HAI rows through August 2025; January initialization and later partial/full history correct. HAI comparison figures and 2024-only annual scale match.",
+    "unsupportedClaims": "No invented parser limitation, date mapping, unsupported operational claim or future commitment.",
+    "proposedFacts": "Five explicit confirmation/source requests, not applied facts.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.08504,
+  "elapsedSeconds": 29.515,
+  "phases": [
+    {
+      "key": "TEST014-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "324c602e-6a5c-4fe8-b8e6-8e00ba2e2a1e",
+      "resultId": "b59fb651-3e06-4463-8581-5bffc6745bc9",
+      "elapsedMs": 29515,
+      "attempts": 1,
+      "costMicro": 85040,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 21631,
+        "cached": 2432,
+        "output": 5818,
+        "reasoning": 3385
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "6ccb5d3b-713b-404b-8418-f2d2ec0b9c94",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 29471,
+          "usage": {
+            "input": 21631,
+            "cached": 2432,
+            "output": 5818,
+            "reasoning": 3385,
+            "raw": {
+              "input_tokens": 21631,
+              "input_tokens_details": {
+                "cached_tokens": 2432
+              },
+              "output_tokens": 5818,
+              "output_tokens_details": {
+                "reasoning_tokens": 3385
+              },
+              "total_tokens": 27449
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST014-en"
+}

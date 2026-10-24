@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-23",
+  "commit": "7bde4c8964f7c8663bf95e5e0143fe2e014f7dd5",
+  "sourceRepository": "/Users/benjamin/Documents/ChatGPT/HackSHSID-claude-680ee56-time-window",
+  "isolatedStage": "/tmp/aerocontext-final-browser-7bde4c8",
+  "build": {
+    "command": "npm run build",
+    "bundler": "Turbopack",
+    "passed": true,
+    "typeScriptPassed": true,
+    "environment": "Approved execution outside sandbox for local worker ports"
+  },
+  "tests": {
+    "passed": 324,
+    "files": 17
+  },
+  "sourceHashCheck": {
+    "files": 93,
+    "unchanged": true
+  },
+  "liveDatabase": {
+    "allNineTableFingerprintsUnchanged": true,
+    "incidentCount": 28,
+    "snapshotCount": 29,
+    "assessmentCount": 7,
+    "reviewCount": 41,
+    "discussionCount": 3
+  },
+  "browser": {
+    "workflowExecuted": true,
+    "acceptance": "open_findings",
+    "languages": [
+      "en",
+      "zh"
+    ],
+    "mobileViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "realModelCalls": 0,
+    "controlledProviderAttempts": 9,
+    "transportModes": {
+      "success": 6,
+      "invalidJSON": 2,
+      "rateLimit": 1
+    },
+    "jsonExportPassed": true,
+    "historicalPrintScopePassed": true,
+    "pdfPages": {
+      "en": 3,
+      "zh": 3
+    }
+  },
+  "findings": [
+    {
+      "id": "B01",
+      "severity": "medium",
+      "area": "keyboard",
+      "description": "Closing a source citation dialog with Escape leaves focus on BODY instead of restoring the invoking button. Reproduced in Messages, Ask AeroContext and the monthly evidence table."
+    },
+    {
+      "id": "B02",
+      "severity": "medium",
+      "area": "print",
+      "description": "The skip-to-content control is included in English and Chinese PDFs, overlapping report content near the bottom of page 1 and appearing again on page 2."
+    }
+  ],
+  "limits": [
+    "Controlled provider responses test application behavior, not live DeepSeek reliability or reasoning.",
+    "This run used existing copied dependencies; a documented fresh npm install and hosted/Docker verification remain separate tasks.",
+    "A suspected right-margin overflow was not confirmed on reinspection of the saved PDF renders."
+  ],
+  "cleanup": {
+    "testServer3017Stopped": true,
+    "liveServer3001Untouched": true,
+    "temporaryTabsClosed": true,
+    "viewportReset": true
+  },
+  "appCodeChanged": false,
+  "committed": false,
+  "pushed": false
+}

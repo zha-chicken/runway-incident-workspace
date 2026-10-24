@@ -1,0 +1,152 @@
+{
+  "testId": "TEST006",
+  "language": "en",
+  "type": "沟通对象",
+  "originalQuestion": "分别写给运营人员和旅客",
+  "actualQuestion": "Write separate messages for operations personnel and passengers.",
+  "expected": "生成重点不同的两类文字",
+  "prohibited": "不得使用完全相同文本",
+  "factCheck": "对象需求",
+  "scoringFocus": "对象化表达",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Distinct operations checklist and cautious passenger draft; no sending, invented delay, recovery promise or execution.",
+    "evidence": "Thunderstorm outlook, rising risk, missing status/recovery/passenger details match EVT004; proposed checks are not stated as current facts.",
+    "unsupportedClaims": "No substantive unsupported claim found. The retained sent-notification warning is a false positive: Chinese explicitly says 本信息为草案，并非已发送通知 (draft, not a sent notice).",
+    "proposedFacts": "Two draft/verification proposals only.",
+    "notes": [
+      "Existing sent-notification false positive recurred and remains a visible advisory; outside these fixes."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.154381,
+  "elapsedSeconds": 74.279,
+  "phases": [
+    {
+      "key": "TEST006-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "aecdeb2f-3306-4bdd-8b71-b7fce1b14879",
+      "resultId": "526cf5d0-c8b4-407a-8ae3-cf0e70a73e06",
+      "elapsedMs": 74279,
+      "attempts": 2,
+      "costMicro": 154381,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "review_required",
+        "warnings": [
+          {
+            "code": "wording",
+            "path": "answer.zh",
+            "message": "claims a notification was sent.",
+            "excerpt": "本信息为草案,并非已发送通知"
+          }
+        ]
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 49954,
+        "cached": 27392,
+        "output": 13520,
+        "reasoning": 9059
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "baa29b43-a738-416f-a72d-2fbede201756",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 41877,
+          "usage": {
+            "input": 24922,
+            "cached": 2560,
+            "output": 7713,
+            "reasoning": 4625,
+            "raw": {
+              "input_tokens": 24922,
+              "input_tokens_details": {
+                "cached_tokens": 2560
+              },
+              "output_tokens": 7713,
+              "output_tokens_details": {
+                "reasoning_tokens": 4625
+              },
+              "total_tokens": 32635
+            }
+          },
+          "validationIssues": [
+            "answer.en: 2pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 2pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 5pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 5pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": [
+            "answer.en: 2pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 2pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "These three months are the only rows more than 2 pp below their own baseline; none reaches the 5 pp anomaly threshold. Their weather rows record  4 ,  4  and  3  adverse-weather days respectively ( WX-NAN-2024-07 ,  WX-NAN-2025-07 ,  WX-NAN-2025-08 ). That is monthly aggregate data for a different scope than the 15:00 scenario; it supports keeping the evening on a watch list, not a claim that weather is causing anything now."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "5pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "这三个月是仅有的低于自身基准2个百分点以上的记录，均未达到5个百分点的异常阈值。对应天气记录中明显不利天气天数分别为  4 、 4  和  3  天（ WX-NAN-2024-07 、 WX-NAN-2025-07 、 WX-NAN-2025-08 ）。这些是月度汇总数据，与15:00的场景口径不同，只能支持把傍晚列入观察清单，不能说明当前情况由天气造成。"
+            }
+          ]
+        },
+        {
+          "attempt": 1,
+          "providerId": "27a95f8e-dc68-41b2-b069-ec34e3b79314",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 32326,
+          "usage": {
+            "input": 25032,
+            "cached": 24832,
+            "output": 5807,
+            "reasoning": 4434,
+            "raw": {
+              "input_tokens": 25032,
+              "input_tokens_details": {
+                "cached_tokens": 24832
+              },
+              "output_tokens": 5807,
+              "output_tokens_details": {
+                "reasoning_tokens": 4434
+              },
+              "total_tokens": 30839
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "wording",
+              "path": "answer.zh",
+              "message": "claims a notification was sent.",
+              "excerpt": "本信息为草案,并非已发送通知"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST006-en"
+}

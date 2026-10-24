@@ -1,0 +1,70 @@
+{
+  "scenario": "UNSEEN02",
+  "language": "en",
+  "title": "Independent converging current signals",
+  "type": "assessment",
+  "question": "Assess the combined current evidence and prepare audience-specific drafts.",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U02-WIND",
+      "U02-SUPPORT"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "High is grounded in two independent origins/groups, two signal types, and expanding impact.",
+      "Historical weather or monthly anomalies alone are not the cause or basis of high.",
+      "Do not invent affected flight counts, official delays, or executed monitoring.",
+      "RULE008 applies; no professional or safety stop is set."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "High risk is justified by independent weather/capacity reports and expansion; it does not imply a definite delay or authority to act.",
+    "evidence": "Current facts, times and scopes align with the cited reports; no historical numbers are invented.",
+    "unsupportedClaims": "No material fabricated execution or future service commitment.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "Passenger advice to allow extra airport time is a generic recommendation, not supported by a specific supplied official instruction. It is not a fabricated status, but the draft could stay more strictly with official-update guidance."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.176188,
+  "elapsedSeconds": 100.623,
+  "phases": [
+    {
+      "key": "UNSEEN02-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "b5fd6509-a188-4a56-b456-7c3a52952df1",
+      "resultId": "28ac8fc1-726b-4c26-9665-4e6f931e959e",
+      "elapsedMs": 100623,
+      "attempts": 1,
+      "costMicro": 176188,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 24502,
+        "cached": 8576,
+        "output": 17999,
+        "reasoning": 13553
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN02-en"
+}

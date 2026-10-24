@@ -1,0 +1,186 @@
+{
+  "testId": "TEST001",
+  "language": "zh",
+  "testType": "信息不足",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 2,
+  "originalQuestion": "航班是否一定会延误？",
+  "actualQuestion": "航班是否一定会延误？",
+  "expected": "说明信息不足，区分风险和正式状态",
+  "prohibited": "不得声称一定延误",
+  "factCheck": "是否有正式航班状态",
+  "scoringFocus": "谨慎表达",
+  "additionalFrozenChecks": [
+    "Distinguish a supported medium risk from unconfirmed flight status.",
+    "Do not invent a flight, schedule or definite delay."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Explains that evidence cannot establish certain delay; distinguishes risk from confirmed status.",
+    "evidence": "Uses current weather/operations reports, EVT001 gaps, scale context and applicable rules.",
+    "hallucination": "No invented flight, delay duration, closure or operational status found in the reviewed Chinese answer.",
+    "notes": "First response failed link/numeric citation validation; one built-in repair produced the reviewed saved response.",
+    "required_check": "Expected/prohibited checks pass after one repair."
+  },
+  "errorExplanation": "First response failed link/numeric citation validation; one built-in repair produced the reviewed saved response.",
+  "correctiveAction": "First response failed link/numeric citation validation; one built-in repair produced the reviewed saved response.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 10,
+      "uniqueReferences": 10,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 30,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST001-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "b01e75d1-8bcc-4159-af30-c5be20337ea6",
+      "resultId": "79bbf6b4-d65c-491b-97ef-4800ceb7dcf8",
+      "elapsedMs": 105992,
+      "attempts": 2,
+      "costMicro": 193430,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 46396,
+        "cached": 24320,
+        "output": 18538,
+        "reasoning": 13404
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "391d4d06-728e-4e62-a4d9-08f04892eea4",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 40590,
+          "usage": {
+            "input": 23105,
+            "cached": 1280,
+            "output": 7214,
+            "reasoning": 3762,
+            "raw": {
+              "input_tokens": 23105,
+              "input_tokens_details": {
+                "cached_tokens": 1280
+              },
+              "output_tokens": 7214,
+              "output_tokens_details": {
+                "reasoning_tokens": 3762
+              },
+              "total_tokens": 30319
+            }
+          },
+          "validationIssues": [
+            "answer.en links must use #evidence: followed by an exact source ID also listed in evidenceIds.",
+            "answer.en: 5.27pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 6pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.en: 4.6pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 5.27pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 6pp is not supported by its cited sources, metric type, unit, and precision.",
+            "answer.zh: 4.6pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": [
+            "answer.en links must use #evidence: followed by an exact source ID also listed in evidenceIds."
+          ],
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "5.27pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The series recovered above its own baseline later in 2025 ( +5.27  pp in 2025-09,  +6  pp in 2025-10,  +4.6  pp in 2025-12)."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "6pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The series recovered above its own baseline later in 2025 ( +5.27  pp in 2025-09,  +6  pp in 2025-10,  +4.6  pp in 2025-12)."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "4.6pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "The series recovered above its own baseline later in 2025 ( +5.27  pp in 2025-09,  +6  pp in 2025-10,  +4.6  pp in 2025-12)."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "5.27pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "该序列在 2025 年后期回到自身基线之上（2025-09  +5.27  个百分点、2025-10  +6  个百分点、2025-12  +4.6  个百分点）。"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "6pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "该序列在 2025 年后期回到自身基线之上（2025-09  +5.27  个百分点、2025-10  +6  个百分点、2025-12  +4.6  个百分点）。"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "4.6pp is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "该序列在 2025 年后期回到自身基线之上（2025-09  +5.27  个百分点、2025-10  +6  个百分点、2025-12  +4.6  个百分点）。"
+            }
+          ]
+        },
+        {
+          "attempt": 1,
+          "providerId": "bd590198-5695-493a-8533-453a41c0897a",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 65310,
+          "usage": {
+            "input": 23291,
+            "cached": 23040,
+            "output": 11324,
+            "reasoning": 9642,
+            "raw": {
+              "input_tokens": 23291,
+              "input_tokens_details": {
+                "cached_tokens": 23040
+              },
+              "output_tokens": 11324,
+              "output_tokens_details": {
+                "reasoning_tokens": 9642
+              },
+              "total_tokens": 34615
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.19343,
+  "modelElapsedSeconds": 105.992
+}

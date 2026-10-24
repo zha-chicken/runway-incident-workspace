@@ -72,15 +72,12 @@ The promo/demo video was completed by Claude and watched/approved by the owner o
 
 ## Remaining release work
 
-1. **Review other testing-only settings.** The owner-approved local update removes daily workspace/IP quotas and application spending caps, and permits six concurrent requests across the database. Accounting/history remain; provider limits, token ceilings, timeouts, repair bounds and safety constraints are unchanged. Other proposed input/context/deployment changes require a separate decision.
-2. **Complete fresh-install runtime verification.** Cached clean installation, data import, TypeScript, 345 tests and Webpack build are recorded. Verify real inference, saved history, restart persistence and export in the intended judge environment. Recheck the default-build environment restriction there.
-3. **Resolve judge access.** Confirm the chosen local/hosted demonstration path. If hosting is retained, verify external browser/device access and persistent storage. Docker requires execution testing before being advertised as a verified launch path.
-4. **Review publication contents.** Exclude credentials, personal/runtime databases, session/transport state and unrelated artifacts. Select portable material/video locations and acknowledgements; local paths in the current index are not judge-accessible links.
-5. **Approve the release commit and refresh packaging.** These documentation changes remain uncommitted until authorized. D08 still archives `8ad14e3` and its historical docs; after the final approved commit, regenerate the release archive/manifest and synchronize the dated submission materials and video references. Preserve original evaluation records.
-6. **Finish portal fields and rehearse.** Check live track labels, deadline, description/thumbnail/file limits and required disclosure fields. Fill the title, project explanation, public repository/material/video links and testing evidence. Use the completed video and rehearse the interactive workflow; do not present recorded footage as fresh inference.
-7. **Submit and retain confirmation.** Check every judge-facing link, verify the submission succeeded and save the receipt. No publication, upload, deployment or submission is authorized merely by this checklist.
+1. **Owner makes the repository public.** Source, D01–D08 material links, acknowledgements and release assets are prepared. Check them from a signed-out browser after the visibility change.
+2. **Complete the event portal submission and retain confirmation.** Use the repository URL, project description, poster, test evidence and AI-use statement; rehearse the demonstration.
+3. **Record verification limits accurately.** Fresh judge-machine real inference/restart/export, uncached installation and Docker execution remain unverified. Existing model evidence is dated, not a guarantee of a future run. No hosted service is claimed.
+4. **Defer unrelated changes.** Input/context/deployment proposals require a separate decision. The approved quota removal and six-request limit are already in `27f5ec9`.
 
-The earlier planning deadline is October 24 at 23:59 GMT+8, with a 20:00 buffer target. It has not been reverified against the live portal by this documentation update.
+See [submission materials](submission/README.md) and [publication verification](submission/PUBLICATION-VERIFICATION.md).
 
 ## After the hackathon
 

@@ -1,0 +1,58 @@
+{
+  "id": "UNSEEN06",
+  "title": "Early historical cutoff and peer interpretation",
+  "type": "discussion",
+  "input": {
+    "title": "早期历史数据简报",
+    "airportId": "NAN",
+    "scenarioPeriod": "Simulation Day 46, 13:25",
+    "historicalThrough": "2024-04",
+    "businessImportance": "medium",
+    "knownInformation": "请使用下方分别注明来源的虚构报告。",
+    "unknowns": "除非报告明确证实，否则具体航班影响和拟议行动的执行情况均未知。",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U06-STABLE",
+        "text": "当前登机口信息台报告人员配备正常，未观察到排队。",
+        "sourceLabel": "虚构评测报告 U06-STABLE",
+        "originReportId": "U06-STABLE",
+        "reportedAt": "Simulation Day 46, 13:20",
+        "applicablePeriod": "Simulation Day 46, 13:20",
+        "reliability": "human_verified",
+        "independenceGroup": "U06-STABLE",
+        "verificationBasis": "仅在虚构情景日志中核实，并非真实运行核实。",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "解释2024年4月的按计划完成率、历史比较及同类比较。1月是否是真正的历史平均？能否推断后续月份表现或当前延误？",
+  "expected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U06-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "April completion 84.44%, release 88.53%, historical 79.87%, difference +4.57 pp, peers 86.12% if mentioned.",
+      "April has three prior months Jan-Mar 2024; January initializes with zero prior months, not independent past performance.",
+      "Same-category mean includes NAN and has three airports.",
+      "Only Jan-Apr 2024 retrieved; no later monthly or annual figures and no current delay inference.",
+      "No five-point adverse anomaly exists within this selected history."
+    ]
+  },
+  "language": "zh",
+  "key": "UNSEEN06-zh",
+  "incidentId": "bb28a8ab-606a-405c-9911-74f04017049a",
+  "workspaceId": "67fa6839-e2b9-46bb-9d4f-0fc0860ce90b"
+}

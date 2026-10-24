@@ -1,0 +1,87 @@
+{
+  "id": "UNSEEN01",
+  "title": "Stable desk with stale disagreement",
+  "type": "assessment",
+  "input": {
+    "title": "Stable baggage handover",
+    "airportId": "XING",
+    "scenarioPeriod": "Simulation Day 41, 10:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U01-STABLE",
+        "text": "The current baggage handover desk has its planned staff and no queue spillover. This confirms only this desk, not flight status.",
+        "sourceLabel": "Synthetic evaluation report U01-STABLE",
+        "originReportId": "U01-STABLE",
+        "reportedAt": "Simulation Day 41, 09:30",
+        "applicablePeriod": "Simulation Day 41, 09:30",
+        "reliability": "human_verified",
+        "independenceGroup": "U01-STABLE",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "stable",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U01-OLD",
+        "text": "Earlier desk reports disagreed about the staffing gap.",
+        "sourceLabel": "Synthetic evaluation report U01-OLD",
+        "originReportId": "U01-OLD",
+        "reportedAt": "Simulation Day 41, 09:29",
+        "applicablePeriod": "Simulation Day 41, 09:29",
+        "reliability": "conflicted",
+        "independenceGroup": "U01-OLD",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "conflict",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U01-RUMOUR",
+        "text": "An unverified visitor says there may be a queue elsewhere; no location or time is provided.",
+        "sourceLabel": "Synthetic evaluation report U01-RUMOUR",
+        "originReportId": "U01-RUMOUR",
+        "reportedAt": "Simulation Day 41, 10:00",
+        "applicablePeriod": "Simulation Day 41, 10:00",
+        "reliability": "unverified",
+        "independenceGroup": "U01-RUMOUR",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "context",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Assess the current desk situation and prepare the three audience drafts.",
+  "expected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U01-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "The stable report is exactly minus 30 minutes and current.",
+      "The conflicting report is minus 31 minutes, context only, and does not block low risk.",
+      "The unverified rumour is not a verified current fact.",
+      "Do not infer that all flights are normal or messages have been sent."
+    ]
+  },
+  "language": "en",
+  "key": "UNSEEN01-en",
+  "incidentId": "e0532c06-a3ef-4a6d-9f57-eb2d66592591",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

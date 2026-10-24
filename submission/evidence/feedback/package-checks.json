@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "records": 5,
+  "reviewRevisions": 7,
+  "requiredColumns": 9,
+  "csvColumnsIncludingTraceability": 17,
+  "linksChecked": 24,
+  "markdownTables": 6,
+  "modelRepliesRewritten": false,
+  "reassessmentSuccessClaimed": false,
+  "submissionFileHashes": {
+    "submission/D05-synthetic-feedback.json": "d65823efadaa75d5e42186c3451840c75168b7f172b5f724e5b769a56e2bb7a8",
+    "submission/D05-synthetic-feedback.csv": "cc225cd4f359b46ef6f0027d8531a6540fdf12430fccb8fa942e70e186816b88",
+    "submission/D05-synthetic-feedback.md": "10c2211ec113e34a1a8d3e360c7b671180280c8492d0a11b19f3ac4075095eff"
+  }
+}

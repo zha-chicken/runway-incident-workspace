@@ -1,0 +1,81 @@
+{
+  "scope": "Offline diagnostic only; no reply or application file changed; no model calls.",
+  "results": [
+    {
+      "lang": "en",
+      "name": "original",
+      "text": "The historical baseline for April is partial history:  3  prior months,  2024-01  to  2024-03 , not an initialization row. April's completed-as-planned rate sat above its own prior-month mean ( +4.57  percentage points) but below the same-category mean of  86.12%  for the same month. The two measures say different things: completion is about flights operated as planned, release normality is about departure regularity — both are reported, neither replaces the other.",
+      "ids": [],
+      "errors": [
+        "answer.en: 4.57pp is not supported by its cited sources, metric type, unit, and precision."
+      ],
+      "warnings": [
+        {
+          "code": "citation",
+          "path": "answer.en",
+          "message": "86.12% is not supported by its cited sources, metric type, unit, and precision.",
+          "excerpt": "The historical baseline for April is partial history:  3  prior months,  2024-01  to  2024-03 , not an initialization row. April's completed-as-planned rate sat above its own prior-month mean ( +4.57  percentage points) but below the same-category mean of  86.12%  for the same month. The two measures say different things: completion is about flights operated as planned, release normality is about departure regularity — both are reported, neither replaces the other."
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "name": "diagnostic-only-remove-peer-direction-word",
+      "text": "The historical baseline for April is partial history:  3  prior months,  2024-01  to  2024-03 , not an initialization row. April's completed-as-planned rate sat above its own prior-month mean ( +4.57  percentage points) but compared with the same-category mean of  86.12%  for the same month. The two measures say different things: completion is about flights operated as planned, release normality is about departure regularity — both are reported, neither replaces the other.",
+      "ids": [],
+      "errors": [],
+      "warnings": [
+        {
+          "code": "citation",
+          "path": "answer.en",
+          "message": "4.57pp is not supported by its cited sources, metric type, unit, and precision.",
+          "excerpt": "The historical baseline for April is partial history:  3  prior months,  2024-01  to  2024-03 , not an initialization row. April's completed-as-planned rate sat above its own prior-month mean ( +4.57  percentage points) but compared with the same-category mean of  86.12%  for the same month. The two measures say different things: completion is about flights operated as planned, release normality is about departure regularity — both are reported, neither replaces the other."
+        },
+        {
+          "code": "citation",
+          "path": "answer.en",
+          "message": "86.12% is not supported by its cited sources, metric type, unit, and precision.",
+          "excerpt": "The historical baseline for April is partial history:  3  prior months,  2024-01  to  2024-03 , not an initialization row. April's completed-as-planned rate sat above its own prior-month mean ( +4.57  percentage points) but compared with the same-category mean of  86.12%  for the same month. The two measures say different things: completion is about flights operated as planned, release normality is about departure regularity — both are reported, neither replaces the other."
+        }
+      ]
+    },
+    {
+      "lang": "zh",
+      "name": "original",
+      "text": "4月的历史基线属于部分历史： 3  个先前月份，范围  2024-01  至  2024-03 ，不是初始化行。4月按计划完成航班比例高于自身先前月份平均（ +4.57  个百分点），但低于同月同类均值  86.12% 。两项指标含义不同：完成比例反映按计划执行的航班，放行正常比例反映放行规律性，两者并列报告，互不替代。",
+      "ids": [],
+      "errors": [
+        "answer.zh: 4.57pp is not supported by its cited sources, metric type, unit, and precision."
+      ],
+      "warnings": [
+        {
+          "code": "citation",
+          "path": "answer.zh",
+          "message": "86.12% is not supported by its cited sources, metric type, unit, and precision.",
+          "excerpt": "4月的历史基线属于部分历史： 3  个先前月份，范围  2024-01  至  2024-03 ，不是初始化行。4月按计划完成航班比例高于自身先前月份平均（ +4.57  个百分点），但低于同月同类均值  86.12% 。两项指标含义不同：完成比例反映按计划执行的航班，放行正常比例反映放行规律性，两者并列报告，互不替代。"
+        }
+      ]
+    },
+    {
+      "lang": "zh",
+      "name": "diagnostic-only-remove-peer-direction-word",
+      "text": "4月的历史基线属于部分历史： 3  个先前月份，范围  2024-01  至  2024-03 ，不是初始化行。4月按计划完成航班比例高于自身先前月份平均（ +4.57  个百分点），但compared with同月同类均值  86.12% 。两项指标含义不同：完成比例反映按计划执行的航班，放行正常比例反映放行规律性，两者并列报告，互不替代。",
+      "ids": [],
+      "errors": [],
+      "warnings": [
+        {
+          "code": "citation",
+          "path": "answer.zh",
+          "message": "4.57pp is not supported by its cited sources, metric type, unit, and precision.",
+          "excerpt": "4月的历史基线属于部分历史： 3  个先前月份，范围  2024-01  至  2024-03 ，不是初始化行。4月按计划完成航班比例高于自身先前月份平均（ +4.57  个百分点），但compared with同月同类均值  86.12% 。两项指标含义不同：完成比例反映按计划执行的航班，放行正常比例反映放行规律性，两者并列报告，互不替代。"
+        },
+        {
+          "code": "citation",
+          "path": "answer.zh",
+          "message": "86.12% is not supported by its cited sources, metric type, unit, and precision.",
+          "excerpt": "4月的历史基线属于部分历史： 3  个先前月份，范围  2024-01  至  2024-03 ，不是初始化行。4月按计划完成航班比例高于自身先前月份平均（ +4.57  个百分点），但compared with同月同类均值  86.12% 。两项指标含义不同：完成比例反映按计划执行的航班，放行正常比例反映放行规律性，两者并列报告，互不替代。"
+        }
+      ]
+    }
+  ]
+}

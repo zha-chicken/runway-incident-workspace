@@ -1,0 +1,57 @@
+{
+  "id": "UNSEEN07",
+  "title": "Narrow official flight-status scope",
+  "type": "assessment",
+  "input": {
+    "title": "One confirmed delay, limited scope",
+    "airportId": "XING",
+    "scenarioPeriod": "Simulation Day 47, 17:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "delayed",
+    "officialStatusSourceId": "U07-OFFICIAL",
+    "reports": [
+      {
+        "id": "U07-OFFICIAL",
+        "text": "Verified fictional airline bulletin: SIM-271 is delayed during this scenario period. Revised departure time is not issued. It says nothing about other flights, compensation, rebooking or transport.",
+        "sourceLabel": "Synthetic evaluation report U07-OFFICIAL",
+        "originReportId": "U07-OFFICIAL",
+        "reportedAt": "Simulation Day 47, 16:55",
+        "applicablePeriod": "Simulation Day 47, 16:55",
+        "reliability": "human_verified",
+        "independenceGroup": "U07-OFFICIAL",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "operations",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Assess the situation and prepare a passenger draft limited to the confirmed information.",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U07-OFFICIAL"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "A current verified source supports delayed status for fictional SIM-271 only.",
+      "Passenger text can say that flight is delayed, but not all flights/airport delayed.",
+      "Revised time, cause, compensation, rebooking and transport are unknown; do not promise them.",
+      "Retain simulation/draft notice; no claim of actual sending."
+    ]
+  },
+  "language": "en",
+  "key": "UNSEEN07-en",
+  "incidentId": "2851cb60-65b2-4d71-bd9b-0e237cd4cb37",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

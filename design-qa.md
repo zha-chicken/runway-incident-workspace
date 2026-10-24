@@ -9,7 +9,7 @@ final result: passed
 ## Visual target and captures
 
 Approved source:
-`/Users/benjamin/.codex/generated_images/01a1546f-8d0b-7d93-8326-38c4e4173d47/exec-9b96efad-97c3-4f01-8f2f-e0f68b476f84.png`
+`[original local checkpoint path]`
 
 The source is a 1672 × 941, five-screen storyboard, not a single browser viewport or pixel specification. Its individual frames have different proportions. Comparisons used the matching workflow state in dark mode, with the original storyboard and rendered captures supplied together in the same comparison input. No frame stretching or pixel-diff threshold was used.
 

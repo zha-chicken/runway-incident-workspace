@@ -1,0 +1,127 @@
+[
+  {
+    "file": "evidence/unseen/cases/UNSEEN06-en/failure-explanation.md",
+    "excludedReference": "raw-attempts.md",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/unseen/cases/UNSEEN06-en/failure-explanation.md",
+    "excludedReference": "final-result.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/unseen/cases/UNSEEN06-en/failure-explanation.md",
+    "excludedReference": "final-export.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/feedback/reassessment-review.md",
+    "excludedReference": "run-ledger.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/feedback/reassessment-review.md",
+    "excludedReference": "source-state.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/feedback/reassessment-review.md",
+    "excludedReference": "source-manifest.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/feedback/reassessment-review.md",
+    "excludedReference": "reassess-input.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/feedback/reassessment-review.md",
+    "excludedReference": "current-export.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/feedback/reassessment-review.md",
+    "excludedReference": "credential-scan.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "build-default.log",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "tests.log",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "server.log",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "browser-observations.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "print-en.pdf",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "print-zh-historical.pdf",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "print-en-1.png",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "print-zh-historical-1.png",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "feedback-context-check.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "proposal-version-check.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "browser-export.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "live-data-before.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "live-data-after.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "source-check.json",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "provider-fixture.cjs",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  },
+  {
+    "file": "evidence/browser/verification-report.md",
+    "excludedReference": "provider-requests.jsonl",
+    "reason": "Original local supporting artifact not distributed; no replacement evidence is implied."
+  }
+]

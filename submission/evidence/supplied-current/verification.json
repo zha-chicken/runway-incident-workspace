@@ -1,0 +1,40 @@
+{
+  "focusedTests": {
+    "files": 3,
+    "passed": 75
+  },
+  "fullSuite": {
+    "files": 18,
+    "passed": 345
+  },
+  "typecheck": "passed",
+  "defaultProductionBuild": "passed",
+  "buildLog": "build.log",
+  "commands": [
+    "npm test -- tests/interpretation-context.test.ts tests/report-period.test.ts tests/reassessment-feedback.test.ts",
+    "npm run typecheck",
+    "npm test",
+    "DATABASE_PATH=<isolated build.sqlite> npm run build"
+  ],
+  "periodBehaviorComparison": {
+    "comparisons": 50176,
+    "mismatches": 0,
+    "artifact": "period-equivalence.json"
+  },
+  "requestCompatibility": {
+    "comparisons": 60,
+    "schemasOriginalInputsAndProviderSettingsIdentical": true,
+    "artifact": "request-compatibility.json"
+  },
+  "fixtureEquivalence": {
+    "variants": 30,
+    "identical": true,
+    "artifact": "fixture-equivalence.json"
+  },
+  "sourceBase": "7bde4c8964f7c8663bf95e5e0143fe2e014f7dd5",
+  "promptVersions": {
+    "assessment": "runway-2026-10-24-grounded-context-v1",
+    "discussion": "runway-discussion-2026-10-24-grounded-context-v1"
+  },
+  "generatedBuildOnlyChange": "next-env.d.ts switches dev type import paths to production paths in the isolated build; not copied into app source."
+}

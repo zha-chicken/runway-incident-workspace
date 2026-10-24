@@ -1,0 +1,70 @@
+{
+  "scenario": "UNSEEN02",
+  "language": "zh",
+  "title": "Independent converging current signals",
+  "type": "assessment",
+  "question": "评估当前组合证据，并准备区分受众的草案。",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U02-WIND",
+      "U02-SUPPORT"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "High is grounded in two independent origins/groups, two signal types, and expanding impact.",
+      "Historical weather or monthly anomalies alone are not the cause or basis of high.",
+      "Do not invent affected flight counts, official delays, or executed monitoring.",
+      "RULE008 applies; no professional or safety stop is set."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly supports high risk with two independent current weather/capacity reports and expanding impact, without claiming an official delay or automatic operational authority.",
+    "evidence": "The cited July/August 2024 QING anomalies, April 2025 12-month baseline and March 2025 missing-weather flag match the supplied data. Principal current claims cite the two reports.",
+    "unsupportedClaims": "No unsupported executed monitoring, service promise, flight count or cause identified.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [
+      "One conditional escalation sentence says report conflict alone should stop action conclusions. The actual policy stops for safety or unknown reliability; conflict alone does not necessarily set RULE012. The current structured restrictions remain correct."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.201889,
+  "elapsedSeconds": 106.057,
+  "phases": [
+    {
+      "key": "UNSEEN02-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "5e31c9e1-9188-48d2-bd43-8c21a83514d8",
+      "resultId": "35d8eddd-d63a-446a-ab08-e9274bd8a703",
+      "elapsedMs": 106057,
+      "attempts": 2,
+      "costMicro": 201889,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 49123,
+        "cached": 25472,
+        "output": 19196,
+        "reasoning": 9841
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN02-zh"
+}

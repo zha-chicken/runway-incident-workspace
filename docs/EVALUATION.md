@@ -57,7 +57,7 @@ Earlier browser verification used a controlled provider, not real model inferenc
 
 ## Automated and packaging verification
 
-Recorded current-source checks: **345 tests in 18 files**, TypeScript and default production build passed. Focused regressions passed; 50,176 period comparisons showed unchanged matching behavior, and 60 request comparisons preserved evidence/schema/provider settings. These checks establish program behavior within their fixtures, not semantic truth of model prose. No new paid calls were made during submission packaging. This does not include Claude's later promo-video recording, which is separately described in [SUBMISSION.md](SUBMISSION.md).
+Recorded `8ad14e3` checkpoint checks: **345 tests in 18 files**, TypeScript and default production build passed. Focused regressions passed; 50,176 period comparisons showed unchanged matching behavior, and 60 request comparisons preserved evidence/schema/provider settings. These checks establish program behavior within their fixtures, not semantic truth of model prose. No new paid calls were made during submission packaging. This does not include Claude's later promo-video recording, which is separately described in [SUBMISSION.md](SUBMISSION.md).
 
 The application offers traceable evidence and structured review, with transparent failures. Human time savings and superiority over a basic model prompt were **not measured**: both practical-value experiments were intentionally skipped. The high-versus-max experiment and standalone B787 package were also intentionally skipped. Historical B787 development evidence is not an untouched final test set.
 

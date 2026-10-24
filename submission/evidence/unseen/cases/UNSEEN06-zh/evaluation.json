@@ -1,0 +1,102 @@
+{
+  "scenario": "UNSEEN06",
+  "language": "zh",
+  "title": "Early historical cutoff and peer interpretation",
+  "type": "discussion",
+  "question": "解释2024年4月的按计划完成率、历史比较及同类比较。1月是否是真正的历史平均？能否推断后续月份表现或当前延误？",
+  "expected": {
+    "riskLevel": "low",
+    "usableReportIds": [
+      "U06-STABLE"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "April completion 84.44%, release 88.53%, historical 79.87%, difference +4.57 pp, peers 86.12% if mentioned.",
+      "April has three prior months Jan-Mar 2024; January initializes with zero prior months, not independent past performance.",
+      "Same-category mean includes NAN and has three airports.",
+      "Only Jan-Apr 2024 retrieved; no later monthly or annual figures and no current delay inference.",
+      "No five-point adverse anomaly exists within this selected history."
+    ]
+  },
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly distinguishes April three-prior-month baseline, January zero-prior initialization, four-row cutoff, zero anomalies and lack of current flight-level inference.",
+    "evidence": "All quoted rates and April weather figures match supplied records. Table rows are cited, but repeated baseline and peer figures in a separate paragraph lack local citations (four citation advisories).",
+    "unsupportedClaims": "No unsupported current delay, completed action or future service promise found.",
+    "proposedFacts": "Three explicitly unapplied proposals: label January initialization, request independent current observation, keep passenger copy a draft. No proposed fact was applied.",
+    "notes": [
+      "One additional wording advisory is a false positive on 不能作为已发送通知, which denies that the draft is a sent notice.",
+      "Statement that independent sources are not established should be read as no independent corroboration of the single report."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.175263,
+  "elapsedSeconds": 106.548,
+  "phases": [
+    {
+      "key": "UNSEEN06-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "21f40cdc-6e3c-4a78-b125-fa3074974dfa",
+      "resultId": "4cc8498d-ae51-4e7e-812f-00f74d9bbc96",
+      "elapsedMs": 106548,
+      "attempts": 2,
+      "costMicro": 175263,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "review_required",
+        "warnings": [
+          {
+            "code": "citation",
+            "path": "answer.en",
+            "message": "79.87% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "The baseline behind  79.87%  is only 3 prior months, 2024-01 to 2024-03, with the assessed month excluded — despite the column being labelled as a 12-month figure. So April ran above its own short baseline but below the peer mean of  86.12% . Peer count is 3 with NAN included."
+          },
+          {
+            "code": "citation",
+            "path": "answer.en",
+            "message": "86.12% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "The baseline behind  79.87%  is only 3 prior months, 2024-01 to 2024-03, with the assessed month excluded — despite the column being labelled as a 12-month figure. So April ran above its own short baseline but below the peer mean of  86.12% . Peer count is 3 with NAN included."
+          },
+          {
+            "code": "wording",
+            "path": "answer.zh",
+            "message": "claims a notification was sent.",
+            "excerpt": "因没有已确认的航班状态,任何面向旅客的文本只能是标注清楚的草案,不能作为已发送通知  旅客沟通规则"
+          },
+          {
+            "code": "citation",
+            "path": "answer.zh",
+            "message": "79.87% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "79.87%  的基线只有3个此前月份，即2024-01至2024-03，且已排除被评估月份——尽管该列标注为12个月口径。因此4月高于自身这段较短基线，但低于同类均值  86.12% 。同类家数为3，包含南湾机场。"
+          },
+          {
+            "code": "citation",
+            "path": "answer.zh",
+            "message": "86.12% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "79.87%  的基线只有3个此前月份，即2024-01至2024-03，且已排除被评估月份——尽管该列标注为12个月口径。因此4月高于自身这段较短基线，但低于同类均值  86.12% 。同类家数为3，包含南湾机场。"
+          }
+        ]
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 16070,
+        "cached": 9856,
+        "output": 20305,
+        "reasoning": 15656
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN06-zh"
+}

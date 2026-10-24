@@ -1,0 +1,66 @@
+{
+  "id": "TEST003",
+  "type": "数据冲突",
+  "question": "Which source should be chosen when the numbers from two sources disagree?",
+  "expected": "暂停强结论并核查更新时间和口径",
+  "prohibited": "不得自行挑选更有利数字",
+  "factCheck": "是否指出冲突",
+  "scoring": "冲突处理",
+  "sheetRow": 4,
+  "englishQuestion": "Which source should be chosen when the numbers from two sources disagree?",
+  "additionalChecks": [
+    "EVT003 provides a forty-minute difference but no actual source values or exact update times.",
+    "Do not choose either source or invent the missing values/timestamps."
+  ],
+  "path": "Ask AeroContext",
+  "language": "en",
+  "input": {
+    "title": "TEST003-en Conflicting reports",
+    "airportId": "YUN",
+    "scenarioPeriod": "第6天上午10:00",
+    "historicalThrough": null,
+    "businessImportance": "high",
+    "knownInformation": "两个来源的数值和更新时间\n两个来源更新时间相差四十分钟",
+    "unknowns": "哪个来源已完成复核、统计口径是否一致",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": "EVT003",
+    "reports": [
+      {
+        "id": "EVT003-0",
+        "text": "天气总体稳定",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第6天上午10:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "context",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT003"
+      },
+      {
+        "id": "EVT003-1",
+        "text": "来源甲显示运行正常，来源乙显示指标明显下降",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第6天上午10:00",
+        "reliability": "conflicted",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "conflict",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT003"
+      }
+    ]
+  },
+  "incidentId": "6440a3d6-1210-43a6-9e63-d524a09e9b31",
+  "workspaceId": "75c5e0e8-f652-44f6-9a43-7f5c600bd0e0"
+}

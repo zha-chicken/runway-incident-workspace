@@ -1,0 +1,17 @@
+
+> runway-incident-workspace@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 /Users/benjamin/Documents/ChatGPT/HackSHSID/submission/.build/install-check
+
+
+ Test Files  18 passed (18)
+      Tests  345 passed (345)
+   Start at  10:24:43
+   Duration  7.32s (import 55%, tests 40%, transform 4%)
+
+     Import  72 modules were evaluated 101 times · 3.19s total, 55% of tracked time
+             ~916ms faster with isolate: false — shared modules are evaluated once per worker instead of once per file
+             learn more: https://vitest.dev/guide/improving-performance#test-isolation
+

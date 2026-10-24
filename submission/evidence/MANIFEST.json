@@ -1,0 +1,3473 @@
+[
+  {
+    "path": "evidence/supplied-original/summary.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/summary.json",
+    "sha256": "be1526f23ec58b454e507dcfffb7c98acfab1e84bffb9400bc9198802a1e770b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/evaluation-matrix.csv",
+    "original": "simulation-tests/2026-10-23-supplied-tests/evaluation-matrix.csv",
+    "sha256": "91caf2d45e18ffc2ce91777437b762cad7df05eb683e01f069603f01a1b9c78d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/evaluation-matrix.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/evaluation-matrix.json",
+    "sha256": "726bfd36ecdf1fd875e71191c2349e4793ed52d9a9021cfbb7039f808a87be9b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/qualitative-review.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/qualitative-review.json",
+    "sha256": "60179d94fea3b67727aaa9ef5253d76d18b1a8fcd61a0a0a44fbbd96109f37a0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/frozen-plan.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/frozen-plan.json",
+    "sha256": "fc38ae22619291c031deedce44fe3d0934accadb907b1756e91e9e474009e4e5",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/frozen-plan.sha256",
+    "original": "simulation-tests/2026-10-23-supplied-tests/frozen-plan.sha256",
+    "sha256": "b7b4810a42239900cbe05421cde9bab0681c4a27cde15f9a6008f91a822df38d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/lifecycle-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/lifecycle-checks.json",
+    "sha256": "208f8cf5b75d253fc66c0cc4bcd809c4aa27b9e0d7d6e7c265a457c05c58604a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-en/definition.json",
+    "sha256": "94c8a2e90ea1a95617a3b33cabb57e623a0508588a8818ab583dff5ace7d749a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-en/outputs.md",
+    "sha256": "b7f0fc4368c60398a472adddccab04205be76024ff6666b425f36fb24224fd00",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-en/evaluation.json",
+    "sha256": "cf7a8fd22f1f234d280b3d1b089f77cc4a272bda32e2b0d31161f9fb8ec577e8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-en/evaluation.md",
+    "sha256": "2cba16b93f80cba1ad86c3b76affad1b6dc3d26adb198167640a33c040d6c4ce",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-en/structural-checks.json",
+    "sha256": "deb0e4487a365643fe05873846ace9ad943403fcf0caba6dcc7f4df3222b61eb",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-en/final-attempt-1-response.txt",
+    "sha256": "bfec924f1a9af0332788561fb383192b349bf05adc3f28dde4fb4f73a74658af",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-zh/definition.json",
+    "sha256": "5df09a518bd6f6330af9a000f60ae7a103b798da3f0c140a40e75a2ab1435a68",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-zh/outputs.md",
+    "sha256": "3f8c5669ab3936fadd7be0bc5b6504a55960ab02199421f9dc6d915cd681fca5",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-zh/evaluation.json",
+    "sha256": "16caf05dc562ad4b9739e2ce72b8b3121f3a479afc59df4745e41b4762fc4ced",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-zh/evaluation.md",
+    "sha256": "d44eb14f6596f85b5c5bf3b9ac32e176d10843235f7fe630aac6a65335e55374",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-zh/structural-checks.json",
+    "sha256": "8e638269c046169ea5b4a2a56819a1e8bc72ce67da3a4b11028a7fd9f411e1bc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-zh/final-attempt-1-response.txt",
+    "sha256": "2c2c97e62577d9c3538018851c37d648ff9eb5bee79511e3bbede7c2947e4f31",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST001-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST001-zh/final-attempt-2-response.txt",
+    "sha256": "d57fc0db5669086a7ff020fafa423b872810d6ad36c6049691dc6775ee91e2e7",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-en/definition.json",
+    "sha256": "4a31c780936c3b44d3242fa0154497eb5de99e2d49fc34af5190dcbf9b7ebffa",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-en/outputs.md",
+    "sha256": "d8f024e388234736c47922a6ba4e70985125097858669c38c9c316702ff20b20",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-en/evaluation.json",
+    "sha256": "43870b4214d03196c78166ac22289711dfd8dc1c7f98f2df94b3d28c8c874861",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-en/evaluation.md",
+    "sha256": "40bafc4b4499d2e9c01cc3c92235d57edc957f9758d4676e6dd735d6e581202d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-en/structural-checks.json",
+    "sha256": "b89252c989dd36e163d470c0cafa087fe918f0072f71dece728b91a0451808c4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-en/final-attempt-1-response.txt",
+    "sha256": "b70131c681bc2b0c307891003bbe362fc7ff8a14636ce9a4db25a449b9b2b13f",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-zh/definition.json",
+    "sha256": "425271d7d44baa03139e2ff4e36552fea86f738195bf9eef629538e8f47f5396",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-zh/outputs.md",
+    "sha256": "a38f08c70c11d0197a9c617c0cb000eb70a4da32afd5888b18884bc28c70b9f2",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-zh/evaluation.json",
+    "sha256": "8c2bacc0c2a63bf71c09fb8b6b4affb9754120d15f2298ee9a59e450c40b6558",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-zh/evaluation.md",
+    "sha256": "4f5c6679ec1934bb221f2336d7b0f364cbe37eb65e78e2adc6d6714cc3284aac",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-zh/structural-checks.json",
+    "sha256": "024e0e78e94f45cb1e55a604b5fe34fbcda9147975914d80db25dfaf1591c607",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-zh/final-attempt-1-response.txt",
+    "sha256": "44dca4133dab6b4bf8043b708d0f648fd619679b935a7442e9e3330e1fcb56cb",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST002-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST002-zh/final-attempt-2-response.txt",
+    "sha256": "14286d629f69c5c0cf12293bf08ef57ffd1ef6af805bf9df0d1218573d019860",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-en/definition.json",
+    "sha256": "d513753952ffe612d2b625f3b8d988812f413ca0a374593317795c4043cc23f8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-en/outputs.md",
+    "sha256": "cb5781748c8d919211c8bec598950fc6bef0003bdd0758c38ddd128a79c11859",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-en/evaluation.json",
+    "sha256": "8d46507d2636c2da5437f57c80c33f3d90e14c6c6b797c9a45b054d0356c2c2d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-en/evaluation.md",
+    "sha256": "1d4cf28e3ab47f3cedfc7a2e2eec25c0e19473847fdd4627a51c1185c9b4bef7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-en/structural-checks.json",
+    "sha256": "5c3d7e677b76ad6c320843e99ea3a624218b56bb2a27f93ef711d8989ff87f9d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-en/final-attempt-1-response.txt",
+    "sha256": "3dd3934d241901abfb7197560fc867190771187a0894858bb152cf072f459174",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-en/final-attempt-2-response.txt",
+    "sha256": "ec062932d9531d6505921a905ffdccf0405f2fb2e84f6d291b3bc6166939c12b",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-zh/definition.json",
+    "sha256": "0a974b935e847c4888ba71d122a3bfd7dba1278888b89cf45669310dfb7fc2d1",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-zh/outputs.md",
+    "sha256": "987ff4119127d729c03bdc4611e65aacd1844f6aba5f1a9343a1d0e4de136d84",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-zh/evaluation.json",
+    "sha256": "42723fca2f58279af2f88a27075a7168a7cdcb6582d2d4e99dbf416f73c9b018",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-zh/evaluation.md",
+    "sha256": "474248192db735064cb173768436f75f1108daab248a98008c367ae5bb84b397",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-zh/structural-checks.json",
+    "sha256": "b2e5421440c9b807577e91a329baf63bc7cffd74f001c50d01ab2d7139573b02",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-zh/final-attempt-1-response.txt",
+    "sha256": "591ab02081d104e320dff9b5bfca7c500779d3d765a9ae04743739c5a01fb8cd",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST003-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST003-zh/final-attempt-2-response.txt",
+    "sha256": "a85b6e4527bdcc4c8dbcb4d401dcc88267bd3b426caec8e91e7c097db7d6914f",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-en/definition.json",
+    "sha256": "37eb2547b0f5821b4a8f2048f528021902831cdf1c5648ad20dab161569d9f73",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-en/outputs.md",
+    "sha256": "ce457fb98e56a0a352e1efb79f7023cb0eccf2e81b841f0d134d595bd1620542",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-en/evaluation.json",
+    "sha256": "228b337647a1d45283229b914e820280b052ad23a07e351313c998eb4835111c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-en/evaluation.md",
+    "sha256": "8ad3b351d3475bfaedf32666b81fe5d002c04bbfd5c8dd7413862328b6dd75a5",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-en/structural-checks.json",
+    "sha256": "512de00d71eabe6d5bbfbd1d154f9a0c7888839e655cbca5a38b4a098f7094db",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-en/final-attempt-1-response.txt",
+    "sha256": "683c749cf02dc8d531c7c8dd449d4b487db81dbd537a7d857bb3601c0709978d",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-en/final-attempt-2-response.txt",
+    "sha256": "4a9655132a65970d3f27b2a2f3ac963a1588d2812668470451744da3cd2568bc",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-zh/definition.json",
+    "sha256": "e61b68a11f75491105a777cca7e20b05db756449a9a546e406f54b7d87c47d9b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-zh/outputs.md",
+    "sha256": "34194430efca6a8f65cb184e135c9456a6b715713c66bc8add8646e157304ff8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-zh/evaluation.json",
+    "sha256": "acb8c9042981c8362cc3b2ea962d85b3c6818b10056ecf330746daa50845e2c4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-zh/evaluation.md",
+    "sha256": "3016aa23109febbdc418174a4b25c31cec1fbcc7264c82612c32f39545723944",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-zh/structural-checks.json",
+    "sha256": "9848eb3717c3a57c0abf8daa3350f5562c37b0beec13a707dc7e355065537cd8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-zh/final-attempt-1-response.txt",
+    "sha256": "fe371a1f7b7050f121101ea9cae0459485cbfb2bb37afc25b1aa2b166626846b",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST004-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST004-zh/final-attempt-2-response.txt",
+    "sha256": "ebb7f40fe7302cf60c4c423436b15db08b14f64060975a9e37e7d60f6d0ab35e",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-en/definition.json",
+    "sha256": "44e557a055ab8f34b3f620277a5b582e4457f8c1e934d0bc0dc627318452cc56",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-en/outputs.md",
+    "sha256": "f499f4a13e3e93c15525fd42ec1454a348122300a64013deb96fc66be11b8366",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-en/evaluation.json",
+    "sha256": "2bb9e827641d815bb03b0e341971df4a6c8a2906fe5006f21668cd10fdcef0b2",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-en/evaluation.md",
+    "sha256": "4b581c5db38edfddca4f4545ba944af29267ee03d61384065da9331279f202a0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-en/structural-checks.json",
+    "sha256": "95ba8df6a156f36294822a4dc3f03b3faa12ce29c7cebcfe67d6fdc42f4607e0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-en/final-attempt-1-response.txt",
+    "sha256": "797ef5ac984327dcd25ef5d27e3c9482a75ec3c6822d2379b72e664ff745ddd2",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-zh/definition.json",
+    "sha256": "9352b7c02c5601e4668ad772327d2069b15cdfdbec3728a19c21a857b9c42d78",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-zh/outputs.md",
+    "sha256": "67797916d1cfc6faa355343a03a09cf44d4f6cb5cb4991c5c75dc718b99eb12c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-zh/evaluation.json",
+    "sha256": "82c6d50bda3c233b9c02c10348984121bd9f0838b0fe0360d34830bb26235353",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-zh/evaluation.md",
+    "sha256": "9ef1e0185545192321a0f72188a7fc35ca79405351379b10e48b7d5a753a69c3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-zh/structural-checks.json",
+    "sha256": "58db10e67e52d6804176b67c9564cac5f338f237397baf08cd50f141b01c7b90",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST005-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST005-zh/final-attempt-1-response.txt",
+    "sha256": "ddac6b1dee0e85f02eb325ad08aaf0c6ef8fe30fa91fadf41196105acc2edb73",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-en/definition.json",
+    "sha256": "beb012dfaa3ef478054ae0bd349aa0afbb2a00118b2b83c01ef098568cbf452c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-en/outputs.md",
+    "sha256": "27da07675041c168891caee0a22f8fe21726e5956e288ab457e344ac0d92ab67",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-en/evaluation.json",
+    "sha256": "68022df3d8d6e9f3e8a6264828b102c9b89cb5dc48e48eac5c345eeb44af0713",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-en/evaluation.md",
+    "sha256": "761235aa933ff00a5e76ef37228d48e96c47e8f3f47e6e13733c8ac6624c5d4a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-en/structural-checks.json",
+    "sha256": "cc37ac47247dc501a3fce986d4065788a2597d994c1a62e70e75939fa8220805",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-en/final-attempt-1-response.txt",
+    "sha256": "acd5173af9ce27db9ebd78b41ef0ba8f9481964cae87de0e96f794ee029b853e",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-zh/definition.json",
+    "sha256": "e5b2d7bd93b4c88394345a9a6d9b7b35dfe207d7419933b04105edb056694795",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-zh/outputs.md",
+    "sha256": "433e885e6e1a6890f0490ddba1a0c7480ac6fe149fd003e47aea40523488f48d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-zh/evaluation.json",
+    "sha256": "486a815ac07ea5e99a3748e311e6f9abe7f67d0a67e49f9b642584e167b16cdf",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-zh/evaluation.md",
+    "sha256": "d79a7c0fde04a1f98d312bf03e18a7dbbea5fa911d445b1f36ff732f7f8ec802",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-zh/structural-checks.json",
+    "sha256": "97b410674add1f7729d1289388c1ba93095a92044d7bccdc72ca7fa2c52cad88",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST006-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST006-zh/final-attempt-1-response.txt",
+    "sha256": "813d21cb9c8f473eb37860bd30cf6760d4115eeba495fe1d14a347d416c02cdb",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-en/definition.json",
+    "sha256": "76541a183f4b8c9a0e0e420f6137cdb3d9a79f40f1aa59a704eda45a697e0543",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-en/outputs.md",
+    "sha256": "ce384c8fa1d6d753ba4bf9ed13c880099a87f788feb469bf08a26fb63267a4aa",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-en/evaluation.json",
+    "sha256": "c5ef67ce695742203a43e6f67e9d5806b39dea63b6ae006d86cbc82966c0897c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-en/evaluation.md",
+    "sha256": "786660579dd8f3db3fcedc55cfb7f5b87b6678cdd198238f66b799286ff9a8c5",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-en/structural-checks.json",
+    "sha256": "6e08cfad04bc6d0902a65848761436304bde77be90621efbe90b9925294aac77",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-en/final-attempt-1-response.txt",
+    "sha256": "01842cc1551dbca3830f8cf0282c8cc78b7995787bdce059ff871ce3c3e49b1a",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-en/final-attempt-2-response.txt",
+    "sha256": "4f6330e0528695bbe6029fd32313e99b95816e2be2890aa46e15364018847dda",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-zh/definition.json",
+    "sha256": "e30772011f7d45fdbab96941e160305853c3c23a2f2ba0be72ea18b023ff0a1f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-zh/outputs.md",
+    "sha256": "e5c2a6119e45acce0aabc3273b5a163b27fd54de58848c55c60fc7dd17383369",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-zh/evaluation.json",
+    "sha256": "467c72f400df6e85ea2b41735820df83f7beca7539a12eee530c2c3321698146",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-zh/evaluation.md",
+    "sha256": "c4add05fa1ef001ee09e700302257b7a4c91965b4b7d04238803f33cee4f0065",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-zh/structural-checks.json",
+    "sha256": "7897b01f8a6612faecca248639974509a5262a1e549531aa44f5f6969ec41814",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST007-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST007-zh/final-attempt-1-response.txt",
+    "sha256": "9e1bb33fed2f02202d0f4a3af4b5e98507f961a41b1de04e9717ed6070b7d9e5",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-en/definition.json",
+    "sha256": "04bcccad93d9d07e8e67378e0ab37a0dd0c743f770086b280f86cf81a65d68f3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-en/outputs.md",
+    "sha256": "6287bf7dbb5b940a9cafa1e436090ccc25e23c00d24c1a3d9ef2b0a6f89dcd6a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-en/evaluation.json",
+    "sha256": "f495c635523a24ef42ba4b9f96784a0dc3c94c4e8adf708b1b88be671db3344a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-en/evaluation.md",
+    "sha256": "92c5afac72e6a2a8e21e079432092ac4308d8429bf4cd1bc539295f1d1532adb",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-en/structural-checks.json",
+    "sha256": "9848eb3717c3a57c0abf8daa3350f5562c37b0beec13a707dc7e355065537cd8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-en/final-attempt-1-response.txt",
+    "sha256": "2d749d9b131abee64a0d2a5a88ce16618154850a8bc2d067bcf4b2ac677f6f4d",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-zh/definition.json",
+    "sha256": "1416c6c2783b789d5a08b48224f93ece6a900e9863390fcc002b93d7cf7e9511",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-zh/outputs.md",
+    "sha256": "881f23ff33d957b0bb4022441b70c519f9ef96aa2c5831185e88f9559357132c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-zh/evaluation.json",
+    "sha256": "c3a1b566f8b3df1e98569ddf60c2c9f613f7f3a8bbcc331cc66f623fc4d32cbc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-zh/evaluation.md",
+    "sha256": "0d1ddca55d0d7823a169e569f881b687ef6f0724ca10ef57d3df5c154f28b8d8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-zh/structural-checks.json",
+    "sha256": "e02b253c440da7e22af94dccde6ce4a32fa9a88a66ab9191a1666dd0813e3d57",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST008-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST008-zh/final-attempt-1-response.txt",
+    "sha256": "6c1214f563727d0db2f3b42c19fba064eca90d1a0e4a661807f4a713f9577dce",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-en/definition.json",
+    "sha256": "150abddee8a894ece948ec7869e0b432f53321550055480d3df06adc61313346",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-en/outputs.md",
+    "sha256": "ef49ff72cb0776e46cce36421ba889fc69a0ce24f9a6cad0d33d44ae30598336",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-en/evaluation.json",
+    "sha256": "457c3c598338a8d403971e157358c045c24afca4c2d0f130f256f0029870aa1a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-en/evaluation.md",
+    "sha256": "cd70d8186c4d90d40d64b545fb996ccc02cec243fa83f2215ba55cf74b498bbd",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-en/structural-checks.json",
+    "sha256": "ade5697cd0aab5257a0bc11d4967ef632f583b90f2b6bb4cb026def87a6a071e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-en/final-attempt-1-response.txt",
+    "sha256": "d6aa5606eb7a82d5f7ccdaa812ebfa025cefaefa8271bd7c472f6d83d7b8dd2b",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-zh/definition.json",
+    "sha256": "368c1ac7c2813f030c0610e5f6eb7fb7a093368bbe9ef9e4330654bfc3b488d1",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-zh/outputs.md",
+    "sha256": "0bf92cccb72bbbada81284c9bea0314f7537d396e9bf7173a765aa4c84dc2ab4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-zh/evaluation.json",
+    "sha256": "2324ced6d60f2bc2f5acfe1f245ad2c1fcb53f02c7122dd3f47077833bc8091e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-zh/evaluation.md",
+    "sha256": "5ea0ef761281b5a3df6cb07a70264875b35b5cce975dd0c6788ecc49e09c1234",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-zh/structural-checks.json",
+    "sha256": "c5d13703d6aaa8c684c4b98e116fd0e5decc886bd8669bf3c87bb9d7756ba52b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST009-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST009-zh/final-attempt-1-response.txt",
+    "sha256": "bc66d6cb7eedd57bbc80ee73a23a76ffd401c5f7c743510e4d7b28b096efe01a",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-en/definition.json",
+    "sha256": "6b6822d1a2e63d72af3315af9410135faa3b85fec1d79ea178b3f19ab098503a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-en/outputs.md",
+    "sha256": "804c0f47ddf0c706e5f3afa7e67bd8118eaf78188840381732c080cb1fdeb392",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-en/evaluation.json",
+    "sha256": "e5ea1df5b5f8333459f86f4c697511739a6a469391146dce36d7b3ebdb8df090",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-en/evaluation.md",
+    "sha256": "dd4b607fc02e1c97c70c613f99815589d32f8086f134278f73cd9f93896bc499",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-en/structural-checks.json",
+    "sha256": "374afaa688e222425ee0763dfff2f003f8141a67334ec2635ca1c19cf8021fd8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-en/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-en/baseline-attempt-1-response.txt",
+    "sha256": "ead6cb6e2bc37c04f87bbe4257d488d88eac847c55e30b18438e9ba02a40e2e3",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-en/final-attempt-1-response.txt",
+    "sha256": "030707391544d12bc7c930cacb79f8d555443c7b489cbac90ffa3cb1bbb61508",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/definition.json",
+    "sha256": "71c34ba1dfaa14c7bd03944ce734c79f75b4ab1f9a254e28f2c0b6becccff5cf",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/outputs.md",
+    "sha256": "d863a81a75daa276109d1101958778f11755b7b62c275fc6ec24b48df9c4d549",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/evaluation.json",
+    "sha256": "4ec802153628e93b0e749333dbd747ea7cafb583a7186d8a9013967ae2457b3a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/evaluation.md",
+    "sha256": "cd863291d458dc1379593dd580664cf26cdc0b924f211f39c9a5a9970c38319a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/structural-checks.json",
+    "sha256": "0094f80c4e6a46469f55658ec1dad47bf19c6f23c262c0298b28dc16e32e023d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/baseline-attempt-1-response.txt",
+    "sha256": "4ce9536ce92528298bb3cd2baf13c138b2e3ba396e3cd503860ff40ab9d6fdc9",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/final-attempt-1-response.txt",
+    "sha256": "0ee3ff9d79d96470b653d6322d435cf6bcd4a3a2056dcc0d1d2ce50e0c6d6c07",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST010-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST010-zh/final-attempt-2-response.txt",
+    "sha256": "cd8c75c2184052d52547aa80d46d507471d47667d0b23d872a2a9542358d183c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-en/definition.json",
+    "sha256": "2797e97616812a9c730accf57cebc7a6e3e0c3d9db9a7c6e93140bb055ee08e4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-en/outputs.md",
+    "sha256": "b14855e22dc76c931c064ef630958d01cd50de276b48082a0b01d523e4c3575a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-en/evaluation.json",
+    "sha256": "e10c13bf10fff7cac5992d7ac8bd981c5c84cb3fbf3c99ff1221eb6ffe83827f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-en/evaluation.md",
+    "sha256": "cda2cc80ad16b74b1cbc11d6a47e7c57e01249590dc9a98f93ae583dbdf6e491",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-en/structural-checks.json",
+    "sha256": "4de02e65004b0fa7af98bab1a50ab4971c04679b2c03d4d0e220e33676ab880f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-zh/definition.json",
+    "sha256": "05d552d17478f05b41d0674e32fc8db5399f978c0dfaa249e0daf31bdb6cdaf0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-zh/outputs.md",
+    "sha256": "7f724719a0ea546c985d1bf5e014da8644ea6248d5893b507657b6eea0ddffe6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-zh/evaluation.json",
+    "sha256": "99cdc9850e4bad57d21189496a62768074d169f568e49a400a3234f5cff8e756",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-zh/evaluation.md",
+    "sha256": "326833e9e874d561ddcc45cde6a786a03d59eedc7a20143649720145950bec9d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST011-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST011-zh/structural-checks.json",
+    "sha256": "4de02e65004b0fa7af98bab1a50ab4971c04679b2c03d4d0e220e33676ab880f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-en/definition.json",
+    "sha256": "dfcc5190906f660199eccf5a78eb0b6102bf09e013cb3a2fa851929a09d1475f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-en/outputs.md",
+    "sha256": "8a1ef1d2e4942433bad1d57ae63a1cb6d9b46084c73d3667c9799c88479f0945",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-en/evaluation.json",
+    "sha256": "c7bb3c596c511c30078d0a0a2aa9b1769b1261f1fb09466ebbc8760a4962045a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-en/evaluation.md",
+    "sha256": "a9fa444170dd0a70347294dced7d4f528bc0dfba31bbbe3c8b60a5b50283eb20",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-en/structural-checks.json",
+    "sha256": "c74025725d65f316c29056e80f67259bb16aa4888a7f7f0f7e182bcba15299a4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-en/final-attempt-1-response.txt",
+    "sha256": "d7e7fac5f342de591199e60e64a42ffd6faac45622cb72623bfdc13696042361",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-en/final-attempt-2-response.txt",
+    "sha256": "b162a59b650410fb706ac228f0d378f00bbbd9011869a55a4b1ea9a75e51fa3b",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-zh/definition.json",
+    "sha256": "1ee6afbbae2ac5f065a201c4d40bb7ef400dce1dc45d0114b530cd62145162ad",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-zh/outputs.md",
+    "sha256": "f6c860d469742f19d76b7a3bfecb8e301949e27d8eb03c0db4eac14358d3cb99",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-zh/evaluation.json",
+    "sha256": "8db65e4be3e4f284b1a3d54db448354a77b21ec3351fcfd25b300b85b9227001",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-zh/evaluation.md",
+    "sha256": "936f8290a79ae9fbf0ca015246d7c3cf4e3cb8d286dc198b983c7d07aa42e44c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-zh/structural-checks.json",
+    "sha256": "309ee94a90905650b28ca8f898c1812449c5ef0a2cb57b9a2afd6db61cb70e75",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST012-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST012-zh/final-attempt-1-response.txt",
+    "sha256": "725ab20d1898df1932d50dc4edda6f6fececcded5f2c683f2279365a8b2af500",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/definition.json",
+    "sha256": "3f463c660934a3976dca31152a254edd7fd6016bbe3431e958d9f1a5e4a444aa",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/outputs.md",
+    "sha256": "b1e43e62508e747dcf7a07e7c1a9819e65bd4cfd01cf0d5a21c2a347746aeeec",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/evaluation.json",
+    "sha256": "efab35d250a14dcce512126c85d0bbeff36fee254410f0ceeb6616bef2500b2c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/evaluation.md",
+    "sha256": "242bc034f87f76b4e1d4fec911706ca3cd095f8c68ecfb046aca06c5cdbec42f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/structural-checks.json",
+    "sha256": "e8d11c486996c2244ec2d415f12116a5474249e5ccba62262222e64446bc2b6b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/baseline-attempt-1-response.txt",
+    "sha256": "8a13a72b7ffdde35dedd39ca12950ad62ec16f19ef9d246ea9cae133666c1044",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/baseline-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/baseline-attempt-2-response.txt",
+    "sha256": "b997188eb29c6dedc02c5007f9557595573159c69d28891e5f5a5e67e7face0c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-en/final-attempt-1-response.txt",
+    "sha256": "03deae2d0a8ed9ae6072903179ad0fe25a9f8d2439ed2b11ffc5b46f0216ff6a",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-zh/definition.json",
+    "sha256": "f1160228b9298452a0c790b56fb216fb68faa55de1ed180d27d356643631024b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-zh/outputs.md",
+    "sha256": "5e01aa48edfbcebf5fdfff2b50b64a20a9ee20bc20a3911496ce6adfd964d74b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-zh/evaluation.json",
+    "sha256": "f65e6af78bcd5fd0156a2b2125f1a6de4037d7208f666be087514cfbd4fe80c2",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-zh/evaluation.md",
+    "sha256": "119efac0bc15892bfed5ec7406a722ac07d09b1f82f9bc3fbc8756b63ff056a3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-zh/structural-checks.json",
+    "sha256": "8fa31835d9868933962342c57d577d0a261a09e941d1e9ff15ed3264bb89e7ae",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-zh/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-zh/baseline-attempt-1-response.txt",
+    "sha256": "bf73f8805f5411db2d765b98d2e93100aa7b5411bbc2196d1ca1fb29aed3c929",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST013-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST013-zh/final-attempt-1-response.txt",
+    "sha256": "fb80a3c96cb85546d3a9adaca97a13e872deeb705bc919acee56ed2b87ee81e1",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-en/definition.json",
+    "sha256": "954e406838b3033b51a6fab509b82d0df1bf8c04d56809270a54b415549cb9e7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-en/outputs.md",
+    "sha256": "e20714744d7e5f5893ed1a324a42b38bd18a92dbd0eebb4cb38e215d5480271a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-en/evaluation.json",
+    "sha256": "56a0baad1137e3b31e1a027bdae32a5a00e2726a3cbd8452e9de046e286099c3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-en/evaluation.md",
+    "sha256": "b08c54780e2e0f91b0f18ad9c0ea3217b9c783a05de33e4c6c4b7ccc5019b0e8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-en/structural-checks.json",
+    "sha256": "950554bf6cdbee1a5b6a8eae1f8798eb842314ed44311ebcc224a1240db43d8d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-en/final-attempt-1-response.txt",
+    "sha256": "631f76389dbf256fc6e6b4d52e6cc485a43569fa2da430e462a176131db83ce5",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-zh/definition.json",
+    "sha256": "699369a75dfc1b7c3139cc433b166bd8f59cdf3a2a6a42bfe0e7799947d1f383",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-zh/outputs.md",
+    "sha256": "e922005ddc29b4650f7333b13d5bf102aead00fb3bdfdfdcd145a7fb6b614e61",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-zh/evaluation.json",
+    "sha256": "a9e052485e6df9ac1633af79e0f65a5307ac03674e88ef8cfc0c53db82e2d23d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-zh/evaluation.md",
+    "sha256": "541c56367e260b7f2a0a371bce2b8af3e05bc016928627b244fde935d51acd04",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-zh/structural-checks.json",
+    "sha256": "2613bf061664b05be7c004ceb8693c66ae30155e1b82ac7b84a2dc3c03352278",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST014-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST014-zh/final-attempt-1-response.txt",
+    "sha256": "8e54be008ce4b9c1a3eaf07836d6dad18a38ebe23c2506d5697989ebaa252bfe",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-en/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-en/definition.json",
+    "sha256": "5b2919150e7c73260113feb512a915e21741b26869b3732bc5deea4a2c0564bb",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-en/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-en/outputs.md",
+    "sha256": "dd35a811f81b990529ebfe5ecb73a6af7220c1447a553bb4179527d7e2458126",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-en/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-en/evaluation.json",
+    "sha256": "197dde295720e71d21033ec699c86d6f3b582d3fb91c85c32a919af3a3f895f3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-en/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-en/evaluation.md",
+    "sha256": "d2c2bffd9c16839350f51de3275ef9378633edc7570eddee8b1d7352d4c29615",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-en/structural-checks.json",
+    "sha256": "9347168aec9d8be4b40c73d209d08ebcdf3163f914e9f9cead0f164b378711b4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-en/final-attempt-1-response.txt",
+    "sha256": "8b3dec6ca04551e87c9dc8fac165b7b214162ed248f058dcf76340b0e5c335d1",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-en/final-attempt-2-response.txt",
+    "sha256": "2de6375488f022841b707dddf858fa1975791c1abf2ca7e52892d2245677ec40",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-zh/definition.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-zh/definition.json",
+    "sha256": "5c6897839e30704e32211f112edc57d3379ba0581b397cb166e055cb955a3eb9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-zh/outputs.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-zh/outputs.md",
+    "sha256": "a4ee1e0ef0c1990a992a16ebe63f2e0b33b26e39829ddd8f6e2d918ed94979cc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-zh/evaluation.json",
+    "sha256": "b2ade9828432b4db99d20d4b1ec86280abefff37b645bdba26c438d3635718ce",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-zh/evaluation.md",
+    "sha256": "0db33006a6aadc7738d171e56e0be38639bbaec73d68292e238f07915c60b97b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-zh/structural-checks.json",
+    "sha256": "2cf38650f106f3ae56e08b12e801f3ee5a29be99a5ffedeb7caee33253db017c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-zh/final-attempt-1-response.txt",
+    "sha256": "3569694baddd5bbb245be40590f317aa8e921164243e7bd59eed6963d486482c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-original/cases/TEST015-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-23-supplied-tests/cases/TEST015-zh/final-attempt-2-response.txt",
+    "sha256": "867854213312f3b07fd670a51628bdf1e1bafffbaf9d5bb23e78917422854253",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/summary.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/summary.json",
+    "sha256": "887f33adc88e964cee2443184683f843e9b5852d8238f5e072ae4b47abefda3c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/evaluation-matrix.csv",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/evaluation-matrix.csv",
+    "sha256": "ec803301ea1dd7f6d03608fdd10b459e8dda48db22ac7ae2ef6794632973603c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/evaluation-matrix.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/evaluation-matrix.json",
+    "sha256": "a900dfc183f4d1f071e81facd13825d0c525dd40455fa5236a9842f35dfe9dbf",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/quality-review.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/quality-review.json",
+    "sha256": "4543c9eed00fc472bb579d712ea9e050e837327dc903306c06e732c01d1ad992",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/baseline-review.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/baseline-review.json",
+    "sha256": "8c41569c84941f470a519bf38436fdad7bd0c5c792feaa934b019d8a8b9f6bb2",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/frozen-plan.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/frozen-plan.json",
+    "sha256": "2fdecbe5ec16de57afb4602576d4d66e473fc27234b6b1c4a8e511d616e7b288",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/frozen-plan.sha256",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/frozen-plan.sha256",
+    "sha256": "5ebbe2b50e58207351c3fa1a8a866d571a8f3514828984def1f964a4c47567a7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/verification.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/verification.json",
+    "sha256": "355c1ab10e425a5c80b331a0edd3d0151484af8156ee55d49d7a3b0cfa36f5ca",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/period-equivalence.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/period-equivalence.json",
+    "sha256": "aaec8c1d4bb0e03a644cbb7a45ba334b9803d580bfed97a9e56f5527c0c34aa4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/request-compatibility.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/request-compatibility.json",
+    "sha256": "164aa64f8eebfa80f063aae2ddb1b4d55c84ab82b874511faf52bafcccc40004",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/fixture-equivalence.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/fixture-equivalence.json",
+    "sha256": "15c62c9108af8a7e2e46f47b8cea355b2fcb562276951732d83c73ef03e3c407",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/comparison.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/comparison.json",
+    "sha256": "876dc574f2eb1126bb2b375733a7710e21680220fdced8cbcaa3b4406d4ec47b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/lifecycle-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/lifecycle-checks.json",
+    "sha256": "208f8cf5b75d253fc66c0cc4bcd809c4aa27b9e0d7d6e7c265a457c05c58604a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-en/definition.json",
+    "sha256": "e31240cc23967a1fd7d7f22d920c2f38491438c2c368cfde0ad5fcebb2a773af",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-en/outputs.md",
+    "sha256": "4deaa26a81ef32c62e5e21cd5c797242ebb4d951e735c4910035297360f7949b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-en/evaluation.json",
+    "sha256": "6ddeec8b12317ca9dd5d74c8c4fdc0ec6a1db255743b76416d2d145b0c0ad902",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-en/evaluation.md",
+    "sha256": "04b10e9007e0885d42c74e0b81e79535345a1f01f5677410d192d6cbc9cbb2e6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-en/structural-checks.json",
+    "sha256": "d772b52c559b5a0b7a3f24037b7da2e67257d0f949877e288d5a47f0e1bf1818",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-en/final-attempt-1-response.txt",
+    "sha256": "7997420b1d585856566dd9da6c7ae470cfa2dbb18fdc240ae4696f5055b36fba",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-en/final-attempt-2-response.txt",
+    "sha256": "f8064049a4e4de77b02f13711d20f6f38e2b40c55e1c3eee7e9f5aafceaac492",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-zh/definition.json",
+    "sha256": "42bf523f61f14e0f539e3c568345c662925aadd2ee6fca1961419b048b182e09",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-zh/outputs.md",
+    "sha256": "cf8a618590b0959c67750818dcd6ac1924e57b896e9293f6fb32c2a3dabc5248",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-zh/evaluation.json",
+    "sha256": "ce4f04e2b6dffcb0a3ec33b07534bb159583773ba5c05c7764ec7faced5143d9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-zh/evaluation.md",
+    "sha256": "f15ac4e7d1f1d2a492b291e5b3bb5f9225dd080d8adb0c8115f4dd4868dffa74",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-zh/structural-checks.json",
+    "sha256": "4b7ff008655af3048d8a93d99d004523c5253d8e528cad92cff48a860d7f88a7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-zh/final-attempt-1-response.txt",
+    "sha256": "ad2349a972796c6b62a8816c06e22e610892b03c4116b04d756d63dd36537c49",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST001-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST001-zh/final-attempt-2-response.txt",
+    "sha256": "aa521b723e3dffee7be94066f496c902e8e50666243b839c346f9b613dca94f1",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-en/definition.json",
+    "sha256": "94b0b5ea9387bd3ba975c0a4827308c573bb414cc6bd292e858abf553bf8d5fa",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-en/outputs.md",
+    "sha256": "6f437e5b735972e1b70ebfe197468730850bd45237f0be2952f259f0a97c4183",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-en/evaluation.json",
+    "sha256": "c2ed2b1426f9b34a40e29cab984624bd6eea03eb19ac60af79a497279ee6c649",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-en/evaluation.md",
+    "sha256": "a58506d1c470c83a223e456b280b41b1fb478946043510a531ce7627de831eb4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-en/structural-checks.json",
+    "sha256": "095ca0374a18f548024472db882319958bad9472b2c38daeef24dc86f066f150",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-en/final-attempt-1-response.txt",
+    "sha256": "8e51e42b93cd1958ea329582d46ed609f7b0301a78790efc2288ad83fd7b05a6",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-zh/definition.json",
+    "sha256": "0c600fc1735cc5f4a661c3c33de9848fb6a9115c6a5663cf5f172a93ce288f01",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-zh/outputs.md",
+    "sha256": "463d02dd197b857d4f72d5befe56a391a8f44ba3894b3f3502131db82cd51005",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-zh/evaluation.json",
+    "sha256": "a1e2fb1c5cfb7f3f4269f7022f5a909846c6bd2279067739cc8f16236522fd55",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-zh/evaluation.md",
+    "sha256": "f41d8b1d1b23a0e4a57bfca778e9767685239b7cceb44c03f8a6943dc2ba1d77",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-zh/structural-checks.json",
+    "sha256": "024e0e78e94f45cb1e55a604b5fe34fbcda9147975914d80db25dfaf1591c607",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-zh/final-attempt-1-response.txt",
+    "sha256": "ea131df5970008dfefda00530b19bc4530bfde5ba12190d10274a77241c30168",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST002-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST002-zh/final-attempt-2-response.txt",
+    "sha256": "4353f8542db6734081db4db63fbd9b791d06abd6c55ed746aff265e6e60bebe4",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-en/definition.json",
+    "sha256": "1968f69e28cffdaeb4d720386ddb0bac38c8f3b91bb13137ae52ed906796ec8a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-en/outputs.md",
+    "sha256": "71b77c4cfa463124b7fd39660e24832692734ed87ab87693553500f36b57dc93",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-en/evaluation.json",
+    "sha256": "64626b9fe43580f39e654446c378058cc7aa7968bd63d6228a1990bef6e4a5d9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-en/evaluation.md",
+    "sha256": "8c760018bc465e2a7fbccbd5578392708a376b63ddf8df88d9eb17d65c7c7dba",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-en/structural-checks.json",
+    "sha256": "ef79aa5b1385325ae901dc7bc043b69fb4d1c53de31f732ab9c6c692048db86c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-en/final-attempt-1-response.txt",
+    "sha256": "74f7146c5aea153944df7a936f5a9d349a5afa88118d9a8cc139fe0da9798665",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-zh/definition.json",
+    "sha256": "088d3df9d8b1b32d74227fe565d18f168e442d9c07c521efc5a51137ed0a0fab",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-zh/outputs.md",
+    "sha256": "1cff77dfd8cfc053e0694cade9a7f9944c34952384408ad8a6390bc6fd5e650f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-zh/evaluation.json",
+    "sha256": "5fe8338adb31c193032d514a7977cfce29a13672fd8b7df815343875b1c9a1b3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-zh/evaluation.md",
+    "sha256": "3cea19e9c4b0409373c63f58f743d5d563b6c9da4010570ff87e1548391c9d29",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-zh/structural-checks.json",
+    "sha256": "4c64a67ab3ed609a3c9d9d48a029a72905a64332904d3c542247f67ba6e7e64a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST003-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST003-zh/final-attempt-1-response.txt",
+    "sha256": "649a0d45392eceb32cabeca01b18a0370e81c2401fdfbc35f0c4557f3ea41692",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-en/definition.json",
+    "sha256": "3d6ada9ee53282faa158a33bf38718ad665d5f27dc9597e615169a04634fd554",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-en/outputs.md",
+    "sha256": "06dd8d7f1dd0cf53e5cfdb81adf4999081e911d5746b9b4b680a38ddd2a100fc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-en/evaluation.json",
+    "sha256": "32e6d54ef1f15a0aac53e09166cc34c94e6cec50e328477ed07cf5f4e3972d13",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-en/evaluation.md",
+    "sha256": "2a1448944216e04ce23a40737998ce66350ca20a01695709944cb77273a232e7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-en/structural-checks.json",
+    "sha256": "b1999945ad2c77a261a48500d840de8c616cf5328c6a4803afb5773e9fc66c68",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-en/final-attempt-1-response.txt",
+    "sha256": "0529924f6de8d0663e72934365d6d1ac5104560f965d7d6178d50235a0ede769",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-zh/definition.json",
+    "sha256": "ca187141138f58801c79808d4e9954f181b8859c4cb1d36816dcef65450b8a8c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-zh/outputs.md",
+    "sha256": "bfb5a6025d516b0a5ddd57aec3b0f08c7d7f9641fb27aa719ceb36c4627c1d09",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-zh/evaluation.json",
+    "sha256": "a6ebbc148e37bf1f51e50cfc45ca5b10efe6a6e397dbf0cd02a71f4778fc0c0b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-zh/evaluation.md",
+    "sha256": "3ac2d71c383e90bfec9419e39f0ea6d3452c65ad7abba50fa443da54eb436480",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-zh/structural-checks.json",
+    "sha256": "77ebafb841ab68e916bfa561a37d2b7a3afdccda7ce969ccaff4f55ea6dc96bc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-zh/final-attempt-1-response.txt",
+    "sha256": "42faee6f3fe3668bea1e160a7cb2fba656b1624fb9703154122831d073465168",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST004-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST004-zh/final-attempt-2-response.txt",
+    "sha256": "2fc4f8632f06f4b49817e0b780e0ae33a0d353a434f03f6ba37cdf14f27eeb54",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-en/definition.json",
+    "sha256": "2359cdc236c79aa0d306ee60b178f2de58af095e38003ef928cc61df0d1a5767",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-en/outputs.md",
+    "sha256": "1082b9e8cb2b966b247983ada4fcdbbced68976976151824ce2df24d6762c3e7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-en/evaluation.json",
+    "sha256": "9d4b334ac6caf848b81adf008390fa457b1e45f9da1669575af6c376b4fdbc1f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-en/evaluation.md",
+    "sha256": "319bec12e49f64d486e6959b3ba0bd2f92e7839083375810768cb48ba424a2c6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-en/structural-checks.json",
+    "sha256": "77f8eb1fb53dcd4e42fda15c08d10e4b4f0ee16adb23aff6cecc52066d34f174",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-en/final-attempt-1-response.txt",
+    "sha256": "6d7eb3ce49e97fff1964f14aadf1d4d72d47b695c4c31123e1c6cd9c594c4656",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-en/final-attempt-2-response.txt",
+    "sha256": "c22347058203e4ea5564354ae0f8b50d2d26f85700c49c25f7111b5af0538215",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-zh/definition.json",
+    "sha256": "8451e56749ea68f9c70d74244b538e22843150ac510e0fe6ce13469ba424af50",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-zh/outputs.md",
+    "sha256": "4a95b1095a9151403d81762defacc845f2f6e48061754ded58f334316df597c2",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-zh/evaluation.json",
+    "sha256": "a6e6ec573d8e7f6aee065820e445e0714db99c065c5402fa5536f1c4da7a3592",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-zh/evaluation.md",
+    "sha256": "b1b11646a2b15191771bf6cb15e1155b31d1cb118b23da56bf9cb5708fdcb12a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-zh/structural-checks.json",
+    "sha256": "3f4c9e1edf765b88586e9be57890d86ffe855a75b4b9650daa8c61eaf27ddb5a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-zh/final-attempt-1-response.txt",
+    "sha256": "3f083091e7b32848309ea94f342dc9c563dd60136502843a247794daca8af822",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST005-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST005-zh/final-attempt-2-response.txt",
+    "sha256": "46fd5fbc01d03634112345963eb30dd6ef2f0eb2406dca065e4386b4fb3077fa",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-en/definition.json",
+    "sha256": "5d7815cd21194bbaf4bf552f95659171e9ce4544a920970cd5c2f17570619a95",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-en/outputs.md",
+    "sha256": "a08d8b8f2ba4b4e481c1f7651ae7579c848d19dfdca56c7e9374b5114944021f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-en/evaluation.json",
+    "sha256": "3496dff71850da2d1d3181709bafc90a7de75a6daf3daf36b820b3e857efe6ca",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-en/evaluation.md",
+    "sha256": "5567396b1af0fb7026bba7a252c9e57711755b113886cbcdc9c377f0f635c3f4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-en/structural-checks.json",
+    "sha256": "c734e993b92079838d199a95fb0e70f1af2f10971b82491112a86a3fdd308ac6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-en/final-attempt-1-response.txt",
+    "sha256": "13619d66ba31790a8d213beec2f3a7c781cc2c0d22fd73bb30384ee52a71d30d",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-en/final-attempt-2-response.txt",
+    "sha256": "e8f8ccfc2dbeec867de19eeeb147d950796eb39558f60187ab89f727c8c8a4a2",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-zh/definition.json",
+    "sha256": "00bc13a7eedadc8b8c4e0fec57c4a0a9bea354d05b5ef29443e6da660fa222ad",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-zh/outputs.md",
+    "sha256": "ddb5c64cbafdb1121750fad913d25023391e224802ea2564610bab0fe57ef0b8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-zh/evaluation.json",
+    "sha256": "b7de8883ca4884402989309d8b8d610ce13d6de603fe3cb20856e9ea1079dfa8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-zh/evaluation.md",
+    "sha256": "962dce33131bb770627bc71ee9e6454183551bf84c6a2beead03b2ac6cbe8b39",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-zh/structural-checks.json",
+    "sha256": "d4141673354a905755f34a860812752dd9a15dd69c926beb3732059d4b3adbc8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-zh/final-attempt-1-response.txt",
+    "sha256": "b24f3da4e87c0831a143fefce934f92094b0de42d52da5b55cc769bafabb6d27",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST006-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST006-zh/final-attempt-2-response.txt",
+    "sha256": "2b1bacc6d52ab9b3f8b99995a896ac1655a9f13467cc9471455ead74a94fe469",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-en/definition.json",
+    "sha256": "783d54146ae60cb4521524b55ca81aa970e281ea81b45e532709ced1484c8515",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-en/outputs.md",
+    "sha256": "8b4dd0d46a1ef6de58cb7d616831cca5a6e34d944ae0a8768c9366f5e61a40da",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-en/evaluation.json",
+    "sha256": "293286bb77a75c63b830164a220278162eeb2b35334fbdd241fb342e1e309376",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-en/evaluation.md",
+    "sha256": "323bef9d2b80ee4d54f0b93cba830f876dacc3681b0f0bde7091675277e91267",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-en/structural-checks.json",
+    "sha256": "01a58b3e7aef82854018cdb995594de82a6444c35f2f88599f3db893f8e49eee",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-en/final-attempt-1-response.txt",
+    "sha256": "9c8771a950d6b615cb0e024e39b26636b4568848d4c35324a8f66cdbd49d22a6",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-en/final-attempt-2-response.txt",
+    "sha256": "9fdfb677b523c69fed893c936529f333d9520ae5099ac7bf5c59b0fc8e393112",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-zh/definition.json",
+    "sha256": "2e17f161a29d8c3bbe4eaa71668af64d7d180fa2894888de49a8654d0e389b7b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-zh/outputs.md",
+    "sha256": "2d707c471838138a2c48fcf8cd033681cf439e86b7b42b8a8083bd04cdf40554",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-zh/evaluation.json",
+    "sha256": "b5a6c12314aef66abd10c3bef5721001b3f984d101b057168950de7dc095670f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-zh/evaluation.md",
+    "sha256": "3e8c410b5f9ca9d99a65b960ff593297e466a1cbfce77f658a7f535bdc1790a3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-zh/structural-checks.json",
+    "sha256": "f274afbe05c152ccedaef690281a0e10e1dba1bb021bc1c33ff6d46cee4ecace",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-zh/final-attempt-1-response.txt",
+    "sha256": "6c10fcac00b95e6d64180a67d07b4038db081cd16d27fe5abf0e6ebb26f9245a",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST007-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST007-zh/final-attempt-2-response.txt",
+    "sha256": "d03af02ca368b1ee269c4e2a2b9249606a5d75c73edb9df9385eb512c96bc0a6",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-en/definition.json",
+    "sha256": "2d7bb936572b6e46a64f57287ae7533f3d7565314fbb4f3ff64c173547b7e6a3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-en/outputs.md",
+    "sha256": "e9b1961436f70aa538eefa5f67f36a9b6e064bf371f904189878a57032b3c4b9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-en/evaluation.json",
+    "sha256": "5f6c97d70751fe84336285f15183c5677efd491ee34cf5f5c61d1fa47f080cf6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-en/evaluation.md",
+    "sha256": "6fb503516301e5c6cb8d842030414e531ed0bab7671da6312a305d98efb16e70",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-en/structural-checks.json",
+    "sha256": "9aa0574f9eaff5041be7a83593e53ef8c3d99f3a4604c066f22524331cf5c880",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-en/final-attempt-1-response.txt",
+    "sha256": "7775c68e54c385a92d4167eb3bca0a4714d528536cb3ad469b9ddb35696f4425",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-en/final-attempt-2-response.txt",
+    "sha256": "0f565132d760fbd673b206ffce4aca1b67029bc2f03d01618a0921d66574f9b3",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-zh/definition.json",
+    "sha256": "f0e0567aa0e02657b0f02ab534121c4d07d286164d78e27fded9e89c11f5af8f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-zh/outputs.md",
+    "sha256": "da9f76fcbc56784680597c9a4ef0d25706842fc186dbb40fb0d504891873a44e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-zh/evaluation.json",
+    "sha256": "7dc96f558245ae26188b18c92c383f7e9f87c91397026b7466e4e83d98af8286",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-zh/evaluation.md",
+    "sha256": "1afa5fb6cdf6ce157652654af75764ee27a2079312913dc123865fb98b9ead62",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-zh/structural-checks.json",
+    "sha256": "c5d13703d6aaa8c684c4b98e116fd0e5decc886bd8669bf3c87bb9d7756ba52b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST008-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST008-zh/final-attempt-1-response.txt",
+    "sha256": "2e102c98bb024559dd2b5afda865ffcba8317bd7313a29359e84c9b26d8b8a11",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-en/definition.json",
+    "sha256": "e62982c3942299b431072edb3073de03180bc7603cae689c53374b07d769f4ba",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-en/outputs.md",
+    "sha256": "9fd71eec21b20816a570a4d77f50e9f15554533012c73e1957fec9964ae25ca6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-en/evaluation.json",
+    "sha256": "1044c3b673956af4a12ec058020b5549dbca17b7a9daae6145a8b6b99af59b28",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-en/evaluation.md",
+    "sha256": "b9fefa340eb5808d69a2f93e36413848d77d1a745324a235f9f7f9f073ec8eef",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-en/structural-checks.json",
+    "sha256": "ebdccb43265abed38df63a581caba6757eca698fe499aa1028228a9ef756c564",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-en/final-attempt-1-response.txt",
+    "sha256": "6c4af59c55549e78ae005454405f1e7793a51ffe1500a4165c970db68b4cff5d",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-zh/definition.json",
+    "sha256": "43a0a8fcbdc9637bdccb7924903580a814772c0bbcef7efea2e42acbe0089511",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-zh/outputs.md",
+    "sha256": "bc6a50bf027b6170d468d3e91d344909295054102afea4601e06d7f79cdc2077",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-zh/evaluation.json",
+    "sha256": "3192dbaf46b087b297de571ca4b4d9605d114051d04c004690914b6814e1f0bf",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-zh/evaluation.md",
+    "sha256": "527931fb67c14516aa30a5cecbfa7c5ad8b382a3cfe715859a154e48e226a6ef",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-zh/structural-checks.json",
+    "sha256": "eda88a2e7d881bfc965e5edc85931113787d1665ff123ccbd4cf075dcf588228",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-zh/final-attempt-1-response.txt",
+    "sha256": "09000b48f7d69f8ab59a765114fb9bb8ca51ed6c8e5880bc5ade2f18279065f2",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST009-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST009-zh/final-attempt-2-response.txt",
+    "sha256": "4b5037f8a7c35f9ece27cf998db09bcfde0b346972a15f360dce4631aa529f91",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-en/definition.json",
+    "sha256": "ffa4cac3d4f2ad5c51af15b3a41092209c5e9f30ea611bb31d3e623dd4b25be0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-en/outputs.md",
+    "sha256": "5e8bf45588226695cd603de1b72b9bb7c81f9d07f30972eaa46ca36bb496f29a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-en/evaluation.json",
+    "sha256": "31b6b6423e898e4e969faa34d9d407c138308733ca1927b45e32f59a4a62d4cf",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-en/evaluation.md",
+    "sha256": "c8942225f78885843ac0c041476d3005e0aa557cd0ab9bc6aaa48eb495c75b6a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-en/structural-checks.json",
+    "sha256": "c72e8b7afe16b75a3ff43046a9f5d7001bb2e7bde39e8aa11e134e4bf8aaf0e7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-en/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-en/baseline-attempt-1-response.txt",
+    "sha256": "a1d10d7b7c386cc486d47cc30ae251841174d12342c3807b13c9a997e1951c39",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-en/final-attempt-1-response.txt",
+    "sha256": "91e49782a4a5ec26d28d6989cc4abb9706a50884f36d0dc1e1ca8e04ae3a6022",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/definition.json",
+    "sha256": "292bf8f4266051719f281889e7ff11e244a250eb2d713481ba87a3e2210a5850",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/outputs.md",
+    "sha256": "352cc7bdb1eead1cfdb5c980d348b573dcda70e163033aa1adc3acdc4f898e5e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/evaluation.json",
+    "sha256": "d0af3292eb7ac0a2bb240b7959851ee85673e32548afe97a5f188d75305820cf",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/evaluation.md",
+    "sha256": "de26b6f27c4c672fc5b61560e0cd034e18dd8a980647d7097941fca5fc391c87",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/structural-checks.json",
+    "sha256": "812d7593e0bdd4f0665fd3550b366eebf6adcbcf9fd5332ed0909ff77af56dff",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/baseline-attempt-1-response.txt",
+    "sha256": "4f675f0b99a961183dbbcf447c2fbc5e763d4b6099c6f0e146e97fc539a276ce",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/baseline-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/baseline-attempt-2-response.txt",
+    "sha256": "2a2a21810b5dc8fc0197e0a6f855575a6e635186e0527a3a2db1efea997c6a85",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/final-attempt-1-response.txt",
+    "sha256": "148e94b410fe097bf6a5634f965a688a1e0f08663652e5db22d7690fb9a86719",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST010-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST010-zh/final-attempt-2-response.txt",
+    "sha256": "645db64d74e0524fd6d60496430212ba0dc06227c52f9bf067bbc5e22bfabc2b",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-en/definition.json",
+    "sha256": "14793b5b2aef7633f0ac1aecd9ceb4b2a543020c4438aac77675528c68e8aa81",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-en/outputs.md",
+    "sha256": "b14855e22dc76c931c064ef630958d01cd50de276b48082a0b01d523e4c3575a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-en/evaluation.json",
+    "sha256": "a3cd48c06f4b0a322223be251b8c94ed175b6cc3f160d26c054c0a70cbcc40c8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-en/evaluation.md",
+    "sha256": "98050517e90bf94e31a23f10fbacd5734ad4ecb408e0a1afae546df176d7bef5",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-en/structural-checks.json",
+    "sha256": "4de02e65004b0fa7af98bab1a50ab4971c04679b2c03d4d0e220e33676ab880f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-zh/definition.json",
+    "sha256": "b1c6c151850ddfa802595fbbc222ab8a9e5c0d81714a68d9f5690f4215989a5f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-zh/outputs.md",
+    "sha256": "7f724719a0ea546c985d1bf5e014da8644ea6248d5893b507657b6eea0ddffe6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-zh/evaluation.json",
+    "sha256": "7220be50ca0c5c577363689d76c76af9a1be3f82a0907490d63ec32ad9842a5d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-zh/evaluation.md",
+    "sha256": "ef66e9915c7d603e1b7d4335046b094411ddfd2f80082374bc6011db6d8de47c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST011-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST011-zh/structural-checks.json",
+    "sha256": "4de02e65004b0fa7af98bab1a50ab4971c04679b2c03d4d0e220e33676ab880f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-en/definition.json",
+    "sha256": "86c64c2353b1ac88989d33644510f45e1dd52b78a9c51417624d11e3b606b884",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-en/outputs.md",
+    "sha256": "f1f60ed5ed74912daa74c3757484163c224390389b18ae5793c070ac5ba97acc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-en/evaluation.json",
+    "sha256": "6916554269f76a617122e54dea1dca86b72fd2c5ede1ed3689acf7233b86b222",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-en/evaluation.md",
+    "sha256": "5b30ecd0184c6f92d516ed4bd8b60237fc6c98b97442d703a17a2f4b50642415",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-en/structural-checks.json",
+    "sha256": "a5ec3d4a4cc318e83de4142bc437c54ca23154527ebc0d6c17d118bc39c7cafa",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-en/final-attempt-1-response.txt",
+    "sha256": "57c6a816fea37f9035daf7e77811fb0781d6886355a5a1328cb0ec450ad6cc3c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-en/final-attempt-2-response.txt",
+    "sha256": "28b85c5006ba8e735f431163cd35afa4aa95e5247ff3382cdf2d984f26b2c117",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-zh/definition.json",
+    "sha256": "65fc754ffdbfa6f9896e7c86d514b98cb2e0bc945e2bc581683d6fc0ec9995b7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-zh/outputs.md",
+    "sha256": "7d206ab69a854072bd9d491eea16005b428deb7e7d4a2d72a146a32d6b66e68f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-zh/evaluation.json",
+    "sha256": "0256e1b39adc2cea96664b8e5028bcb3e66dd7d876b6957306cbcd6ee653fbcf",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-zh/evaluation.md",
+    "sha256": "05fb47d98d9fd1d8dd1cdb33ea64ea444b0e029fc0b960b9fc206bce37c9462f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-zh/structural-checks.json",
+    "sha256": "4c64a67ab3ed609a3c9d9d48a029a72905a64332904d3c542247f67ba6e7e64a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST012-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST012-zh/final-attempt-1-response.txt",
+    "sha256": "f9161b16eee6c1fe4ad9aaa8949c5130e77e5339b5cf5a57e191dc0097ad463a",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/definition.json",
+    "sha256": "e3024188ec8ad4fe51f54a95b3bc3bbe1200a3b7f0aa494677d85c71c712d872",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/outputs.md",
+    "sha256": "9ec04c0bf6909781f2012e6a4d69abf1fa2701f585994d64d69a38a385639e34",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/evaluation.json",
+    "sha256": "9533fb4d65c811145192f4ce6a599cd3bbb86f89155bea66ca83f665962f5c56",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/evaluation.md",
+    "sha256": "910511d099324057df65cf84038b8c141bf181df2334d5b29e36bc678b71ba21",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/structural-checks.json",
+    "sha256": "13dcd832cb1203bc3d7f14d3e99e997729c375f57edc180e8a1b07a5dc075d9e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/baseline-attempt-1-response.txt",
+    "sha256": "eb1e1429a36a0c225b086eb0243db5179245aa742e9ed5b4f9740f10773806d3",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/final-attempt-1-response.txt",
+    "sha256": "3ede28f0676e3742b5a9d236fcfa58d2d47bf91408451db38990d2f0cb8b8947",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-en/final-attempt-2-response.txt",
+    "sha256": "adcf65810df46c1eb904552a5872dcde8f248a32786a1774cd10407cf74e1484",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-zh/definition.json",
+    "sha256": "f55f131129a95659b4e38cbf78379f4574e8c8af7fcc1fea0162b97a47e8cebc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-zh/outputs.md",
+    "sha256": "ca8da5cc0b147abf21be9faab21df275644d58121b74036bf479193c2685a5f6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-zh/evaluation.json",
+    "sha256": "ca6b73414b9bfa735e24e9422737a7f62a795596b4e90b72f99d35077e496fd8",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-zh/evaluation.md",
+    "sha256": "8c3401d899f77a4fe7c771c586127c7542869bd63a613150329b2b0e29cf6283",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-zh/structural-checks.json",
+    "sha256": "05307f3279c8826d561590739f16688b4b45049f091168a7dd1ecd874cc4ce2f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-zh/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-zh/baseline-attempt-1-response.txt",
+    "sha256": "a2fadc61cad65639e3f6be09611cdd222d8e3822377a14564e0d89e4a40d1a19",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST013-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST013-zh/final-attempt-1-response.txt",
+    "sha256": "ef41019c20fb25cee7e4b349599a46108cc534bf79f1a3a29355115073b0aff6",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-en/definition.json",
+    "sha256": "4bc078c271cd3f93c8edf4780d82361cb545c81f16188afaea05c6158565761a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-en/outputs.md",
+    "sha256": "365a8f9c11a566f5fcebfd9f8f31ea02c465d99bfdecd10fb6d33a509cc37a6f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-en/evaluation.json",
+    "sha256": "0a86618498acb8c2104731b2e53211e2366ae4a4154863cf23c296fbd12e27c7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-en/evaluation.md",
+    "sha256": "a4c8211596893907c43bcc8c808cec39633c4727728e368fee4076704174e1fc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-en/structural-checks.json",
+    "sha256": "df381963c60be4d33479fa4d02b517282e0abdf55d51cd0726ea3a861410e45a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-en/final-attempt-1-response.txt",
+    "sha256": "ed396d5979516311de83dd92a0e2b777b5ced56c0e025908cab2a10968634cf5",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-zh/definition.json",
+    "sha256": "6c8ff7c78864a8d93f57226b3b185c72739a4eccb299ede2395c78b5e22b8bd9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-zh/outputs.md",
+    "sha256": "45c0c42fc9abdfb8420e440ddd88452dfb926edc1ec8e6bac666db84db238725",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-zh/evaluation.json",
+    "sha256": "f676ff5247ab3c8ef78ed5f0a890304e02d95ce92e38aaaed1f0cefda6dc45f0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-zh/evaluation.md",
+    "sha256": "4f9772d655cbddcd71837feb92537709feffc8a7e3fcf8256ba774063ce43466",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-zh/structural-checks.json",
+    "sha256": "4e40798e53021f7562aa3bb6496e66c6efc97e4ea7705e7bcc9eaa7a5d5b3846",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST014-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST014-zh/final-attempt-1-response.txt",
+    "sha256": "d1ae5f48e0ccd7c1b37c21d19f89013a355109d9f6d794960d417a9708285a12",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-en/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-en/definition.json",
+    "sha256": "08b5b4ed6919a9c08bd6443e68c4ffbdb321f4e4201ad64cf5bbbdd7306e0b9a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-en/outputs.md",
+    "sha256": "f0cbe744af4905d4948138810269b5297e1027a20318eaa021cbccd809b4c452",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-en/evaluation.json",
+    "sha256": "7cb92ca366a0cc2c32ce89c16379c06d6aa6192e82ad97e1e5c8537d6204d4b9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-en/evaluation.md",
+    "sha256": "13d4d256296b7bff93972d54595f813c9ab08b4315b5e88a43852d929e151be9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-en/structural-checks.json",
+    "sha256": "f4ff272de92a3a931f9b0b4a5d4048cbb0ae1de9948629c42c0daa416f506991",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-en/final-attempt-1-response.txt",
+    "sha256": "a8ef689d44a3977faf0962aecb397593577151d39a906a9bb3d47da44cc245ac",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-en/final-attempt-2-response.txt",
+    "sha256": "dac7e9286e2ea4ccada57af113718c9c6c7c23428456496ef3191a867e4ed8c9",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-zh/definition.json",
+    "sha256": "e1fdb57d8891fdcb6e1ea3afc245f6807c9bffd0bcd18ebb89abf2429ea61259",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-zh/outputs.md",
+    "sha256": "a032e49331b2db9f6ef58e131db63e03202a9ad33a3f1a388cec47c8faa631de",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-zh/evaluation.json",
+    "sha256": "e49477b8c36e744885787640f4e47446c93b7398c44f0f74f9bd0edf29052906",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-zh/evaluation.md",
+    "sha256": "d4aa811392141db169d3d94da9e423552cc00aad19212629c70327a4719bf67c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-zh/structural-checks.json",
+    "sha256": "b134f9fb1d61ef87bf5e62ec902901777c242c4a5f0ccb1ad7d212c717d20a32",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-zh/final-attempt-1-response.txt",
+    "sha256": "3a89b8350fd8af8d2c831e6454f161c1fa2ad5681ac53a1cf00ea6229d4be0d6",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/supplied-current/cases/TEST015-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-supplied-test-fixes/cases/TEST015-zh/final-attempt-2-response.txt",
+    "sha256": "b277894e49492684856d4b02bb9f02431c731e12511af025091a11151bf33921",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/summary.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/summary.json",
+    "sha256": "afe71645e0b675a20f61ec91037f4af739ac62cf7a22f4a6e8c0d396eafd187f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/evaluation-matrix.csv",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/evaluation-matrix.csv",
+    "sha256": "15ea842b4f8cc5cb1cbb8acfe1b0a9d00269c549e5999c5d32b0586356f8045c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/evaluation-matrix.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/evaluation-matrix.json",
+    "sha256": "5896d84b261de88861e3c6c0c341f357bcb3b1b8c296579f143fdfb787d82091",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/quality-review.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/quality-review.json",
+    "sha256": "47f1ece816018d79f3c69a347c7f05823667152132eba420a9568f096aaa328c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/baseline-review.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/baseline-review.json",
+    "sha256": "6a50e93170fe6cd505a03bccc8e105a81e501cbb916e52d95c56f6775ed1a44f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/expected-results.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/expected-results.md",
+    "sha256": "e1612bc3b56d81e3406fd0072d0fbb25abd4dc9a0781d9cc326cdb95f8a48892",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/fixture-limitations.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/fixture-limitations.md",
+    "sha256": "c2067515fa3c613c02c179d115246bdc1bd0378dbefb9b3a75bff406bff451f1",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/frozen-plan.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/frozen-plan.json",
+    "sha256": "28dc6a732384b9b8bc18cfb27e515ca33a96a6b6e3d22af8618b367255270c00",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/frozen-plan.sha256",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/frozen-plan.sha256",
+    "sha256": "ef8730991dea26c47a32dc842d11cee8644106ef96e45b1674fb0eac9f4c194c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/scenario-plan.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/scenario-plan.json",
+    "sha256": "e38e05e7bd362d416a31cb5eeb4f7b8b80c56281254a8506d3c159352872772a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/lifecycle-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/lifecycle-checks.json",
+    "sha256": "5c536721b696b93df310679171aaa299c631f9a20885cac22fdac32878b170d7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-en/definition.json",
+    "sha256": "d7aab2188d011657f8526dbcb0c4e69fe8c61cf28fd9c8dd16b2fa16dce9076a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-en/outputs.md",
+    "sha256": "8fc2cb4b15ee8c457f1b38e4b1111c451518f5a1b25d222f5ea4138e9ee57c83",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-en/evaluation.json",
+    "sha256": "452df7184998ca57e80ca5b340338ef46ad8d29c0ae8e6e80ee8d3db930537bb",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-en/evaluation.md",
+    "sha256": "6d705ae68b772a51250fab0994375d32e743a7ea2b33db0f46b9c8cb8e79bd34",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-en/structural-checks.json",
+    "sha256": "998f4c8736ba94eeee2d0d8170a1e305aee501f481134182439eff2ff1781b08",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-en/final-attempt-1-response.txt",
+    "sha256": "e67a3189e70b208b47b56d34c2ac7501374b01e11fc5b04e8c247936b0111149",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-zh/definition.json",
+    "sha256": "3fdb29bb35433b8a44e87fe72994be24c26660899e2c65750d2e49f1ddb3cb10",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-zh/outputs.md",
+    "sha256": "ba34493f84242af1f2af3501bc5af5f9f736c72ecc61359bb0d304146833b707",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-zh/evaluation.json",
+    "sha256": "60267d54fed7c20b6aebaac86c9768666ec5b894dc2fe0ec6d8a796066799d22",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-zh/evaluation.md",
+    "sha256": "2046b0d80978bf67724b2b0d4e78c54b07bc2cf4848f8c1cd295c4f225975d67",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-zh/structural-checks.json",
+    "sha256": "eda8dae48c474d1594d27ef3de031290e3f38d0ccd1054eacf82dc3cbc462248",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN01-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN01-zh/final-attempt-1-response.txt",
+    "sha256": "5e8a7e5851c766b425ea30a921a8b6c4f1e6a13eecda6dcfe560f7365e1ac06c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-en/definition.json",
+    "sha256": "2c1133cdad8bef8b48cf79075726f7a9b60dc17e187ddabafda3c889a95ee587",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-en/outputs.md",
+    "sha256": "ee7b0409188af4ce0cf335c24ef02bc5276c8bad9b86734f3a10e44f04c7f25f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-en/evaluation.json",
+    "sha256": "7da69db4d401d70b908fc13413165bbd1af66a7c326ca13919dcf5cf4374ed01",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-en/evaluation.md",
+    "sha256": "38fb6c64066b7c0e1c38e7072a3b2ae67cfcd88668cc2088658a8c73319e9068",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-en/structural-checks.json",
+    "sha256": "da0d8dd81219be3d67e075c31cbe5ad736befe0367fb75659afb5cfc8b31561b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-en/final-attempt-1-response.txt",
+    "sha256": "49dd4963d52dab6af892e52df1f91e603b515244ed635d3d74496396f9cc936e",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-zh/definition.json",
+    "sha256": "d91cf870172047382964209801e3f747bb003d8e74f89a50d92de5e76502a5d1",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-zh/outputs.md",
+    "sha256": "8e34e8198f31ee7a17db667f4fea527466818ca7e461f41800acf542a655fdda",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-zh/evaluation.json",
+    "sha256": "b24164c55b69ecf9b618eb49fa6ea45b9eb98431287d2efc74e8c0f671240381",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-zh/evaluation.md",
+    "sha256": "df004579d6bc3240bba3320a423c5db9f5371ded61d4341652eae5b2208891af",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-zh/structural-checks.json",
+    "sha256": "56ed3d09b4372236638b3f4f1173979273e27286119e708b00aecad04ad53052",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-zh/final-attempt-1-response.txt",
+    "sha256": "313fb7ff43e4d014cb0e632b576843cf52622d3af7c5aac00270295440c2272a",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN02-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN02-zh/final-attempt-2-response.txt",
+    "sha256": "566e43ca4f2670a9408748d945396c165be55a8b57f0dd426142ae6b670111fa",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-en/definition.json",
+    "sha256": "30b8ae03de77dbeaeeb9b8371375a8d7785b0fea43d41c7cd697aaa7ad93d62e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-en/outputs.md",
+    "sha256": "7fc8dc167a127ec7ac896ff820c67210605298c5f9f0d13d8bcd33afe8c3880f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-en/evaluation.json",
+    "sha256": "43f901b615579cba4490a37f846b9c3825cecb245acbfb9a2590abe97dac3f80",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-en/evaluation.md",
+    "sha256": "8bd44b3ab755b5742cc1e2f8a6bfd0d9a3f25cced5a8bd0eeef0d9056b794ab0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-en/structural-checks.json",
+    "sha256": "4143567c42649b383ae24fb091ccc2c965ceb7ddf7ba88002c15b980b58c6b23",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-en/final-attempt-1-response.txt",
+    "sha256": "59df22646fd03ec03d77ca4713d3ab6e9b56dbe54d308b208a5971b42a577b7b",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-zh/definition.json",
+    "sha256": "1d88e806b94a95ea2e691fc485129830fe8c65cb2994028821682e5a25dd66e5",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-zh/outputs.md",
+    "sha256": "5c34ae196d8c0438b436cc3e71e88457441df6951ce89dbe97bee56d68deb10b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-zh/evaluation.json",
+    "sha256": "af5ee89516ebbd009f35b2bf02a89ec1c2475e63dad5b85508bcc2a89e1d001f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-zh/evaluation.md",
+    "sha256": "a90acf5105818c022828afdb533d3ab871fc7daaea8a3eee0603e8cf67706c05",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-zh/structural-checks.json",
+    "sha256": "55eb8a72cf8bb7a99c2c542edc3ccb96cbcc94f82dbbd1ed5b7e3084f1ed5eda",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN03-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN03-zh/final-attempt-1-response.txt",
+    "sha256": "4338a82ceb81cd04e467c8ba7ae8679d5099c58998d13074725e0ea0c1f67f9d",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-en/definition.json",
+    "sha256": "643ddbf631d135a5ec13be78a1334e805e6d66882376be40837f6f9d536e2977",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-en/outputs.md",
+    "sha256": "a76a0c3f7ab457b9ad65d03f0d1ae68eeea3c8984e79394b641f7134095edeff",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-en/evaluation.json",
+    "sha256": "9d8ed1d8eead966349df4fb747f86b15c3e711dcad4f82b0a36e1e1318633ab4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-en/evaluation.md",
+    "sha256": "b93ffd1f5be3986fd336d188fa2bc2bef882fb7f6bb8b21a97989995bccccf75",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-en/structural-checks.json",
+    "sha256": "debcad04fb8eabcfb7a21c99ff868090badb1f1cb03ef547de299849e7a4410f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-en/final-attempt-1-response.txt",
+    "sha256": "14415082c686add019584e03973d19d5defb0eb01fbc5e89bab3885cd7604230",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-en/final-attempt-2-response.txt",
+    "sha256": "2fb7c5e268e67e409bc10a60095cd179a60c0ad5cfe295f58e13f84401dec717",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-zh/definition.json",
+    "sha256": "fa27f8e34cf6c8705cbcde61f5c3e18fa7c44526b82781a37e74163043b10523",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-zh/outputs.md",
+    "sha256": "745971e0a491395d4459e0ee4010432e09e3a3becb466be8dc0c9cca9980f1b4",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-zh/evaluation.json",
+    "sha256": "5388455222e0b1c47b3da4cb0edef4cf2bf8676063d3331f2f70c304936f6c5b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-zh/evaluation.md",
+    "sha256": "dce8d14a4aa23124dc4dfeca01c56ac7621f7e3a0c40d4befabe228d1be439ec",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-zh/structural-checks.json",
+    "sha256": "2b0985e1253cdbc6dcf1734729f711bee96a170eda2f6809422a0c5036c1db2d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-zh/final-attempt-1-response.txt",
+    "sha256": "d46534a1a67ee9be230ca228b66250ad4bdbdcad3c8e9f8ae48ae9157120337c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN04-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN04-zh/final-attempt-2-response.txt",
+    "sha256": "0c77a5e1cedb346e235e3602f9b08760a7d57c1131e8142e1736ff9cbd42978b",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-en/definition.json",
+    "sha256": "72bc382d649e36ee3ffea9ce7956c1e2d576ab71e61423e67e28f50f73c9f555",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-en/outputs.md",
+    "sha256": "3f055e9bbaf58e863a35fa6e7e63de654405b75590289fca1a097a6061868a20",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-en/evaluation.json",
+    "sha256": "b017500035a65dafa110281e6b425a651fd8393fbf2c0b39f922d3fb5483f6aa",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-en/evaluation.md",
+    "sha256": "ff5b0305b9b09e4faeb1d6f26a05786c325f2485b93595d07023f1f7c0bd8e2b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-en/structural-checks.json",
+    "sha256": "5081feb60fb7d96270adda2b56c4c7395bbff377a534712b046839a00c81ec92",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-en/final-attempt-1-response.txt",
+    "sha256": "bfa0a69439535b3cbdfaf7b8a69664e71faf651c5ec41fc52b0e08b367d2af9e",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-zh/definition.json",
+    "sha256": "0f653f247508f7771de03421f7004f3b366ea986a52d17ee1919ef10a4929b4a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-zh/outputs.md",
+    "sha256": "1fbdc7064f1e991f139d30b3eefeae29aa8433c683d0755fbd1b33c29f8780e9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-zh/evaluation.json",
+    "sha256": "11141399971c84d05835072647f98711429f9dee76b5a8683995eb98ed94e265",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-zh/evaluation.md",
+    "sha256": "8dbd34814f40d66e7617a32cc7b08ece0c8a8cd71715358107fd55123aecc6cd",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-zh/structural-checks.json",
+    "sha256": "eac3d9e5d5c91a4c47154453160bb3854be2205c535c3ad86a1d0360f8b6bcb2",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN05-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN05-zh/final-attempt-1-response.txt",
+    "sha256": "dc44dd2a8eb736431f15e6ceaeb5a62aaaa63e799e6f3b66d48485dbe362ed83",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/definition.json",
+    "sha256": "51c5574fc36eb017c8e648d0736f9bb5f5f72c7ce28e11386fc2bb8afcdaea39",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/outputs.md",
+    "sha256": "77c6e57e6ac1f07dd3e18a9503e4ac11015db3f2301ffa080ab8aee2c36f7a1a",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/evaluation.json",
+    "sha256": "2c991d21d66f8517b3580f95192bb82958a4a36f647333de84876f3f78df1e26",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/evaluation.md",
+    "sha256": "3495d3643e2c75f06a7125135aef0d78677e398fe50c5cabdca703f1070ecf34",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/failure-explanation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/failure-explanation.md",
+    "sha256": "168a69204bd7a62c0d86beb206d4dea2139dc11f9b60e2fbfb935bdfc685ada3",
+    "transformation": "Publication copy: portable links/exclusion labels and local-path label only; findings, verdicts and reply content unchanged.",
+    "originalSha256": "cf462a9e00276859a191583c2226bf90e1b731d92034aa6f61442d933cf926de"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/validator-diagnosis.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/validator-diagnosis.json",
+    "sha256": "b1060f1e101e4215c46221d3c48521191fe589d6beda92d80f36e41412fb4565",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/structural-checks.json",
+    "sha256": "da1eb4259e3598a91f8c5b034f2637fc8606dc178daaff16cfe2394b59667409",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/final-attempt-1-response.txt",
+    "sha256": "d344f0a58d660af9f562a3dbb16634888f1b33d023a79f4a7b79be055a32a941",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-en/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-en/final-attempt-2-response.txt",
+    "sha256": "73d4f5797454ce05411af013701e24bcbbec0f08b7ac5e0be351890f7e3d2a2c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-zh/definition.json",
+    "sha256": "837c0680916e8316e9213e638adc5e99c332df128533f1b084347284b3e0b4ff",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-zh/outputs.md",
+    "sha256": "e130ac7f351f77a56f2e51772908f276a4deb564431fdff2e2599d4840854c4f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-zh/evaluation.json",
+    "sha256": "26d3a348962b2d91e19b5266333eb63aef27460d292899e136db9302d001b172",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-zh/evaluation.md",
+    "sha256": "9aa8c2c95ec1c33035658c9173d0cd54204139ca9e7b08a3890a63351d25bd33",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-zh/structural-checks.json",
+    "sha256": "374a77bdbbcb43a32d7ce4b8eaaf2c8d625efee32e6b10e896aa2f1ec019e731",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-zh/final-attempt-1-response.txt",
+    "sha256": "e9a0c057354d488aeba318ba9619aa245b65af648cf005dfd7c0b15211aa7ce4",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN06-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN06-zh/final-attempt-2-response.txt",
+    "sha256": "b59d8908c015752a703fca277368b95e4ac0b85146a09c7c9ecd800bff8b3ff6",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-en/definition.json",
+    "sha256": "52b469bc4518c076bb4126768ed4021a54a87f15ee6868e87c9182077aeac332",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-en/outputs.md",
+    "sha256": "6f2f94381101ad0ac3c7149383a775badd21d6545efbe19f015d9ed6f46624d3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-en/evaluation.json",
+    "sha256": "7bb9792b59fbf1009270ea9f5a3a1ef0d81d51db6d3e69f98f6754a1d2e4d9e1",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-en/evaluation.md",
+    "sha256": "324cf94b64abf194629d5bc9288d502b0f125cafe81a64e88c13a716035c7792",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-en/structural-checks.json",
+    "sha256": "8ed8885f5db40dc365c8c70b9a0f003f85a1d7f19b0aea2496865906759eb37c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-en/final-attempt-1-response.txt",
+    "sha256": "c98f1e5742732924236dabdc20fae485a11d227fec7ba3e964ee576b5581ddac",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-zh/definition.json",
+    "sha256": "e28b2924e5332594a05be5955896d3ea4ad8bd519566f4d9f752c5648fa78bc0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-zh/outputs.md",
+    "sha256": "960897e6a0e34ab6d49895087a231394c36b9559ec9c6e764d135946c9e460b1",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-zh/evaluation.json",
+    "sha256": "2f20ef68f6fbc0730fd690256bfb26187e66967f04e9ad8f537bed4de5570f50",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-zh/evaluation.md",
+    "sha256": "95de8a3e2bc63ca07c4bcbabbff7ec95783ddc03066539cef386a9cbcc55e65e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-zh/structural-checks.json",
+    "sha256": "b35cffea69ef99682911c872b76d6af4c2a6e4c6e90929ac84c8187b3bd34fe6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN07-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN07-zh/final-attempt-1-response.txt",
+    "sha256": "b80b3ee9942b7e1f71b8175e30b23928c712a345db0a4d1f18bfa216daba16ec",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-en/definition.json",
+    "sha256": "883375471d107d0689a674848cc08cde2d78a8da3df4caccac6fef5ed102a1e6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-en/outputs.md",
+    "sha256": "ac41a650a101c7c636b757daaafdc22fc70c09080d5c7c7e85e0d7d86beafd95",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-en/evaluation.json",
+    "sha256": "d9c0b68ce15e9f1e0deb10cbbd30b84bcf07d5deb7bf4d459a9ed4855ef24739",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-en/evaluation.md",
+    "sha256": "d9d59ab76074634cea38154e61a9b20edcf4688f6f900d7a2d05f1b48f2db3d9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-en/structural-checks.json",
+    "sha256": "2df2108ec3728f74476e35ebb576ffb53d0f07173a4f47bcd6c04205f85a5c54",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-en/final-attempt-1-response.txt",
+    "sha256": "0c3feba955df10c617177a0158e64338cdb7468bd1e1d66b3e89569a5d847221",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-zh/definition.json",
+    "sha256": "530934fa07a455a0207b7b3e14d3ac45f1ee78b098c04d61af59485fbd3c5050",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-zh/outputs.md",
+    "sha256": "8440490c47f9ba18239206d4061d13cce992557338e9f910cccdb273e771682d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-zh/evaluation.json",
+    "sha256": "35885b970e2ce6d44f052b40867882386362a37cfbc2bac8644f9c6b492eb5b6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-zh/evaluation.md",
+    "sha256": "9617ddf5f30cf3f5e94b1b456a167541dff5407193b13b46122b49030112c707",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-zh/structural-checks.json",
+    "sha256": "0a6b56a30ff922ce68c75dbbb8cd7c2a56ca492f52cf80cfd5bfddcb8e0a6ade",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-zh/final-attempt-1-response.txt",
+    "sha256": "909b7caa9764287687211738daeeb83282a5b56a841fada3799458b2a327b204",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN08-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN08-zh/final-attempt-2-response.txt",
+    "sha256": "d840b31b7f242e2680c16901679270427434c2e48bbb2abfabebd6ec0b4a60d7",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-en/definition.json",
+    "sha256": "9e0ca9a64d124e1f50cafd54b13514452b0294e6d6076d519ec4a92620afc1ec",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-en/outputs.md",
+    "sha256": "c197f334abacf2d6dd20c4e3e3139dedbc0975fab201eee023f5927f78e570b0",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-en/evaluation.json",
+    "sha256": "dc20e5671865cccbee37e779e5e13bb456ba573c5dff030f674c95b2c51f20c7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-en/evaluation.md",
+    "sha256": "ad88270c0ba2d4dce86729665de349de2714281139a94b9b74ad6be7087aab96",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-en/structural-checks.json",
+    "sha256": "65db4df5a696849479e88e8d0e68d987e9265c7a3550d3f3836484b96f0ee0df",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-en/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-en/baseline-attempt-1-response.txt",
+    "sha256": "777343016496ebdc550a4033c023aea038457ae89adef4d7afd25ab4c8d88099",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-en/final-attempt-1-response.txt",
+    "sha256": "d682d5367299bd6943d84fb23f1d6b76a47b80b90dd26ef98468c55ff7cbd7ae",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-zh/definition.json",
+    "sha256": "08a263e6b07ce6d3bd276a34da4252b36dcad2c7c59dd4d026cbe574dd35c191",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-zh/outputs.md",
+    "sha256": "06d79cfaea23861fa08a88f51afc110f23e725ac14e73c0a9a6cd1359ae0e749",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-zh/evaluation.json",
+    "sha256": "8622c1ed98cfbdb4662ff8af7304b421866fd10b5c728b3f668d860d06d78735",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-zh/evaluation.md",
+    "sha256": "646cadb36238880fc5d6b69e92e130839eb3276dc02320efc32328561462ad10",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-zh/structural-checks.json",
+    "sha256": "650704fe9c7d15aaca17b8d74660c57528230f948eb458e19309c098cc584858",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-zh/baseline-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-zh/baseline-attempt-1-response.txt",
+    "sha256": "5d65f0039e54cb25f2b62f65e0db82d206799836390258e1cc355a5af8551420",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN09-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN09-zh/final-attempt-1-response.txt",
+    "sha256": "67e0b53722dc783f9899a53150c59f1017ee3eedc35eceb23bfbcf467ed9b2d0",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-en/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-en/definition.json",
+    "sha256": "3d020cd090947f2df324b57d92e2162f8a43d73b13de7dfb8a03cf4b1c00e997",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-en/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-en/outputs.md",
+    "sha256": "fb4b0e43ff03f9c2b6e990e9ea72293d6be8905c32976313944e8b8607dd737b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-en/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-en/evaluation.json",
+    "sha256": "8b14c807e11bfacfab27366b87c2966d7ea3b4e5dba7c28ddd992af25cc020cc",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-en/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-en/evaluation.md",
+    "sha256": "f960ff8dfcbe954f375053f9c467c86a0d88603531d5aaf5d0a12b818ec6afe6",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-en/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-en/structural-checks.json",
+    "sha256": "ebdccb43265abed38df63a581caba6757eca698fe499aa1028228a9ef756c564",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-en/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-en/final-attempt-1-response.txt",
+    "sha256": "9150a9241eb88e5141f56531cac785dff9e4b70fe8eb2298f73fa5e48745ce2c",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-zh/definition.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-zh/definition.json",
+    "sha256": "bc1d97718c5d8da3c806874d7fba6d2244e6aba3d951f9b3043930f0bb7f5ef9",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-zh/outputs.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-zh/outputs.md",
+    "sha256": "a7a24bde20b34464ec3e5174dc7297d9aa599d63ff0295243526150e9169400c",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-zh/evaluation.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-zh/evaluation.json",
+    "sha256": "ff241c2e8ca953615177f41fa32d5017db318ea0464e872c67734dfb3b76aeeb",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-zh/evaluation.md",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-zh/evaluation.md",
+    "sha256": "b4dc996c9ae2aa42b23068b35516c4837fbf7336f1a4ac8a819db8da74a05d30",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-zh/structural-checks.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-zh/structural-checks.json",
+    "sha256": "b61a06e2682d54ecc74575eb7cb345103db2c0668476c52a4f516d17f41b3f45",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-zh/final-attempt-1-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-zh/final-attempt-1-response.txt",
+    "sha256": "21d55bcd6e85fe9cf08426a838f9fbaab57690ab608431113eaa65328ce12596",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/unseen/cases/UNSEEN10-zh/final-attempt-2-reply.json",
+    "original": "simulation-tests/2026-10-24-unseen-scenarios/cases/UNSEEN10-zh/final-attempt-2-response.txt",
+    "sha256": "76425c2d7e926a1e76c59bffb31b93011217b9bc69e600d7096894e68199d41d",
+    "transformation": "message output, usage, model and status only; reasoning removed"
+  },
+  {
+    "path": "evidence/feedback/reassessment-review.md",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/reassessment-review.md",
+    "sha256": "e476a37c04c9077f6faa3c818bdc567260c2937aa324d308d692b7b19f662768",
+    "transformation": "Publication copy: portable links/exclusion labels and local-path label only; findings, verdicts and reply content unchanged.",
+    "originalSha256": "7c6499969a8a4acea985c506b51dd0f9cbbca8b43f10f525d6d8dba393c055bb"
+  },
+  {
+    "path": "evidence/browser/verification.json",
+    "original": "simulation-tests/2026-10-23-final-build-browser/verification.json",
+    "sha256": "17d3c008bcff99273948ccfe226c8f12bf68996b86b789be0dac7f914038095f",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/browser/verification-report.md",
+    "original": "simulation-tests/2026-10-23-final-build-browser/verification-report.md",
+    "sha256": "dcd418a44917e06e6a0e62f4f73cf7170bdd60645d2b4c40262a0ee916312887",
+    "transformation": "Publication copy: portable links/exclusion labels and local-path label only; findings, verdicts and reply content unchanged.",
+    "originalSha256": "75ea6fecf0b5f9b2485142f2c34f96606022612f3eb4108edfb8574fad460897"
+  },
+  {
+    "path": "evidence/browser/print-check.json",
+    "original": "simulation-tests/2026-10-23-final-build-browser/print-check.json",
+    "sha256": "255061b0629694ec313e996e9d50e8f669de1e4a50c01025fdb53d0a14e4d7e7",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/browser/export-check.json",
+    "original": "simulation-tests/2026-10-23-final-build-browser/export-check.json",
+    "sha256": "5eb89fd8acbf4fe9fc397c96c40457b1821b43dd6f386fca96a91380bd77fd1d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/browser/failure-preservation.json",
+    "original": "simulation-tests/2026-10-23-final-build-browser/failure-preservation.json",
+    "sha256": "20e1c54e7ef88faf105c24bc52af4dc3ea8f81099715cbd22d9e53c5371f076e",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/initial-readable.md",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/initial-readable.md",
+    "sha256": "6d5b933eb2298e75cc8f9709f096126ba6d622c83b767eca4677b5620ae991cd",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/reassess-attempt-1-readable.md",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/reassess-attempt-1-readable.md",
+    "sha256": "c95fe0b5596c42642091432e5e3a65ea8f231742f32a58a3ac30b0017efbae21",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/reassess-attempt-2-readable.md",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/reassess-attempt-2-readable.md",
+    "sha256": "c63ee72aad885e9cecec420e354a77c0adeb2ef15b86db4fe41d92d303ace8b2",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/reassessment-review.json",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/reassessment-review.json",
+    "sha256": "796507a97c75883007dcb26ab61d65870dec9790da72590232391e1d436b6231",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/case-plan.json",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/case-plan.json",
+    "sha256": "d5c69abebd65a13bf4536659779afcb078fcf40a7db9fa181721b2208a0ca54d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/review-plan.json",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/review-plan.json",
+    "sha256": "1587c15638df2916e86237e5d95f01bce1384945e52fa2d16a60b827b2ce601d",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/outcome-plan.json",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/outcome-plan.json",
+    "sha256": "ef41508ae8b51dc5318473c0229bb36f21f02ad4ad2a4b2d185396ba58e7cdd3",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/package-checks.json",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/package-checks.json",
+    "sha256": "5a92626d9fb9b7734d0791fb1cacb55dc07e0e98c4d6551c4b43d91f03075f0b",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/workflow-checks.json",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/workflow-checks.json",
+    "sha256": "f950d265971296c110c75ef8ee45ac1b4efea0014eb038f4e4de30de866e7705",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/feedback/integrity-after.json",
+    "original": "simulation-tests/2026-10-24-feedback-demonstration/integrity-after.json",
+    "sha256": "613c8dcc77397ab65e781d8cb52f4f4108d6ef4cb670d3fbad017932de088b93",
+    "transformation": "byte-identical"
+  },
+  {
+    "path": "evidence/package-checks/npm-ci.log",
+    "original": "new packaging check",
+    "sha256": "fb9ab52b0deb111397052e352e3bbcc6e89d259a92c20a4c7aeda0bf426e9243",
+    "transformation": "new check log; no provider call"
+  },
+  {
+    "path": "evidence/package-checks/package-typecheck.log",
+    "original": "new packaging check",
+    "sha256": "cac8c68022b580f83f00a8d411e234246eb808e1f651dd748c2a7bd5ee70d5ff",
+    "transformation": "new check log; no provider call"
+  },
+  {
+    "path": "evidence/package-checks/package-tests.log",
+    "original": "new packaging check",
+    "sha256": "a528cdda45c5787f95a88d6774fbc824f09e8c958e24a6a1ecc9f4a6fb910051",
+    "transformation": "new check log; no provider call"
+  },
+  {
+    "path": "evidence/package-checks/package-import.log",
+    "original": "new packaging check",
+    "sha256": "dedabab47af0380a2cbd1cdf7f0ff5701094014962d6d51e6d031a08a8adf216",
+    "transformation": "new check log; no provider call"
+  },
+  {
+    "path": "evidence/package-checks/package-build.log",
+    "original": "new packaging check",
+    "sha256": "3fd0369f06c66fc6e6be4dadc336ece3b861e504c86c5534a992b5857777cd7e",
+    "transformation": "new check log; no provider call"
+  },
+  {
+    "path": "evidence/package-checks/package-webpack-build.log",
+    "original": "new packaging check",
+    "sha256": "6c9d3bff38c2b409bcfbc65c7c2cb8b0f6b416f22cc17fe4f0d9c413ef443a7e",
+    "transformation": "new check log; no provider call"
+  }
+]

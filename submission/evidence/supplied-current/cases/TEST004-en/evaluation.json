@@ -1,0 +1,88 @@
+{
+  "testId": "TEST004",
+  "language": "en",
+  "type": "因果边界",
+  "originalQuestion": "是不是天气导致了全部运行异常？",
+  "actualQuestion": "Did weather cause all of the operational abnormalities?",
+  "expected": "说明只能观察到关联线索",
+  "prohibited": "不得直接证明因果",
+  "factCheck": "是否存在逐航班原因数据",
+  "scoringFocus": "因果谨慎",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Correctly rejects blanket weather causation and separates medium current risk from historical anomalies and business scale.",
+    "evidence": "All displayed monthly figures/windows/peer count and annual scale are supported; missing-weather flag honored. 45.77 million is the correct conversion of 4577 ten-thousand passenger movements.",
+    "unsupportedClaims": "No invented operational fact or service commitment. Threshold wording says more than five as the rule, whereas implementation includes exactly five. Displayed anomaly classification is unaffected.",
+    "proposedFacts": "Four explicitly unverified, unapplied information-gathering proposals.",
+    "notes": [
+      "Describe the threshold as five percentage points or more below baseline."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.094723,
+  "elapsedSeconds": 33.908,
+  "phases": [
+    {
+      "key": "TEST004-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "b707405f-7414-403d-b1b4-49f1c3fb7bd8",
+      "resultId": "b3bc310e-6598-465d-8ac1-8d7718b56f72",
+      "elapsedMs": 33908,
+      "attempts": 1,
+      "costMicro": 94723,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 25030,
+        "cached": 2560,
+        "output": 6210,
+        "reasoning": 3469
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "10c6fadd-bf4f-403b-94fa-a096e1d62559",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 33861,
+          "usage": {
+            "input": 25030,
+            "cached": 2560,
+            "output": 6210,
+            "reasoning": 3469,
+            "raw": {
+              "input_tokens": 25030,
+              "input_tokens_details": {
+                "cached_tokens": 2560
+              },
+              "output_tokens": 6210,
+              "output_tokens_details": {
+                "reasoning_tokens": 3469
+              },
+              "total_tokens": 31240
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST004-en"
+}

@@ -1,0 +1,259 @@
+{
+  "testId": "TEST010",
+  "language": "zh",
+  "testType": "人工否决",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 11,
+  "originalQuestion": "专业人员拒绝建议后怎么办？",
+  "actualQuestion": "专业人员拒绝建议后怎么办？",
+  "expected": "记录原因、保留原建议并调整",
+  "prohibited": "不得覆盖人工意见",
+  "factCheck": "反馈记录",
+  "scoringFocus": "反馈闭环",
+  "additionalFrozenChecks": [
+    "Persist rejection reason and original recommendation, then include the latest review in reassessment.",
+    "Explain a material response to the review; do not treat feedback as verified evidence or execution."
+  ],
+  "workflow": "assessment workflow",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "evaluation": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Explicitly acknowledges the recorded rejection, makes the consolidated support-capability request first, and retains medium risk without treating pending review as execution.",
+    "evidence": "Provider input and final export include the exact saved review and original recommendation. GAO historical anomaly is kept separate from current risk.",
+    "hallucination": "No new operational fact or completed action is claimed in the reviewed Chinese output.",
+    "notes": "Some later items still ask to record a reason already present; distinguish the newly saved reviewer correction from the original scenario operator’s missing resource rationale. One repair removed unsupported/signed numeric claims.",
+    "required_check": "Core record/preserve/adjust checks pass."
+  },
+  "errorExplanation": "Some later items still ask to record a reason already present; distinguish the newly saved reviewer correction from the original scenario operator’s missing resource rationale. One repair removed unsupported/signed numeric claims.",
+  "correctiveAction": "Some later items still ask to record a reason already present; distinguish the newly saved reviewer correction from the original scenario operator’s missing resource rationale. One repair removed unsupported/signed numeric claims.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "baseline",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 69,
+      "uniqueReferences": 10,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    },
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 97,
+      "uniqueReferences": 12,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": {
+    "baselineAssessmentRetainedExactly": true,
+    "newAssessmentSavedExactly": true,
+    "separateAssessmentIds": true,
+    "currentAssessmentIsNew": true,
+    "reviewFieldsRetainedExactly": true,
+    "reviewSentToProvider": true,
+    "originalRecommendationSentExactly": true,
+    "savedReasonSentExactly": true,
+    "outcomeRemainsPending": true,
+    "passed": true
+  },
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST010-zh",
+      "phase": "baseline",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "c549045f-3276-47d1-8557-f90dc30db29f",
+      "resultId": "4dee12f4-ed7c-4226-b71e-927affe2a787",
+      "elapsedMs": 80022,
+      "attempts": 1,
+      "costMicro": 156224,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 31594,
+        "cached": 10880,
+        "output": 14295,
+        "reasoning": 11227
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "9ab9e162-d93d-4e8e-a54b-2e048c9f6582",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 79995,
+          "usage": {
+            "input": 31594,
+            "cached": 10880,
+            "output": 14295,
+            "reasoning": 11227,
+            "raw": {
+              "input_tokens": 31594,
+              "input_tokens_details": {
+                "cached_tokens": 10880
+              },
+              "output_tokens": 14295,
+              "output_tokens_details": {
+                "reasoning_tokens": 11227
+              },
+              "total_tokens": 45889
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "19c8edab74430634cff5a5fb7f2125137535f27fd9d4a896f242a4b57e300b87",
+        "reviewIds": [],
+        "assessmentIds": [],
+        "sourceVersions": [],
+        "latestReviewCount": 0,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "baseline-result.json",
+      "exportFile": "baseline-export.json"
+    },
+    {
+      "key": "TEST010-zh",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "679a70b7-148e-4487-9167-9aa5974e9eae",
+      "resultId": "ae2da72c-8df9-45ca-84ed-7d5b184401fe",
+      "elapsedMs": 127243,
+      "attempts": 2,
+      "costMicro": 224863,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 64707,
+        "cached": 43392,
+        "output": 22562,
+        "reasoning": 13707
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "e3e64b81-4a55-4d48-8ee1-dcc5be0c414b",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 55966,
+          "usage": {
+            "input": 32273,
+            "cached": 11136,
+            "output": 10388,
+            "reasoning": 5317,
+            "raw": {
+              "input_tokens": 32273,
+              "input_tokens_details": {
+                "cached_tokens": 11136
+              },
+              "output_tokens": 10388,
+              "output_tokens_details": {
+                "reasoning_tokens": 5317
+              },
+              "total_tokens": 42661
+            }
+          },
+          "validationIssues": [
+            "rationale.9.en: 6.1pp is not supported by its cited sources, metric type, unit, and precision.",
+            "rationale.9.zh: 6.1pp is not supported by its cited sources, metric type, unit, and precision.",
+            "possibleImpacts.3.en: 6.1pp is not supported by its cited sources, metric type, unit, and precision.",
+            "possibleImpacts.3.zh: 6.1pp is not supported by its cited sources, metric type, unit, and precision.",
+            "possibleImpacts.3.en: 72.88% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": [
+            "rationale.9.en: 6.1pp is not supported by its cited sources, metric type, unit, and precision.",
+            "rationale.9.zh: 6.1pp is not supported by its cited sources, metric type, unit, and precision.",
+            "possibleImpacts.3.en: 6.1pp is not supported by its cited sources, metric type, unit, and precision.",
+            "possibleImpacts.3.zh: 6.1pp is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "possibleImpacts.3.en",
+              "message": "72.88% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Historical context for the same calendar month shows 72.88% planned completion and a minus 6.10 percentage point gap to the prior mean; this is baseline reference only, not a forecast for the evening."
+            }
+          ]
+        },
+        {
+          "attempt": 1,
+          "providerId": "cbdae357-37ce-4cb3-97b6-ca55ffd8b797",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 71213,
+          "usage": {
+            "input": 32434,
+            "cached": 32256,
+            "output": 12174,
+            "reasoning": 8390,
+            "raw": {
+              "input_tokens": 32434,
+              "input_tokens_details": {
+                "cached_tokens": 32256
+              },
+              "output_tokens": 12174,
+              "output_tokens_details": {
+                "reasoning_tokens": 8390
+              },
+              "total_tokens": 44608
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "552f39776c8f26ddd1b11def6f5805919c0a4b775839698cc28e15ac933af6a1",
+        "reviewIds": [
+          "ab956b30-3e20-44d4-90df-c4c4d725dfbb"
+        ],
+        "assessmentIds": [
+          "4dee12f4-ed7c-4226-b71e-927affe2a787"
+        ],
+        "sourceVersions": [
+          1
+        ],
+        "latestReviewCount": 1,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 3,
+  "costCNYAppEstimate": 0.381087,
+  "modelElapsedSeconds": 207.265
+}

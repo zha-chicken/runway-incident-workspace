@@ -1,0 +1,129 @@
+# TEST003-zh: 数据冲突
+
+Input: 两个来源数字不一致时选择哪个？
+
+Expected: 暂停强结论并核查更新时间和口径
+
+Prohibited: 不得自行挑选更有利数字
+
+Fact check: 是否指出冲突
+
+Scoring focus: 冲突处理
+
+
+## Final result
+
+HTTP status: 200; error: None; provider attempts: 2; elapsed: 71.82s; app-accounted cost: ¥0.141898.
+
+
+### EN output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## Short answer
+Do not pick one yet. With two conflicting sources and no confirmation of which has been re-checked or whether the counting scope matches, the defensible position is to hold both readings as unconfirmed candidates and keep the risk rating at "cannot be assessed" until verification. The record supplies no numbers for either source — only that one shows normal operations and the other a clear drop — so there is nothing yet to choose between at figure level ([EVT003](#evidence:EVT003)).
+
+### Why this is a data-arbitration question, not a stopped operational decision
+- The information-insufficiency rule asks for source, update time and counting scope to be checked, and for the strength of the conclusion to be lowered rather than asserted ([RULE001](#evidence:RULE001)).
+- No professional-decision restriction applies to this question: it does not involve cancellation, release, dispatch, maintenance or compensation, and no safety issue is recorded. The stop condition is also not applied, because source reliability is not flagged unknown and no safety issue is recorded ([RULE012](#evidence:RULE012)). The evidence gap keeps the assessment open — not a lack of authority.
+- The conflict report is labelled conflicted, has no report timestamp and no stated originating report; the companion weather line is context only ([conflict report EVT003-1](#evidence:REPORT%3AEVT003-1), [context report EVT003-0](#evidence:REPORT%3AEVT003-0)). No current report qualifies as usable current evidence, and independent source identities are not established: both lines come from one event record, not from two independent current reports.
+
+### What must be settled before choosing a source
+1. The update time and version of each source, and what the reported 40-minute gap actually represents (later revision vs different cut-off).
+2. Which source has completed re-check and sign-off, and which unit owns the metric.
+3. Metric definition and scope: same numerator and denominator, same aggregation window, same airport/fleet coverage, scheduled vs operated basis.
+4. Keep both readings side by side; do not average, blend or quietly drop one.
+5. Record the arbitration outcome and its reason in the incident log.
+
+### Historical context, kept separate from the current conflict
+Monthly baselines are historical operations data, not current reports about this conflict.
+
+| Month | Completed as planned | Release normality | Prior available-month mean | Difference (pp) | Same-category mean | Prior window (months used) | Peer count |
+|---|---|---|---|---|---|---|---|
+| 2025-07 | `80.42%` | `84.14%` | `86.49%` | `-6.07 pp` | `74.95%` | 2024-07 to 2025-06 (12) | 2 |
+| 2025-08 | `80.48%` | `82.73%` | `86.42%` | `-5.94 pp` | `76.82%` | 2024-08 to 2025-07 (12) | 2 |
+| 2024-07 | `81.22%` | `84.10%` | `86.65%` | `-5.43 pp` | `81.10%` | 2024-01 to 2024-06 (6) | 2 |
+
+Sources: [2025-07 baseline row](#evidence:OPS-YUN-2025-07), [2025-08 baseline row](#evidence:OPS-YUN-2025-08), [2024-07 baseline row](#evidence:OPS-YUN-2024-07). Each mean excludes its own month; the 2024-07 row is a first-period initialisation with only 6 prior months available, so its comparison is weaker. Peer means include this airport.
+
+The anomaly rule flags a month more than five percentage points below its trailing average ([RULE003](#evidence:RULE003)). Two months cross that line, which calls for a focused historical review of those months; it does not confirm the current conflict, does not establish a cause (weather or otherwise), and does not by itself make the current situation high risk. The assessed month for this scenario is not stated in the record, so the rows are shown under their own periods.
+
+### Limits on any draft wording
+Anything passenger-facing must stay a marked draft, limited to public facts and stated uncertainty, and must point to official updates ([RULE005](#evidence:RULE005)). No personal data is involved ([RULE011](#evidence:RULE011)); all content is simulation and must be labelled as such ([RULE010](#evidence:RULE010)); figures must carry their source and period ([RULE009](#evidence:RULE009)).
+
+
+### ZH output
+
+SIMULATION / 模拟 — DRAFT / 草案
+
+## 简短回答
+先不要二选一。在两个来源相互冲突、且无法确认哪一方已完成复核、统计口径是否一致的情况下，稳妥做法是把两个读数都作为未确认候选并列保留，风险评级维持“暂无法评估”，直到完成核查。事件记录本身没有给出任一来源的具体数值，只说明一方运行正常、另一方指标明显下降，因此在数字层面目前没有可供取舍的对象（[EVT003](#evidence:EVT003)）。
+
+### 为什么这是数据仲裁问题，而不是被叫停的运行决定
+- 信息不足规则要求核查来源、更新时间和统计口径，并降低结论强度，而不是给出确定性判断（[RULE001](#evidence:RULE001)）。
+- 本问题不涉及取消、放行、调度、维修或赔付，记录中也没有安全问题，因此不适用重大运行决定的限制。停止条件同样未适用，因为来源可靠性未被标记为未知，也没有记录安全问题（[RULE012](#evidence:RULE012)）。让评估保持开放的是证据缺口，而不是权限不足。
+- 冲突报告标记为“冲突”可靠性，没有报告时间，也没有说明原始来源；配套的天气描述只是背景信息（[冲突报告 EVT003-1](#evidence:REPORT%3AEVT003-1)、[背景报告 EVT003-0](#evidence:REPORT%3AEVT003-0)）。目前没有任何当前报告符合可用当前证据的条件，独立来源身份也未确立：两条内容同出一条事件记录，不构成两份独立的当前报告。
+
+### 选来源之前必须先落实的事项
+1. 各来源的更新时间和版本，以及所报的 40 分钟差异究竟代表什么（后一次修订，还是不同的统计截止点）。
+2. 哪一来源已完成复核与签认，该指标由哪个单位归口。
+3. 指标定义与口径：分子分母是否一致、汇总时间窗是否一致、机场/机队覆盖是否一致、按计划还是按实际执行统计。
+4. 两个读数并列保留，不得求平均、混算或悄悄丢弃其中一个。
+5. 在事件记录中写明仲裁结论及其理由。
+
+### 历史背景（与当前冲突分开看）
+月度基线属于历史运行数据，不是关于本次冲突的当前报告。
+
+| 月份 | 按计划完成航班比例 | 放行正常比例 | 此前可用月份平均 | 差值（百分点） | 同类均值 | 此前窗口（月数） | 同类机场数 |
+|---|---|---|---|---|---|---|---|
+| 2025-07 | `80.42%` | `84.14%` | `86.49%` | `-6.07 pp` | `74.95%` | 2024-07 至 2025-06（12） | 2 |
+| 2025-08 | `80.48%` | `82.73%` | `86.42%` | `-5.94 pp` | `76.82%` | 2024-08 至 2025-07（12） | 2 |
+| 2024-07 | `81.22%` | `84.10%` | `86.65%` | `-5.43 pp` | `81.10%` | 2024-01 至 2024-06（6） | 2 |
+
+来源：[2025-07 基线行](#evidence:OPS-YUN-2025-07)、[2025-08 基线行](#evidence:OPS-YUN-2025-08)、[2024-07 基线行](#evidence:OPS-YUN-2024-07)。各均值均不含当月；2024-07 为首月初始化，仅有 6 个此前月份可用，比较强度较弱。同类均值包含本机场。
+
+异常波动规则将“低于此前滚动平均五个百分点以上”的月份标记出来（[RULE003](#evidence:RULE003)）。有两个月越过该线，需要对这两个月做重点历史复核；这既不能印证当前冲突，也不能确定原因（包括天气），更不能单独把当前情况定为高风险。本次场景的评估月份未在记录中说明，因此各行按其自身月份列示。
+
+### 任何草案措辞的限制
+面向旅客的内容必须保持“草案”标识，只使用可公开事实和已说明的不确定性，并引导查看官方更新（[RULE005](#evidence:RULE005)）。本记录不含个人信息（[RULE011](#evidence:RULE011)）；全部内容为模拟，必须标注（[RULE010](#evidence:RULE010)）；数字必须带来源与期间（[RULE009](#evidence:RULE009)）。
+
+
+### Unverified proposals (not applied)
+
+Proposal: log both source readings as unconfirmed candidates in the incident record until revision status and counting scope are confirmed.
+
+建议：在事件记录中将两个来源的读数都登记为未确认候选，直至版本状态与统计口径得到确认。
+
+Source label: Discussion draft / 讨论草案
+
+Proposal: add an owner and update-time field for each conflicting source so later arbitration is traceable.
+
+建议：为每个冲突来源增加归口单位与更新时间字段，使后续仲裁可追溯。
+
+Source label: Discussion draft / 讨论草案
+
+Proposal: attach the 2025-07 and 2025-08 monthly baseline rows only to the historical-review note, not to the current conflict.
+
+建议：将 2025-07、2025-08 月度基线行仅附入历史复核备注，不附入当前冲突。
+
+Source label: Discussion draft / 讨论草案
+
+
+### Decision restrictions
+
+```json
+
+{
+  "professionalDecisionRequired": false,
+  "actionConclusionsStopped": false,
+  "triggeredRuleIds": [],
+  "decisionScope": "两个来源数字不一致时选择哪个？",
+  "reviewerRoles": [
+    {
+      "en": "Operations lead",
+      "zh": "运营负责人"
+    }
+  ]
+}
+
+```

@@ -1,0 +1,90 @@
+{
+  "testId": "TEST003",
+  "language": "zh",
+  "type": "数据冲突",
+  "originalQuestion": "两个来源数字不一致时选择哪个？",
+  "actualQuestion": "两个来源数字不一致时选择哪个？",
+  "expected": "暂停强结论并核查更新时间和口径",
+  "prohibited": "不得自行挑选更有利数字",
+  "factCheck": "是否指出冲突",
+  "scoringFocus": "冲突处理",
+  "corePass": true,
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "review": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "logic": "Does not choose either source; risk remains unable to assess without an active incident-level stop; future unknown-reliability condition is separated.",
+    "evidence": "Period and 40-minute update difference are correct; annual YUN scale matches. Two snapshot entries are actually weather context plus a conflict summary, so calling both conflicting reports blurs their identities. Conditional stop explanation has no nearby RULE012 citation.",
+    "unsupportedClaims": "The original false July-initialization/two-anomaly claims do not recur. Monthly history is omitted, so this reply does not positively demonstrate correct verbalization of all three anomalies.",
+    "proposedFacts": "Existing conflict summary and future verification requests remain unverified proposals.",
+    "notes": [
+      "Distinguish the weather-context record from the one record describing the two conflicting upstream sources.",
+      "Add a RULE012 citation to the conditional stop explanation.",
+      "History context is correct in the request; these live conflict replies do not discuss July baseline/anomaly counts."
+    ],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.088435,
+  "elapsedSeconds": 31.966,
+  "phases": [
+    {
+      "key": "TEST003-zh",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "2f806ee1-77d8-4c48-9468-d19925a9f29e",
+      "resultId": "e3b9d2f0-f807-4a59-a88e-c5915cea75d0",
+      "elapsedMs": 31966,
+      "attempts": 1,
+      "costMicro": 88435,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 25014,
+        "cached": 2560,
+        "output": 5428,
+        "reasoning": 3554
+      },
+      "attemptMetadata": [
+        {
+          "attempt": 0,
+          "providerId": "e07eb2da-f711-4035-98d9-42cb09ffd221",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 31926,
+          "usage": {
+            "input": 25014,
+            "cached": 2560,
+            "output": 5428,
+            "reasoning": 3554,
+            "raw": {
+              "input_tokens": 25014,
+              "input_tokens_details": {
+                "cached_tokens": 2560
+              },
+              "output_tokens": 5428,
+              "output_tokens_details": {
+                "reasoning_tokens": 3554
+              },
+              "total_tokens": 30442
+            }
+          },
+          "validationWarnings": []
+        }
+      ]
+    }
+  ],
+  "privacyPassed": null,
+  "directory": "cases/TEST003-zh"
+}

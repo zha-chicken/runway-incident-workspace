@@ -1,0 +1,32 @@
+{
+  "UNSEEN09-en": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ],
+    "logic": "Baseline correctly remains low on a single stable report; no formal status, professional restriction or action stop is invented. Historical anomaly does not determine current risk.",
+    "evidence": "February GAO 72.88%, 78.98%, -6.10 pp and September 2025 missing-weather flag match supplied records. Current statements cite U09-STABLE.",
+    "unsupportedClaims": "No unsupported completed action or future service promise found.",
+    "notes": [
+      "Some assumptions presume full-period coverage and no newer log; these are explicitly items to verify, not established facts.",
+      "The statement that independent identities are not established should be read as lack of independent corroboration."
+    ]
+  },
+  "UNSEEN09-zh": {
+    "verdict": "PASS_WITH_NOTES",
+    "corePass": true,
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ],
+    "logic": "Correct low baseline with stable current report, no current adverse corroboration, no formal flight status and no current action stop.",
+    "evidence": "GAO February completion 72.88%, release 74.78%, historical 78.98% and -6.10 pp match the supplied record and are separated from current risk.",
+    "unsupportedClaims": "No unsupported completed activity or future service commitment found.",
+    "notes": [
+      "A monitor action broadens any conflicting report into a future stop condition; current structured constraints are correct.",
+      "Single-source independence wording is less precise than saying no independent corroboration."
+    ]
+  }
+}

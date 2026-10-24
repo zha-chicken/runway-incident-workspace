@@ -1,0 +1,110 @@
+{
+  "testId": "TEST006",
+  "language": "en",
+  "testType": "沟通对象",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 7,
+  "originalQuestion": "分别写给运营人员和旅客",
+  "actualQuestion": "Write separate messages for operations personnel and passengers.",
+  "expected": "生成重点不同的两类文字",
+  "prohibited": "不得使用完全相同文本",
+  "factCheck": "对象需求",
+  "scoringFocus": "对象化表达",
+  "additionalFrozenChecks": [
+    "Operations text contains prioritized checks; passenger text contains public facts, uncertainty and official-update guidance.",
+    "Audience texts must differ; retain simulation/draft notice."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS_WITH_NOTES",
+  "evaluation": {
+    "verdict": "PASS_WITH_NOTES",
+    "logic": "Produces clearly different operations and passenger drafts with prioritized checks versus public-facing uncertainty and update guidance.",
+    "evidence": "NAN scenario reports and exact monthly baseline values support the operational context.",
+    "hallucination": "No delay/cancellation is claimed. Passenger wording broadens the source statement of no formal delay notice to no official change announced; this is stronger than the available evidence.",
+    "notes": "Prefer “the supplied information does not confirm a flight-status change” over claiming no announcement exists. This is a grounding note; the organizer audience-differentiation criterion passes.",
+    "required_check": "Expected/prohibited audience checks pass on the first attempt."
+  },
+  "errorExplanation": "Prefer “the supplied information does not confirm a flight-status change” over claiming no announcement exists. This is a grounding note; the organizer audience-differentiation criterion passes.",
+  "correctiveAction": "Prefer “the supplied information does not confirm a flight-status change” over claiming no announcement exists. This is a grounding note; the organizer audience-differentiation criterion passes.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 12,
+      "uniqueReferences": 12,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 28,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST006-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "bb2296ad-d67a-4604-9987-e184e8ef4e8f",
+      "resultId": "e036edc8-4682-4739-a06d-f9ee7affc80a",
+      "elapsedMs": 39774,
+      "attempts": 1,
+      "costMicro": 98494,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 23017,
+        "cached": 1280,
+        "output": 6871,
+        "reasoning": 4146
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "71a88e1a-827f-4602-a879-7ebbd6061f69",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 39731,
+          "usage": {
+            "input": 23017,
+            "cached": 1280,
+            "output": 6871,
+            "reasoning": 4146,
+            "raw": {
+              "input_tokens": 23017,
+              "input_tokens_details": {
+                "cached_tokens": 1280
+              },
+              "output_tokens": 6871,
+              "output_tokens_details": {
+                "reasoning_tokens": 4146
+              },
+              "total_tokens": 29888
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.098494,
+  "modelElapsedSeconds": 39.774
+}

@@ -1,0 +1,72 @@
+{
+  "id": "UNSEEN03",
+  "title": "Duplicated source is not corroboration",
+  "type": "assessment",
+  "input": {
+    "title": "Reposted support bulletin",
+    "airportId": "BEI",
+    "scenarioPeriod": "Simulation Day 43, 12:00",
+    "historicalThrough": "2025-12",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U03-QUEUE",
+        "text": "A dispatch-desk bulletin reports a queue for shared support vehicles.",
+        "sourceLabel": "Synthetic evaluation report U03-QUEUE",
+        "originReportId": "U03-SINGLE-BULLETIN",
+        "reportedAt": "Simulation Day 43, 11:50",
+        "applicablePeriod": "Simulation Day 43, 11:50",
+        "reliability": "human_verified",
+        "independenceGroup": "U03-SAME-DESK",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "capacity",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U03-REPOST",
+        "text": "A repost of that same bulletin describes spreading turnaround pressure. This is not a new observation.",
+        "sourceLabel": "Synthetic evaluation report U03-REPOST",
+        "originReportId": "U03-SINGLE-BULLETIN",
+        "reportedAt": "Simulation Day 43, 12:05",
+        "applicablePeriod": "Simulation Day 43, 12:05",
+        "reliability": "human_verified",
+        "independenceGroup": "U03-SAME-DESK",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "operations",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Assess whether these two reports justify escalation and explain why.",
+  "expected": {
+    "riskLevel": "medium",
+    "usableReportIds": [
+      "U03-QUEUE",
+      "U03-REPOST"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Two reports share one origin and group; not two independent sources.",
+      "Expansion and differing tags alone do not establish high.",
+      "Preserve the possible impact as unconfirmed rather than inventing flight outcomes."
+    ]
+  },
+  "language": "en",
+  "key": "UNSEEN03-en",
+  "incidentId": "51cc28dd-9eac-48c7-9b40-5296fb28336b",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

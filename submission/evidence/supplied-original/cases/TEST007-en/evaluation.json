@@ -1,0 +1,157 @@
+{
+  "testId": "TEST007",
+  "language": "en",
+  "testType": "新机场",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 8,
+  "originalQuestion": "输入临江机场的新事件",
+  "actualQuestion": "Enter a new incident at Linjiang Airport.",
+  "expected": "根据新输入和基线响应",
+  "prohibited": "不得回放固定答案",
+  "factCheck": "是否读取新机场数据",
+  "scoringFocus": "泛化能力",
+  "additionalFrozenChecks": [
+    "Use new LIN capacity report and LIN history rather than replaying a supplied event.",
+    "Scope is LIN, Simulation Day 31 16:00; expected medium risk."
+  ],
+  "workflow": "assessment workflow",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Analyzes a new LIN capacity event as medium risk; distinguishes one verified synthetic source from two independent sources.",
+    "evidence": "Uses the new PUBLIC-7-en-CAPACITY report and LIN-specific historical, missing-weather and scale rows.",
+    "hallucination": "No invented flight impact, duration, official status or causal connection found in the reviewed assessment.",
+    "notes": "Distinct operations, coordination and passenger drafts are present; verification assumptions remain separate from facts.",
+    "required_check": "Expected/prohibited checks pass after one repair."
+  },
+  "errorExplanation": "Distinct operations, coordination and passenger drafts are present; verification assumptions remain separate from facts.",
+  "correctiveAction": "Distinct operations, coordination and passenger drafts are present; verification assumptions remain separate from facts.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 64,
+      "uniqueReferences": 10,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 0,
+      "unresolvedInlineLinks": [],
+      "riskMatchesPolicy": true,
+      "scopeMatches": true,
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST007-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "8befa140-631f-4b6e-a316-34b59d155ba1",
+      "resultId": "8d2f9b2d-4f9c-47e7-b59c-a4d6c48b9d02",
+      "elapsedMs": 128973,
+      "attempts": 2,
+      "costMicro": 250185,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 62416,
+        "cached": 32384,
+        "output": 23603,
+        "reasoning": 17387
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "72084827-e6f3-4933-a374-5ed0df6cb2de",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 71286,
+          "usage": {
+            "input": 31186,
+            "cached": 1408,
+            "output": 13345,
+            "reasoning": 10085,
+            "raw": {
+              "input_tokens": 31186,
+              "input_tokens_details": {
+                "cached_tokens": 1408
+              },
+              "output_tokens": 13345,
+              "output_tokens_details": {
+                "reasoning_tokens": 10085
+              },
+              "total_tokens": 44531
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "rationale.3.en",
+              "message": "75.15% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Historical monthly operations show August 2025 completed-as-planned at 75.15%, 5.44 percentage points below the prior available-month mean of 80.58%; this is a historical five-point anomaly for focused review, not a current high risk or causation finding."
+            }
+          ],
+          "validationIssues": [
+            "rationale.3.en: 75.15% is not supported by its cited sources, metric type, unit, and precision."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "4bd8b06f-4cd8-4d05-bd97-b9993020dbb7",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 57632,
+          "usage": {
+            "input": 31230,
+            "cached": 30976,
+            "output": 10258,
+            "reasoning": 7302,
+            "raw": {
+              "input_tokens": 31230,
+              "input_tokens_details": {
+                "cached_tokens": 30976
+              },
+              "output_tokens": 10258,
+              "output_tokens_details": {
+                "reasoning_tokens": 7302
+              },
+              "total_tokens": 41488
+            }
+          },
+          "validationWarnings": []
+        }
+      ],
+      "humanFeedbackMetadata": {
+        "contentHash": "30297bbaf22f920a7cbc8d4c86c7ddfa527899c6947ff243d55dd30b030af9da",
+        "reviewIds": [],
+        "assessmentIds": [],
+        "sourceVersions": [],
+        "latestReviewCount": 0,
+        "omittedReviewCount": 0
+      },
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.250185,
+  "modelElapsedSeconds": 128.973
+}

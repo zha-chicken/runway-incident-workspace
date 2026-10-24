@@ -1,0 +1,198 @@
+{
+  "testId": "TEST004",
+  "language": "en",
+  "testType": "因果边界",
+  "sourceSheet": "08_测试问题",
+  "sourceRow": 5,
+  "originalQuestion": "是不是天气导致了全部运行异常？",
+  "actualQuestion": "Did weather cause all of the operational abnormalities?",
+  "expected": "说明只能观察到关联线索",
+  "prohibited": "不得直接证明因果",
+  "factCheck": "是否存在逐航班原因数据",
+  "scoringFocus": "因果谨慎",
+  "additionalFrozenChecks": [
+    "State that monthly association does not establish flight-level causation.",
+    "No all-weather causal claim."
+  ],
+  "workflow": "Ask AeroContext",
+  "inputFile": "definition.json",
+  "fullOutputFile": "outputs.md",
+  "executionResult": "PASS",
+  "organizerCoreCriteria": "PASS",
+  "qualityVerdict": "PASS",
+  "evaluation": {
+    "verdict": "PASS",
+    "logic": "Refuses blanket weather attribution, separates forecast and traffic concentration from quantified abnormalities, and asks for flight-level evidence.",
+    "evidence": "Historical rates, weather aggregates and annual scale were checked against supplied source rows; missing-weather data is explicitly excluded.",
+    "hallucination": "No unsupported definite causal or operational-status claim found in the reviewed English answer.",
+    "notes": "The peer-pattern explanation is an inference from comparative monthly rows, not proof of causation. One built-in repair was needed. The first response triggered a false positive in the remaining sent-notification check: its Chinese text explicitly denied being a sent notice. The repaired response retains four citation advisories for correct peer percentages with imperfect local citation placement.",
+    "required_check": "Expected/prohibited checks pass after one repair."
+  },
+  "errorExplanation": "The peer-pattern explanation is an inference from comparative monthly rows, not proof of causation. One built-in repair was needed. The first response triggered a false positive in the remaining sent-notification check: its Chinese text explicitly denied being a sent notice. The repaired response retains four citation advisories for correct peer percentages with imperfect local citation placement.",
+  "correctiveAction": "The peer-pattern explanation is an inference from comparative monthly rows, not proof of causation. One built-in repair was needed. The first response triggered a false positive in the remaining sent-notification check: its Chinese text explicitly denied being a sent notice. The repaired response retains four citation advisories for correct peer percentages with imperfect local citation placement.",
+  "appFixApplied": false,
+  "structuralChecks": [
+    {
+      "phase": "final",
+      "appStatus": 200,
+      "usableResponse": true,
+      "referenceOccurrences": 16,
+      "uniqueReferences": 16,
+      "unresolvedReferences": [],
+      "inlineLinkOccurrences": 32,
+      "unresolvedInlineLinks": [],
+      "constraintsMatch": true
+    }
+  ],
+  "lifecycleChecks": null,
+  "privacyChecks": null,
+  "phases": [
+    {
+      "key": "TEST004-en",
+      "phase": "final",
+      "action": "discussion",
+      "status": 200,
+      "error": null,
+      "runId": "8dc4bfa5-726d-4a57-8b14-0b57ff6be34b",
+      "resultId": "6fc9d4bb-df64-4024-b36b-8d316c1731dc",
+      "elapsedMs": 65243,
+      "attempts": 2,
+      "costMicro": 137328,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "review_required",
+        "warnings": [
+          {
+            "code": "citation",
+            "path": "answer.en",
+            "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "Both 2025-07 and 2025-08 exceed the five-percentage-point threshold for an anomaly, which calls for  focused historical review  ( anomaly rule ). Two cautions: the same-category mean also fell in those months ( 74.95%  and  76.82% ), pointing to a category-wide pattern rather than an airport-specific one; and monthly weather totals for those months ( 144.6 mm  with 3 adverse-weather days in 2025-07;  111.6 mm  with 4 days in 2025-08) are aggregates that cannot be tied to specific flights or days ( 2025-07 weather ,  2025-08 weather ). Note also that the 2025-11 weather row is flagged missing-data, so its populated cells should not be used ( 2025-11 weather )."
+          },
+          {
+            "code": "citation",
+            "path": "answer.en",
+            "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "Both 2025-07 and 2025-08 exceed the five-percentage-point threshold for an anomaly, which calls for  focused historical review  ( anomaly rule ). Two cautions: the same-category mean also fell in those months ( 74.95%  and  76.82% ), pointing to a category-wide pattern rather than an airport-specific one; and monthly weather totals for those months ( 144.6 mm  with 3 adverse-weather days in 2025-07;  111.6 mm  with 4 days in 2025-08) are aggregates that cannot be tied to specific flights or days ( 2025-07 weather ,  2025-08 weather ). Note also that the 2025-11 weather row is flagged missing-data, so its populated cells should not be used ( 2025-11 weather )."
+          },
+          {
+            "code": "citation",
+            "path": "answer.zh",
+            "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "2025-07 与 2025-08 均超过五个百分点的异常阈值，应进行 重点历史复核 （ 异常波动规则 ）。有两点需要注意：这两个月同类均值也下降（ 74.95%  与  76.82% ），说明更可能是同类机场共性模式而非本机场独有；这两个月的月度天气汇总（2025-07 为  144.6 毫米 、明显不利天气 3 天；2025-08 为  111.6 毫米 、4 天）是月度汇总，无法对应到具体航班或日期（ 2025-07 天气 、 2025-08 天气 ）。另需注意 2025-11 天气行带缺失数据标记，其已填数值不应使用（ 2025-11 天气 ）。"
+          },
+          {
+            "code": "citation",
+            "path": "answer.zh",
+            "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+            "excerpt": "2025-07 与 2025-08 均超过五个百分点的异常阈值，应进行 重点历史复核 （ 异常波动规则 ）。有两点需要注意：这两个月同类均值也下降（ 74.95%  与  76.82% ），说明更可能是同类机场共性模式而非本机场独有；这两个月的月度天气汇总（2025-07 为  144.6 毫米 、明显不利天气 3 天；2025-08 为  111.6 毫米 、4 天）是月度汇总，无法对应到具体航班或日期（ 2025-07 天气 、 2025-08 天气 ）。另需注意 2025-11 天气行带缺失数据标记，其已填数值不应使用（ 2025-11 天气 ）。"
+          }
+        ]
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 46247,
+        "cached": 25216,
+        "output": 11782,
+        "reasoning": 5973
+      },
+      "validationAttempts": [
+        {
+          "attempt": 0,
+          "providerId": "57158ecd-4c3c-41c1-84a3-7df5ec8a7171",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 37209,
+          "usage": {
+            "input": 23110,
+            "cached": 2304,
+            "output": 6757,
+            "reasoning": 3809,
+            "raw": {
+              "input_tokens": 23110,
+              "input_tokens_details": {
+                "cached_tokens": 2304
+              },
+              "output_tokens": 6757,
+              "output_tokens_details": {
+                "reasoning_tokens": 3809
+              },
+              "total_tokens": 29867
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "wording",
+              "path": "answer.zh",
+              "message": "claims a notification was sent.",
+              "excerpt": "任何面向旅客的措辞都只能是待批准的草案,绝不作为已发送通知( RULE005 )"
+            }
+          ],
+          "validationIssues": [
+            "answer.zh: claims a notification was sent."
+          ],
+          "blockingIssues": []
+        },
+        {
+          "attempt": 1,
+          "providerId": "a5ee5b8c-6497-4ede-a03b-e36dd68684c5",
+          "model": "deepseek-flash",
+          "fingerprint": null,
+          "terminal": "completed",
+          "status": "completed",
+          "latencyMs": 27946,
+          "usage": {
+            "input": 23137,
+            "cached": 22912,
+            "output": 5025,
+            "reasoning": 2164,
+            "raw": {
+              "input_tokens": 23137,
+              "input_tokens_details": {
+                "cached_tokens": 22912
+              },
+              "output_tokens": 5025,
+              "output_tokens_details": {
+                "reasoning_tokens": 2164
+              },
+              "total_tokens": 28162
+            }
+          },
+          "validationWarnings": [
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Both 2025-07 and 2025-08 exceed the five-percentage-point threshold for an anomaly, which calls for  focused historical review  ( anomaly rule ). Two cautions: the same-category mean also fell in those months ( 74.95%  and  76.82% ), pointing to a category-wide pattern rather than an airport-specific one; and monthly weather totals for those months ( 144.6 mm  with 3 adverse-weather days in 2025-07;  111.6 mm  with 4 days in 2025-08) are aggregates that cannot be tied to specific flights or days ( 2025-07 weather ,  2025-08 weather ). Note also that the 2025-11 weather row is flagged missing-data, so its populated cells should not be used ( 2025-11 weather )."
+            },
+            {
+              "code": "citation",
+              "path": "answer.en",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "Both 2025-07 and 2025-08 exceed the five-percentage-point threshold for an anomaly, which calls for  focused historical review  ( anomaly rule ). Two cautions: the same-category mean also fell in those months ( 74.95%  and  76.82% ), pointing to a category-wide pattern rather than an airport-specific one; and monthly weather totals for those months ( 144.6 mm  with 3 adverse-weather days in 2025-07;  111.6 mm  with 4 days in 2025-08) are aggregates that cannot be tied to specific flights or days ( 2025-07 weather ,  2025-08 weather ). Note also that the 2025-11 weather row is flagged missing-data, so its populated cells should not be used ( 2025-11 weather )."
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "74.95% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 与 2025-08 均超过五个百分点的异常阈值，应进行 重点历史复核 （ 异常波动规则 ）。有两点需要注意：这两个月同类均值也下降（ 74.95%  与  76.82% ），说明更可能是同类机场共性模式而非本机场独有；这两个月的月度天气汇总（2025-07 为  144.6 毫米 、明显不利天气 3 天；2025-08 为  111.6 毫米 、4 天）是月度汇总，无法对应到具体航班或日期（ 2025-07 天气 、 2025-08 天气 ）。另需注意 2025-11 天气行带缺失数据标记，其已填数值不应使用（ 2025-11 天气 ）。"
+            },
+            {
+              "code": "citation",
+              "path": "answer.zh",
+              "message": "76.82% is not supported by its cited sources, metric type, unit, and precision.",
+              "excerpt": "2025-07 与 2025-08 均超过五个百分点的异常阈值，应进行 重点历史复核 （ 异常波动规则 ）。有两点需要注意：这两个月同类均值也下降（ 74.95%  与  76.82% ），说明更可能是同类机场共性模式而非本机场独有；这两个月的月度天气汇总（2025-07 为  144.6 毫米 、明显不利天气 3 天；2025-08 为  111.6 毫米 、4 天）是月度汇总，无法对应到具体航班或日期（ 2025-07 天气 、 2025-08 天气 ）。另需注意 2025-11 天气行带缺失数据标记，其已填数值不应使用（ 2025-11 天气 ）。"
+            }
+          ]
+        }
+      ],
+      "humanFeedbackMetadata": null,
+      "outputFile": "final-result.json",
+      "exportFile": "final-export.json"
+    }
+  ],
+  "providerCalls": 2,
+  "costCNYAppEstimate": 0.137328,
+  "modelElapsedSeconds": 65.243
+}

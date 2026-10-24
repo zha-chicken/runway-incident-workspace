@@ -1,0 +1,73 @@
+{
+  "id": "UNSEEN02",
+  "title": "Independent converging current signals",
+  "type": "assessment",
+  "input": {
+    "title": "Gusts and expanding support shortage",
+    "airportId": "QING",
+    "scenarioPeriod": "Simulation Day 42, 18:00",
+    "historicalThrough": "2025-04",
+    "businessImportance": "medium",
+    "knownInformation": "Use the separately attributed synthetic reports below.",
+    "unknowns": "Individual flight impacts and execution of proposed actions are unknown unless a report explicitly establishes them.",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "reports": [
+      {
+        "id": "U02-WIND",
+        "text": "The meteorology desk reports strong gusts during the current period.",
+        "sourceLabel": "Synthetic evaluation report U02-WIND",
+        "originReportId": "U02-WIND",
+        "reportedAt": "Simulation Day 42, 17:45",
+        "applicablePeriod": "Simulation Day 42, 17:45",
+        "reliability": "human_verified",
+        "independenceGroup": "U02-WIND",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      },
+      {
+        "id": "U02-SUPPORT",
+        "text": "A separately verified apron-support log reports a support-equipment shortage spreading from one stand cluster to a second. No flight delay is officially confirmed.",
+        "sourceLabel": "Synthetic evaluation report U02-SUPPORT",
+        "originReportId": "U02-SUPPORT",
+        "reportedAt": "Simulation Day 42, 18:20",
+        "applicablePeriod": "Simulation Day 42, 18:20",
+        "reliability": "human_verified",
+        "independenceGroup": "U02-SUPPORT",
+        "verificationBasis": "Verified within the fictional scenario log only; not real operational verification.",
+        "signal": "capacity",
+        "expandingImpact": true,
+        "provenanceKind": "team_simulation",
+        "sourceEvidenceId": null
+      }
+    ],
+    "sourceEventId": null
+  },
+  "question": "Assess the combined current evidence and prepare audience-specific drafts.",
+  "expected": {
+    "riskLevel": "high",
+    "usableReportIds": [
+      "U02-WIND",
+      "U02-SUPPORT"
+    ],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "High is grounded in two independent origins/groups, two signal types, and expanding impact.",
+      "Historical weather or monthly anomalies alone are not the cause or basis of high.",
+      "Do not invent affected flight counts, official delays, or executed monitoring.",
+      "RULE008 applies; no professional or safety stop is set."
+    ]
+  },
+  "language": "en",
+  "key": "UNSEEN02-en",
+  "incidentId": "b6930f0c-53c2-42c2-bf86-17bc5b12e828",
+  "workspaceId": "650ab95e-fe17-4202-b72a-e745ab75644c"
+}

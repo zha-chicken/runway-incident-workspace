@@ -1,0 +1,64 @@
+{
+  "scenario": "UNSEEN05",
+  "language": "en",
+  "title": "No usable current report without incident-level stop",
+  "type": "assessment",
+  "question": "Assess what can be concluded from these reports now.",
+  "expected": {
+    "riskLevel": "unable_to_assess",
+    "usableReportIds": [],
+    "professionalDecisionRequired": false,
+    "actionConclusionsStopped": false,
+    "outputStatus": "needs_review",
+    "checks": [
+      "Current unverified reports and the old stable report cannot determine current risk.",
+      "No incident-level reliability-unknown or safety flag is recorded; do not invent a RULE012 stop.",
+      "Output needs_review with gaps/referral; no definitive operational conclusion."
+    ]
+  },
+  "qualityVerdict": "PASS",
+  "corePass": true,
+  "review": {
+    "verdict": "PASS",
+    "corePass": true,
+    "logic": "Correct unable_to_assess from zero usable current reports, while retaining needs_review and no invented incident-level RULE012 stop. Current messages remain unverified and the 06:29 stable report is outside the window.",
+    "evidence": "The three YUN historical anomaly months are correctly identified and kept separate from current risk. Current and historical citations support the stated scope.",
+    "unsupportedClaims": "No unsupported delay, cancellation, cause, execution or service promise found.",
+    "proposedFacts": "Not applicable: assessment response has no proposedFacts field.",
+    "notes": [],
+    "reviewedLanguages": [
+      "en",
+      "zh"
+    ]
+  },
+  "providerCalls": 1,
+  "costCNYAppEstimate": 0.155289,
+  "elapsedSeconds": 63.526,
+  "phases": [
+    {
+      "key": "UNSEEN05-en",
+      "phase": "final",
+      "action": "assessment",
+      "status": 200,
+      "error": null,
+      "runId": "165d19af-85cd-452c-8df4-73ff5c3e84d8",
+      "resultId": "4afe0b88-7b2d-4e6c-afcd-bf2120c93f84",
+      "elapsedMs": 63526,
+      "attempts": 1,
+      "costMicro": 155289,
+      "validation": {
+        "version": "2026-10-23-recovery-v1",
+        "status": "passed",
+        "warnings": []
+      },
+      "previousAssessmentPreserved": null,
+      "tokenUsage": {
+        "input": 34076,
+        "cached": 1024,
+        "output": 11143,
+        "reasoning": 8033
+      }
+    }
+  ],
+  "directory": "cases/UNSEEN05-en"
+}

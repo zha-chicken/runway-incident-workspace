@@ -1,0 +1,66 @@
+{
+  "id": "TEST014",
+  "type": "时间范围",
+  "question": "使用哪个时段的数据？",
+  "expected": "明确当前事件和历史基线时间范围",
+  "prohibited": "不得混用单月与累计",
+  "factCheck": "时间字段",
+  "scoring": "时间一致性",
+  "sheetRow": 15,
+  "englishQuestion": "Which time period of data is being used?",
+  "additionalChecks": [
+    "Separate scenario day/time, latest selected month, historical comparison window and metric definitions.",
+    "Do not mix current/day data, monthly proportions, cumulative totals or annual scale."
+  ],
+  "path": "Ask AeroContext",
+  "language": "zh",
+  "input": {
+    "title": "TEST014-zh Weather risk rising",
+    "airportId": "HAI",
+    "scenarioPeriod": "第4天下午14:00",
+    "historicalThrough": "2025-08",
+    "businessImportance": "high",
+    "knownInformation": "天气预报、历史月度基线、机场规模\n机场协同团队尚未给出最新保障能力确认",
+    "unknowns": "逐航班计划、飞机连续执行、机组和地面保障状态",
+    "safetyIssue": false,
+    "sourceReliabilityUnknown": false,
+    "decisionRequest": "",
+    "officialStatus": "unconfirmed",
+    "officialStatusSourceId": null,
+    "sourceEventId": "EVT001",
+    "reports": [
+      {
+        "id": "EVT001-0",
+        "text": "未来六小时预计强降雨并伴有阵风",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "weather",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      },
+      {
+        "id": "EVT001-1",
+        "text": "上午运行接近通常水平，下午航班量较集中",
+        "sourceLabel": "Competition scenario / 赛事模拟",
+        "originReportId": null,
+        "reportedAt": null,
+        "applicablePeriod": "第4天下午14:00",
+        "reliability": "scenario_given",
+        "independenceGroup": null,
+        "verificationBasis": "Supplied scenario assertion; originating report unspecified.",
+        "signal": "operations",
+        "expandingImpact": false,
+        "provenanceKind": "competition",
+        "sourceEvidenceId": "EVT001"
+      }
+    ]
+  },
+  "incidentId": "965a7bb6-8f99-45d0-92dc-6baa8ebee41c",
+  "workspaceId": "1722c452-01d1-45f6-a990-29988c80c6c0"
+}

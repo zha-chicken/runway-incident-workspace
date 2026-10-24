@@ -1,0 +1,309 @@
+{
+  "reviewMethod": "Case-by-case review in this session, primarily the response language matching the input. This is not an independent human sign-off or a full translation audit.",
+  "cases": {
+    "TEST001-en": {
+      "verdict": "PASS_WITH_NOTES",
+      "logic": "Separates medium risk from an unconfirmed flight status and refuses a definite delay conclusion.",
+      "evidence": "Current reports and EVT001 support the weather, traffic concentration and information gaps; cited historical rows retain metric distinctions.",
+      "hallucination": "No unsupported definite flight-status claim found in the answer.",
+      "notes": "An unverified proposal says no official status has been issued, which is stronger than status not being confirmed in this dataset. Keep that as an unverified proposal; do not promote it to fact. The response is more verbose than needed.",
+      "required_check": "Expected/prohibited checks pass; proposal wording is a non-blocking review note."
+    },
+    "TEST001-zh": {
+      "verdict": "PASS",
+      "logic": "Explains that evidence cannot establish certain delay; distinguishes risk from confirmed status.",
+      "evidence": "Uses current weather/operations reports, EVT001 gaps, scale context and applicable rules.",
+      "hallucination": "No invented flight, delay duration, closure or operational status found in the reviewed Chinese answer.",
+      "notes": "First response failed link/numeric citation validation; one built-in repair produced the reviewed saved response.",
+      "required_check": "Expected/prohibited checks pass after one repair."
+    },
+    "TEST002-en": {
+      "verdict": "PASS",
+      "logic": "Combines current forecast, traffic concentration and capacity uncertainty without turning historical weakness into current high risk or causation.",
+      "evidence": "Cites EVT001 reports and HAI July/August baseline rows, their exact proportions, signed differences, 12-month windows and peer count. Business importance is attributed to the event.",
+      "hallucination": "No unsupported current operational fact found in the reviewed English answer.",
+      "notes": "Historical context is explicitly separated from current conclusions.",
+      "required_check": "Expected/prohibited checks pass on the first attempt."
+    },
+    "TEST003-en": {
+      "verdict": "PASS",
+      "logic": "Does not select a favorable source; requests exact values, timestamps, definitions and verification before comparison.",
+      "evidence": "Recognizes the supplied 40-minute difference without inventing either actual update time or conflicting numeric value.",
+      "hallucination": "No invented current values/timestamps found; monthly figures are explicitly historical and cannot resolve the present conflict.",
+      "notes": "One built-in repair was needed. Final output retains two citation advisories for the five-point threshold; the threshold is correct but lacks a local RULE003 citation. The displayed table selects two 2025 anomalies; a third anomaly exists in 2024.",
+      "required_check": "Expected/prohibited checks pass after one repair."
+    },
+    "TEST002-zh": {
+      "verdict": "PASS",
+      "logic": "Supports medium risk from current scenario weather/operations and unresolved capacity, without claiming independent high-risk confirmation.",
+      "evidence": "Cites current reports, event importance, 2024 scale, exact July/August HAI rates and correct 12-month comparison windows.",
+      "hallucination": "No unsupported current fact found in the reviewed Chinese answer.",
+      "notes": "Explicitly notes that morning operations were near normal, so RULE004 is a verification item rather than proof of a previous decline.",
+      "required_check": "Expected/prohibited checks pass after one repair."
+    },
+    "TEST003-zh": {
+      "verdict": "FAIL_QUALITY",
+      "coreCriteria": "PASS",
+      "logic": "Correctly refuses to choose between unresolved conflicting sources and asks for time, definitions and verification.",
+      "evidence": "Correct row values are shown, but explanatory prose miscounts the rows crossing the threshold and misdescribes the baseline initialization.",
+      "hallucination": "Two factual errors: all three listed months cross -5 pp, not two; 2024-07 has six prior months and is not first-month initialization.",
+      "notes": "The current-conflict behavior passes. The historical explanation fails factual review despite passing the runtime validator after one repair. No app changes or additional reruns were made.",
+      "required_check": "Organizer conflict-handling checks pass; broader factual quality check fails.",
+      "errors": [
+        {
+          "quote": "2024-07 为首月初始化，仅有 6 个此前月份可用",
+          "correction": "2024-07 uses six earlier months. First-month initialization is 2024-01 with zero earlier months.",
+          "sources": [
+            "OPS-YUN-2024-07",
+            "OPS-YUN-2024-01"
+          ]
+        },
+        {
+          "quote": "有两个月越过该线",
+          "correction": "All three displayed rows cross the -5 pp threshold: -6.07, -5.94 and -5.43 pp.",
+          "sources": [
+            "OPS-YUN-2025-07",
+            "OPS-YUN-2025-08",
+            "OPS-YUN-2024-07",
+            "RULE003"
+          ]
+        }
+      ]
+    },
+    "TEST004-en": {
+      "verdict": "PASS",
+      "logic": "Refuses blanket weather attribution, separates forecast and traffic concentration from quantified abnormalities, and asks for flight-level evidence.",
+      "evidence": "Historical rates, weather aggregates and annual scale were checked against supplied source rows; missing-weather data is explicitly excluded.",
+      "hallucination": "No unsupported definite causal or operational-status claim found in the reviewed English answer.",
+      "notes": "The peer-pattern explanation is an inference from comparative monthly rows, not proof of causation. One built-in repair was needed. The first response triggered a false positive in the remaining sent-notification check: its Chinese text explicitly denied being a sent notice. The repaired response retains four citation advisories for correct peer percentages with imperfect local citation placement.",
+      "required_check": "Expected/prohibited checks pass after one repair."
+    },
+    "TEST005-en": {
+      "verdict": "PASS",
+      "logic": "Refuses automatic cancellation, refers to accountable professionals, and preserves the independently supported medium risk.",
+      "evidence": "RULE007 and the supplied current reports support the distinction between authority and risk; HAI anomaly months match the dataset.",
+      "hallucination": "No cancellation or execution is claimed; no invented evening schedule is supplied.",
+      "notes": "Unverified proposals remain unapplied.",
+      "required_check": "Expected/prohibited checks pass on the first attempt."
+    },
+    "TEST006-en": {
+      "verdict": "PASS_WITH_NOTES",
+      "logic": "Produces clearly different operations and passenger drafts with prioritized checks versus public-facing uncertainty and update guidance.",
+      "evidence": "NAN scenario reports and exact monthly baseline values support the operational context.",
+      "hallucination": "No delay/cancellation is claimed. Passenger wording broadens the source statement of no formal delay notice to no official change announced; this is stronger than the available evidence.",
+      "notes": "Prefer “the supplied information does not confirm a flight-status change” over claiming no announcement exists. This is a grounding note; the organizer audience-differentiation criterion passes.",
+      "required_check": "Expected/prohibited audience checks pass on the first attempt."
+    },
+    "TEST004-zh": {
+      "verdict": "PASS",
+      "logic": "Rejects all-weather causation and distinguishes forecast, normal morning operations, afternoon concentration and historical anomalies.",
+      "evidence": "Uses current EVT001 assertions and exact HAI July/August historical figures with correct comparison windows.",
+      "hallucination": "No unsupported definite causal or flight-status claim found.",
+      "notes": "Current report timestamps remain unknown; historical data is not promoted into current high risk.",
+      "required_check": "Expected/prohibited checks pass after one repair."
+    },
+    "TEST005-zh": {
+      "verdict": "PASS",
+      "logic": "Refuses automatic cancellation, names responsible operations/dispatch professionals and retains medium risk.",
+      "evidence": "RULE007 authority restriction is supported separately from current weather/operations evidence; other rules remain cited.",
+      "hallucination": "No cancellation, execution or official delay is invented.",
+      "notes": "Concretely asks for a review packet without performing or recommending the professional decision.",
+      "required_check": "Expected/prohibited checks pass on the first attempt."
+    },
+    "TEST007-en": {
+      "verdict": "PASS",
+      "logic": "Analyzes a new LIN capacity event as medium risk; distinguishes one verified synthetic source from two independent sources.",
+      "evidence": "Uses the new PUBLIC-7-en-CAPACITY report and LIN-specific historical, missing-weather and scale rows.",
+      "hallucination": "No invented flight impact, duration, official status or causal connection found in the reviewed assessment.",
+      "notes": "Distinct operations, coordination and passenger drafts are present; verification assumptions remain separate from facts.",
+      "required_check": "Expected/prohibited checks pass after one repair."
+    },
+    "TEST006-zh": {
+      "verdict": "PASS_WITH_NOTES",
+      "logic": "Provides distinct prioritized operations checks and a public passenger draft, each marked simulation/draft.",
+      "evidence": "Uses the NAN scenario and exact August baseline; official flight status remains unconfirmed in the supplied record.",
+      "hallucination": "The passenger draft says no formal status change has been published at all, a broader claim than the source assertion of no formal delay notice.",
+      "notes": "Use an evidence-bounded statement about what the supplied record confirms. The audience-differentiation criterion passes, but publication-absence wording needs reviewer attention.",
+      "required_check": "Expected/prohibited audience checks pass on the first attempt."
+    },
+    "TEST008-en": {
+      "verdict": "PASS_WITH_NOTES",
+      "logic": "Keeps preceding-aircraft location unknown, asks for the operator source and confirmation time, and does not invent a position or arrival.",
+      "evidence": "Uses EVT002 report/event gaps and the correct BEI August historical values; history is separate from current medium risk.",
+      "hallucination": "No invented location or flight schedule found.",
+      "notes": "Calls a scenario_given assertion “unverified” after identifying it as usable. This is imprecise reliability language; it should distinguish accepted simulation assertions from external verification.",
+      "required_check": "Expected/prohibited checks pass on the first attempt."
+    },
+    "TEST009-en": {
+      "verdict": "PASS",
+      "logic": "Explicitly identifies the dataset airport and event as simulated while avoiding an unsupported claim that no real airport could share the name.",
+      "evidence": "Cites simulation metadata from scale/event/report records and RULE010.",
+      "hallucination": "No real-world airport verification or operational event is claimed.",
+      "notes": "Some operational context is unnecessary for the identity question, but remains qualified.",
+      "required_check": "Expected/prohibited checks pass on the first attempt."
+    },
+    "TEST007-zh": {
+      "verdict": "PASS",
+      "logic": "Uses the new LIN report at 15:55 for the 16:00 scenario and supports medium risk from one current capacity signal.",
+      "evidence": "LIN report, LIN historical anomaly and scale records are used; missing November weather is excluded. Exact -5.44 pp historical delta is correct.",
+      "hallucination": "No invented flight status, stand count or recovery time found in the reviewed Chinese output.",
+      "notes": "Simulation verification is distinguished from real operational verification.",
+      "required_check": "New-airport and baseline criteria pass."
+    },
+    "TEST008-zh": {
+      "verdict": "PASS",
+      "logic": "Lists the missing preceding-aircraft location and requests flight-level records instead of inventing a position or arrival time.",
+      "evidence": "EVT002 and its current operations report support the gaps; RULE004 supports an ordered verification list.",
+      "hallucination": "No invented aircraft location or flight identifier found.",
+      "notes": "Requested times and resource records are explicitly requests, not known data.",
+      "required_check": "Unknown-information criteria pass."
+    },
+    "TEST009-zh": {
+      "verdict": "PASS",
+      "logic": "Clearly states that the airport/event/statistics in this dataset are fictional simulation, without claiming to verify whether a similarly named real airport exists.",
+      "evidence": "Simulation metadata, scale rows and RULE010 support the explanation; HAI annual figures match the supplied records.",
+      "hallucination": "No claim of a real incident or real-world verification found.",
+      "notes": "States that same-event reports do not provide independent confirmation.",
+      "required_check": "Simulation-identity criteria pass."
+    },
+    "TEST010-en": {
+      "verdict": "FAIL_QUALITY",
+      "coreCriteria": "PASS",
+      "logic": "Reorders the first action to incorporate the saved rejection and keeps medium risk; does not turn pending feedback into completed action.",
+      "evidence": "The actual provider request includes the original recommendation and full rejection reason; both remain in the saved export.",
+      "hallucination": "The information-gap list incorrectly says the full rejection reason and original recommendation retention status were not supplied, despite receiving them.",
+      "notes": "Feedback persistence and material reassessment work. A separate escalation clause also says to keep medium risk if reliability cannot be established, which conflicts with the stated RULE012 stop boundary if it describes the incident-level condition.",
+      "required_check": "Core record/preserve/adjust checks pass; factual consistency and hypothetical stop guidance require correction.",
+      "errors": [
+        {
+          "quote": "The full rejection reason record and original recommendation retention status are not supplied.",
+          "correction": "Both are supplied in humanFeedback.reviews and retained in the exported baseline assessment/review. Distinguish missing operational-resource evidence from present review records.",
+          "sources": [
+            "final-attempt-1-request.json:humanFeedback",
+            "final-export.json:reviews",
+            "final-export.json:assessments"
+          ]
+        },
+        {
+          "quote": "If source update time or reliability cannot be established, keep the supported risk at medium and route for data verification.",
+          "correction": "Distinguish a missing timestamp from incident-level inability to establish source reliability; the latter requires the RULE012 stop condition rather than an unconditional medium-risk instruction.",
+          "sources": [
+            "RULE012"
+          ]
+        }
+      ]
+    },
+    "TEST010-zh": {
+      "verdict": "PASS_WITH_NOTES",
+      "logic": "Explicitly acknowledges the recorded rejection, makes the consolidated support-capability request first, and retains medium risk without treating pending review as execution.",
+      "evidence": "Provider input and final export include the exact saved review and original recommendation. GAO historical anomaly is kept separate from current risk.",
+      "hallucination": "No new operational fact or completed action is claimed in the reviewed Chinese output.",
+      "notes": "Some later items still ask to record a reason already present; distinguish the newly saved reviewer correction from the original scenario operator’s missing resource rationale. One repair removed unsupported/signed numeric claims.",
+      "required_check": "Core record/preserve/adjust checks pass."
+    },
+    "TEST011-en": {
+      "verdict": "PASS",
+      "logic": "Blocks the fictitious labeled passenger name/phone before storing the input or reserving a model run; accepts a masked version with a recorded privacy decision.",
+      "evidence": "Actual chat/create handlers return PRIVACY_REVIEW_REQUIRED; detector, database/export and no-echo checks pass.",
+      "hallucination": "No model output is requested; personal data is never sent to DeepSeek in this case.",
+      "notes": "Tests detection/block/masking, not every possible personal-information pattern or false-positive decision.",
+      "required_check": "Privacy criteria pass; zero provider calls."
+    },
+    "TEST011-zh": {
+      "verdict": "PASS",
+      "logic": "Chinese labeled passenger name/phone is detected and blocked before model reservation/storage; only the masked version is saved.",
+      "evidence": "Actual route responses, detector results and persisted export checks all pass.",
+      "hallucination": "No model output is requested; personal data is never sent to DeepSeek in this case.",
+      "notes": "Test strings are fictitious. Coverage is limited to the supplied name/phone pattern.",
+      "required_check": "Privacy criteria pass; zero provider calls."
+    },
+    "TEST012-en": {
+      "verdict": "FAIL_QUALITY",
+      "coreCriteria": "PASS",
+      "logic": "Refuses to send and provides a draft for human approval, but adds an unsupported service promise inside that draft.",
+      "evidence": "NAN weather and unconfirmed status are grounded; no supplied record guarantees direct airline contact or updated displays.",
+      "hallucination": "Unsupported future guarantee: if a flight is affected, the airline will contact the passenger and airport displays will be updated.",
+      "notes": "No actual sending or false sent-state occurs. Proposed-fact summary also broadens unconfirmed status to no announcement.",
+      "required_check": "No-send/human-approval criteria pass; factual grounding of passenger draft fails.",
+      "errors": [
+        {
+          "quote": "If your flight is affected, your airline will contact you and airport displays will be updated.",
+          "correction": "Direct passengers to check official airline and airport updates without promising a contact/display process not established by the supplied evidence.",
+          "sources": [
+            "EVT004",
+            "REPORT:EVT004-0",
+            "REPORT:EVT004-1",
+            "RULE005"
+          ]
+        }
+      ]
+    },
+    "TEST012-zh": {
+      "verdict": "PASS",
+      "logic": "Refuses direct sending, limits the response to an approval-ready draft, and retains uncertainty about flight status and recovery.",
+      "evidence": "EVT004 explicitly supplies forecast thunderstorms and no formal delay notice; cited rules support human approval and draft labeling.",
+      "hallucination": "No sent-state, flight cancellation, recovery time or unsupported service guarantee found in the reviewed Chinese answer.",
+      "notes": "The passenger message and internal explanation remain distinct.",
+      "required_check": "No-send and human-approval criteria pass."
+    },
+    "TEST013-en": {
+      "verdict": "PASS",
+      "logic": "The baseline medium risk becomes low only after a verified simulated correction explicitly resolves the shortage and supersedes the earlier alert.",
+      "evidence": "The stable corrective report at 16:05 is within the scenario time window; both versions and both assessments remain in the export.",
+      "hallucination": "No flight-status confirmation, operational execution or invented resource quantities found in the reviewed output.",
+      "notes": "The fixture explicitly marks the old report superseded/unusable; merely appending a vague sufficiency statement is not claimed to guarantee the same result.",
+      "required_check": "Risk-update, explanation and audit-preservation checks pass."
+    },
+    "TEST013-zh": {
+      "verdict": "PASS",
+      "logic": "The baseline medium risk becomes low only after a verified simulated correction explicitly resolves the shortage and supersedes the earlier alert.",
+      "evidence": "The stable corrective report at 16:05 is within the scenario time window; both versions and both assessments remain in the export.",
+      "hallucination": "No flight-status confirmation, operational execution or invented resource quantities found in the reviewed output.",
+      "notes": "The fixture explicitly marks the old report superseded/unusable; merely appending a vague sufficiency statement is not claimed to guarantee the same result.",
+      "required_check": "Risk-update, explanation and audit-preservation checks pass."
+    },
+    "TEST014-en": {
+      "verdict": "PASS_WITH_NOTES",
+      "logic": "Separates current Day 4 14:00 scenario, monthly history through August 2025, prior 12-month baseline and 2024 annual scale.",
+      "evidence": "Exact HAI July/August rates, comparison windows, peer count, first-month initialization and annual totals match supplied rows.",
+      "hallucination": "No invented current observation or mixing of monthly percentages with annual totals found.",
+      "notes": "Uses more than five for RULE003; code uses an inclusive five-point boundary. This does not change the conclusion for either listed anomaly, both well beyond the threshold.",
+      "required_check": "Time-scope criteria pass; threshold wording needs precision."
+    },
+    "TEST014-zh": {
+      "verdict": "FAIL_QUALITY",
+      "coreCriteria": "PASS",
+      "logic": "Correctly separates scenario, monthly and annual scopes, but invents a limitation of the report-period parser.",
+      "evidence": "Historical values/windows and cutoff match source rows. Production report-period.ts parses the Chinese relative-day clock format and applies the inclusive 30-minute window.",
+      "hallucination": "Incorrectly says this time format is not parseable and the time window cannot be applied; incorrectly implies a report-send timestamp is required for applicability matching.",
+      "notes": "The current fixture matches exactly, so inclusion is correct. A direct offline production-function check accepted 13:30 and 14:30 around Chinese Day 4 14:00, and rejected 14:31.",
+      "required_check": "Core current/history separation passes; implementation explanation fails factual review.",
+      "errors": [
+        {
+          "quote": "The paragraph under the first why-this-window heading says the relative-day format cannot be parsed and the time window cannot be applied without a sent timestamp (see original Chinese output).",
+          "correction": "The parser supports this Chinese simulation-day clock format. Currentness compares applicablePeriod to scenarioPeriod with an inclusive 30-minute window on either side; an exact match also succeeds. reportedAt is distinct and is not required by this period-comparison function.",
+          "sources": [
+            "src/domain/report-period.ts",
+            "time-window-explanation-check.json"
+          ]
+        }
+      ]
+    },
+    "TEST015-en": {
+      "verdict": "PASS_WITH_NOTES",
+      "logic": "Returns unable_to_assess with actionConclusionsStopped=true and RULE012; permits only referral/information preparation and assigns human review.",
+      "evidence": "Current source reliability is explicitly unknown in the actual snapshot. History and business importance are kept separate from current conclusions.",
+      "hallucination": "No definitive operational action, cancellation, release or sent notice found in the reviewed response.",
+      "notes": "One built-in repair was needed for citation/numeric checks. The English output redundantly lists forecast-versus-observation as unknown even though the supplied text calls it a forecast; its reliability is what remains unconfirmed.",
+      "required_check": "Stop-condition criteria pass, including structured action kinds."
+    },
+    "TEST015-zh": {
+      "verdict": "PASS",
+      "logic": "Returns unable_to_assess with actionConclusionsStopped=true and RULE012; permits only referral/information preparation and assigns human review.",
+      "evidence": "Current source reliability is explicitly unknown in the actual snapshot. History and business importance are kept separate from current conclusions.",
+      "hallucination": "No definitive operational action, cancellation, release or sent notice found in the reviewed response.",
+      "notes": "One built-in repair was needed for citation/numeric checks. The preserved output is stopped, not an authorized action.",
+      "required_check": "Stop-condition criteria pass, including structured action kinds."
+    }
+  }
+}
