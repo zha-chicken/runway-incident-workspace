@@ -51,18 +51,35 @@ function parsePeriod(text: string): Period | null {
   return {kind, day, seconds: hour * 3600 + minute * 60 + second, offset};
 }
 
-export function isCurrentReportPeriod(reportPeriod: string, scenarioPeriod: string): boolean {
-  // Preserve existing exact matches, including named periods that have no clock time.
-  if (reportPeriod.trim() === scenarioPeriod.trim()) return true;
+export type ReportPeriodMatch = {
+  matches: boolean;
+  basis: 'exact_text' | 'within_window' | 'outside_window' | 'unparseable' | 'incompatible_scope';
+  reportParseable: boolean; scenarioParseable: boolean;
+  offsetMinutes: number | null; windowMinutes: number;
+};
+
+/** The explanation and the eligibility decision share one comparison. */
+export function compareReportPeriod(reportPeriod: string, scenarioPeriod: string): ReportPeriodMatch {
   const report = parsePeriod(reportPeriod), scenario = parsePeriod(scenarioPeriod);
-  if (!report || !scenario) return false;
-  if (report.kind !== 'clock' && report.kind !== scenario.kind) return false;
+  const result = (matches: boolean, basis: ReportPeriodMatch['basis'], offsetMinutes: number | null = null): ReportPeriodMatch => ({
+    matches, basis, reportParseable: report !== null, scenarioParseable: scenario !== null,
+    offsetMinutes, windowMinutes: WINDOW_SECONDS / 60
+  });
+  // Preserve existing exact matches, including named periods that have no clock time.
+  if (reportPeriod.trim() === scenarioPeriod.trim()) return result(true, 'exact_text', report && scenario ? 0 : null);
+  if (!report || !scenario) return result(false, 'unparseable');
+  if (report.kind !== 'clock' && report.kind !== scenario.kind) return result(false, 'incompatible_scope');
   // A bare report time inherits the scenario day/timezone; explicit days never disappear.
   // Both dated times must specify an offset, or both must use local scenario time.
-  if (report.kind !== 'clock' && (report.offset === undefined) !== (scenario.offset === undefined)) return false;
+  if (report.kind !== 'clock' && (report.offset === undefined) !== (scenario.offset === undefined)) return result(false, 'incompatible_scope');
   const reportDay = report.kind === 'clock' ? scenario.day : report.day;
   const reportOffset = report.kind === 'clock' ? scenario.offset : report.offset;
   const difference = (reportDay - scenario.day) * DAY_SECONDS + report.seconds - scenario.seconds
     - ((reportOffset ?? 0) - (scenario.offset ?? 0)) * 60;
-  return Math.abs(difference) <= WINDOW_SECONDS;
+  const matches = Math.abs(difference) <= WINDOW_SECONDS;
+  return result(matches, matches ? 'within_window' : 'outside_window', difference / 60);
+}
+
+export function isCurrentReportPeriod(reportPeriod: string, scenarioPeriod: string): boolean {
+  return compareReportPeriod(reportPeriod, scenarioPeriod).matches;
 }
