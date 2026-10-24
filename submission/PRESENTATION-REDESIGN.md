@@ -1,27 +1,25 @@
-# D01 redesign adoption — 24 October 2026
+# D01 final presentation adoption — 24 October 2026
 
-The owner requested adoption of Claude's redesigned nine-slide presentation and PDF. Claude used PptxGenJS for the editable deck and Keynote for PDF export. The approved design, figures, source references, limitations and speaker-note wording are retained. [Final PPTX](D01-client-presentation.pptx), [PDF](D01-client-presentation.pdf), [speaker script](D01-speaker-script.md).
+The owner approved the final ten-slide PPTX after Claude's guided-workflow revision and the owner's own edits. That PPTX is the final source of truth and is adopted byte for byte. Its matching ten-page PDF is adopted without regeneration. [PPTX](D01-client-presentation.pptx), [PDF](D01-client-presentation.pdf), [speaker script](D01-speaker-script.md).
 
-## Corrections during adoption
+## Final presentation
 
-Slide 6 now says: “Original supplied tests: 7bde4c8. Rerun and unseen tests: code later committed as 8ad14e3. No model reevaluation for 27f5ec9.” Saved source manifests, rather than prompt names, establish this distinction. See [evaluation source provenance](EVALUATION-PROVENANCE.md).
+- Slide 3 adds the owner's statement, “I value UI/UX as much as analysis logic,” and his explanation of guided interaction.
+- Slide 4 illustrates the implemented workflow using five real prototype captures: choose/create an incident, start analysis, focused progress, six main blocks, and the completed-decisions banner. Its heading and owner credits follow the final PPTX.
+- The results table is now slide 7. Claude corrected all 28 cells' left/right margins from 8 inches to 8 points. The earlier recorded table-height warning identified a real source-formatting defect, even though Keynote's PDF displayed the old table correctly. The current layout check reports no warning.
+- Figures, citations, disclosures and evaluation provenance are retained. The evaluation footnote still distinguishes original supplied tests at `7bde4c8`, rerun/unseen code later committed as `8ad14e3`, and no new model evaluation for app `27f5ec9`. [Source provenance](EVALUATION-PROVENANCE.md).
+- The nine pre-existing note bodies retain their wording under the new slide order. Slide 3 has no embedded notes; the PPTX has not been altered to add any. The separate speaker script is renumbered to ten slides and includes the owner's slide 3 wording. Rehearsal is still needed to confirm the five-minute target.
 
-The PPTX had eight unused content-type declarations for missing slide-master files. Those declarations were removed; no relationship referenced them. Only this metadata and slide 6's footnote differ from Claude's PPTX. Every other package part, including all transitions, entrance animations and media, is byte-identical.
+## PDF export and checks
 
-Acknowledgements now credit Claude's presentation redesign, PptxGenJS and Keynote, and Codex's provenance correction and package refresh. The technical report retains its design while synchronizing provenance and credits. No recorded replies, verdicts, costs or app behavior were changed.
+The first Keynote export omitted slide 3's headline. The final PDF uses the Keynote export for the other nine pages and the LibreOffice export for slide 3, combined with pypdf. Each page remains selectable text; no slide was replaced with a screenshot. This export process did not modify the source PPTX.
 
-## Checks and limits
+All ten final PDF pages were visually inspected. All extracted PPTX text fragments longer than one normalized character appear on their corresponding PDF page, including Chinese text, numerical results and footnotes. Package integrity, declared layout, native-table checks and Artifact Tool import passed for ten slides. The native results table remains editable. Native PowerPoint rendering and animation playback are still unverified; structural validation and another renderer do not prove native playback.
 
-- Package integrity, layout/font checks and first-party re-import passed for nine slides. The native table is present; no summation check applies to this metrics table.
-- All nine final PDF slides were visually reviewed, including the complete slide 6 table and footnotes. Text is selectable. Every displayed numeric token remains in the PDF text layer.
-- At 95 dpi, eight pages are pixel-identical to Claude's PDF. Only the corrected footnote changes pixels on page 6. All extracted page text matches Claude's export after that replacement.
-- All nine speaker-note bodies retain their wording, compared with paragraph whitespace normalized against the prior published deck. The separate speaker script is unchanged.
-- The layout validator emitted a table-height heuristic warning for slide 6. The complete table fits in the Keynote PDF. Native PowerPoint layout and animation playback remain unverified; importing or examining XML does not prove playback compatibility.
+[Comparison receipt](provenance/presentation-checks.json) records exact source/output hashes, content preservation and export method. [Validation receipt](provenance/presentation-validation.json) records the current ten-slide checks. The source revision's earlier nine-slide changelog is retained in its original local folder; it is historical authoring context, not the verification record for this final edition.
 
-[Machine-readable comparison](provenance/presentation-checks.json) records source/output hashes and per-page pixel results. [Package validation receipt](provenance/presentation-validation.json) retains the structural checks and warning.
+## Preservation and publication
 
-## Preservation and publication boundary
+The prior nine-slide published files are preserved at Git commit `c9cd2e4` and in a separate local backup of all 713 tracked files, the previous D08 ZIP/checksum and the checklist. Earlier originals remain preserved at their original checkpoints. The approved source PPTX/PDF and Claude's authoring folders remain unchanged. Frozen evidence, synthetic feedback data, technical report, video and application files are unchanged by this adoption.
 
-The prior published deck, PDF, reports and all other tracked files are preserved in Git at `920ee97` and in a separate local backup. The previous D08 ZIP/checksum and Claude's unmodified authoring folder are also preserved outside the distribution. Frozen evaluation evidence remains byte-identical to the prior publication copies; original source hashes and distributed evidence hashes are retained.
-
-This edition changes presentation and submission materials only. It makes no new model calls or database writes, preserves existing Git history and leaves repository visibility under the owner's control. D08 distributes the synchronized materials as a matching ZIP/checksum pair through the existing submission release.
+This final presentation edition updates submission materials only. No model calls, app/runtime-data edits or Git-history rewrites were performed. D08 and its checksum identify the same edition and must be downloaded and verified together. The repository's visibility and final submission remain owner-controlled.

@@ -1,73 +1,51 @@
 {
-  "sourcePptxSha256": "cf3a4198015d8d43e81492863b992b138b2cb541100dcfe5beb7ee6191691eb6",
-  "sourcePdfSha256": "8b41f6ce4579dd89214d243b1007542f7cb7f75fe4cdf59372938c22fbfadabb",
-  "finalPptxSha256": "78908ddfd5ba07a216217ca4baebd301402ac562d3e54c8d3df78889eb3adc3d",
-  "finalPdfSha256": "0bc43e6f6261faac330c80d38a6a99303288e70eed63f0de07344f01bb0cf6d3",
-  "slideCount": 9,
-  "editedParts": [
-    "[Content_Types].xml",
-    "ppt/slides/slide6.xml"
-  ],
+  "edition": "Owner-approved final ten-slide presentation, 24 October 2026",
+  "sourcePptxSha256": "224204ea8cd13c29fb9cce40966691c1394bf7ab1c3c8821174e4d726b445588",
+  "finalPptxSha256": "224204ea8cd13c29fb9cce40966691c1394bf7ab1c3c8821174e4d726b445588",
+  "sourcePdfSha256": "3c756b2eba647e7cc8b44907cf8410d94d32afeb5f5435b13d81a58f7eaf431d",
+  "finalPdfSha256": "3c756b2eba647e7cc8b44907cf8410d94d32afeb5f5435b13d81a58f7eaf431d",
+  "sourcePptxAndPdfAdoptedByteForByte": true,
+  "priorPublishedCommit": "c9cd2e4702ddc9859e4a7f992dd7314171928124",
+  "priorPublishedPptxSha256": "78908ddfd5ba07a216217ca4baebd301402ac562d3e54c8d3df78889eb3adc3d",
+  "priorPublishedPdfSha256": "0bc43e6f6261faac330c80d38a6a99303288e70eed63f0de07344f01bb0cf6d3",
+  "slideCount": 10,
+  "pdfPages": 10,
   "originalSpeakerNoteBodiesPreserved": 9,
-  "allOtherPptxPartsByteIdenticalToClaude": true,
-  "allTransitionAndAnimationXmlPreserved": true,
-  "pdfSelectableTextMatchesSourceExceptProvenanceFootnote": true,
+  "newSlideWithoutEmbeddedNotes": 3,
+  "speakerScript": "Renumbered to ten slides with owner slide 3 wording added; original nine note bodies retained.",
+  "speakerScriptTimingRehearsed": false,
+  "unchangedContentSlides": {
+    "priorSlideNumbers": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "finalSlideNumbers": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "resultsTable": {
+    "slide": 7,
+    "native": true,
+    "cells": 28,
+    "leftRightMarginsEmu": 101600,
+    "leftRightMarginsPt": 8
+  },
+  "pdfMethod": "Keynote for slides 1-2 and 4-10; LibreOffice for slide 3 because Keynote omitted its headline; assembled with pypdf without editing the PPTX.",
+  "pdfSelectableTextOnEveryPage": true,
+  "allCheckedPptxTextFragmentsInCorrespondingPdfPage": true,
+  "textCheckScope": "Whitespace and Unicode typography normalized; fragments longer than one normalized character.",
   "pdfNumericTokensPreserved": true,
-  "pixelComparisonDpi": 95,
-  "pixelComparison": [
-    {
-      "slide": 1,
-      "identical": true,
-      "differenceBoundsPx": null
-    },
-    {
-      "slide": 2,
-      "identical": true,
-      "differenceBoundsPx": null
-    },
-    {
-      "slide": 3,
-      "identical": true,
-      "differenceBoundsPx": null
-    },
-    {
-      "slide": 4,
-      "identical": true,
-      "differenceBoundsPx": null
-    },
-    {
-      "slide": 5,
-      "identical": true,
-      "differenceBoundsPx": null
-    },
-    {
-      "slide": 6,
-      "identical": false,
-      "differenceBoundsPx": [
-        57,
-        573,
-        807,
-        586
-      ]
-    },
-    {
-      "slide": 7,
-      "identical": true,
-      "differenceBoundsPx": null
-    },
-    {
-      "slide": 8,
-      "identical": true,
-      "differenceBoundsPx": null
-    },
-    {
-      "slide": 9,
-      "identical": true,
-      "differenceBoundsPx": null
-    }
-  ],
-  "allFinalSlidesVisuallyReviewed": true,
-  "layoutWarning": "Native-table height heuristic flagged slide 6; all seven rows and footnotes are fully visible in the Keynote PDF. Native PowerPoint rendering remains unverified.",
+  "allFinalPdfPagesVisuallyReviewed": true,
+  "visualReviewSource": "The exact approved PDF hash was rendered and every page inspected before adoption; copying does not regenerate it.",
+  "allPptxPackagePartsIncludingAnimationsPreservedFromOwnerFinal": true,
+  "layoutWarningCount": 0,
   "powerPointAnimationPlaybackVerified": false,
   "originalArtifactsPreserved": true,
   "newModelCalls": 0

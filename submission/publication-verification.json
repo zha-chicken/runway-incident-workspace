@@ -1,31 +1,27 @@
 {
   "applicationCodeCommit": "27f5ec9278a5ac4eb1700fc9843f9ff883b19808",
-  "documentationBaseCommit": "920ee9791a35658d21b91590ff9c38973c8d88a7",
-  "publicationEdition": "24 October 2026 presentation redesign and provenance correction",
+  "documentationBaseCommit": "c9cd2e4702ddc9859e4a7f992dd7314171928124",
+  "publicationEdition": "24 October 2026 owner-approved final ten-slide presentation",
+  "releaseAssetVerification": "Download the matching ZIP and checksum together; verify the archive checksum and extracted MANIFEST.sha256. Release notes identify the materials commit and archive hash.",
   "sourceTrackedFiles": 97,
   "unchangedOriginalFiles": 90,
   "documentationOverlays": [
     "PLAN-HACK.md",
     "README.md",
     "design-qa.md",
+    "docs/EVALUATION.md",
     "docs/IMPLEMENTATION.md",
     "docs/RISK-CARD.md",
-    "docs/SUBMISSION.md",
-    "docs/EVALUATION.md"
+    "docs/SUBMISSION.md"
   ],
   "appCodeTestsConfigDataUnchanged": true,
-  "priorPublishedFilesBackedUp": 705,
-  "originalFilesMatchingEarlierFingerprints": 1189,
-  "runtimeFingerprintExceptions": [
-    "runway.sqlite-wal",
-    "runway.sqlite-shm"
-  ],
-  "runtimeExceptionExplanation": "Live SQLite WAL/shared-memory files differ from the reused earlier publication fingerprint. They are excluded from the byte-identical claim; no database write or restore is performed by this documentation task.",
-  "originalD08Sha256": "5f64ccdd46122a4cf63f6fb60c06138e1d273766e4446c40e50e2f788cf477ec",
+  "priorPublishedFilesBackedUp": 713,
+  "previousD08Sha256": "28f59a4cc4a06972211be4d3c510a8f5057ebb2e8e9979cf3dadb15e68618ccc",
   "evidenceManifestEntries": 578,
   "allPriorPublishedEvidenceBytesUnchanged": true,
   "syntheticFeedbackCsvJsonByteIdentical": true,
-  "speakerScriptByteIdentical": true,
+  "speakerScriptByteIdentical": false,
+  "speakerScriptChanges": "Renumbered original notes; added owner slide 3 text; timing requires rehearsal.",
   "evaluationSourceProvenance": {
     "originalSupplied": "7bde4c8",
     "rerunAndUnseen": "Working-tree bytes later committed as 8ad14e3",
@@ -36,14 +32,16 @@
     ]
   },
   "technicalReportPages": 13,
-  "technicalReportAllPagesVisuallyReviewed": true,
-  "presentationSlides": 9,
+  "technicalReportByteIdenticalToPriorPublication": true,
+  "presentationSlides": 10,
+  "presentationPdfPages": 10,
   "presentationAllPagesVisuallyReviewed": true,
-  "presentationPixelComparison": "Eight PDF pages identical to Claude export; page 6 differs only at the corrected footnote.",
-  "presentationChecks": "Package integrity, layout/font checks and first-party re-import passed. Table-height heuristic warning retained; complete table visible in Keynote PDF.",
+  "presentationSourceFilesByteIdentical": true,
+  "presentationChecks": "Package, layout, native table and Artifact Tool import passed; no findings or layout warnings.",
   "powerPointAnimationPlaybackVerified": false,
+  "runtimeDataWrites": false,
   "applicationChecks": {
-    "source": "Previously recorded verification; tested app bytes match. Not rerun for this document-only refresh.",
+    "source": "Prior recorded verification on matching app bytes; not rerun for document adoption.",
     "tests": 351,
     "typecheck": "passed",
     "webpackBuild": "passed",
@@ -52,10 +50,10 @@
   "newModelCalls": 0,
   "historyRewritten": false,
   "visibilityChanged": false,
-  "releaseAssetVerification": "Download the matching D08 ZIP and sidecar, verify the archive checksum, then verify its extracted MANIFEST.sha256.",
   "remainingOwnerActions": [
-    "Make repository public and check signed-out access",
-    "Submit repository URL and retain portal confirmation"
+    "Make repository public and verify signed-out access",
+    "Rehearse ten-slide presentation",
+    "Submit repository URL and retain confirmation"
   ],
   "runtimeLimitations": [
     "Fresh judge-machine real inference/restart/export unverified",

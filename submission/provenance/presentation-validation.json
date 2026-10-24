@@ -1,15 +1,15 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "78908ddfd5ba07a216217ca4baebd301402ac562d3e54c8d3df78889eb3adc3d",
-  "byteCount": 506132,
+  "finalSha256": "224204ea8cd13c29fb9cce40966691c1394bf7ab1c3c8821174e4d726b445588",
+  "byteCount": 1232521,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
     "finding_count": 0,
     "findings": [],
     "notes_parts_skipped": 9,
-    "relationship_part_count": 25,
-    "slide_count": 9,
+    "relationship_part_count": 26,
+    "slide_count": 10,
     "status": "pass",
     "exitCode": 0,
     "findingCount": 0,
@@ -18,86 +18,28 @@
   "presentationLayout": {
     "finding_count": 0,
     "findings": [],
-    "font_policy": {
-      "checked_text_script_count": 248,
-      "native_font_rendering_verified": false,
-      "observed_font_families": [
-        "Arial",
-        "PingFang SC"
-      ],
-      "observed_font_use_counts": {
-        "Arial": 247,
-        "PingFang SC": 1
-      },
-      "passed": true,
-      "performed": true
-    },
-    "slide_count": 9,
+    "slide_count": 10,
     "slide_size_in": [
       13.3333,
       7.5
     ],
-    "warning_count": 1,
-    "warnings": [
-      {
-        "available_bottom_in": 6.62,
-        "columns": 4,
-        "declared_bottom_in": 5.41,
-        "estimated_native_bottom_in": 40.2055,
-        "footer_object_ids": [
-          "19"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 33.5855,
-        "rows": 7,
-        "slide": 6,
-        "table_id": "7"
-      }
-    ],
+    "warning_count": 0,
+    "warnings": [],
     "exitCode": 0,
-    "findingCount": 0,
-    "fontPolicy": {
-      "checked_text_script_count": 248,
-      "native_font_rendering_verified": false,
-      "observed_font_families": [
-        "Arial",
-        "PingFang SC"
-      ],
-      "observed_font_use_counts": {
-        "Arial": 247,
-        "PingFang SC": 1
-      },
-      "passed": true,
-      "performed": true
-    }
+    "findingCount": 0
   },
   "fontSelection": {
-    "basis": "reference",
-    "approvedFamilies": [
-      "Arial",
-      "PingFang SC"
-    ],
+    "basis": "unspecified",
+    "approvedFamilies": [],
     "scriptFonts": {},
-    "referenceSha256": "cf3a4198015d8d43e81492863b992b138b2cb541100dcfe5beb7ee6191691eb6",
-    "referenceFontsVerifiedInEncodedText": true,
-    "checked_text_script_count": 248,
-    "native_font_rendering_verified": false,
-    "observed_font_families": [
-      "Arial",
-      "PingFang SC"
-    ],
-    "observed_font_use_counts": {
-      "Arial": 247,
-      "PingFang SC": 1
-    },
-    "passed": true,
-    "performed": true
+    "referenceSha256": null,
+    "referenceFontsVerifiedInEncodedText": false
   },
   "firstPartyImport": {
     "performed": true,
     "passed": true,
-    "slideCount": 9,
-    "sha256": "78908ddfd5ba07a216217ca4baebd301402ac562d3e54c8d3df78889eb3adc3d"
+    "slideCount": 10,
+    "sha256": "224204ea8cd13c29fb9cce40966691c1394bf7ab1c3c8821174e4d726b445588"
   },
   "nativeTableArithmetic": {
     "performed": true,
@@ -113,11 +55,11 @@
     "skipped_tables": [
       {
         "reason": "no_unambiguous_bottom_total",
-        "slide": 6,
+        "slide": 7,
         "table": 1
       }
     ],
-    "slide_count": 9,
+    "slide_count": 10,
     "warning_count": 0,
     "warnings": []
   },
@@ -129,9 +71,9 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "78908ddfd5ba07a216217ca4baebd301402ac562d3e54c8d3df78889eb3adc3d",
+    "presentation_sha256": "224204ea8cd13c29fb9cce40966691c1394bf7ab1c3c8821174e4d726b445588",
     "schema_version": "presentation-native-chart-titles.v1",
-    "slide_count": 9,
+    "slide_count": 10,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
@@ -141,15 +83,11 @@
     "--validate-bullet-geometry",
     "--validate-heading-fit",
     "--require-native-table-slide",
-    "6",
+    "7",
     "--cover-role",
     "none",
     "--expected-slide-count",
-    "9",
-    "--approved-font-family",
-    "Arial",
-    "--approved-font-family",
-    "PingFang SC"
+    "10"
   ],
   "nativeChartValidation": {
     "detectedOwnerSlides": [],
