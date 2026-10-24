@@ -1,0 +1,26 @@
+{
+  "changedTrackedFiles": [
+    "src/components/workspace.tsx"
+  ],
+  "isolatedTestCopyMatchesActiveApp": true,
+  "recordedAssessmentsAndChatsUnchanged": true,
+  "protectedDatabases": 4,
+  "protectedTables": 35,
+  "allProtectedTablesUnchanged": true,
+  "providerCalls": 0,
+  "englishApplyCancel": "passed",
+  "chineseApplyCancel": "passed",
+  "typeScript": "passed",
+  "testsPassed": 379,
+  "testFiles": 19,
+  "webpackProductionBuild": "passed",
+  "defaultTurbopackBuild": "blocked by worker-port permission restriction, including approved retry",
+  "gitDiffCheck": "passed",
+  "edition": "2026-10-24-cancel-reassessment",
+  "precedingRepositoryCommit": "24d66d25cfca1f23219d769f0f3919e0163c3eb9",
+  "applicationSourceSha256": "541b08915f5856cfb64c811637589b17e15cad642f4e872703079d8bbddd1904",
+  "testMethod": "Real browser UI against isolated production build; dummy key and external transport hold before provider transmission.",
+  "privateTestRecordsDistributed": false,
+  "scope": "Cancel-button fix only; no new model-quality claim.",
+  "timestampFindingFixed": false
+}

@@ -4,7 +4,7 @@ A bilingual incident-review prototype for HackSHSID Track 3. It uses the supplie
 
 **Submission entry point:** [D01–D08 materials](submission/README.md) · [Technical report](submission/TECHNICAL-REPORT.pdf) · [Presentation](submission/D01-client-presentation.pdf) · [Demo video](submission/video/README.md) · [Reproducibility ZIP](https://github.com/zha-chicken/runway-incident-workspace/releases/download/submission-2026-10-24/D08-reproducibility.zip)
 
-This public repository contains the 24 October 2026 input/context visibility edition: the `27f5ec9` application baseline plus the approved input-limit and context-disclosure update. D08 contains the same application files, identified by its source manifest. Read [the update and checks](submission/INPUT-CONTEXT-UPDATE.md), [acknowledgements and the AI-use statement](ACKNOWLEDGEMENTS.md), [evaluation results](docs/EVALUATION.md) and [publication verification](submission/PUBLICATION-VERIFICATION.md).
+This public repository contains the 24 October 2026 cancellation-fix edition: the input/context visibility application at `24d66d2` plus the fix that keeps Cancel available during proposed-fact reassessment. D08 contains the same application files, identified by its source manifest. Read [the Cancel fix and checks](submission/CANCEL-REASSESSMENT-UPDATE.md), [the earlier interface update](submission/INPUT-CONTEXT-UPDATE.md), [acknowledgements and the AI-use statement](ACKNOWLEDGEMENTS.md), [evaluation results](docs/EVALUATION.md) and [publication verification](submission/PUBLICATION-VERIFICATION.md).
 
 ## Run locally
 

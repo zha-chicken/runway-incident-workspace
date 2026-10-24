@@ -151,7 +151,9 @@ function WorkspaceContent({locale,setLocale,theme,setTheme}:{locale:Locale;setLo
   const applyProposal=(entry:DiscussionRow,index:number)=>void work(async()=>{
     if(!detail)return;
     const next=await privacy.submit<{version:number}>(`incidents/${selected}/apply`,{discussionId:entry.id,index,expectedVersion:detail.snapshot.version,proposal:entry.response.proposedFacts[index]});
-    await refresh();await generate(selected,next.version);
+    await refresh();
+    // Generation owns its in-flight state; release the save lock so Cancel stays available.
+    void generate(selected,next.version);
   });
   const visibleError=error||requestErrors[selected]?.code;
   const errorText=visibleError?(errors[visibleError]?.[locale]||`${t('error')} (${visibleError})`):'';

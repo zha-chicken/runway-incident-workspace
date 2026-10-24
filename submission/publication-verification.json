@@ -1,9 +1,9 @@
 {
   "applicationBaseCommit": "27f5ec9278a5ac4eb1700fc9843f9ff883b19808",
-  "precedingRepositoryCommit": "5672e7b9514f28e375fdc5a6f58a6d78050268b5",
-  "applicationEdition": "2026-10-24-input-context-visibility",
-  "applicationSourceSha256": "cbd8ed60a9989acc7c2d8256ef1220af26424adb5339fabe26b55d9aadfb0e5d",
-  "applicationSourceManifest": "provenance/input-context-source.json",
+  "precedingRepositoryCommit": "24d66d25cfca1f23219d769f0f3919e0163c3eb9",
+  "applicationEdition": "2026-10-24-cancel-reassessment",
+  "applicationSourceSha256": "541b08915f5856cfb64c811637589b17e15cad642f4e872703079d8bbddd1904",
+  "applicationSourceManifest": "provenance/cancel-reassessment-source.json",
   "baselineTrackedFiles": 97,
   "unchangedBaselineFiles": 79,
   "modifiedApplicationFiles": [
@@ -37,10 +37,10 @@
   "appCodeTestsConfigDataUnchanged": false,
   "dataConfigLockfileMigrationsUnchanged": true,
   "limitsPromptsRiskReliabilitySafetyContextSelectionUnchanged": true,
-  "priorWorkingFilesBackedUp": 717,
-  "previousD08Sha256": "7b7c676ab12310ac5737fdd3168d8cbe5919b81870b4b99e3b1a352fb0ae9e34",
+  "priorWorkingFilesBackedUp": 720,
+  "previousD08Sha256": "e97f5d256d3d15951aa44d98d300eeec406345b4d6a3c142530110fd4c893d67",
   "evidenceManifestEntries": 578,
-  "preservedEvidenceAndApprovedArtifacts": 600,
+  "preservedEvidenceAndApprovedArtifacts": 605,
   "allPriorPublishedEvidenceBytesUnchanged": true,
   "syntheticFeedbackCsvJsonByteIdentical": true,
   "approvedPresentationAndSpeakerScriptByteIdentical": true,
@@ -59,15 +59,14 @@
     ]
   },
   "applicationChecks": {
-    "source": "Recorded verification on matching app/test bytes.",
+    "source": "Recorded checks of the identical cancellation-fix source.",
     "tests": 379,
     "testFiles": 19,
     "typecheck": "passed",
     "webpackBuild": "passed",
-    "defaultBuild": "environment worker-port restriction",
-    "browser": "English 1365px/light and Chinese 390px/dark passed",
-    "schemasEquivalent": 5,
-    "constructedRequestsEquivalent": 40
+    "defaultBuild": "Blocked by worker-port environment restriction, including approved retry.",
+    "browser": "English and Chinese Apply and reassess cancellation passed using a pre-network hold; no provider calls.",
+    "priorInterfaceCompatibilityReceipt": "provenance/input-context-verification.json"
   },
   "newModelCalls": 0,
   "runtimeDataWrites": false,
@@ -80,12 +79,21 @@
     "Submit repository URL and retain confirmation"
   ],
   "runtimeLimitations": [
-    "Fresh judge-machine real inference/restart/export unverified",
-    "Uncached installation and Docker unverified",
+    "Applied-note time mismatch remains open",
+    "Current print/PDF rendering unverified in latest browser run",
+    "Minor modal focus restoration limitation",
+    "Docker and other operating systems unverified",
     "Native PowerPoint playback unverified",
     "No hosted service claimed"
   ],
-  "localMarkdownFileLinksChecked": 427,
+  "localMarkdownFileLinksChecked": 436,
   "missingLocalMarkdownFileLinks": 0,
-  "credentialPatternCandidates": 0
+  "credentialPatternCandidates": 0,
+  "changesFromPrecedingRepository": [
+    "src/components/workspace.tsx"
+  ],
+  "priorPublicationVerificationCommit": "24d66d25cfca1f23219d769f0f3919e0163c3eb9",
+  "existingIncidentChatWrites": false,
+  "isolatedSyntheticFixtureWrites": true,
+  "protectedDatabaseTableFingerprintsMatched": 35
 }
